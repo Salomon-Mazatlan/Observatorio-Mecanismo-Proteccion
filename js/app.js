@@ -6,7 +6,7 @@
     geos: {},                 // loaded polygon files by map id
     mapaId: "mexico",         // "mexico" or a two-digit state code
     estadoCve: CONFIG.estadoInicial,
-    vista: "eventos",         // "eventos" | "tematico"
+    eventosVisibles: true,    // "Eventos" switch
     forma: "coropleta",       // "coropleta" | "circulos"
     indicador: "",            // "" none, "_eventos" counts visible events per polygon, or an indicator id
     gama: "tema",
@@ -21,6 +21,7 @@
     leyendaExport: []                     // legend items of the current thematic drawing
   };
 
+  const pila = [];          // window navigation stack (see navegar)
   const mapa = L.map("mapa", { zoomControl: false });
   L.control.zoom({ position: "bottomright" }).addTo(mapa);
   // CARTO tiles need a key since Aug 2026; fall back to plain OSM without one.
@@ -70,7 +71,7 @@
   iniciarFiltros();
   await cambiarMapa("mexico");
   try {
-    if (!localStorage.getItem("observatorio_guia_vista")) { mostrarGuia(); localStorage.setItem("observatorio_guia_vista", "1"); }
+    if (!localStorage.getItem("observatorio_guia_vista")) { navegar(mostrarGuia, true); localStorage.setItem("observatorio_guia_vista", "1"); }
   } catch (e) { /* storage unavailable */ }
   // Population files load after the first render; the detail window uses them when ready
   ["datos/poblacion/censos.json", "datos/poblacion/conapo.json"].forEach(r =>
@@ -167,11 +168,9 @@
     });
     selEstado.value = estado.estadoCve;
     selEstado.addEventListener("change", () => { estado.estadoCve = selEstado.value; cambiarMapa(selEstado.value); });
-    document.querySelectorAll("#sel-vista button").forEach(b =>
-      b.addEventListener("click", () => cambiarVista(b.dataset.vista)));
     document.querySelectorAll("#sel-forma button").forEach(b =>
       b.addEventListener("click", () => { estado.forma = b.dataset.forma; marcar("#sel-forma", "forma", estado.forma); dibujar(); }));
-    document.getElementById("eventos-encima").addEventListener("change", dibujar);
+    document.getElementById("mostrar-eventos").addEventListener("change", e => { estado.eventosVisibles = e.target.checked; dibujar(); });
     const gama = document.getElementById("gama");
     Object.entries(CONFIG.gamas).forEach(([id, g]) => {
       const o = document.createElement("option"); o.value = id; o.textContent = g.nombre; gama.appendChild(o);
@@ -197,17 +196,18 @@
     document.addEventListener("click", e => {
       if (!panelEstilo.hidden && !panelEstilo.contains(e.target) && e.target !== btnEstilo) { panelEstilo.hidden = true; btnEstilo.setAttribute("aria-expanded", "false"); }
     });
-    document.getElementById("ayuda").addEventListener("click", mostrarGuia);
+    document.getElementById("ayuda").addEventListener("click", () => navegar(mostrarGuia, true));
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa("mexico"));
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
     document.getElementById("mapa-base").addEventListener("change", actualizarMapaBase);
-    document.getElementById("graficas").addEventListener("click", () => Graficas.abrir(contextoGraficas()));
+    document.getElementById("graficas").addEventListener("click", () => navegar(() => Graficas.abrir(contextoGraficas()), true));
     document.getElementById("ventana-cerrar").addEventListener("click", cerrarVentana);
+    document.getElementById("ventana-volver").addEventListener("click", volverVentana);
     document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarVentana(); });
-    document.getElementById("abrir-comparativo").addEventListener("click", mostrarComparativo);
+    document.getElementById("abrir-comparativo").addEventListener("click", () => navegar(() => mostrarComparativo(), true));
     document.querySelectorAll("button.enlace[data-doc]").forEach(b =>
-      b.addEventListener("click", () => mostrarDocumento(b.dataset.doc, b.dataset.titulo)));
+      b.addEventListener("click", () => navegar(() => mostrarDocumento(b.dataset.doc, b.dataset.titulo), true)));
     const desde = document.getElementById("desde"), hasta = document.getElementById("hasta");
     [desde, hasta].forEach(i => i.addEventListener("change", () => {
       estado.desde = mesValido(desde.value) ? desde.value : null;
@@ -247,7 +247,7 @@
       : estado.indicadores.definiciones.find(d => d.id === estado.indicador);
     const titulo = tematico ? def.nombre : "Eventos registrados";
     const nivel = m.nivel === "municipio" ? "por municipio" : "por entidad";
-    const subtitulo = `${m.nombre}, ${tematico ? nivel : "eventos georreferenciados"}. Periodo ${textoPeriodo()}.`;
+    const subtitulo = `${m.nombre}, ${tematico ? nivel : "eventos georreferenciados"}${tematico && hayEventosDibujados() ? " y eventos" : ""}. Periodo ${textoPeriodo()}.`;
     let leyenda, leyendaTitulo;
     if (tematico && !hayEventosDibujados()) {
       leyenda = estado.leyendaExport; leyendaTitulo = def.unidad || "";
@@ -292,10 +292,10 @@
     abrirVentana("Cómo usar el mapa", `
       <div class="guia">
         <ol>
-          <li><strong>Elige qué ver.</strong> Arriba a la derecha, "Eventos" muestra los registros puntuales y "Mapa temático" colorea entidades o municipios con un indicador. En el panel izquierdo puedes limitar a un grupo (periodistas o personas defensoras).</li>
-          <li><strong>Elige un indicador.</strong> El selector "Indicador" de la segunda fila colorea el mapa; con "Colores" se agrupa en clases y con "Círculos" el tamaño sigue al valor. "Estilo del mapa" cambia la gama, el cálculo de clases, los nombres y el mapa base.</li>
+          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
+          <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión y sexo; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
-          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, marco legal y el comparativo de su ley con la federal. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
+          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), el marco legal y el comparativo de su ley con la federal. Dentro de la ventana, la flecha "←" regresa a la vista anterior. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
         <p class="nota">Puedes volver a esta guía con el botón "?" de la barra superior.</p>
@@ -312,6 +312,19 @@
 
   // ---------- floating panel over the map ----------
 
+  // Views opened from inside the window stack up, so the back arrow returns to the previous one
+  function navegar(render, raiz) {
+    if (raiz) pila.length = 0;
+    pila.push(render);
+    render();
+    document.getElementById("ventana-volver").hidden = pila.length < 2;
+  }
+  function volverVentana() {
+    if (pila.length < 2) return;
+    pila.pop();
+    pila[pila.length - 1]();
+    document.getElementById("ventana-volver").hidden = pila.length < 2;
+  }
   function abrirVentana(titulo, html, clase) {
     const v = document.getElementById("ventana");
     v.className = "ventana" + (clase ? " " + clase : "");
@@ -320,7 +333,7 @@
     v.hidden = false;
     document.getElementById("ventana-cuerpo").scrollTop = 0;
   }
-  function cerrarVentana() { document.getElementById("ventana").hidden = true; if (window.Graficas) Graficas.destruir(); }
+  function cerrarVentana() { document.getElementById("ventana").hidden = true; pila.length = 0; if (window.Graficas) Graficas.destruir(); }
 
   // Renders a Markdown file from the repository inside the panel (marked is loaded on demand)
   async function mostrarDocumento(ruta, titulo) {
@@ -371,14 +384,14 @@
       </table></div>
       <h3 class="detalle__sub">Instrumentos comparados</h3><ul class="lista lista--marco">${fichas}</ul>
       <p class="acciones"><button type="button" class="boton" id="cmp-csv">Descargar matriz (CSV)</button> <button type="button" class="boton" id="cmp-defs">Ver análisis de definiciones</button>${global ? "" : ` <button type="button" class="boton" id="cmp-global">Ver comparativo global</button>`}</p>`;
-    if (!global) document.getElementById("cmp-global").addEventListener("click", () => mostrarComparativo());
+    if (!global) document.getElementById("cmp-global").addEventListener("click", () => navegar(() => mostrarComparativo()));
     document.querySelectorAll(".cmp__mas").forEach(b => b.addEventListener("click", () => {
       const abierto = b.getAttribute("aria-expanded") === "true";
       b.setAttribute("aria-expanded", String(!abierto)); b.textContent = abierto ? "+" : "–";
       document.querySelectorAll(`.cmp__sub[data-de="${b.dataset.ind}"]`).forEach(r => r.hidden = abierto);
     }));
-    document.getElementById("cmp-defs").addEventListener("click", () => mostrarDocumento("docs/comparativo_definiciones.md", "Definiciones de periodista y persona defensora"));
-    document.querySelectorAll(".cmp__pasajes").forEach(b => b.addEventListener("click", () => mostrarPasajes(b.dataset.ind, ids)));
+    document.getElementById("cmp-defs").addEventListener("click", () => navegar(() => mostrarDocumento("docs/comparativo_definiciones.md", "Definiciones de periodista y persona defensora")));
+    document.querySelectorAll(".cmp__pasajes").forEach(b => b.addEventListener("click", () => navegar(() => mostrarPasajes(b.dataset.ind, ids))));
     document.getElementById("cmp-csv").addEventListener("click", () => {
       const filas = [["indicador", "subindicador", ...cmp.instrumentos.flatMap(i => [`${i.corto} valor`, `${i.corto} artículos`, `${i.corto} nota`])]];
       cmp.indicadores.forEach(ind => {
@@ -411,13 +424,11 @@
     }).join("");
     const subs = ind.subindicadores.length ? `<h4 class="detalle__sub">Subindicadores</h4><div class="cmp__tabla-envoltura"><table class="cmp__tabla"><thead><tr><th>Subindicador</th>${instrumentos.map(i => `<th>${i.corto}</th>`).join("")}</tr></thead><tbody>${ind.subindicadores.map(s => `<tr><td class="cmp__nombre--sub">${s.nombre}</td>${instrumentos.map(i => { const c = (todos.codificacion[i.id] || {})[s.id]; return c ? `<td class="cmp cmp--${c.valor}" title="${(c.nota || "").replace(/"/g, "&quot;")}"><span class="cmp__valor">${todos.valores[c.valor]}</span><span class="cmp__art">${c.articulos || ""}</span></td>` : "<td></td>"; }).join("")}</tr>`).join("")}</tbody></table></div>` : "";
     abrirVentana(`${ind.numero}. ${ind.nombre}`, `
-      <p class="acciones"><button type="button" class="boton" id="pasajes-volver">Volver a la matriz</button></p>
       <h4 class="detalle__sub">Reflexión comparativa</h4>
       <p class="pasajes__reflexion">${(todos.reflexiones || {})[indId] || "Pendiente."}</p>
       <div class="pasajes__cols">${cols}</div>
       ${subs}
       <p class="nota">Los pasajes reproducen el texto vigente de los artículos citados; los muy extensos se cortan y se indica con [...].</p>`, "ventana--documento ventana--ancha");
-    document.getElementById("pasajes-volver").addEventListener("click", () => mostrarComparativo(ids));
   }
 
   function cargarScript(src) {
@@ -452,18 +463,7 @@
     cerrarVentana();
     construirIndicadores();
     // Thematic view never stays empty after a map change
-    if (estado.vista === "tematico" && !estado.indicador) { estado.indicador = "_eventos"; document.getElementById("indicador").value = "_eventos"; }
     construirSubtemas();
-    dibujar();
-  }
-
-  function cambiarVista(v) {
-    estado.vista = v;
-    marcar("#sel-vista", "vista", v);
-    if (v === "tematico" && !estado.indicador) {
-      estado.indicador = "_eventos";
-      document.getElementById("indicador").value = "_eventos";
-    }
     dibujar();
   }
 
@@ -644,7 +644,6 @@
     // Filters only matter when events are drawn or counted
     document.getElementById("bloque-filtros").hidden = !conEventos && estado.indicador !== "_eventos";
     document.getElementById("bloque-tematico").hidden = !conIndicador;
-    document.getElementById("eventos-encima").parentElement.hidden = estado.vista === "eventos";
     const tp = textoPeriodo();
     document.getElementById("periodo-info").textContent =
       (estado.desde || estado.hasta || tp === "sin datos") ? "" : `· ${tp}`;
@@ -744,7 +743,7 @@
   }
 
   function hayEventosDibujados() {
-    return estado.vista === "eventos" || document.getElementById("eventos-encima").checked;
+    return estado.eventosVisibles;
   }
 
   function eventoVisible(e) {
@@ -788,7 +787,7 @@
         dashArray: e.ejemplo ? "2 2" : null
       });
       m.bindTooltip(e.titulo, { direction: "top", offset: [0, -6] });
-      m.on("click", () => mostrarDetalleEvento(e));
+      m.on("click", () => navegar(() => mostrarDetalleEvento(e), true));
       capaEventos.addLayer(m);
     });
     document.getElementById("conteo").textContent =
@@ -905,7 +904,7 @@
         const r = 5 + 30 * Math.sqrt(d.valor / max);
         const m = L.circleMarker(c, { radius: r, color, weight: 1, fillColor: color, fillOpacity: 0.35, dashArray: d.ejemplo ? "3 3" : null });
         m.bindTooltip(etiquetaValor(f.properties.nombre, d, def.unidad));
-        m.on("click", () => mostrarDetallePoligono(f.properties));
+        m.on("click", () => navegar(() => mostrarDetallePoligono(f.properties), true));
         capaCirculos.addLayer(m);
       });
       document.getElementById("leyenda").innerHTML =
@@ -1066,7 +1065,7 @@
       layer.bindTooltip(d ? etiquetaValor(feature.properties.nombre, d, def.unidad) : `<strong>${feature.properties.nombre}</strong><br>sin dato`, { sticky: true }).openTooltip();
     });
     layer.on("mouseout", () => capaPoligonos.resetStyle(layer));
-    layer.on("click", () => mostrarDetallePoligono(feature.properties));
+    layer.on("click", () => navegar(() => mostrarDetallePoligono(feature.properties), true));
   }
 
   function etiquetaValor(nombre, d, unidad) {
@@ -1125,9 +1124,15 @@
     const dentroPol = estado.eventos.filter(eventoVisible).filter(e => dentro([e.lon, e.lat], feat.geometry))
       .sort((x, y) => y.fecha.localeCompare(x.fecha));
     const nEv = dentroPol.length;
-    const itemEv = e => `<li><button type="button" class="enlace" data-ev="${e.id}">${e.titulo}</button><br><small>${formatoFecha(e.fecha)} · ${e.lugar}</small></li>`;
+    const itemEv = e => {
+      const f = estado.fuentes.find(x => x.id === e.fuente);
+      return `<li class="fila-ev"><div class="fila-ev__cab"><span class="fila-ev__titulo">${e.titulo}</span><button type="button" class="cmp__mas fila-ev__mas" aria-expanded="false" title="Ver detalle">+</button></div>
+        <small>${formatoFecha(e.fecha)} · ${e.lugar}</small>
+        <div class="fila-ev__detalle" hidden><p>${e.descripcion}</p><p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span> <span class="nota">Fuente: ${f ? f.nombre : e.fuente}</span></p>
+          <p>${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a> · ` : ""}<button type="button" class="enlace" data-ev="${e.id}">Abrir ficha</button></p></div></li>`;
+    };
     const htmlEv = nEv ? `<h4 class="detalle__sub">Eventos (${nEv})</h4><ul class="lista lista--eventos">${dentroPol.slice(0, 3).map(itemEv).join("")}</ul>
-      ${nEv > 3 ? `<ul class="lista lista--eventos" id="eventos-mas" hidden>${dentroPol.slice(3).map(itemEv).join("")}</ul><p><button type="button" class="enlace" id="ver-mas-eventos">+ ${nEv - 3} más</button></p>` : ""}` : "";
+      ${nEv > 3 ? `<ul class="lista lista--eventos" id="eventos-mas" hidden>${dentroPol.slice(3).map(itemEv).join("")}</ul><p><button type="button" class="enlace" id="ver-mas-eventos" data-n="${nEv - 3}">+ ${nEv - 3} más</button></p>` : ""}` : "";
     const clave = nivel === "municipio" ? `Clave INEGI ${p.cve_ent}${p.cve_mun} · ${mapaActual().nombre}` : `Clave INEGI ${p.cve_ent}`;
     abrirVentana(p.nombre, `
       <p class="detalle__meta">${clave} · ${nEv} eventos con los filtros actuales</p>
@@ -1137,11 +1142,19 @@
       ${htmlPob}
       ${htmlMarco}`);
     const btn = document.getElementById("detalle-comparativo");
-    if (btn) btn.addEventListener("click", () => mostrarComparativo(["federal", ...instrumentosEstado]));
+    if (btn) btn.addEventListener("click", () => navegar(() => mostrarComparativo(["federal", ...instrumentosEstado])));
     const mas = document.getElementById("ver-mas-eventos");
-    if (mas) mas.addEventListener("click", () => { document.getElementById("eventos-mas").hidden = false; mas.parentElement.hidden = true; });
+    if (mas) mas.addEventListener("click", () => {
+      const lista = document.getElementById("eventos-mas"); lista.hidden = !lista.hidden;
+      mas.textContent = lista.hidden ? `+ ${mas.dataset.n} más` : "– Mostrar menos";
+    });
     document.querySelectorAll("#ventana-cuerpo [data-ev]").forEach(b => b.addEventListener("click", () => {
-      const e = estado.eventos.find(x => x.id === b.dataset.ev); if (e) mostrarDetalleEvento(e);
+      const e = estado.eventos.find(x => x.id === b.dataset.ev); if (e) navegar(() => mostrarDetalleEvento(e));
+    }));
+    document.querySelectorAll("#ventana-cuerpo .fila-ev__mas").forEach(b => b.addEventListener("click", () => {
+      const abierto = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", String(!abierto)); b.textContent = abierto ? "+" : "–";
+      b.closest("li").querySelector(".fila-ev__detalle").hidden = abierto;
     }));
     const btnMun = document.getElementById("detalle-municipios");
     if (btnMun) btnMun.addEventListener("click", () => { estado.estadoCve = p.cve_ent; cambiarMapa(p.cve_ent); });

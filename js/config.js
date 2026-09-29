@@ -3,7 +3,7 @@ const CONFIG = {
   // Free key from https://carto.com/basemaps/apikey; leave empty to use OpenStreetMap tiles
   cartoKey: "",
   // Used in the citation of exported images; empty url means the page's own address
-  sitio: { nombre: "Observatorio de Derechos Humanos", autor: "", url: "" },
+  sitio: { nombre: "Observatorio de Protección a Periodistas y Personas Defensoras", autor: "", url: "" },
   rutas: {
     eventos: "datos/eventos.json",
     indicadores: "datos/indicadores/indice.json",
@@ -24,13 +24,10 @@ const CONFIG = {
   // Municipal names show at any zoom for small states; large ones need zooming in (levels past the fitted view)
   maxEtiquetasSinZoom: 80,
   zoomEtiquetas: 2,
-  // activo: false hides a theme (chips, events, indicators, sources) without deleting its data
+  // Only the journalists/defenders theme is shown; population stays loaded for calculations
   temas: {
-    migracion:      { nombre: "Migración",                 color: "#0f7b6c", activo: false },
-    desplazamiento: { nombre: "Desplazamiento forzado",    color: "#c2410c", activo: false },
-    desaparicion:   { nombre: "Desaparición forzada",      color: "#5b21b6", activo: false },
     periodistas:    { nombre: "Periodistas y defensores",  color: "#b91c1c", activo: true },
-    contexto:       { nombre: "Población y contexto",      color: "#1d4ed8", activo: false }  // data still loads for calculations and the detail window
+    contexto:       { nombre: "Población y contexto",      color: "#1d4ed8", activo: false }
   },
   // Sub-topics (type of aggression) inside the journalists/defenders theme
   subtemas: {
