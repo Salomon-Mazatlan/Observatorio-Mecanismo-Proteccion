@@ -17,7 +17,7 @@ from comun import RAIZ, catalogo_entidades, escribir_json, leer_json, respaldar,
 
 RUTA = RAIZ / "datos/comparativo_marco_legal.json"
 META = ["id", "cve_ent", "pais", "corto", "nombre", "publicacion", "ultima_reforma", "organo", "url"]
-PAISES = {"hn": "HN"}  # national instruments of other countries, by sheet name
+PAISES = {"hn": "HN", "co": "CO"}  # national instruments of other countries, by sheet name
 VALORES = {"si", "sí", "parcial", "no"}
 
 

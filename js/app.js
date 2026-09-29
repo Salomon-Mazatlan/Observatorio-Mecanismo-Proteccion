@@ -82,7 +82,7 @@
     if (!localStorage.getItem("observatorio_guia_vista")) { navegar(mostrarGuia, true); localStorage.setItem("observatorio_guia_vista", "1"); }
   } catch (e) { /* storage unavailable */ }
   // Population files load after the first render; the detail window uses them when ready
-  ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json"].forEach(r =>
+  ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json", "datos/poblacion/censos_co.json"].forEach(r =>
     fresco(r).then(d => { estado.poblacion[r] = d; }).catch(() => {}));
   fresco("datos/series_nacionales.json").then(d => { estado.seriesNacionales = d; }).catch(() => {});
   fresco("datos/comparativo_marco_legal.json").then(d => { estado.comparativo = d; }).catch(() => {});
@@ -127,9 +127,10 @@
   }
 
   // ---------- countries ----------
-  function paisDeCve(cve) { return cve && String(cve).startsWith("HN") ? "HN" : "MX"; }
+  // Non-Mexican keys start with their two-letter country code (HN08, CO05)
+  function paisDeCve(cve) { const p = String(cve || "").slice(0, 2); return CONFIG.paises[p] && p !== "MX" ? p : "MX"; }
   function nacionalId() { return CONFIG.paises[estado.pais].nacional; }
-  function esNacional(id) { return id === "mexico" || id === "honduras"; }
+  function esNacional(id) { return Object.values(CONFIG.paises).some(p => p.nacional === id); }
   function geoNacional() { return estado.geos[nacionalId()]; }
 
   // Current map: a national map by state or department, or one of them by municipality
@@ -138,7 +139,7 @@
     const pais = paisDeCve(estado.mapaId);
     const nat = estado.geos[CONFIG.paises[pais].nacional];
     const f = nat && nat.features.find(x => x.properties.cve_ent === estado.mapaId);
-    const plantilla = pais === "HN" ? CONFIG.mapas.estadoHN.geo : CONFIG.mapas.estado.geo;
+    const plantilla = (CONFIG.mapas["estado" + pais] || CONFIG.mapas.estado).geo;
     return { nombre: f ? f.properties.nombre : estado.mapaId, nivel: "municipio", geo: plantilla.replace("{cve}", estado.mapaId), pais };
   }
 
@@ -169,13 +170,15 @@
     }));
   }
 
-  // Honduras is a unitary state: every department is governed by the national law
+  // Unitary states (Honduras, Colombia): every department is governed by the national norm
   function marcoDe(cve_ent) {
-    if (paisDeCve(cve_ent) === "HN") {
-      const inst = estado.comparativo && estado.comparativo.instrumentos.find(i => i.pais === "HN");
-      return { categoria: "ley_nacional", categoriaNombre: "Ley nacional (Estado unitario)", color: "#1d4ed8",
-        instrumentos: inst ? [{ nombre: inst.nombre, tipo: "ley", anio: 2015, url: inst.url, organo: inst.organo, nota: inst.publicacion }] : [],
-        nota: "Honduras no tiene leyes departamentales; la ley nacional y su Sistema Nacional de Protección rigen en todo el país." };
+    const pais = paisDeCve(cve_ent);
+    if (pais !== "MX") {
+      const cfg = CONFIG.paises[pais];
+      const inst = estado.comparativo && estado.comparativo.instrumentos.find(i => i.pais === pais);
+      return { categoria: "norma_nacional", categoriaNombre: `${cfg.tipoNorma === "ley" ? "Ley" : "Decreto"} nacional (Estado unitario)`, color: "#1d4ed8",
+        instrumentos: inst ? [{ nombre: inst.nombre, tipo: cfg.tipoNorma, anio: cfg.anioNorma, url: inst.url, organo: inst.organo, nota: inst.publicacion }] : [],
+        nota: cfg.notaMarco };
     }
     return estado.marcoLegal ? estado.marcoLegal.entidades.find(e => e.cve_ent === cve_ent) : null;
   }
@@ -324,7 +327,7 @@
           <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Calor" (densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
-          <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado) y Honduras (por departamento). En Honduras la ley es nacional, así que el marco legal de cada departamento lleva al comparativo de la ley hondureña con la federal mexicana.</li>
+          <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado), Honduras y Colombia (por departamento). En Honduras y Colombia la norma es nacional, así que el marco legal de cada departamento lleva al comparativo de esa norma con la ley federal mexicana.</li>
           <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la federal en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
@@ -393,7 +396,7 @@
     }
     const otros = instrumentos.map(i => i.corto).filter(c => c !== "Federal").join(", ");
     const titulo = global ? "Comparativo de instrumentos de protección"
-      : instrumentos.some(i => i.pais === "HN") ? `Comparativo con la ley federal mexicana: ${otros}` : `Comparativo con la ley federal: ${otros}`;
+      : instrumentos.some(i => i.pais && i.pais !== "MX") ? `Comparativo con la ley federal mexicana: ${otros}` : `Comparativo con la ley federal: ${otros}`;
     abrirVentana(titulo, "<p class='nota'>Cargando...</p>", "ventana--documento ventana--ancha");
     const cabecera = cmp.instrumentos.map(i => `<th title="${i.nombre}">${i.corto}</th>`).join("");
     const celda = (inst, id) => {
@@ -1348,8 +1351,8 @@
       return `<li><span class="detalle__tema" style="--tema:${CONFIG.temas[d.tema].color}">${CONFIG.temas[d.tema].nombre}</span><br>${d.nombre}: <strong>${v.valor.toLocaleString("es-MX")}</strong> ${d.unidad} (${v.periodo})${v.ejemplo ? " <span class='badge badge--ejemplo'>ejemplo</span>" : ""}</li>`;
     }).join("");
     const anioActual = new Date().getFullYear();
-    const esHN = paisDeCve(p.cve_ent) === "HN";
-    const cen = estado.poblacion[esHN ? "datos/poblacion/censos_hn.json" : "datos/poblacion/censos.json"];
+    const paisP = paisDeCve(p.cve_ent), esHN = paisP !== "MX";
+    const cen = estado.poblacion[esHN ? CONFIG.paises[paisP].censos : "datos/poblacion/censos.json"];
     let htmlPob = "";
     // Population shows in the detail even though the theme itself is hidden from the menus
     if (cen) {
@@ -1359,12 +1362,12 @@
         let ultimo = -1;
         cen.periodos.forEach((per, i) => { if (filas[i]) ultimo = i; });
         htmlPob = `<h4 class="detalle__sub">Población</h4>
-          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (${esHN ? "INE Honduras" : "INEGI"}): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? ` · Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
+          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (${esHN ? CONFIG.paises[paisP].estadistica : "INEGI"}): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? ` · Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
       }
     }
     const marco = nivel === "municipio" || !temaActivo("periodistas") ? null : marcoDe(p.cve_ent);
     const instrumentosEstado = marco && estado.comparativo ? estado.comparativo.instrumentos
-      .filter(i => i.cve_ent === p.cve_ent || (paisDeCve(p.cve_ent) === "HN" && i.pais === "HN")).map(i => i.id) : [];
+      .filter(i => i.cve_ent === p.cve_ent || (paisDeCve(p.cve_ent) !== "MX" && i.pais === paisDeCve(p.cve_ent))).map(i => i.id) : [];
     const codificado = instrumentosEstado.length > 0;
     let htmlMarco = "";
     if (marco) {

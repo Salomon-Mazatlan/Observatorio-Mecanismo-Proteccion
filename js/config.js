@@ -20,12 +20,19 @@ const CONFIG = {
     mexico:   { nombre: "México", geo: "datos/geo/estados.geojson", nivel: "entidad", pais: "MX" },
     honduras: { nombre: "Honduras", geo: "datos/geo/hn/departamentos.geojson", nivel: "entidad", pais: "HN" },
     estado:   { geo: "datos/geo/municipios/{cve}.geojson", nivel: "municipio" },
-    estadoHN: { geo: "datos/geo/hn/municipios/{cve}.geojson", nivel: "municipio" }
+    estadoHN: { geo: "datos/geo/hn/municipios/{cve}.geojson", nivel: "municipio" },
+    colombia: { nombre: "Colombia", geo: "datos/geo/co/departamentos.geojson", nivel: "entidad", pais: "CO" },
+    estadoCO: { geo: "datos/geo/co/municipios/{cve}.geojson", nivel: "municipio" }
   },
   // Countries: Honduran keys carry an "HN" prefix so they never collide with INEGI codes
   paises: {
     MX: { nombre: "México", nacional: "mexico", unidad: "estado", unidades: "Por estado", inicial: "25" },
-    HN: { nombre: "Honduras", nacional: "honduras", unidad: "departamento", unidades: "Por departamento", inicial: "HN08" }
+    HN: { nombre: "Honduras", nacional: "honduras", unidad: "departamento", unidades: "Por departamento", inicial: "HN08",
+          censos: "datos/poblacion/censos_hn.json", estadistica: "INE Honduras", tipoNorma: "ley", anioNorma: 2015,
+          notaMarco: "Honduras no tiene leyes departamentales; la ley nacional y su Sistema Nacional de Protección rigen en todo el país." },
+    CO: { nombre: "Colombia", nacional: "colombia", unidad: "departamento", unidades: "Por departamento", inicial: "CO05",
+          censos: "datos/poblacion/censos_co.json", estadistica: "DANE", tipoNorma: "decreto", anioNorma: 2011,
+          notaMarco: "Colombia no tiene una ley específica: el Programa de Prevención y Protección se rige por decreto (Decreto 4912 de 2011, compilado en el Decreto 1066 de 2015) y lo ejecuta la Unidad Nacional de Protección en todo el país." }
   },
   estadoInicial: "25",
   // Municipal names show at any zoom for small states; large ones need zooming in (levels past the fitted view)

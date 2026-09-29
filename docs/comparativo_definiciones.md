@@ -1,6 +1,6 @@
 # Definiciones de periodista y persona defensora: federal, Sinaloa y Durango
 
-Este documento acompaña la matriz del comparativo (`datos/comparativo_marco_legal.json`) y se concentra en los dos indicadores que definen el ámbito subjetivo de la protección, es decir, a quién protege cada ley. Las citas son del texto vigente de cada instrumento: Ley federal (DOF 25 de junio de 2012, última reforma 28 de abril de 2022), Ley de Sinaloa (Decreto 154, P.O. 27 de mayo de 2022, reformada por Decreto 158 del 16 de junio de 2025), Ley de Durango (Decreto 580, P.O. 17 de junio de 2021, reformada por Decretos 143 de 2022 y 244 de 2025) las dos leyes de Coahuila (periodistas, 2014; personas defensoras, 2016) la de Tamaulipas (2017) y, como referencia externa, la ley de Honduras (Decreto 34-2015), tratadas en sus propias secciones.
+Este documento acompaña la matriz del comparativo (`datos/comparativo_marco_legal.json`) y se concentra en los dos indicadores que definen el ámbito subjetivo de la protección, es decir, a quién protege cada ley. Las citas son del texto vigente de cada instrumento: Ley federal (DOF 25 de junio de 2012, última reforma 28 de abril de 2022), Ley de Sinaloa (Decreto 154, P.O. 27 de mayo de 2022, reformada por Decreto 158 del 16 de junio de 2025), Ley de Durango (Decreto 580, P.O. 17 de junio de 2021, reformada por Decretos 143 de 2022 y 244 de 2025) las dos leyes de Coahuila (periodistas, 2014; personas defensoras, 2016) la de Tamaulipas (2017) y, como referencias externas, la ley de Honduras (Decreto 34-2015) y el Decreto 4912 de 2011 de Colombia, tratados en sus propias secciones.
 
 ## Persona defensora de derechos humanos
 
@@ -89,6 +89,14 @@ El periodista se define con la misma fórmula funcional que la ley federal mexic
 La ley protege a un tercer sujeto que no existe en México: los operadores de justicia (policías, fiscales, jueces, magistrados y abogados en función de defensoría, art. 5 num. 2), con el mandato de que el Poder Judicial y el Ministerio Público organicen un mecanismo propio (art. 64).
 
 En agresión ocurre lo contrario: la definición hondureña es la más escueta del conjunto (art. 5 num. 7) y carece del catálogo que el artículo 24 federal agregó; lo compensa con el reconocimiento expreso de que las agresiones pueden provenir de actores estatales o particulares (art. 6).
+
+## Colombia: protección sin ley y con acreditación
+
+Colombia no tiene una ley de protección. El programa se rige por el Decreto 4912 de 2011, compilado en el Decreto Único Reglamentario 1066 de 2015, y lo ejecuta la Unidad Nacional de Protección. El decreto no define a la persona defensora ni al periodista: enumera poblaciones objeto de protección, entre ellas "dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas" (art. 6 num. 2), "miembros de grupos étnicos" (num. 5) y "periodistas y comunicadores sociales" (num. 8). Para el activista añade un requisito que ninguna ley mexicana ni la hondureña contienen, la acreditación "mediante certificación que expida la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida" (art. 3 num. 1), y exige a todo solicitante demostrar "siquiera sumariamente" la conexidad entre el riesgo y su actividad (art. 2 num. 2).
+
+Tampoco define la agresión. El eje del decreto es el riesgo, clasificado en ordinario, extraordinario y extremo; solo los dos últimos dan derecho a protección, y el extraordinario debe ser específico, concreto, presente, importante, serio, claro, excepcional y desproporcionado (art. 3 num. 15 a 18). La comparación con México es de modelo: en México la ley define a quién protege y qué es una agresión, y la evaluación de riesgo es un procedimiento; en Colombia la evaluación de riesgo es la definición misma del sujeto protegido.
+
+En cambio, el decreto es el más desarrollado del conjunto en prevención territorial (mesas territoriales en cada entidad, planes de prevención y de contingencia, articulación con el Sistema de Alertas Tempranas de la Defensoría del Pueblo) y en medidas materiales (esquemas individuales y colectivos, reubicación temporal con apoyo económico, trasteo, blindaje de sedes).
 
 ## Agresión, como complemento del ámbito subjetivo
 

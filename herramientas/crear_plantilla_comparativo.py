@@ -20,7 +20,7 @@ INSTRUCCIONES = [
     "Hay una hoja por instrumento (federal y un código de dos dígitos por estado). Las primeras filas son los metadatos del instrumento; después va una fila por indicador o subindicador.",
     "valor: si, parcial o no (lista desplegable). articulos: dónde se ubica en el texto (por ejemplo 'Arts. 2, 24'). nota: qué dice y qué le falta, en una o dos frases.",
     "Los subindicadores están sangrados y sirven para desglosar definiciones y medidas; no cambian el valor del indicador principal, que se codifica por separado.",
-    "Para agregar un estado: copia la hoja de un estado, renómbrala con su clave INEGI (por ejemplo 14 para Jalisco) y llena los metadatos y las celdas. Si el estado tiene más de una ley, usa la clave con un sufijo (05-periodistas, 05-defensoras). La hoja 'hn' es la ley nacional de Honduras.",
+    "Para agregar un estado: copia la hoja de un estado, renómbrala con su clave INEGI (por ejemplo 14 para Jalisco) y llena los metadatos y las celdas. Si el estado tiene más de una ley, usa la clave con un sufijo (05-periodistas, 05-defensoras). Las hojas 'hn' y 'co' son las normas nacionales de Honduras y Colombia.",
     "La hoja 'definiciones' guarda el texto literal de las definiciones de periodista, persona defensora y agresión de cada instrumento, que alimenta el análisis de definiciones.",
     "",
     "Para publicar: python herramientas/actualizar_comparativo.py plantillas/comparativo_marco_legal.xlsx",
