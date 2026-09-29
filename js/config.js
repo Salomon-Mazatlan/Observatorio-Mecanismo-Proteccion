@@ -57,7 +57,7 @@ const CONFIG = {
   // Sub-groups inside the journalists/defenders theme; "ambos" applies to both
   grupos: {
     periodista: { nombre: "Periodistas",        color: "#b91c1c" },
-    defensor:   { nombre: "Personas defensoras", color: "#c2410c" }
+    defensor:   { nombre: "Personas defensoras", color: "#8b5cf6" }   // lilac markers
   },
   // Order matters: from strongest to weakest evidence
   verificacion: ["oficial", "organización", "campo", "prensa", "sin verificar"],

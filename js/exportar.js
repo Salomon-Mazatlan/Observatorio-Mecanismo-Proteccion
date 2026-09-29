@@ -8,11 +8,15 @@ const Exportar = (() => {
   const SERIF = '"Newsreader", Georgia, serif';
   const SANS = '"IBM Plex Sans", system-ui, sans-serif';
 
+  // info.recorte (optional) is a pixel rectangle {x, y, w, h} in container coordinates:
+  // the export is cropped to it so the figure fits the mapped area instead of the whole viewport
   async function png(mapa, capas, info) {
     if (document.fonts && document.fonts.ready) await document.fonts.ready;
     const cont = mapa.getContainer();
-    const mw = cont.clientWidth, mh = cont.clientHeight;
-    const W = mw + MARGEN * 2;
+    const rc = info.recorte || { x: 0, y: 0, w: cont.clientWidth, h: cont.clientHeight };
+    const mw = Math.round(rc.w), mh = Math.round(rc.h);
+    const W = Math.max(mw, 720) + MARGEN * 2;
+    const offX = Math.round((W - MARGEN * 2 - mw) / 2);
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     // Footer height depends on how many wrapped lines the credits need
@@ -26,22 +30,26 @@ const Exportar = (() => {
 
     dibujarCabecera(ctx, W, info);
 
-    // Map frame
+    // Map frame, in the same stacking order as the live map: polygons, cold base and heat, markers, labels
     ctx.save();
-    ctx.translate(MARGEN, ALTO_CABECERA);
+    ctx.translate(MARGEN + offX, ALTO_CABECERA);
     ctx.beginPath(); ctx.rect(0, 0, mw, mh); ctx.clip();
     ctx.fillStyle = "#eef0f3"; ctx.fillRect(0, 0, mw, mh);
+    ctx.translate(-rc.x, -rc.y);
     dibujarTiles(ctx, mapa);
-    // Layers in the "calor" pane sit under the heat canvas; everything else goes on top
-    const enCalor = l => l.options && l.options.pane === "calor";
-    capas.forEach(g => g.eachLayer(l => { if (enCalor(l)) dibujarGrupoOVector(ctx, mapa, l); }));
-    dibujarLienzos(ctx, mapa);
-    capas.forEach(g => g.eachLayer(l => { if (!enCalor(l)) dibujarGrupoOVector(ctx, mapa, l); }));
+    // Leaflet's default is "overlayPane"; custom panes keep their own name
+    const paneDe = l => ((l.options && l.options.pane) || "overlay").replace(/Pane$/, "");
+    const orden = ["poligonos", "calor", "overlay", "etiquetas"];
+    orden.forEach(pane => {
+      capas.forEach(g => g.eachLayer(l => { if (paneDe(l) === pane) dibujarGrupoOVector(ctx, mapa, l); }));
+      if (pane === "calor") dibujarLienzos(ctx, mapa);
+    });
+    ctx.translate(rc.x, rc.y);
     dibujarLeyenda(ctx, mw, mh, info);
     dibujarNorte(ctx, mw);
     dibujarEscala(ctx, mapa, mw, mh);
     ctx.restore();
-    ctx.strokeStyle = "#8a93a1"; ctx.lineWidth = 1; ctx.strokeRect(MARGEN + 0.5, ALTO_CABECERA + 0.5, mw - 1, mh - 1);
+    ctx.strokeStyle = "#8a93a1"; ctx.lineWidth = 1; ctx.strokeRect(MARGEN + offX + 0.5, ALTO_CABECERA + 0.5, mw - 1, mh - 1);
 
     dibujarPie(ctx, ALTO_CABECERA + mh, lineasPie);
     return new Promise((res, rej) => {
@@ -52,7 +60,10 @@ const Exportar = (() => {
 
   function dibujarCabecera(ctx, W, info) {
     ctx.fillStyle = "#1f2a37";
-    ctx.font = `500 26px ${SERIF}`;
+    // Shrink the title until it fits the frame width
+    let tam = 26;
+    ctx.font = `500 ${tam}px ${SERIF}`;
+    while (ctx.measureText(info.titulo).width > W - MARGEN * 2 && tam > 15) { tam -= 1; ctx.font = `500 ${tam}px ${SERIF}`; }
     ctx.fillText(info.titulo, MARGEN, 44);
     ctx.fillStyle = "#5b6673";
     ctx.font = `14px ${SANS}`;

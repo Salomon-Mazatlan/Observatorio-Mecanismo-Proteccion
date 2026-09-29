@@ -207,6 +207,7 @@
     document.getElementById("ayuda").addEventListener("click", () => navegar(mostrarGuia, true));
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa("mexico"));
+    document.getElementById("centrar").addEventListener("click", centrarMapa);
     mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
     document.getElementById("mapa-base").addEventListener("change", actualizarMapaBase);
@@ -258,12 +259,16 @@
     const nivel = m.nivel === "municipio" ? "por municipio" : "por entidad";
     const subtitulo = `${m.nombre}, ${tematico ? nivel : "eventos georreferenciados"}${tematico && hayEventosDibujados() ? " y eventos" : ""}. Periodo ${textoPeriodo()}.`;
     let leyenda, leyendaTitulo;
+    const recorte = recorteExportacion();
     if (tematico && !hayEventosDibujados()) {
       leyenda = estado.leyendaExport; leyendaTitulo = def.unidad || "";
     } else {
-      leyendaTitulo = tematico ? `${def.unidad || ""} y eventos` : "Temas";
+      leyendaTitulo = tematico ? `${def.unidad || ""} y eventos` : "Eventos";
       leyenda = [...(tematico ? estado.leyendaExport : [])];
-      Object.entries(CONFIG.temas).filter(([id]) => temaActivo(id))
+      const vis = estado.eventos.filter(eventoVisible);
+      if (vis.some(e => e.tema === "periodistas" && e.grupo !== "defensor")) leyenda.push({ forma: "circulo", color: CONFIG.temas.periodistas.color, texto: "Periodistas" });
+      if (vis.some(e => e.grupo === "defensor")) leyenda.push({ forma: "circulo", color: CONFIG.grupos.defensor.color, texto: "Personas defensoras" });
+      Object.entries(CONFIG.temas).filter(([id]) => id !== "periodistas" && temaActivo(id) && vis.some(e => e.tema === id))
         .forEach(([, t]) => leyenda.push({ forma: "circulo", color: t.color, texto: t.nombre }));
       if (estado.eventos.some(e => e.ejemplo && eventoVisible(e)))
         leyenda.push({ forma: "circulo", color: "#ffffff", borde: "#5b6673", punteado: true, texto: "Registro de ejemplo" });
@@ -292,7 +297,7 @@
     if (estado.subtema !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.subtemas[estado.subtema]}`;
     if (estado.sexo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.sexos[estado.sexo]}`;
     if (estado.labor !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.labores[estado.labor]}`;
-    return { titulo, subtitulo, leyenda, leyendaTitulo, pie };
+    return { titulo, subtitulo, leyenda, leyendaTitulo, pie, recorte };
   }
 
   function mesValido(v) { return /^\d{4}-\d{2}$/.test(v); }
@@ -691,12 +696,36 @@
     dibujarCalor();
     dibujarEtiquetas();
     const ml = document.getElementById("mapa-leyenda");
-    if (conIndicador) {
+    const vis = conEventos ? estado.eventos.filter(eventoVisible) : [];
+    const filasEv = [];
+    if (vis.some(e => e.tema === "periodistas" && e.grupo !== "defensor")) filasEv.push(`<div class="leyenda__fila"><span class="leyenda__punto" style="background:${CONFIG.temas.periodistas.color}"></span>Periodistas</div>`);
+    if (vis.some(e => e.grupo === "defensor")) filasEv.push(`<div class="leyenda__fila"><span class="leyenda__punto" style="background:${CONFIG.grupos.defensor.color}"></span>Personas defensoras</div>`);
+    if (conIndicador || filasEv.length) {
       ml.hidden = false;
-      ml.innerHTML = `<h4>${document.getElementById("tematico-titulo").textContent}</h4>` + document.getElementById("leyenda").innerHTML;
+      ml.innerHTML = (conIndicador ? `<h4>${document.getElementById("tematico-titulo").textContent}</h4>` + document.getElementById("leyenda").innerHTML : "")
+        + (filasEv.length ? `<h4 class="${conIndicador ? "leyenda__sep" : ""}">Eventos</h4>${filasEv.join("")}` : "");
     } else ml.hidden = true;
     actualizarControles();
     actualizarMapaBase();
+  }
+
+  // Fits the view to the polygons of the current map (country or state)
+  function centrarMapa() {
+    if (!capaPoligonos.getLayers().length) return;
+    mapa.fitBounds(capaPoligonos.getBounds(), { padding: [10, 10] });
+  }
+
+  // Pixel rectangle around the drawn polygons, with a margin, for the PNG export
+  function recorteExportacion() {
+    const cont = mapa.getContainer(), cw = cont.clientWidth, ch = cont.clientHeight;
+    if (!capaPoligonos.getLayers().length) return { x: 0, y: 0, w: cw, h: ch };
+    const b = capaPoligonos.getBounds();
+    const p1 = mapa.latLngToContainerPoint(b.getNorthWest()), p2 = mapa.latLngToContainerPoint(b.getSouthEast());
+    const m = 28;
+    const x = Math.max(0, Math.min(p1.x, p2.x) - m), y = Math.max(0, Math.min(p1.y, p2.y) - m);
+    const x2 = Math.min(cw, Math.max(p1.x, p2.x) + m), y2 = Math.min(ch, Math.max(p1.y, p2.y) + m);
+    // Leave room for the legend and the scale bar under the polygons
+    return { x, y, w: Math.max(320, x2 - x), h: Math.max(260, y2 - y + 40) };
   }
 
   // Everything the charts window needs, already filtered like the map
@@ -816,6 +845,11 @@
     ctx.restore();
   }
 
+  // Defenders are drawn in lilac, journalists (and shared records) in the theme red
+  function colorEvento(e) {
+    return e.grupo === "defensor" && CONFIG.grupos.defensor ? CONFIG.grupos.defensor.color : CONFIG.temas[e.tema].color;
+  }
+
   function hayEventosDibujados() {
     return estado.eventosVisibles;
   }
@@ -867,7 +901,7 @@
     };
     visibles.forEach(e => {
       n++;
-      const color = CONFIG.temas[e.tema].color;
+      const color = colorEvento(e);
       const m = L.circleMarker(posicion(e), {
         radius: 7, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: 0.9,
         dashArray: e.ejemplo ? "2 2" : null

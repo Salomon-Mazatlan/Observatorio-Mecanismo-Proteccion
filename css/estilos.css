@@ -299,6 +299,9 @@ input[type="search"]:focus-visible { outline: none; border-color: var(--acento);
 .popover__fila { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .popover__fila .control { width: 170px; }
 .mapa__volver { position: absolute; top: 14px; left: 14px; z-index: 900; box-shadow: var(--sombra); }
+.mapa__centrar { position: absolute; right: 14px; bottom: 96px; z-index: 900; box-shadow: var(--sombra); background: var(--superficie); }
+.leyenda__punto { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.15); flex: none; }
+.leyenda__sep { margin-top: 8px; }
 .mapa__leyenda {
   position: absolute; left: 14px; bottom: 30px; z-index: 900; max-width: 260px;
   background: rgba(255,255,255,0.96); border: 1px solid var(--borde); border-radius: var(--radio); padding: 10px 12px; box-shadow: var(--sombra);
