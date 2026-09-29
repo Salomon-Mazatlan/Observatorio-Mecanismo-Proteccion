@@ -302,12 +302,15 @@
     const hoy = new Date();
     const fechaLarga = hoy.toLocaleDateString("es-MX", { year: "numeric", month: "long", day: "numeric" });
     const urlSitio = CONFIG.sitio.url || (location.origin + location.pathname);
-    const autor = CONFIG.sitio.autor ? `${CONFIG.sitio.autor}, ${CONFIG.sitio.nombre}` : CONFIG.sitio.nombre;
+    // The author heads the citation; the observatory is the publishing venue
+    const autor = CONFIG.sitio.autor || CONFIG.sitio.nombre;
+    const sede = CONFIG.sitio.autor ? ` En ${CONFIG.sitio.nombre}.` : "";
+    const limites = CONFIG.paises[estado.pais].limites || "Marco Geoestadístico INEGI 2022";
     const pie = [
       fuentesTxt.length ? "Fuentes: " + fuentesTxt.join("; ") + "." : "Fuentes: sin registros en la vista actual.",
-      `Límites: Marco Geoestadístico INEGI 2022. Mapa base: © OpenStreetMap contributors${CONFIG.cartoKey ? ", © CARTO" : ""}. Los datos marcados como ejemplo no describen hechos reales.`,
+      `Límites: ${limites}. Mapa base: © OpenStreetMap contributors${CONFIG.cartoKey ? ", © CARTO" : ""}. Los datos marcados como ejemplo no describen hechos reales.`,
       "",
-      `Cómo citar: ${autor} (${hoy.getFullYear()}). ${titulo}, ${m.nombre}. Mapa generado el ${fechaLarga} en ${urlSitio}`
+      `Cómo citar: ${autor} (${hoy.getFullYear()}). ${titulo}, ${m.nombre} [Mapa].${sede} Generado el ${fechaLarga} en ${urlSitio}`
     ];
     leyendaTitulo = leyendaTitulo.charAt(0).toUpperCase() + leyendaTitulo.slice(1);
     if (estado.grupo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` (${CONFIG.grupos[estado.grupo].nombre})`;
@@ -431,7 +434,8 @@
       document.querySelectorAll(`.cmp__sub[data-de="${b.dataset.ind}"]`).forEach(r => r.hidden = abierto);
     }));
     document.getElementById("cmp-defs").addEventListener("click", () => navegar(() => mostrarDocumento("docs/comparativo_definiciones.md", "Definiciones de periodista y persona defensora")));
-    document.querySelectorAll(".cmp__pasajes").forEach(b => b.addEventListener("click", () => navegar(() => mostrarPasajes(b.dataset.ind, ids))));
+    const visibles = cmp.instrumentos.map(i => i.id);  // what the picker left in the matrix
+    document.querySelectorAll(".cmp__pasajes").forEach(b => b.addEventListener("click", () => navegar(() => mostrarPasajes(b.dataset.ind, visibles))));
     agregarBarraSuperior(document.querySelector("#ventana-cuerpo .cmp__tabla-envoltura"));
     document.getElementById("cmp-csv").addEventListener("click", () => {
       const filas = [["indicador", "subindicador", ...cmp.instrumentos.flatMap(i => [`${i.corto} valor`, `${i.corto} artículos`, `${i.corto} nota`])]];

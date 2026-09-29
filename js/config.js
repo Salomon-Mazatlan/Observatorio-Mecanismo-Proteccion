@@ -3,7 +3,7 @@ const CONFIG = {
   // Free key from https://carto.com/basemaps/apikey; leave empty to use OpenStreetMap tiles
   cartoKey: "",
   // Used in the citation of exported images; empty url means the page's own address
-  sitio: { nombre: "Observatorio de Protección a Periodistas y Personas Defensoras", autor: "", url: "" },
+  sitio: { nombre: "Observatorio de Protección a Periodistas y Personas Defensoras", autor: "Salomón Cárdenas, L.", url: "https://salomon-mazatlan.github.io/Observatorio-Mecanismo-Proteccion/" },
   rutas: {
     eventos: "datos/eventos.json",
     indicadores: "datos/indicadores/indice.json",
@@ -28,10 +28,10 @@ const CONFIG = {
   paises: {
     MX: { nombre: "México", nacional: "mexico", unidad: "estado", unidades: "Por estado", inicial: "25" },
     HN: { nombre: "Honduras", nacional: "honduras", unidad: "departamento", unidades: "Por departamento", inicial: "HN08",
-          censos: "datos/poblacion/censos_hn.json", estadistica: "INE Honduras", tipoNorma: "ley", anioNorma: 2015,
+          censos: "datos/poblacion/censos_hn.json", estadistica: "INE Honduras", limites: "división municipal del INE de Honduras", tipoNorma: "ley", anioNorma: 2015,
           notaMarco: "Honduras no tiene leyes departamentales; la ley nacional y su Sistema Nacional de Protección rigen en todo el país." },
     CO: { nombre: "Colombia", nacional: "colombia", unidad: "departamento", unidades: "Por departamento", inicial: "CO05",
-          censos: "datos/poblacion/censos_co.json", estadistica: "DANE", tipoNorma: "decreto", anioNorma: 2011,
+          censos: "datos/poblacion/censos_co.json", estadistica: "DANE", limites: "Marco Geoestadístico Nacional DANE 2018", tipoNorma: "decreto", anioNorma: 2011,
           notaMarco: "Colombia no tiene una ley específica: el Programa de Prevención y Protección se rige por decreto (Decreto 4912 de 2011, compilado en el Decreto 1066 de 2015) y lo ejecuta la Unidad Nacional de Protección en todo el país." }
   },
   estadoInicial: "25",
