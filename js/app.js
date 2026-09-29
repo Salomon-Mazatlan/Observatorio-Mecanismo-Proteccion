@@ -374,21 +374,16 @@
       return `<td class="cmp cmp--${c.valor}" title="${tip.replace(/"/g, "&quot;")}"><span class="cmp__valor">${cmp.valores[c.valor]}</span><span class="cmp__art">${c.articulos || ""}</span></td>`;
     };
     const filas = cmp.indicadores.map(ind => {
-      const principal = `<tr class="cmp__fila"><td class="cmp__nombre"><strong>${ind.numero}.</strong> ${ind.nombre}${ind.subindicadores.length ? ` <button type="button" class="cmp__mas" data-ind="${ind.id}" aria-expanded="false" title="Ver subindicadores">+</button>` : ""}<br><button type="button" class="enlace cmp__pasajes" data-ind="${ind.id}">Pasajes y reflexión</button></td>${cmp.instrumentos.map(i => celda(i, ind.id)).join("")}</tr>`;
+      const principal = `<tr class="cmp__fila"><td class="cmp__nombre"><strong>${ind.numero}.</strong> ${ind.nombre}${ind.subindicadores.length ? ` <button type="button" class="cmp__mas" data-ind="${ind.id}" aria-expanded="false" title="Ver subindicadores">+</button>` : ""}<br><button type="button" class="enlace cmp__pasajes" data-ind="${ind.id}">Ver detalles</button></td>${cmp.instrumentos.map(i => celda(i, ind.id)).join("")}</tr>`;
       const subs = ind.subindicadores.map(s => `<tr class="cmp__sub" data-de="${ind.id}" hidden><td class="cmp__nombre cmp__nombre--sub">${s.nombre}</td>${cmp.instrumentos.map(i => celda(i, s.id)).join("")}</tr>`).join("");
       return principal + subs;
     }).join("");
-    const puntajes = cmp.instrumentos.map(i => {
-      const vals = cmp.indicadores.map(ind => (cmp.codificacion[i.id] || {})[ind.id]).filter(Boolean);
-      const p = vals.reduce((s, c) => s + (c.valor === "si" ? 1 : c.valor === "parcial" ? 0.5 : 0), 0);
-      return `<td class="cmp__puntaje">${p} / ${cmp.indicadores.length}</td>`;
-    }).join("");
     const fichas = cmp.instrumentos.map(i => `<li><strong>${i.corto}.</strong> ${i.nombre}. ${i.publicacion}; última reforma ${i.ultima_reforma}. ${i.organo}.${i.url ? ` <a href="${i.url}" target="_blank" rel="noopener">Texto</a>` : ""}</li>`).join("");
     document.getElementById("ventana-cuerpo").innerHTML = `
-      <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda para ver la nota; el signo + despliega los subindicadores. El puntaje suma 1 por sí y 0.5 por parcial.</p>
+      <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda para ver la nota; el signo + despliega los subindicadores y "Ver detalles" abre los artículos citados y la reflexión.</p>
       <div class="cmp__tabla-envoltura"><table class="cmp__tabla">
         <thead><tr><th>Indicador</th>${cabecera}</tr></thead>
-        <tbody>${filas}<tr class="cmp__fila cmp__fila--total"><td class="cmp__nombre"><strong>Puntaje</strong></td>${puntajes}</tr></tbody>
+        <tbody>${filas}</tbody>
       </table></div>
       <h3 class="detalle__sub">Instrumentos comparados</h3><ul class="lista lista--marco">${fichas}</ul>
       <p class="acciones"><button type="button" class="boton" id="cmp-csv">Descargar matriz (CSV)</button> <button type="button" class="boton" id="cmp-defs">Ver análisis de definiciones</button>${global ? "" : ` <button type="button" class="boton" id="cmp-global">Ver comparativo global</button>`}</p>`;
