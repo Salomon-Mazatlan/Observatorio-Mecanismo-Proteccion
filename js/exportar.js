@@ -32,8 +32,11 @@ const Exportar = (() => {
     ctx.beginPath(); ctx.rect(0, 0, mw, mh); ctx.clip();
     ctx.fillStyle = "#eef0f3"; ctx.fillRect(0, 0, mw, mh);
     dibujarTiles(ctx, mapa);
+    // Layers in the "calor" pane sit under the heat canvas; everything else goes on top
+    const enCalor = l => l.options && l.options.pane === "calor";
+    capas.forEach(g => g.eachLayer(l => { if (enCalor(l)) dibujarGrupoOVector(ctx, mapa, l); }));
     dibujarLienzos(ctx, mapa);
-    capas.forEach(g => g.eachLayer(l => dibujarVector(ctx, mapa, l)));
+    capas.forEach(g => g.eachLayer(l => { if (!enCalor(l)) dibujarGrupoOVector(ctx, mapa, l); }));
     dibujarLeyenda(ctx, mw, mh, info);
     dibujarNorte(ctx, mw);
     dibujarEscala(ctx, mapa, mw, mh);
@@ -82,6 +85,12 @@ const Exportar = (() => {
       const r = img.getBoundingClientRect();
       try { ctx.drawImage(img, r.left - r0.left, r.top - r0.top, r.width, r.height); } catch (e) { /* skip broken tile */ }
     });
+  }
+
+  // A GeoJSON layer inside a group is itself a group of paths
+  function dibujarGrupoOVector(ctx, mapa, l) {
+    if (l.eachLayer && !(l instanceof L.CircleMarker) && !(l instanceof L.Polygon)) l.eachLayer(s => dibujarGrupoOVector(ctx, mapa, s));
+    else dibujarVector(ctx, mapa, l);
   }
 
   // Canvas layers such as the heat map are copied as images

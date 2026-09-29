@@ -54,6 +54,7 @@
   mapa.createPane("calor").style.zIndex = 390;
   const capaPoligonos = L.geoJSON(null, { style: estiloNeutro, onEachFeature: alPoligono, pane: "poligonos" }).addTo(mapa);
   let capaCalor = null;
+  const capaBaseCalor = L.layerGroup().addTo(mapa);   // cold fill under the heat map
   const capaEtiquetas = L.layerGroup().addTo(mapa);
   const capaCirculos = L.layerGroup().addTo(mapa);
   const capaEventos = L.layerGroup().addTo(mapa);
@@ -236,7 +237,7 @@
     const btn = document.getElementById("exportar");
     btn.disabled = true; btn.textContent = "Generando...";
     try {
-      const blob = await Exportar.png(mapa, [capaPoligonos, capaCirculos, capaEventos, capaEtiquetas], infoExportacion());
+      const blob = await Exportar.png(mapa, [capaBaseCalor, capaPoligonos, capaCirculos, capaEventos, capaEtiquetas], infoExportacion());
       Exportar.descargar(blob, `observatorio_${estado.mapaId}_${estado.indicador || "eventos"}_${new Date().toISOString().slice(0, 10)}.png`);
     } catch (e) {
       alert("No se pudo exportar la imagen. Si el mapa base no permite copiar sus mosaicos, prueba con otro proveedor de mapa base.\n" + e.message);
@@ -750,14 +751,38 @@
     });
   }
 
-  // Density of the filtered events; the intensity of each point is one event
+  // Density of the filtered events, clipped to the country or the current state;
+  // a cold blue fill under it marks the areas without events
   function dibujarCalor() {
     if (capaCalor) { mapa.removeLayer(capaCalor); capaCalor = null; }
+    capaBaseCalor.clearLayers();
     if (!document.getElementById("calor").checked || !L.heatLayer) return;
+    const limite = estado.mapaId === "mexico" ? estado.geos.mexico : { type: "FeatureCollection", features: estado.geos.mexico.features.filter(f => f.properties.cve_ent === estado.mapaId) };
+    capaBaseCalor.addLayer(L.geoJSON(limite, { pane: "calor", interactive: false, style: { stroke: false, fillColor: "#2563eb", fillOpacity: 0.42 } }));
     const puntos = estado.eventos.filter(eventoVisible).map(e => [e.lat, e.lon, 1]);
-    if (!puntos.length) return;
-    capaCalor = L.heatLayer(puntos, { pane: "calor", radius: 28, blur: 22, minOpacity: 0.35, maxZoom: 9,
-      gradient: { 0.2: "#fde68a", 0.5: "#f97316", 0.8: "#dc2626", 1: "#7f1d1d" } }).addTo(mapa);
+    capaCalor = L.heatLayer(puntos.length ? puntos : [[0, 0, 0]], { pane: "calor", radius: 30, blur: 24, minOpacity: 0.55, maxZoom: 9,
+      gradient: { 0.1: "#60a5fa", 0.3: "#86efac", 0.5: "#fde047", 0.7: "#f97316", 0.9: "#dc2626", 1: "#7f1d1d" } });
+    const original = capaCalor._redraw.bind(capaCalor);
+    capaCalor._redraw = function () { original(); recortarCalor(this, limite); };
+    capaCalor.addTo(mapa);
+  }
+
+  // Keeps only the heat inside the boundary rings (destination-in mask on the plugin's canvas)
+  function recortarCalor(capa, limite) {
+    const cv = capa._canvas; if (!cv) return;
+    const ctx = cv.getContext("2d");
+    ctx.save();
+    ctx.globalCompositeOperation = "destination-in";
+    ctx.beginPath();
+    limite.features.forEach(f => {
+      const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      polys.forEach(rings => rings.forEach(r => {
+        r.forEach((c, i) => { const p = mapa.latLngToContainerPoint([c[1], c[0]]); i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
+        ctx.closePath();
+      }));
+    });
+    ctx.fillStyle = "#000"; ctx.fill("evenodd");
+    ctx.restore();
   }
 
   function hayEventosDibujados() {
