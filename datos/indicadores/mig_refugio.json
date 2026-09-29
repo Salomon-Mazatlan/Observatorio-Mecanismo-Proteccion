@@ -1,0 +1,11 @@
+{
+ "definicion": {
+  "id": "mig_refugio",
+  "tema": "migracion",
+  "nombre": "Solicitudes de refugio recibidas",
+  "unidad": "solicitudes",
+  "fuente": "comar",
+  "nota": "Por oficina de recepción; COMAR no tiene oficina en todas las entidades"
+ },
+ "valores": []
+}

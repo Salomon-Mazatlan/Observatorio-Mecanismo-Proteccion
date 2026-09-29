@@ -1,0 +1,15 @@
+{
+ "definicion": {
+  "id": "pob_total",
+  "nombre": "Población total (censos y conteos INEGI)",
+  "tema": "contexto",
+  "unidad": "personas",
+  "fuente": "inegi-censos",
+  "nota": "Censos 1990, 2000, 2010 y 2020, conteos 1995 y 2005 y Encuesta Intercensal 2015. Municipios creados después de 2022 no aparecen en el mapa; los desaparecidos o fusionados solo tienen los años en que existieron",
+  "externo": {
+   "archivo": "datos/poblacion/censos.json",
+   "campo": "total"
+  }
+ },
+ "valores": []
+}

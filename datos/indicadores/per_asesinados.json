@@ -1,0 +1,812 @@
+{
+ "definicion": {
+  "id": "per_asesinados",
+  "tema": "periodistas",
+  "nombre": "Periodistas asesinados en posible relación con su labor (ARTICLE 19, 2000 a 2026)",
+  "unidad": "personas",
+  "fuente": "article19",
+  "nota": "Registro público de ARTICLE 19 de periodistas asesinados en posible relación con su labor informativa, 181 casos de febrero de 2000 a julio de 2026; conteo por entidad y año. Los años sin casos no aparecen",
+  "grupo": "periodista",
+  "subtema": "asesinato"
+ },
+ "valores": [
+  {
+   "cve_ent": "02",
+   "periodo": "2004",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "02",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "02",
+   "periodo": "2022",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "03",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "03",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2010",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2013",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2020",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "07",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "07",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "07",
+   "periodo": "2024",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2001",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2007",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2008",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2009",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2010",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2013",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2016",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "09",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "09",
+   "periodo": "2015",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "10",
+   "periodo": "2009",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "10",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2015",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2020",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2024",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2025",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2003",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2007",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2009",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2010",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2016",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2018",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2020",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2025",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2026",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "14",
+   "periodo": "2005",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "14",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2000",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2008",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2007",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2008",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2010",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2022",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2024",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "17",
+   "periodo": "2019",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "17",
+   "periodo": "2024",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "18",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "18",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "19",
+   "periodo": "2010",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "19",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2006",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2008",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2013",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2014",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2015",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2016",
+   "valor": 4,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2026",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2012",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2016",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2026",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "23",
+   "periodo": "2009",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "23",
+   "periodo": "2018",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "23",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "24",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2004",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2009",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2014",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2017",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2012",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2020",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2021",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2022",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "27",
+   "periodo": "2008",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "27",
+   "periodo": "2016",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "27",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "27",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2000",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2001",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2002",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2004",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2005",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2008",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2010",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2013",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2002",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2005",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2006",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2009",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2011",
+   "valor": 4,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2012",
+   "valor": 5,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2014",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2015",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2016",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2017",
+   "valor": 4,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2019",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2020",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2026",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "32",
+   "periodo": "2014",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "32",
+   "periodo": "2020",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "32",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  }
+ ]
+}

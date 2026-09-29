@@ -1,0 +1,15 @@
+{
+ "definicion": {
+  "id": "pob_mujeres",
+  "nombre": "Población femenina (censos y conteos INEGI)",
+  "tema": "contexto",
+  "unidad": "personas",
+  "fuente": "inegi-censos",
+  "nota": "Misma cobertura que la población total",
+  "externo": {
+   "archivo": "datos/poblacion/censos.json",
+   "campo": "mujeres"
+  }
+ },
+ "valores": []
+}

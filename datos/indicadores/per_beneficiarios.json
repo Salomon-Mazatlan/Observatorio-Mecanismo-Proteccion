@@ -1,0 +1,147 @@
+{
+ "definicion": {
+  "id": "per_beneficiarios",
+  "nombre": "Personas beneficiarias del Mecanismo de Protección",
+  "tema": "periodistas",
+  "unidad": "personas",
+  "fuente": "mecanismo",
+  "nota": "Informe mensual del Mecanismo, corte 31 de mayo de 2026; solo entidades con 24 o más personas (faltan las de menor cifra)",
+  "acumulado": true,
+  "grupo": "ambos",
+  "subtema": "proteccion"
+ },
+ "valores": [
+  {
+   "cve_ent": "02",
+   "periodo": "2026-05-31",
+   "valor": 67,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "05",
+   "periodo": "2026-05-31",
+   "valor": 54,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "07",
+   "periodo": "2026-05-31",
+   "valor": 129,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2026-05-31",
+   "valor": 51,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "09",
+   "periodo": "2026-05-31",
+   "valor": 216,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2026-05-31",
+   "valor": 64,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2026-05-31",
+   "valor": 138,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "13",
+   "periodo": "2026-05-31",
+   "valor": 25,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "14",
+   "periodo": "2026-05-31",
+   "valor": 148,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2026-05-31",
+   "valor": 75,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2026-05-31",
+   "valor": 163,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "17",
+   "periodo": "2026-05-31",
+   "valor": 46,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "18",
+   "periodo": "2026-05-31",
+   "valor": 29,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2026-05-31",
+   "valor": 195,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2026-05-31",
+   "valor": 63,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "22",
+   "periodo": "2026-05-31",
+   "valor": 24,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "23",
+   "periodo": "2026-05-31",
+   "valor": 89,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2026-05-31",
+   "valor": 39,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2026-05-31",
+   "valor": 62,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2026-05-31",
+   "valor": 75,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2026-05-31",
+   "valor": 92,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "31",
+   "periodo": "2026-05-31",
+   "valor": 36,
+   "ejemplo": false
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "definicion": {
+  "id": "dfi_eic_pct",
+  "tema": "desplazamiento",
+  "nombre": "Población desplazada por inseguridad o violencia 2020-2025, porcentaje (EIC 2025)",
+  "unidad": "por ciento",
+  "fuente": "inegi-eic",
+  "nota": "Encuesta Intercensal 2025; solo entidades con porcentaje publicado en prensa, falta completar con los tabulados de INEGI"
+ },
+ "valores": [
+  {
+   "cve_ent": "32",
+   "periodo": "2025",
+   "valor": 2.2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "17",
+   "periodo": "2025",
+   "valor": 2.1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "22",
+   "periodo": "2025",
+   "valor": 2.0,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "06",
+   "periodo": "2025",
+   "valor": 2.0,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2025",
+   "valor": 1.9,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "10",
+   "periodo": "2025",
+   "valor": 1.8,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "13",
+   "periodo": "2025",
+   "valor": 1.7,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2025",
+   "valor": 1.6,
+   "ejemplo": false
+  }
+ ]
+}

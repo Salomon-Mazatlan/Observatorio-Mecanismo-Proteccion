@@ -1,0 +1,11 @@
+{
+ "definicion": {
+  "id": "dfi_episodios",
+  "tema": "desplazamiento",
+  "nombre": "Episodios de desplazamiento masivo por violencia",
+  "unidad": "episodios",
+  "fuente": "cmdpdh",
+  "nota": "Sólo episodios documentados en prensa; subregistro alto"
+ },
+ "valores": []
+}

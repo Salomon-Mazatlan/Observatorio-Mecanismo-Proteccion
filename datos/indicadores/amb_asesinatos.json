@@ -1,0 +1,50 @@
+{
+ "definicion": {
+  "id": "amb_asesinatos",
+  "nombre": "Personas defensoras ambientales asesinadas",
+  "tema": "periodistas",
+  "unidad": "personas",
+  "fuente": "cemda",
+  "nota": "Informe CEMDA 2025; diez homicidios vinculados a la defensa ambiental (25 en 2024). Las diez personas aparecen como eventos en el mapa",
+  "grupo": "defensor",
+  "subtema": "asesinato"
+ },
+ "valores": [
+  {
+   "cve_ent": "14",
+   "periodo": "2025",
+   "valor": 3,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2025",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2025",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "17",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  }
+ ]
+}

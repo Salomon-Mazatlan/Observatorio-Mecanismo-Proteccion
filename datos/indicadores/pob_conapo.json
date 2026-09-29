@@ -1,0 +1,15 @@
+{
+ "definicion": {
+  "id": "pob_conapo",
+  "nombre": "Población estimada a mitad de año (CONAPO)",
+  "tema": "contexto",
+  "unidad": "personas",
+  "fuente": "conapo",
+  "nota": "Proyecciones base 2020; entidades 1970-2070, municipios 1990-2040. Es el denominador recomendado para tasas por 100 mil habitantes de un año concreto",
+  "externo": {
+   "archivo": "datos/poblacion/conapo.json",
+   "campo": "total"
+  }
+ },
+ "valores": []
+}

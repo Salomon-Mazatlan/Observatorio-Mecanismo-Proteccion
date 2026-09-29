@@ -1,0 +1,11 @@
+{
+ "definicion": {
+  "id": "des_fosas",
+  "tema": "desaparicion",
+  "nombre": "Fosas clandestinas localizadas",
+  "unidad": "fosas",
+  "fuente": "fosas-quinto",
+  "nota": "Periodo según base consultada"
+ },
+ "valores": []
+}

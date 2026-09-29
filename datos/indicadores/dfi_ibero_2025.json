@@ -1,0 +1,36 @@
+{
+ "definicion": {
+  "id": "dfi_ibero_2025",
+  "tema": "desplazamiento",
+  "nombre": "Personas desplazadas por violencia en 2025 (PDH Ibero)",
+  "unidad": "personas",
+  "fuente": "ibero-pdh",
+  "nota": "15 mil 795 personas en 73 incidentes; valores estatales calculados a partir de los porcentajes publicados (Sinaloa 39.2, Chihuahua 28.4, Michoacán 21.3, Guerrero 4.8)"
+ },
+ "valores": [
+  {
+   "cve_ent": "25",
+   "periodo": "2025",
+   "valor": 6192,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "08",
+   "periodo": "2025",
+   "valor": 4486,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2025",
+   "valor": 3364,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2025",
+   "valor": 758,
+   "ejemplo": false
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "definicion": {
+  "id": "mig_presentaciones",
+  "tema": "migracion",
+  "nombre": "Eventos de presentación ante autoridad migratoria",
+  "unidad": "eventos",
+  "fuente": "upm",
+  "nota": "Un mismo individuo puede generar más de un evento"
+ },
+ "valores": [
+  {
+   "cve_ent": "07",
+   "periodo": "2025",
+   "valor": 5000,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2025",
+   "valor": 2000,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2025",
+   "valor": 400,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2025",
+   "valor": 1500,
+   "ejemplo": true
+  }
+ ]
+}

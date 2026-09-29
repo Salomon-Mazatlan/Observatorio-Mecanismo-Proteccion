@@ -1,0 +1,38 @@
+{
+ "definicion": {
+  "id": "amb_eventos_agresion",
+  "nombre": "Eventos de agresión contra personas y comunidades defensoras ambientales",
+  "tema": "periodistas",
+  "unidad": "eventos",
+  "fuente": "cemda",
+  "nota": "Informe CEMDA 2025 (135 eventos, 314 agresiones específicas). Solo entidades con cifra publicada en el texto; la gráfica 9 del informe trae las 32 pero sin números legibles. Sirve como aproximación a la conflictividad socioambiental; CEMDA advierte subregistro donde la prensa cubre menos",
+  "grupo": "defensor"
+ },
+ "valores": [
+  {
+   "cve_ent": "09",
+   "periodo": "2025",
+   "valor": 39,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2025",
+   "valor": 20,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2025",
+   "valor": 17,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "14",
+   "periodo": "2025",
+   "valor": 8,
+   "ejemplo": false,
+   "nota": "8 eventos con 17 agresiones específicas; concentra 3 de los 10 homicidios y 1 de las 3 desapariciones"
+  }
+ ]
+}

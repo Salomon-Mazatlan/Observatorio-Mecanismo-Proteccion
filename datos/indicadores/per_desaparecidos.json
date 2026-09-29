@@ -1,0 +1,164 @@
+{
+ "definicion": {
+  "id": "per_desaparecidos",
+  "nombre": "Periodistas desaparecidos en relación con su labor (ARTICLE 19, 2003 a 2025)",
+  "tema": "periodistas",
+  "grupo": "periodista",
+  "subtema": "desaparicion",
+  "unidad": "personas",
+  "fuente": "article19",
+  "nota": "Registro público de ARTICLE 19 de periodistas desaparecidos en relación con su labor informativa, 32 casos de julio de 2003 a abril de 2025; conteo por entidad y año"
+ },
+ "valores": [
+  {
+   "cve_ent": "05",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "07",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2004",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "12",
+   "periodo": "2022",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2006",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2008",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2009",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "16",
+   "periodo": "2010",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "19",
+   "periodo": "2007",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "20",
+   "periodo": "2018",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "24",
+   "periodo": "2012",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2014",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2005",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "26",
+   "periodo": "2021",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "27",
+   "periodo": "2007",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2010",
+   "valor": 5,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2012",
+   "valor": 2,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2014",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2003",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2011",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2012",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2013",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2023",
+   "valor": 1,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2025",
+   "valor": 1,
+   "ejemplo": false
+  }
+ ]
+}

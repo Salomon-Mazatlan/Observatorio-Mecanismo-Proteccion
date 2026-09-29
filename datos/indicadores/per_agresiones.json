@@ -1,0 +1,43 @@
+{
+ "definicion": {
+  "id": "per_agresiones",
+  "tema": "periodistas",
+  "nombre": "Agresiones contra la prensa documentadas",
+  "unidad": "agresiones",
+  "fuente": "article19",
+  "nota": "Informe anual 2025 de ARTICLE 19; solo entidades con cifra publicada (CDMX, Puebla, Veracruz, Guanajuato, Sinaloa); el orden completo está en la gráfica 4 del informe",
+  "grupo": "periodista"
+ },
+ "valores": [
+  {
+   "cve_ent": "09",
+   "periodo": "2025",
+   "valor": 84,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "21",
+   "periodo": "2025",
+   "valor": 39,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "30",
+   "periodo": "2025",
+   "valor": 34,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "11",
+   "periodo": "2025",
+   "valor": 15,
+   "ejemplo": false
+  },
+  {
+   "cve_ent": "25",
+   "periodo": "2025",
+   "valor": 9,
+   "ejemplo": false
+  }
+ ]
+}

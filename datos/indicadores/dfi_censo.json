@@ -1,0 +1,11 @@
+{
+ "definicion": {
+  "id": "dfi_censo",
+  "tema": "desplazamiento",
+  "nombre": "Personas que migraron por inseguridad o violencia (2015-2020)",
+  "unidad": "personas",
+  "fuente": "inegi-censo",
+  "nota": "Censo 2020, pregunta de causa de migración interna"
+ },
+ "valores": []
+}

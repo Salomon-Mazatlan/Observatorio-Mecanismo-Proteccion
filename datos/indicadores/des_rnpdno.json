@@ -1,0 +1,79 @@
+{
+ "definicion": {
+  "id": "des_rnpdno",
+  "tema": "desaparicion",
+  "nombre": "Personas desaparecidas y no localizadas (acumulado)",
+  "unidad": "personas",
+  "fuente": "rnpdno",
+  "nota": "Consultar con fecha de corte; el registro cambia a diario",
+  "acumulado": true
+ },
+ "valores": [
+  {
+   "cve_ent": "25",
+   "periodo": "2025",
+   "valor": 1000,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "14",
+   "periodo": "2025",
+   "valor": 3000,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "28",
+   "periodo": "2025",
+   "valor": 2500,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "15",
+   "periodo": "2025",
+   "valor": 2000,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "006",
+   "periodo": "2025",
+   "valor": 500,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "012",
+   "periodo": "2025",
+   "valor": 150,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "001",
+   "periodo": "2025",
+   "valor": 120,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "011",
+   "periodo": "2025",
+   "valor": 60,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "018",
+   "periodo": "2025",
+   "valor": 40,
+   "ejemplo": true
+  },
+  {
+   "cve_ent": "25",
+   "cve_mun": "010",
+   "periodo": "2025",
+   "valor": 35,
+   "ejemplo": true
+  }
+ ]
+}
