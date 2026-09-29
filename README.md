@@ -4,7 +4,11 @@ Mapa interactivo sobre la protección a periodistas y personas defensoras de der
 
 Es un sitio estático publicado con GitHub Pages. No requiere compilación ni servidor propio; los datos viven en archivos JSON que se capturan en Excel y se publican con scripts de Python.
 
-![Vista del mapa temático, personas beneficiarias del Mecanismo de Protección por entidad](docs/img/captura_mapa.png)
+![Vista del mapa temático México](docs/img/captura_mapa_mexico.png)
+
+![Vista del mapa temático Honduras](docs/img/captura_mapa_honduras.png)
+
+![Vista del mapa temático Colombia](docs/img/captura_mapa_colombia.png)
 
 ## Estructura
 
