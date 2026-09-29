@@ -40,6 +40,18 @@ const CONFIG = {
     proteccion:     "Medidas y cifras de protección",
     informe:        "Informes"
   },
+  // Field of work of the defender (events of the defenders group)
+  labores: {
+    busqueda:     "Búsqueda de personas desaparecidas",
+    ambiental:    "Ambiente, tierra y territorio",
+    indigena:     "Pueblos indígenas",
+    mujeres:      "Derechos de las mujeres y feministas",
+    lgbt:         "Personas LGBT+",
+    migracion:    "Personas migrantes",
+    civil:        "Derechos civiles y comunitarios",
+    animales:     "Derechos de los animales",
+    organizacion: "Organizaciones de derechos humanos"
+  },
   // Sex of the person affected, for the journalists/defenders theme
   sexos: { femenino: "Mujeres", masculino: "Hombres" },
   // Sub-groups inside the journalists/defenders theme; "ambos" applies to both

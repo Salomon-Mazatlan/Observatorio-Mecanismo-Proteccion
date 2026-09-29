@@ -15,9 +15,10 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 from comun import DIR_PLANTILLAS, RUTA_EVENTOS, RUTA_FUENTES, verificar_raiz
 
-COLS = ["id", "tema", "grupo", "subtema", "sexo", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
-ANCHOS = [9, 16, 12, 16, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
+COLS = ["id", "tema", "grupo", "subtema", "sexo", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
+ANCHOS = [9, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
 SEXOS = ["femenino", "masculino", "no determinado", "no aplica"]
+LABORES = ["busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"]
 GRUPOS = ["periodista", "defensor", "ambos"]
 SUBTEMAS = ["asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio", "proteccion", "informe"]
 TEMAS = ["migracion", "desplazamiento", "desaparicion", "periodistas", "contexto"]
@@ -34,6 +35,7 @@ INSTRUCCIONES = [
     "tema: migracion, desplazamiento, desaparicion, periodistas o contexto (lista desplegable). Los tres primeros están desactivados en el sitio pero se conservan.",
     "grupo: solo para el tema periodistas; periodista, defensor o ambos (por ejemplo, un informe que cubre a los dos).",
     "sexo: femenino, masculino, no determinado (persona no identificada) o no aplica (cifras e informes).",
+    "labor: solo para personas defensoras; busqueda, ambiental, indigena, mujeres, lgbt, migracion, civil, animales u organizacion. Alimenta los chips de 'Labor de la persona defensora'.",
     "subtema: tipo de agresión o violencia; asesinato, desaparicion, agresion, amenaza, acoso_judicial, ataque_medio, proteccion o informe. Alimenta los chips de 'Tipo de agresión'.",
     "tipo: texto libre pero consistente (desplazamiento masivo, retorno, padrón oficial, cifra oficial, informe, albergue, rescate, fosa clandestina, agresión, búsqueda en campo...).",
     "fecha: formato AAAA-MM-DD. Si solo se conoce el mes, usa el día 01 y anótalo en descripcion.",
@@ -72,7 +74,7 @@ def main():
     for row in we.iter_rows():
         for c in row:
             c.font = arial
-            c.alignment = Alignment(vertical="top", wrap_text=c.column in (10, 11, 12))
+            c.alignment = Alignment(vertical="top", wrap_text=c.column in (11, 12, 13))
     for c in we[1]:
         c.font, c.fill = bold, azul
     for r in range(2, MAX_FILAS + 2):
@@ -82,14 +84,14 @@ def main():
     we.freeze_panes = "B2"
 
     wc = wb.create_sheet("catalogos")
-    wc.append(["tema", "verificacion", "fuente_id", "fuente_nombre", "fuente_tipo", "grupo", "subtema", "sexo"])
-    n = max(len(TEMAS), len(VERIF), len(fuentes), len(GRUPOS), len(SUBTEMAS), len(SEXOS))
+    wc.append(["tema", "verificacion", "fuente_id", "fuente_nombre", "fuente_tipo", "grupo", "subtema", "sexo", "labor"])
+    n = max(len(TEMAS), len(VERIF), len(fuentes), len(GRUPOS), len(SUBTEMAS), len(SEXOS), len(LABORES))
     for i in range(n):
         f = fuentes[i] if i < len(fuentes) else None
         wc.append([TEMAS[i] if i < len(TEMAS) else None, VERIF[i] if i < len(VERIF) else None,
                    f["id"] if f else None, f["nombre"] if f else None, f["tipo"] if f else None, GRUPOS[i] if i < len(GRUPOS) else None,
-                   SUBTEMAS[i] if i < len(SUBTEMAS) else None, SEXOS[i] if i < len(SEXOS) else None])
-    for w, col in zip([16, 16, 18, 80, 14, 12, 16, 16], "ABCDEFGH"):
+                   SUBTEMAS[i] if i < len(SUBTEMAS) else None, SEXOS[i] if i < len(SEXOS) else None, LABORES[i] if i < len(LABORES) else None])
+    for w, col in zip([16, 16, 18, 80, 14, 12, 16, 16, 14], "ABCDEFGHI"):
         wc.column_dimensions[col].width = w
     for row in wc.iter_rows():
         for c in row:
@@ -103,11 +105,12 @@ def main():
         DataValidation(type="list", formula1=f"=catalogos!$F$2:$F${len(GRUPOS) + 1}", allow_blank=True), "C",
         DataValidation(type="list", formula1=f"=catalogos!$G$2:$G${len(SUBTEMAS) + 1}", allow_blank=True), "D",
         DataValidation(type="list", formula1=f"=catalogos!$H$2:$H${len(SEXOS) + 1}", allow_blank=True), "E",
-        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "O",
-        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "M",
-        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "P",
-        DataValidation(type="decimal", operator="between", formula1="14", formula2="33", allow_blank=True), "H",
-        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-86", allow_blank=True), "I",
+        DataValidation(type="list", formula1=f"=catalogos!$I$2:$I${len(LABORES) + 1}", allow_blank=True), "F",
+        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "P",
+        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "N",
+        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "Q",
+        DataValidation(type="decimal", operator="between", formula1="14", formula2="33", allow_blank=True), "I",
+        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-86", allow_blank=True), "J",
     ]
     for dv, col in zip(reglas[::2], reglas[1::2]):
         dv.error, dv.showErrorMessage = "Valor no permitido", True

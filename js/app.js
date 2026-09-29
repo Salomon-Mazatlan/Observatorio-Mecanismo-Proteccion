@@ -16,6 +16,7 @@
     grupo: "todos",           // "todos" | "periodista" | "defensor"
     subtema: "todos",         // "todos" or a key of CONFIG.subtemas
     sexo: "todos",            // "todos" | "femenino" | "masculino"
+    labor: "todos",           // "todos" or a key of CONFIG.labores (defenders only)
     verifActivas: new Set(CONFIG.verificacion),
     texto: "", desde: null, hasta: null,  // "YYYY-MM" or null
     leyendaExport: []                     // legend items of the current thematic drawing
@@ -290,6 +291,7 @@
     if (estado.grupo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` (${CONFIG.grupos[estado.grupo].nombre})`;
     if (estado.subtema !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.subtemas[estado.subtema]}`;
     if (estado.sexo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.sexos[estado.sexo]}`;
+    if (estado.labor !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.labores[estado.labor]}`;
     return { titulo, subtitulo, leyenda, leyendaTitulo, pie };
   }
 
@@ -314,7 +316,7 @@
     document.getElementById("buscar").value = ""; estado.texto = "";
     document.querySelectorAll("#verif input").forEach(i => { i.checked = true; estado.verifActivas.add(i.value); });
     document.getElementById("desde").value = ""; document.getElementById("hasta").value = ""; estado.desde = estado.hasta = null;
-    estado.grupo = "todos"; estado.subtema = "todos"; estado.sexo = "todos"; pintarGrupos(); construirSubtemas(); pintarSexos();
+    estado.grupo = "todos"; estado.subtema = "todos"; estado.sexo = "todos"; estado.labor = "todos"; pintarGrupos(); construirLabores(); construirSubtemas(); pintarSexos();
     construirIndicadores(); dibujar();
   }
 
@@ -494,10 +496,11 @@
       b.type = "button"; b.className = "tema"; b.dataset.grupo = id;
       b.style.setProperty("--tema", g.color);
       b.innerHTML = `<span class="tema__punto"></span>${g.nombre}`;
-      b.addEventListener("click", () => { estado.grupo = id; pintarGrupos(); construirSubtemas(); construirIndicadores(); cerrarVentana(); dibujar(); });
+      b.addEventListener("click", () => { estado.grupo = id; pintarGrupos(); construirLabores(); construirSubtemas(); construirIndicadores(); cerrarVentana(); dibujar(); });
       cg.appendChild(b);
     });
     pintarGrupos();
+    construirLabores();
     construirSubtemas();
     const cs = document.getElementById("sexos");
     [["todos", "Todos"], ...Object.entries(CONFIG.sexos)].forEach(([id, nombre]) => {
@@ -518,11 +521,38 @@
     });
     document.getElementById("bloque-sexos").hidden = !temaActivo("periodistas");
   }
+  // Field-of-work chips, only for the defenders group and only for fields with events
+  function construirLabores() {
+    const cont = document.getElementById("labores");
+    cont.innerHTML = "";
+    const bloque = document.getElementById("bloque-labores");
+    if (!temaActivo("periodistas") || estado.grupo === "periodista") { bloque.hidden = true; estado.labor = "todos"; return; }
+    const presentes = new Set(estado.eventos.filter(e => e.tema === "periodistas" && e.grupo === "defensor").map(e => e.labor).filter(Boolean));
+    if (!presentes.has(estado.labor)) estado.labor = "todos";
+    bloque.hidden = presentes.size === 0;
+    [["todos", "Todas"], ...Object.entries(CONFIG.labores).filter(([k]) => presentes.has(k))].forEach(([id, nombre]) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "tema"; b.dataset.labor = id;
+      b.style.setProperty("--tema", "#c2410c");
+      b.innerHTML = `<span class="tema__punto"></span>${nombre}`;
+      b.addEventListener("click", () => { estado.labor = id; pintarLabores(); construirSubtemas(); cerrarVentana(); dibujar(); });
+      cont.appendChild(b);
+    });
+    pintarLabores();
+  }
+  function pintarLabores() {
+    document.querySelectorAll("#labores .tema").forEach(b => {
+      const on = b.dataset.labor === estado.labor;
+      b.classList.toggle("tema--activo", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+  }
+
   // Chips only for sub-topics that have events under the current theme and group
   function construirSubtemas() {
     const cont = document.getElementById("subtemas");
     cont.innerHTML = "";
-    const presentes = new Set(estado.eventos.filter(e => temaActivo(e.tema) && (e.tema !== "periodistas" || grupoActivo(e.grupo))).map(e => e.subtema).filter(Boolean));
+    const presentes = new Set(estado.eventos.filter(e => temaActivo(e.tema) && (e.tema !== "periodistas" || (grupoActivo(e.grupo) && laborActiva(e)))).map(e => e.subtema).filter(Boolean));
     if (!presentes.has(estado.subtema)) estado.subtema = "todos";
     [["todos", "Todos"], ...Object.entries(CONFIG.subtemas).filter(([k]) => presentes.has(k))].forEach(([id, nombre]) => {
       const b = document.createElement("button");
@@ -566,6 +596,12 @@
   // Group filter (journalists / defenders) applies to the journalists theme only
   function grupoActivo(g) {
     return estado.grupo === "todos" || !g || g === "ambos" || g === estado.grupo;
+  }
+  // Field-of-work filter: only defender events carry it; journalists are unaffected
+  function laborActiva(e) {
+    if (estado.labor === "todos") return true;
+    if (e.grupo !== "defensor") return false;
+    return e.labor === estado.labor;
   }
   // Sub-topic filter; items without a sub-topic (indicators, untyped events) stay visible
   function subtemaActivo(s, esEvento) {
@@ -789,6 +825,7 @@
     if (e.tema === "periodistas" && !grupoActivo(e.grupo)) return false;
     if (e.tema === "periodistas" && !subtemaActivo(e.subtema, true)) return false;
     if (e.tema === "periodistas" && estado.sexo !== "todos" && e.sexo !== estado.sexo) return false;
+    if (e.tema === "periodistas" && !laborActiva(e)) return false;
     // On a state map only the events inside that state are shown
     if (estado.mapaId !== "mexico" && !dentroDeEstado(e)) return false;
     if (!estado.verifActivas.has(e.verificacion)) return false;
@@ -1222,9 +1259,11 @@
   function mostrarDetalleEvento(e) {
     const f = estado.fuentes.find(x => x.id === e.fuente);
     const link = e.url ? `<p><a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a></p>` : "";
+    const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.sexo && e.sexo !== "no aplica" ? " · Sexo: " + e.sexo : ""}</p>` : "";
     abrirVentana(e.titulo, `
       <p class="detalle__tema" style="--tema:${CONFIG.temas[e.tema].color}">${CONFIG.temas[e.tema].nombre} · ${e.tipo}</p>
       <p class="detalle__meta">${formatoFecha(e.fecha)} · ${e.lugar}</p>
+      ${labor}
       <p>${e.descripcion}</p>
       <p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span>
          ${e.ejemplo ? '<span class="badge badge--ejemplo">ejemplo</span>' : ""}</p>

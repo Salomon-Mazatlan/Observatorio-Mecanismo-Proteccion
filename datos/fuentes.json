@@ -408,5 +408,15 @@
   "nivel": "municipio",
   "url": "https://www.inegi.org.mx/programas/ccpv/2020/",
   "que_da": "Población total por sexo por entidad y municipio; tabulados compilados en el paquete mxmaps"
+ },
+ {
+  "id": "im-defensoras",
+  "tema": "periodistas",
+  "nombre": "IM-Defensoras y Red Nacional de Defensoras de Derechos Humanos en México, Alertas Defensoras",
+  "tipo": "organizacion",
+  "periodicidad": "continua",
+  "nivel": "caso",
+  "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
+  "que_da": "Alertas sobre agresiones a mujeres defensoras (asesinatos, desapariciones, agresiones, allanamientos, detenciones, criminalización) con nombre, colectivo, lugar y fecha"
  }
 ]
