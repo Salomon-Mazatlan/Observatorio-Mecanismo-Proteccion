@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Observatorio de Derechos Humanos</title>
+  <meta name="description" content="Mapa interactivo sobre migración, desplazamiento forzado, desaparición forzada y protección a periodistas y personas defensoras en México y Sinaloa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-10-06b">
+</head>
+<body>
+
+<a class="salto" href="#mapa">Ir al mapa</a>
+
+<header class="barra">
+  <div class="barra__fila barra__fila--principal">
+    <h1 class="barra__titulo"><span class="marca" aria-hidden="true"></span>Observatorio de Derechos Humanos</h1>
+    <div class="barra__derecha">
+      <div class="grupo" role="group" aria-label="Mapa">
+        <span class="grupo__etiqueta">Mapa</span>
+        <div class="segmentos" id="sel-mapa">
+          <button type="button" data-mapa="mexico" aria-pressed="true">México</button>
+          <button type="button" data-mapa="estado" aria-pressed="false">Por estado</button>
+        </div>
+        <select class="control control--corto" id="sel-estado" aria-label="Estado" disabled></select>
+      </div>
+      <div class="grupo" role="group" aria-label="Vista">
+        <span class="grupo__etiqueta">Vista</span>
+        <div class="segmentos" id="sel-vista">
+          <button type="button" data-vista="eventos" aria-pressed="true">Eventos</button>
+          <button type="button" data-vista="tematico" aria-pressed="false">Mapa temático</button>
+        </div>
+      </div>
+      <button type="button" class="boton" id="graficas"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2 13h12M4 11V6M7.5 11V3M11 11V8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Gráficas y datos</button>
+      <button type="button" class="boton boton--principal" id="exportar"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportar PNG</button>
+      <button type="button" class="boton boton--icono" id="ayuda" title="Cómo usar el mapa" aria-label="Cómo usar el mapa">?</button>
+    </div>
+  </div>
+
+  <div class="barra__fila barra__fila--herramientas">
+    <div class="grupo grupo--indicador">
+      <label class="grupo__etiqueta" for="indicador">Indicador</label>
+      <select class="control" id="indicador"></select>
+      <div class="segmentos" id="sel-forma">
+        <button type="button" data-forma="coropleta" aria-pressed="true">Colores</button>
+        <button type="button" data-forma="circulos" aria-pressed="false">Círculos</button>
+      </div>
+    </div>
+
+    <div class="grupo grupo--estilo" id="grupo-estilo">
+      <button type="button" class="boton" id="abrir-estilo" aria-expanded="false" aria-controls="panel-estilo"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.5v11M2.5 8h11" stroke="currentColor" stroke-width="1.2" opacity=".5"/></svg>Colores y clases</button>
+      <div class="popover" id="panel-estilo" hidden>
+        <label class="popover__fila"><span class="grupo__etiqueta">Gama</span><select class="control control--corto" id="gama"></select></label>
+        <label class="popover__fila"><span class="grupo__etiqueta">Cálculo</span><select class="control control--medio" id="metodo" aria-label="Método de cálculo de clases"></select></label>
+        <label class="popover__fila"><span class="grupo__etiqueta">Clases</span><select class="control control--mini" id="clases" aria-label="Número de clases"></select></label>
+      </div>
+      <label class="interruptor" title="Nombres de entidades y municipios sobre el mapa"><input type="checkbox" id="nombres" checked><span class="interruptor__pista"></span><span>Nombres</span></label>
+      <label class="interruptor" title="Mostrar u ocultar el mapa base con sus rótulos"><input type="checkbox" id="mapa-base" checked><span class="interruptor__pista"></span><span>Mapa base</span></label>
+    </div>
+
+    <div class="grupo" role="group" aria-label="Periodo">
+      <span class="grupo__etiqueta">Periodo</span>
+      <input class="control control--mes" type="month" id="desde" aria-label="Desde" placeholder="AAAA-MM">
+      <span class="grupo__separador">a</span>
+      <input class="control control--mes" type="month" id="hasta" aria-label="Hasta" placeholder="AAAA-MM">
+      <button type="button" class="boton boton--todo" id="periodo-todo">Todo <small id="periodo-info" aria-live="polite"></small></button>
+    </div>
+
+  </div>
+</header>
+
+<aside class="panel" id="panel">
+  <section class="bloque" id="bloque-temas">
+    <h2 class="bloque__titulo">Temas</h2>
+    <nav class="temas" id="temas" aria-label="Temas"></nav>
+  </section>
+
+  <section class="bloque" id="bloque-grupos">
+    <h2 class="bloque__titulo">Grupo</h2>
+    <nav class="temas" id="grupos" aria-label="Periodistas o personas defensoras"></nav>
+  </section>
+
+  <section class="bloque" id="bloque-subtemas">
+    <h2 class="bloque__titulo">Tipo de agresión</h2>
+    <nav class="temas" id="subtemas" aria-label="Tipo de agresión o violencia"></nav>
+  </section>
+
+  <section class="bloque" id="bloque-sexos">
+    <h2 class="bloque__titulo">Sexo</h2>
+    <nav class="temas" id="sexos" aria-label="Sexo de la persona afectada"></nav>
+  </section>
+
+  <section class="bloque" id="bloque-filtros">
+    <h2 class="bloque__titulo">Filtrar eventos</h2>
+    <label class="campo">
+      <span>Buscar por lugar o título</span>
+      <input type="search" id="buscar" placeholder="Ej. Culiacán, albergue, fosa">
+    </label>
+    <fieldset class="campo">
+      <legend>Nivel de verificación</legend>
+      <div class="verif" id="verif"></div>
+    </fieldset>
+    <p class="conteo" id="conteo" aria-live="polite"></p>
+    <p><button type="button" class="enlace" id="restablecer">Restablecer filtros</button></p>
+  </section>
+
+  <section class="bloque" id="bloque-tematico" hidden>
+    <h2 class="bloque__titulo" id="tematico-titulo"></h2>
+    <p class="nota" id="tematico-nota"></p>
+    <div class="leyenda" id="leyenda"></div>
+    <label class="campo campo--inline"><input type="checkbox" id="eventos-encima"> Mostrar eventos encima</label>
+    <p class="nota" id="tematico-metodo"></p>
+  </section>
+
+  <section class="bloque">
+    <details>
+      <summary class="bloque__titulo bloque__titulo--summary">Fuentes de datos</summary>
+      <ul class="fuentes" id="fuentes"></ul>
+    </details>
+  </section>
+
+  <footer class="panel__pie">
+    <p>Los registros marcados como <em>ejemplo</em> son plantillas y no describen hechos reales.</p>
+    <p><button type="button" class="enlace" id="abrir-comparativo">Comparativo legal</button> · <button type="button" class="enlace" data-doc="docs/comparativo_definiciones.md" data-titulo="Definiciones de periodista y persona defensora">Definiciones</button></p>
+    <p><button type="button" class="enlace" data-doc="docs/indicadores.md" data-titulo="Ficha de indicadores">Ficha de indicadores</button> · <button type="button" class="enlace" data-doc="README.md" data-titulo="Cómo colaborar">Cómo colaborar</button></p>
+  </footer>
+</aside>
+
+<main class="mapa-area">
+  <div class="mapa" id="mapa" role="region" aria-label="Mapa interactivo"></div>
+  <button type="button" class="boton mapa__volver" id="volver-mexico" hidden>← México</button>
+  <div class="mapa__leyenda" id="mapa-leyenda" hidden></div>
+  <div class="mapa__cargando" id="cargando" hidden>Cargando...</div>
+  <section class="ventana" id="ventana" hidden role="dialog" aria-labelledby="ventana-titulo">
+    <header class="ventana__cabecera">
+      <h2 class="ventana__titulo" id="ventana-titulo"></h2>
+      <button type="button" class="ventana__cerrar" id="ventana-cerrar" aria-label="Cerrar">×</button>
+    </header>
+    <div class="ventana__cuerpo" id="ventana-cuerpo"></div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
+<script src="js/config.js?v=2026-10-06b"></script>
+<script src="js/exportar.js?v=2026-10-06b"></script>
+<script src="js/graficas.js?v=2026-10-06b"></script>
+<script src="js/app.js?v=2026-10-06b"></script>
+</body>
+</html>
