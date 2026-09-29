@@ -1,6 +1,6 @@
 # Definiciones de periodista y persona defensora: federal, Sinaloa y Durango
 
-Este documento acompaña la matriz del comparativo (`datos/comparativo_marco_legal.json`) y se concentra en los dos indicadores que definen el ámbito subjetivo de la protección, es decir, a quién protege cada ley. Las citas son del texto vigente de cada instrumento: Ley federal (DOF 25 de junio de 2012, última reforma 28 de abril de 2022), Ley de Sinaloa (Decreto 154, P.O. 27 de mayo de 2022, reformada por Decreto 158 del 16 de junio de 2025), Ley de Durango (Decreto 580, P.O. 17 de junio de 2021, reformada por Decretos 143 de 2022 y 244 de 2025) las dos leyes de Coahuila (periodistas, 2014; personas defensoras, 2016) y la de Tamaulipas (2017), tratadas en sus propias secciones.
+Este documento acompaña la matriz del comparativo (`datos/comparativo_marco_legal.json`) y se concentra en los dos indicadores que definen el ámbito subjetivo de la protección, es decir, a quién protege cada ley. Las citas son del texto vigente de cada instrumento: Ley federal (DOF 25 de junio de 2012, última reforma 28 de abril de 2022), Ley de Sinaloa (Decreto 154, P.O. 27 de mayo de 2022, reformada por Decreto 158 del 16 de junio de 2025), Ley de Durango (Decreto 580, P.O. 17 de junio de 2021, reformada por Decretos 143 de 2022 y 244 de 2025) las dos leyes de Coahuila (periodistas, 2014; personas defensoras, 2016) la de Tamaulipas (2017) y, como referencia externa, la ley de Honduras (Decreto 34-2015), tratadas en sus propias secciones.
 
 ## Persona defensora de derechos humanos
 
@@ -77,6 +77,18 @@ En agresión las dos leyes de Coahuila divergen. La de periodistas sigue el mold
 ## Tamaulipas: la copia como modelo de coordinación
 
 La ley de Tamaulipas (Decreto LXIII-313, P.O. del 1 de diciembre de 2017, reformada en 2021) reproduce sin cambios las definiciones federales de periodista (art. 2 fr. X) y de persona defensora (art. 2 fr. XI), así como la de agresión (art. 2 fr. I) y el catálogo del artículo 24 federal (art. 10), al que solo añade al representante legal del peticionario. En materia de definiciones no aporta ni quita nada, lo que es coherente con su diseño: la Coordinación Estatal no evalúa riesgos ni dicta medidas de fondo, sino que recibe y turna las solicitudes al Mecanismo federal y ejecuta lo que este resuelve, con la sola novedad de las medidas provisionales estatales mientras la Federación decide.
+
+## Honduras: la referencia externa
+
+La Ley de Protección para las y los Defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia (Decreto 34-2015) permite leer las leyes mexicanas desde fuera. Tres diferencias de definición destacan.
+
+La persona defensora se define por el ejercicio de un derecho y no por una finalidad: "toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos" (art. 5 num. 1), con la precisión de que "entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales". Además, grupos y comunidades pueden ser peticionarios y beneficiarios (art. 5 num. 8 y 9). Son justamente las dos omisiones que comparten todas las leyes mexicanas: la exigencia de finalidad a los colectivos y el silencio sobre las comunidades.
+
+El periodista se define con la misma fórmula funcional que la ley federal mexicana, pero solo para personas naturales, y se nombra a comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos (art. 5 num. 3); la rúbrica "en los Medios de Comunicación" abre una duda de interpretación sobre el periodismo sin medio, que el texto del numeral no resuelve.
+
+La ley protege a un tercer sujeto que no existe en México: los operadores de justicia (policías, fiscales, jueces, magistrados y abogados en función de defensoría, art. 5 num. 2), con el mandato de que el Poder Judicial y el Ministerio Público organicen un mecanismo propio (art. 64).
+
+En agresión ocurre lo contrario: la definición hondureña es la más escueta del conjunto (art. 5 num. 7) y carece del catálogo que el artículo 24 federal agregó; lo compensa con el reconocimiento expreso de que las agresiones pueden provenir de actores estatales o particulares (art. 6).
 
 ## Agresión, como complemento del ámbito subjetivo
 

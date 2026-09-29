@@ -152,7 +152,7 @@ const Graficas = (() => {
   function dibujarNacionales(ctx) {
     ctx.seriesNacionales.series.forEach((s, i) => {
       const labels = s.puntos.map(p => p.fecha);
-      const campos = [["total", "Total", "#1f2a37"], ["periodistas", "Periodistas", "#b91c1c"], ["defensoras", "Personas defensoras", "#c2410c"]]
+      const campos = [["total", "Total", "#1f2a37"], ["periodistas", "Periodistas", "#b91c1c"], ["defensoras", "Personas defensoras", "#8b5cf6"], ["operadores", "Operadores de justicia", "#0f766e"]]
         .filter(([k]) => s.puntos.some(p => p[k] !== null && p[k] !== undefined));
       const anual = labels.every(l => l.length === 4);
       instancias.push(new Chart(document.getElementById(`g-nac-${i}`), {

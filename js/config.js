@@ -17,8 +17,15 @@ const CONFIG = {
   },
   // National map by state, or any state by municipality (one file per state, loaded on demand)
   mapas: {
-    mexico: { nombre: "México", geo: "datos/geo/estados.geojson", nivel: "entidad" },
-    estado: { geo: "datos/geo/municipios/{cve}.geojson", nivel: "municipio" }
+    mexico:   { nombre: "México", geo: "datos/geo/estados.geojson", nivel: "entidad", pais: "MX" },
+    honduras: { nombre: "Honduras", geo: "datos/geo/hn/departamentos.geojson", nivel: "entidad", pais: "HN" },
+    estado:   { geo: "datos/geo/municipios/{cve}.geojson", nivel: "municipio" },
+    estadoHN: { geo: "datos/geo/hn/municipios/{cve}.geojson", nivel: "municipio" }
+  },
+  // Countries: Honduran keys carry an "HN" prefix so they never collide with INEGI codes
+  paises: {
+    MX: { nombre: "México", nacional: "mexico", unidad: "estado", unidades: "Por estado", inicial: "25" },
+    HN: { nombre: "Honduras", nacional: "honduras", unidad: "departamento", unidades: "Por departamento", inicial: "HN08" }
   },
   estadoInicial: "25",
   // Municipal names show at any zoom for small states; large ones need zooming in (levels past the fitted view)

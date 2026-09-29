@@ -4,7 +4,8 @@
     poblacion: {},            // raw population files by path
     seriesNacionales: null,
     geos: {},                 // loaded polygon files by map id
-    mapaId: "mexico",         // "mexico" or a two-digit state code
+    mapaId: "mexico",         // "mexico" | "honduras" | a state code ("25") | a department code ("HN08")
+    pais: "MX",               // country on screen
     estadoCve: CONFIG.estadoInicial,
     eventosVisibles: true,    // "Eventos" switch
     forma: "coropleta",       // "coropleta" | "circulos"
@@ -81,7 +82,7 @@
     if (!localStorage.getItem("observatorio_guia_vista")) { navegar(mostrarGuia, true); localStorage.setItem("observatorio_guia_vista", "1"); }
   } catch (e) { /* storage unavailable */ }
   // Population files load after the first render; the detail window uses them when ready
-  ["datos/poblacion/censos.json", "datos/poblacion/conapo.json"].forEach(r =>
+  ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json"].forEach(r =>
     fresco(r).then(d => { estado.poblacion[r] = d; }).catch(() => {}));
   fresco("datos/series_nacionales.json").then(d => { estado.seriesNacionales = d; }).catch(() => {});
   fresco("datos/comparativo_marco_legal.json").then(d => { estado.comparativo = d; }).catch(() => {});
@@ -125,11 +126,20 @@
     return null;
   }
 
-  // Current map: national by state, or one state by municipality
+  // ---------- countries ----------
+  function paisDeCve(cve) { return cve && String(cve).startsWith("HN") ? "HN" : "MX"; }
+  function nacionalId() { return CONFIG.paises[estado.pais].nacional; }
+  function esNacional(id) { return id === "mexico" || id === "honduras"; }
+  function geoNacional() { return estado.geos[nacionalId()]; }
+
+  // Current map: a national map by state or department, or one of them by municipality
   function mapaActual() {
-    if (estado.mapaId === "mexico") return CONFIG.mapas.mexico;
-    const f = estado.geos.mexico.features.find(x => x.properties.cve_ent === estado.mapaId);
-    return { nombre: f ? f.properties.nombre : estado.mapaId, nivel: "municipio", geo: CONFIG.mapas.estado.geo.replace("{cve}", estado.mapaId) };
+    if (esNacional(estado.mapaId)) return CONFIG.mapas[estado.mapaId];
+    const pais = paisDeCve(estado.mapaId);
+    const nat = estado.geos[CONFIG.paises[pais].nacional];
+    const f = nat && nat.features.find(x => x.properties.cve_ent === estado.mapaId);
+    const plantilla = pais === "HN" ? CONFIG.mapas.estadoHN.geo : CONFIG.mapas.estado.geo;
+    return { nombre: f ? f.properties.nombre : estado.mapaId, nivel: "municipio", geo: plantilla.replace("{cve}", estado.mapaId), pais };
   }
 
   // Each indicator lives in its own file listed in indice.json; merge them into one structure
@@ -159,21 +169,25 @@
     }));
   }
 
+  // Honduras is a unitary state: every department is governed by the national law
   function marcoDe(cve_ent) {
+    if (paisDeCve(cve_ent) === "HN") {
+      const inst = estado.comparativo && estado.comparativo.instrumentos.find(i => i.pais === "HN");
+      return { categoria: "ley_nacional", categoriaNombre: "Ley nacional (Estado unitario)", color: "#1d4ed8",
+        instrumentos: inst ? [{ nombre: inst.nombre, tipo: "ley", anio: 2015, url: inst.url, organo: inst.organo, nota: inst.publicacion }] : [],
+        nota: "Honduras no tiene leyes departamentales; la ley nacional y su Sistema Nacional de Protección rigen en todo el país." };
+    }
     return estado.marcoLegal ? estado.marcoLegal.entidades.find(e => e.cve_ent === cve_ent) : null;
   }
 
   // ---------- top bar ----------
 
   function construirBarra() {
+    document.querySelectorAll("#sel-pais button").forEach(b => b.addEventListener("click", () => cambiarPais(b.dataset.pais)));
     document.querySelectorAll("#sel-mapa button").forEach(b =>
-      b.addEventListener("click", () => cambiarMapa(b.dataset.mapa === "mexico" ? "mexico" : estado.estadoCve)));
+      b.addEventListener("click", () => cambiarMapa(b.dataset.mapa === "nacional" ? nacionalId() : estado.estadoCve)));
     const selEstado = document.getElementById("sel-estado");
-    estado.geos.mexico.features.forEach(f => {
-      const o = document.createElement("option");
-      o.value = f.properties.cve_ent; o.textContent = f.properties.nombre; selEstado.appendChild(o);
-    });
-    selEstado.value = estado.estadoCve;
+    llenarSelectorEstado();
     selEstado.addEventListener("change", () => { estado.estadoCve = selEstado.value; cambiarMapa(selEstado.value); });
     document.querySelectorAll("#sel-forma button").forEach(b =>
       b.addEventListener("click", () => { estado.forma = b.dataset.forma; marcar("#sel-forma", "forma", estado.forma); dibujar(); }));
@@ -206,7 +220,7 @@
     });
     document.getElementById("ayuda").addEventListener("click", () => navegar(mostrarGuia, true));
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
-    document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa("mexico"));
+    document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa(nacionalId()));
     document.getElementById("centrar").addEventListener("click", centrarMapa);
     mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
@@ -310,6 +324,7 @@
           <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Calor" (densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
+          <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado) y Honduras (por departamento). En Honduras la ley es nacional, así que el marco legal de cada departamento lleva al comparativo de la ley hondureña con la federal mexicana.</li>
           <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la federal en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
@@ -376,7 +391,9 @@
       const sel = todos.instrumentos.filter(i => i.id === "federal" || estado.comparativoSel.includes(i.id));
       if (sel.length) { cmp.instrumentos = sel; }
     }
-    const titulo = global ? "Comparativo de instrumentos de protección" : `Comparativo con la ley federal: ${instrumentos.map(i => i.corto).filter(c => c !== "Federal").join(", ")}`;
+    const otros = instrumentos.map(i => i.corto).filter(c => c !== "Federal").join(", ");
+    const titulo = global ? "Comparativo de instrumentos de protección"
+      : instrumentos.some(i => i.pais === "HN") ? `Comparativo con la ley federal mexicana: ${otros}` : `Comparativo con la ley federal: ${otros}`;
     abrirVentana(titulo, "<p class='nota'>Cargando...</p>", "ventana--documento ventana--ancha");
     const cabecera = cmp.instrumentos.map(i => `<th title="${i.nombre}">${i.corto}</th>`).join("");
     const celda = (inst, id) => {
@@ -462,11 +479,36 @@
       b.setAttribute("aria-pressed", String(b.dataset[attr] === valor)));
   }
 
+  // State or department options of the current country
+  function llenarSelectorEstado() {
+    const sel = document.getElementById("sel-estado");
+    sel.innerHTML = "";
+    geoNacional().features.forEach(f => {
+      const o = document.createElement("option");
+      o.value = f.properties.cve_ent; o.textContent = f.properties.nombre; sel.appendChild(o);
+    });
+    sel.value = estado.estadoCve;
+    sel.setAttribute("aria-label", CONFIG.paises[estado.pais].unidad);
+    document.getElementById("btn-unidades").textContent = CONFIG.paises[estado.pais].unidades;
+  }
+
+  async function cambiarPais(p) {
+    if (p === estado.pais) return;
+    estado.pais = p;
+    marcar("#sel-pais", "pais", p);
+    const nat = nacionalId();
+    if (!estado.geos[nat]) estado.geos[nat] = await fresco(CONFIG.mapas[nat].geo);
+    estado.estadoCve = CONFIG.paises[p].inicial;
+    llenarSelectorEstado();
+    construirLabores(); construirSubtemas();
+    await cambiarMapa(nat);
+  }
+
   async function cambiarMapa(id) {
     estado.mapaId = id;
-    if (id !== "mexico") estado.estadoCve = id;
-    marcar("#sel-mapa", "mapa", id === "mexico" ? "mexico" : "estado");
-    document.getElementById("sel-estado").disabled = id === "mexico";
+    if (!esNacional(id)) estado.estadoCve = id;
+    marcar("#sel-mapa", "mapa", esNacional(id) ? "nacional" : "estado");
+    document.getElementById("sel-estado").disabled = esNacional(id);
     const m = mapaActual();
     document.getElementById("cargando").hidden = false;
     try {
@@ -474,7 +516,8 @@
     } finally {
       document.getElementById("cargando").hidden = true;
     }
-    document.getElementById("volver-mexico").hidden = id === "mexico";
+    document.getElementById("volver-mexico").hidden = esNacional(id);
+    document.getElementById("volver-mexico").textContent = `← ${CONFIG.paises[estado.pais].nombre}`;
     document.getElementById("sel-estado").value = estado.estadoCve;
     capaPoligonos.clearLayers();
     capaPoligonos.addData(estado.geos[id]);
@@ -542,7 +585,7 @@
     cont.innerHTML = "";
     const bloque = document.getElementById("bloque-labores");
     if (!temaActivo("periodistas") || estado.grupo === "periodista") { bloque.hidden = true; estado.labor = "todos"; return; }
-    const presentes = new Set(estado.eventos.filter(e => e.tema === "periodistas" && e.grupo === "defensor").map(e => e.labor).filter(Boolean));
+    const presentes = new Set(estado.eventos.filter(e => e.tema === "periodistas" && e.grupo === "defensor" && (e.pais || "MX") === estado.pais).map(e => e.labor).filter(Boolean));
     if (!presentes.has(estado.labor)) estado.labor = "todos";
     bloque.hidden = presentes.size === 0;
     [["todos", "Todas"], ...Object.entries(CONFIG.labores).filter(([k]) => presentes.has(k))].forEach(([id, nombre]) => {
@@ -567,7 +610,7 @@
   function construirSubtemas() {
     const cont = document.getElementById("subtemas");
     cont.innerHTML = "";
-    const presentes = new Set(estado.eventos.filter(e => temaActivo(e.tema) && (e.tema !== "periodistas" || (grupoActivo(e.grupo) && laborActiva(e)))).map(e => e.subtema).filter(Boolean));
+    const presentes = new Set(estado.eventos.filter(e => (e.pais || "MX") === estado.pais && temaActivo(e.tema) && (e.tema !== "periodistas" || (grupoActivo(e.grupo) && laborActiva(e)))).map(e => e.subtema).filter(Boolean));
     if (!presentes.has(estado.subtema)) estado.subtema = "todos";
     [["todos", "Todos"], ...Object.entries(CONFIG.subtemas).filter(([k]) => presentes.has(k))].forEach(([id, nombre]) => {
       const b = document.createElement("button");
@@ -791,7 +834,8 @@
       eventos: estado.eventos.filter(eventoVisible), temas: CONFIG.temas, indicador: def, valores, series,
       color: def && def.tema ? CONFIG.temas[def.tema].color : "#1f2a37", coloresCategoria: estado.coloresCategoria,
       mapaNombre: mapaActual().nombre, periodoTexto: textoPeriodo(), nombreFuente,
-      abrirVentana, cargarScript, seriesNacionales: estado.seriesNacionales,
+      abrirVentana, cargarScript,
+      seriesNacionales: estado.seriesNacionales ? { ...estado.seriesNacionales, series: estado.seriesNacionales.series.filter(s => (s.pais || "MX") === estado.pais) } : null,
       aplicarPeriodo: (d, h) => {
         estado.desde = d; estado.hasta = h;
         document.getElementById("desde").value = d; document.getElementById("hasta").value = h;
@@ -854,7 +898,7 @@
     if (capaCalor) { mapa.removeLayer(capaCalor); capaCalor = null; }
     capaBaseCalor.clearLayers();
     if (!document.getElementById("calor").checked || !L.heatLayer) return;
-    const limite = estado.mapaId === "mexico" ? estado.geos.mexico : { type: "FeatureCollection", features: estado.geos.mexico.features.filter(f => f.properties.cve_ent === estado.mapaId) };
+    const limite = esNacional(estado.mapaId) ? geoNacional() : { type: "FeatureCollection", features: geoNacional().features.filter(f => f.properties.cve_ent === estado.mapaId) };
     capaBaseCalor.addLayer(L.geoJSON(limite, { pane: "calor", interactive: false, style: { stroke: false, fillColor: "#2563eb", fillOpacity: 0.42 } }));
     const puntos = estado.eventos.filter(eventoVisible).map(e => [e.lat, e.lon, 1]);
     capaCalor = L.heatLayer(puntos.length ? puntos : [[0, 0, 0]], { pane: "calor", radius: 30, blur: 24, minOpacity: 0.55, maxZoom: 9,
@@ -924,8 +968,9 @@
     if (e.tema === "periodistas" && !subtemaActivo(e.subtema, true)) return false;
     if (e.tema === "periodistas" && estado.genero !== "todos" && e.genero !== estado.genero) return false;
     if (e.tema === "periodistas" && !laborActiva(e)) return false;
+    if ((e.pais || "MX") !== estado.pais) return false;
     // On a state map only the events inside that state are shown
-    if (estado.mapaId !== "mexico" && !dentroDeEstado(e)) return false;
+    if (!esNacional(estado.mapaId) && !dentroDeEstado(e)) return false;
     if (!estado.verifActivas.has(e.verificacion)) return false;
     const mes = e.fecha.slice(0, 7);
     if (estado.desde && mes < estado.desde) return false;
@@ -946,7 +991,7 @@
     const grupos = {};
     visibles.forEach(e => { const k = `${e.lat},${e.lon}`; (grupos[k] = grupos[k] || []).push(e); });
     const poligonoDe = {};
-    const estadoDe = ll => (estado.geos.mexico ? estado.geos.mexico.features.find(f => dentro([ll[1], ll[0]], f.geometry)) : null);
+    const estadoDe = ll => (geoNacional() ? geoNacional().features.find(f => dentro([ll[1], ll[0]], f.geometry)) : null);
     const posicion = e => {
       const k = `${e.lat},${e.lon}`, g = grupos[k];
       if (g.length === 1) return [e.lat, e.lon];
@@ -982,7 +1027,7 @@
   // Municipal values are restricted to the state currently shown
   function valoresDe(id, nivel) {
     return estado.indicadores.valores.filter(v =>
-      v.indicador === id && (nivel === "municipio" ? !!v.cve_mun && v.cve_ent === estado.mapaId : !v.cve_mun));
+      v.indicador === id && (nivel === "municipio" ? !!v.cve_mun && v.cve_ent === estado.mapaId : !v.cve_mun && paisDeCve(v.cve_ent) === estado.pais));
   }
 
   function claveDe(props) {
@@ -1303,31 +1348,33 @@
       return `<li><span class="detalle__tema" style="--tema:${CONFIG.temas[d.tema].color}">${CONFIG.temas[d.tema].nombre}</span><br>${d.nombre}: <strong>${v.valor.toLocaleString("es-MX")}</strong> ${d.unidad} (${v.periodo})${v.ejemplo ? " <span class='badge badge--ejemplo'>ejemplo</span>" : ""}</li>`;
     }).join("");
     const anioActual = new Date().getFullYear();
-    const cen = estado.poblacion["datos/poblacion/censos.json"];
+    const esHN = paisDeCve(p.cve_ent) === "HN";
+    const cen = estado.poblacion[esHN ? "datos/poblacion/censos_hn.json" : "datos/poblacion/censos.json"];
     let htmlPob = "";
     // Population shows in the detail even though the theme itself is hidden from the menus
     if (cen) {
       const filas = (nivel === "municipio" ? cen.municipios[p.cve_ent + p.cve_mun] : cen.entidades[p.cve_ent]);
-      const est = poblacionDe(p.cve_ent, nivel === "municipio" ? p.cve_mun : null, anioActual);
+      const est = esHN ? null : poblacionDe(p.cve_ent, nivel === "municipio" ? p.cve_mun : null, anioActual);
       if (filas) {
         let ultimo = -1;
         cen.periodos.forEach((per, i) => { if (filas[i]) ultimo = i; });
         htmlPob = `<h4 class="detalle__sub">Población</h4>
-          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (INEGI): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? ` · Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
+          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (${esHN ? "INE Honduras" : "INEGI"}): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? ` · Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
       }
     }
     const marco = nivel === "municipio" || !temaActivo("periodistas") ? null : marcoDe(p.cve_ent);
-    const instrumentosEstado = marco && estado.comparativo ? estado.comparativo.instrumentos.filter(i => i.cve_ent === p.cve_ent).map(i => i.id) : [];
+    const instrumentosEstado = marco && estado.comparativo ? estado.comparativo.instrumentos
+      .filter(i => i.cve_ent === p.cve_ent || (paisDeCve(p.cve_ent) === "HN" && i.pais === "HN")).map(i => i.id) : [];
     const codificado = instrumentosEstado.length > 0;
     let htmlMarco = "";
     if (marco) {
-      const cat = estado.marcoLegal.categorias[marco.categoria];
+      const cat = marco.categoriaNombre || estado.marcoLegal.categorias[marco.categoria];
       const items = marco.instrumentos.map(i => {
         const nombre = i.url ? `<a href="${i.url}" target="_blank" rel="noopener">${i.nombre}</a>` : i.nombre;
         const meta = [i.tipo, i.anio, i.organo].filter(Boolean).join(" · ");
         return `<li>${nombre}<br><small>${meta}${i.nota ? ". " + i.nota : ""}</small></li>`;
       }).join("");
-      htmlMarco = `<p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${(estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
+      htmlMarco = `<p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${marco.color || (estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
         ${items ? `<ul class="lista lista--marco">${items}</ul>` : ""}
         ${marco.nota ? `<p class="nota">${marco.nota}</p>` : ""}
         ${codificado ? `<p><button type="button" class="enlace" id="detalle-comparativo">Ver comparativo con la ley federal</button></p>` : marco.instrumentos.length ? `<p class="nota">Este instrumento aún no está codificado en el comparativo.</p>` : ""}`;
@@ -1397,7 +1444,7 @@
   }
 
   function dentroDeEstado(e) {
-    const f = estado.geos.mexico && estado.geos.mexico.features.find(x => x.properties.cve_ent === estado.mapaId);
+    const f = geoNacional() && geoNacional().features.find(x => x.properties.cve_ent === estado.mapaId);
     return f ? dentro([e.lon, e.lat], f.geometry) : true;
   }
 
