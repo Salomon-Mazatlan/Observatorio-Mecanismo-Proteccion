@@ -805,17 +805,28 @@
   function dibujarEventos() {
     let n = 0;
     const visibles = estado.eventos.filter(eventoVisible);
-    // Events stacked on one point (records that only give the state) are spread on a small ring
+    // Events stacked on one point (records that only give the state) are spread on a sunflower
+    // spiral around it, skipping any slot that falls outside the state polygon, so no marker
+    // ends up in the sea or in a neighbouring state whatever the zoom
     const grupos = {};
     visibles.forEach(e => { const k = `${e.lat},${e.lon}`; (grupos[k] = grupos[k] || []).push(e); });
+    const poligonoDe = {};
+    const estadoDe = ll => (estado.geos.mexico ? estado.geos.mexico.features.find(f => dentro([ll[1], ll[0]], f.geometry)) : null);
     const posicion = e => {
-      const g = grupos[`${e.lat},${e.lon}`];
+      const k = `${e.lat},${e.lon}`, g = grupos[k];
       if (g.length === 1) return [e.lat, e.lon];
-      const i = g.indexOf(e), anillo = Math.floor(Math.sqrt(i)), enAnillo = anillo * 2 + 1, idx = i - anillo * anillo;
-      const radio = 9 + anillo * 9, ang = (2 * Math.PI * idx) / enAnillo;
-      const p = mapa.latLngToContainerPoint([e.lat, e.lon]);
-      const ll = mapa.containerPointToLatLng([p.x + radio * Math.cos(ang), p.y + radio * Math.sin(ang)]);
-      return [ll.lat, ll.lng];
+      if (!(k in poligonoDe)) poligonoDe[k] = estadoDe([e.lat, e.lon]);
+      const pol = poligonoDe[k];
+      const i = g.indexOf(e);
+      const base = mapa.latLngToContainerPoint([e.lat, e.lon]);
+      const paso = 9, dorado = Math.PI * (3 - Math.sqrt(5));
+      let intento = i;
+      for (let vueltas = 0; vueltas < 400; vueltas++, intento += g.length) {
+        const r = paso * Math.sqrt(intento + 1), ang = intento * dorado;
+        const ll = mapa.containerPointToLatLng([base.x + r * Math.cos(ang), base.y + r * Math.sin(ang)]);
+        if (!pol || dentro([ll.lng, ll.lat], pol.geometry)) return [ll.lat, ll.lng];
+      }
+      return [e.lat, e.lon];
     };
     visibles.forEach(e => {
       n++;
