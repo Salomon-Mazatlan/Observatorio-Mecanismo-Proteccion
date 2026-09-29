@@ -15,8 +15,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "indigena"
+  "labor": "indigena",
+  "genero": "masculino"
  },
  {
   "id": "ev-045",
@@ -34,7 +34,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-046",
@@ -52,7 +52,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-047",
@@ -70,7 +70,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "proteccion",
-  "sexo": "no aplica"
+  "genero": "no aplica"
  },
  {
   "id": "ev-048",
@@ -88,7 +88,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "agresion",
-  "sexo": "no determinado"
+  "genero": "no determinado"
  },
  {
   "id": "ev-049",
@@ -106,7 +106,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-050",
@@ -124,7 +124,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "desaparicion",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-051",
@@ -142,7 +142,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-052",
@@ -160,7 +160,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "amenaza",
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-053",
@@ -178,7 +178,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-054",
@@ -196,7 +196,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-055",
@@ -214,7 +214,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-056",
@@ -232,7 +232,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "acoso_judicial",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-057",
@@ -250,7 +250,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "acoso_judicial",
-  "sexo": "no determinado"
+  "genero": "no determinado"
  },
  {
   "id": "ev-058",
@@ -268,7 +268,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-059",
@@ -286,7 +286,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "agresion",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-060",
@@ -304,8 +304,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-061",
@@ -323,8 +323,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-062",
@@ -342,7 +342,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "informe",
-  "sexo": "no aplica"
+  "genero": "no aplica"
  },
  {
   "id": "ev-063",
@@ -360,7 +360,7 @@
   "ejemplo": false,
   "grupo": "ambos",
   "subtema": "agresion",
-  "sexo": "no determinado"
+  "genero": "no determinado"
  },
  {
   "id": "ev-064",
@@ -378,7 +378,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "proteccion",
-  "sexo": "no aplica"
+  "genero": "no aplica"
  },
  {
   "id": "ev-065",
@@ -396,7 +396,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-066",
@@ -414,7 +414,7 @@
   "ejemplo": false,
   "grupo": "ambos",
   "subtema": "proteccion",
-  "sexo": "no aplica"
+  "genero": "no aplica"
  },
  {
   "id": "ev-067",
@@ -432,7 +432,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-068",
@@ -450,7 +450,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-069",
@@ -468,7 +468,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-070",
@@ -486,7 +486,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "ataque_medio",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-071",
@@ -504,7 +504,7 @@
   "ejemplo": false,
   "grupo": "periodista",
   "subtema": "asesinato",
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-072",
@@ -522,7 +522,7 @@
   "ejemplo": false,
   "grupo": "ambos",
   "subtema": "informe",
-  "sexo": "no aplica"
+  "genero": "no aplica"
  },
  {
   "id": "ev-073",
@@ -540,8 +540,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "femenino"
  },
  {
   "id": "ev-074",
@@ -559,8 +559,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-075",
@@ -578,8 +578,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-076",
@@ -597,8 +597,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-077",
@@ -616,8 +616,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-078",
@@ -635,8 +635,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "femenino"
  },
  {
   "id": "ev-079",
@@ -654,8 +654,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-080",
@@ -673,8 +673,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-081",
@@ -692,8 +692,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-082",
@@ -711,8 +711,8 @@
   "ejemplo": false,
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
-  "labor": "ambiental"
+  "labor": "ambiental",
+  "genero": "masculino"
  },
  {
   "id": "ev-083",
@@ -730,7 +730,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-084",
@@ -748,7 +748,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-085",
@@ -766,7 +766,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-086",
@@ -784,7 +784,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-087",
@@ -802,7 +802,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-088",
@@ -820,7 +820,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-089",
@@ -838,7 +838,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-090",
@@ -856,7 +856,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-091",
@@ -874,7 +874,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-092",
@@ -892,7 +892,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-093",
@@ -910,7 +910,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-094",
@@ -928,7 +928,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-095",
@@ -946,7 +946,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-096",
@@ -964,7 +964,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-097",
@@ -982,7 +982,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-098",
@@ -1000,7 +1000,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-099",
@@ -1018,7 +1018,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-100",
@@ -1036,7 +1036,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-101",
@@ -1054,7 +1054,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-102",
@@ -1072,7 +1072,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-103",
@@ -1090,7 +1090,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-104",
@@ -1108,7 +1108,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-105",
@@ -1126,7 +1126,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-106",
@@ -1144,7 +1144,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-107",
@@ -1162,7 +1162,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-108",
@@ -1180,7 +1180,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-109",
@@ -1198,7 +1198,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-110",
@@ -1216,7 +1216,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-111",
@@ -1234,7 +1234,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-112",
@@ -1252,7 +1252,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-113",
@@ -1270,7 +1270,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-114",
@@ -1288,7 +1288,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-115",
@@ -1306,7 +1306,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-116",
@@ -1324,7 +1324,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-117",
@@ -1342,7 +1342,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-118",
@@ -1360,7 +1360,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-119",
@@ -1378,7 +1378,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-120",
@@ -1396,7 +1396,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-121",
@@ -1414,7 +1414,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-122",
@@ -1432,7 +1432,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-123",
@@ -1450,7 +1450,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-124",
@@ -1468,7 +1468,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-125",
@@ -1486,7 +1486,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-126",
@@ -1504,7 +1504,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-127",
@@ -1522,7 +1522,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-128",
@@ -1540,7 +1540,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-129",
@@ -1558,7 +1558,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-130",
@@ -1576,7 +1576,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-131",
@@ -1594,7 +1594,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-132",
@@ -1612,7 +1612,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-133",
@@ -1630,7 +1630,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-134",
@@ -1648,7 +1648,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-135",
@@ -1666,7 +1666,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-136",
@@ -1684,7 +1684,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-137",
@@ -1702,7 +1702,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-138",
@@ -1720,7 +1720,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-139",
@@ -1738,7 +1738,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-140",
@@ -1756,7 +1756,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-141",
@@ -1774,7 +1774,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-142",
@@ -1792,7 +1792,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-143",
@@ -1810,7 +1810,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-144",
@@ -1828,7 +1828,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-145",
@@ -1846,7 +1846,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-146",
@@ -1864,7 +1864,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-147",
@@ -1882,7 +1882,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-148",
@@ -1900,7 +1900,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-149",
@@ -1918,7 +1918,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-150",
@@ -1936,7 +1936,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-151",
@@ -1954,7 +1954,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-152",
@@ -1972,7 +1972,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-153",
@@ -1990,7 +1990,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-154",
@@ -2008,7 +2008,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-155",
@@ -2026,7 +2026,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-156",
@@ -2044,7 +2044,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-157",
@@ -2062,7 +2062,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-158",
@@ -2080,7 +2080,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-159",
@@ -2098,7 +2098,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-160",
@@ -2116,7 +2116,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-161",
@@ -2134,7 +2134,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-162",
@@ -2152,7 +2152,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-163",
@@ -2170,7 +2170,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-164",
@@ -2188,7 +2188,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-165",
@@ -2206,7 +2206,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-166",
@@ -2224,7 +2224,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-167",
@@ -2242,7 +2242,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-168",
@@ -2260,7 +2260,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-169",
@@ -2278,7 +2278,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-170",
@@ -2296,7 +2296,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-171",
@@ -2314,7 +2314,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-172",
@@ -2332,7 +2332,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-173",
@@ -2350,7 +2350,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-174",
@@ -2368,7 +2368,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-175",
@@ -2386,7 +2386,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-176",
@@ -2404,7 +2404,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-177",
@@ -2422,7 +2422,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-178",
@@ -2440,7 +2440,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-179",
@@ -2458,7 +2458,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-180",
@@ -2476,7 +2476,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-181",
@@ -2494,7 +2494,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-182",
@@ -2512,7 +2512,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-183",
@@ -2530,7 +2530,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-184",
@@ -2548,7 +2548,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-185",
@@ -2566,7 +2566,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-186",
@@ -2584,7 +2584,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-187",
@@ -2602,7 +2602,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-188",
@@ -2620,7 +2620,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-189",
@@ -2638,7 +2638,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-190",
@@ -2656,7 +2656,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-191",
@@ -2674,7 +2674,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-192",
@@ -2692,7 +2692,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-193",
@@ -2710,7 +2710,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-194",
@@ -2728,7 +2728,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-195",
@@ -2746,7 +2746,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-196",
@@ -2764,7 +2764,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-197",
@@ -2782,7 +2782,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-198",
@@ -2800,7 +2800,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-199",
@@ -2818,7 +2818,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-200",
@@ -2836,7 +2836,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-201",
@@ -2854,7 +2854,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-202",
@@ -2872,7 +2872,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-203",
@@ -2890,7 +2890,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-204",
@@ -2908,7 +2908,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-205",
@@ -2926,7 +2926,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-206",
@@ -2944,7 +2944,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-207",
@@ -2962,7 +2962,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-208",
@@ -2980,7 +2980,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-209",
@@ -2998,7 +2998,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-210",
@@ -3016,7 +3016,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-211",
@@ -3034,7 +3034,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-212",
@@ -3052,7 +3052,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-213",
@@ -3070,7 +3070,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-214",
@@ -3088,7 +3088,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-215",
@@ -3106,7 +3106,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-216",
@@ -3124,7 +3124,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-217",
@@ -3142,7 +3142,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-218",
@@ -3160,7 +3160,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-219",
@@ -3178,7 +3178,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-220",
@@ -3196,7 +3196,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-221",
@@ -3214,7 +3214,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-222",
@@ -3232,7 +3232,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-223",
@@ -3250,7 +3250,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-224",
@@ -3268,7 +3268,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-225",
@@ -3286,7 +3286,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-226",
@@ -3304,7 +3304,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-227",
@@ -3322,7 +3322,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-228",
@@ -3340,7 +3340,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-229",
@@ -3358,7 +3358,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-230",
@@ -3376,7 +3376,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-231",
@@ -3394,7 +3394,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-232",
@@ -3412,7 +3412,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-233",
@@ -3430,7 +3430,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-237",
@@ -3448,7 +3448,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-238",
@@ -3466,7 +3466,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-239",
@@ -3484,7 +3484,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-240",
@@ -3502,7 +3502,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-241",
@@ -3520,7 +3520,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-242",
@@ -3538,7 +3538,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-243",
@@ -3556,7 +3556,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-244",
@@ -3574,7 +3574,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-245",
@@ -3592,7 +3592,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-246",
@@ -3610,7 +3610,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-247",
@@ -3628,7 +3628,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-248",
@@ -3646,7 +3646,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-249",
@@ -3664,7 +3664,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-250",
@@ -3682,7 +3682,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-251",
@@ -3700,7 +3700,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-252",
@@ -3718,7 +3718,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-253",
@@ -3736,7 +3736,7 @@
   "url": "https://articulo19.org/periodistasasesinados/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-254",
@@ -3754,7 +3754,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-255",
@@ -3772,7 +3772,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-256",
@@ -3790,7 +3790,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-257",
@@ -3808,7 +3808,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-258",
@@ -3826,7 +3826,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-259",
@@ -3844,7 +3844,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-260",
@@ -3862,7 +3862,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-261",
@@ -3880,7 +3880,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-262",
@@ -3898,7 +3898,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-263",
@@ -3916,7 +3916,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-264",
@@ -3934,7 +3934,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-265",
@@ -3952,7 +3952,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-266",
@@ -3970,7 +3970,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-267",
@@ -3988,7 +3988,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-268",
@@ -4006,7 +4006,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-269",
@@ -4024,7 +4024,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-270",
@@ -4042,7 +4042,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-271",
@@ -4060,7 +4060,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-272",
@@ -4078,7 +4078,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-273",
@@ -4096,7 +4096,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-274",
@@ -4114,7 +4114,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-275",
@@ -4132,7 +4132,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "femenino"
+  "genero": "femenino"
  },
  {
   "id": "ev-276",
@@ -4150,7 +4150,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-277",
@@ -4168,7 +4168,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-278",
@@ -4186,7 +4186,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-279",
@@ -4204,7 +4204,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-280",
@@ -4222,7 +4222,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-281",
@@ -4240,7 +4240,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-282",
@@ -4258,7 +4258,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-283",
@@ -4276,7 +4276,7 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-284",
@@ -4294,14 +4294,13 @@
   "url": "https://articulo19.org/periodistasdesaparecidos/",
   "verificacion": "organización",
   "ejemplo": false,
-  "sexo": "masculino"
+  "genero": "masculino"
  },
  {
   "id": "ev-285",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-02-08",
@@ -4313,14 +4312,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/nacional/2025/09/02/2025-el-ano-mas-mortal-para-padres-y-madres-buscadoras-en-mexico/",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-286",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-03-10",
@@ -4332,14 +4331,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/estados/2025/03/11/denuncian-el-asesinato-de-magdaleno-perez-santes-padre-buscador-a-manos-de-policias-de-poza-rica/",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-287",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-03-27",
@@ -4351,14 +4350,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.eluniversal.com.mx/estados/la-buscadora-teresa-gonzalez-murillo-recibio-3-amenazas-de-muerte-antes-de-ser-asesinada-colectivo-buscaba-proteccion-federal/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-288",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-04-24",
@@ -4370,14 +4369,14 @@
   "fuente": "infobae",
   "url": "https://www.infobae.com/mexico/2025/04/24/asesinan-a-la-madre-buscadora-maria-del-carmen-morales-junto-a-su-hijo-en-jalisco-colectivo-exige-justicia/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-289",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "desaparicion",
-  "sexo": "masculino",
   "labor": "busqueda",
   "tipo": "desaparición de persona defensora",
   "fecha": "2025-06-09",
@@ -4389,14 +4388,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/estados/2025/06/10/secuestran-a-jose-arias-padre-buscador-en-guanajuato-colectivo-hasta-encontrarte-pide-ayuda/",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-290",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-08-11",
@@ -4408,14 +4407,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/nacional/2025/09/02/2025-el-ano-mas-mortal-para-padres-y-madres-buscadoras-en-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-291",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-08-26",
@@ -4427,14 +4426,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/estados/2025/08/29/asesinan-a-la-madre-buscadora-karina-juarez-en-slp-buscaba-a-su-hija-desaparecida-en-zacatecas/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-292",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "desaparicion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "desaparición de persona defensora",
   "fecha": "2025-10-13",
@@ -4446,14 +4445,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-293",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "desaparicion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "desaparición de persona defensora",
   "fecha": "2025-11-19",
@@ -4465,14 +4464,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-294",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-11-22",
@@ -4484,14 +4483,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-295",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "agresión física",
   "fecha": "2025-12-14",
@@ -4503,14 +4502,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-296",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-02-27",
@@ -4522,14 +4521,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.elfinanciero.com.mx/nacional/2026/02/27/rubi-patricia-madre-buscadora-es-hallada-asesinada-en-una-vivienda-en-el-norte-de-mexico/",
   "verificacion": "oficial",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-297",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-03-14",
@@ -4541,14 +4540,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-298",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-05-09",
@@ -4560,14 +4559,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-299",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-06-23",
@@ -4579,14 +4578,14 @@
   "fuente": "unotv",
   "url": "https://www.unotv.com/estados/guanajuato/asesinan-madre-buscadora-guanajuato-penjamo-junio-2026/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-300",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "desaparicion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "desaparición de persona defensora",
   "fecha": "2026-08-27",
@@ -4598,14 +4597,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-301",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "agresión física",
   "fecha": "2026-08-28",
@@ -4617,14 +4616,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-302",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "agresión física",
   "fecha": "2026-09-01",
@@ -4636,14 +4635,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-303",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "agresión física",
   "fecha": "2026-09-09",
@@ -4655,14 +4654,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-304",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "busqueda",
   "tipo": "agresión física",
   "fecha": "2025-10-07",
@@ -4674,14 +4673,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-305",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
   "labor": "indigena",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-01-17",
@@ -4693,14 +4692,14 @@
   "fuente": "proceso",
   "url": "https://es.wikipedia.org/wiki/Anexo:Activistas_asesinados_en_M%C3%A9xico",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-306",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "indigena",
   "tipo": "agresión física",
   "fecha": "2025-06-04",
@@ -4712,14 +4711,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-307",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "acoso_judicial",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "acoso judicial",
   "fecha": "2025-06-20",
@@ -4731,14 +4730,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-308",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "no aplica",
   "labor": "indigena",
   "tipo": "agresión física",
   "fecha": "2025-07-01",
@@ -4750,14 +4749,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  },
  {
   "id": "ev-309",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "amenaza",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "amenaza",
   "fecha": "2025-08-20",
@@ -4769,14 +4768,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-310",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "amenaza",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "amenaza",
   "fecha": "2025-10-05",
@@ -4788,14 +4787,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-311",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "masculino",
   "labor": "ambiental",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2025-11-06",
@@ -4807,14 +4806,14 @@
   "fuente": "jornada",
   "url": "https://www.jornada.com.mx/noticia/2026/04/18/estados/asesinan-a-defensor-de-recursos-naturales-en-michoacan-suman-dos-ambientalistas-muertos-en-una-semana",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-312",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "masculino",
   "labor": "ambiental",
   "tipo": "agresión física",
   "fecha": "2025-11-15",
@@ -4826,14 +4825,14 @@
   "fuente": "grupoanimal",
   "url": "https://grupoanimal.mx/sociedad/ambientalistas-asesinados-semana-michoacan",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-313",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-03-19",
@@ -4845,14 +4844,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-314",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "agresión física",
   "fecha": "2026-04-14",
@@ -4864,14 +4863,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-315",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "masculino",
   "labor": "ambiental",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-04-16",
@@ -4883,14 +4882,14 @@
   "fuente": "proceso",
   "url": "https://es.wikipedia.org/wiki/Anexo:Activistas_asesinados_en_M%C3%A9xico",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "masculino"
  },
  {
   "id": "ev-316",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "agresión física",
   "fecha": "2026-04-27",
@@ -4902,14 +4901,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-317",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "femenino",
   "labor": "ambiental",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2026-08-03",
@@ -4921,14 +4920,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-318",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "femenino",
   "labor": "mujeres",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2025-03-13",
@@ -4940,14 +4939,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-319",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "femenino",
   "labor": "indigena",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2025-04-22",
@@ -4959,14 +4958,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-320",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "mujeres",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-04-25",
@@ -4978,14 +4977,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-321",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "no aplica",
   "labor": "mujeres",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2025-06-22",
@@ -4997,14 +4996,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  },
  {
   "id": "ev-322",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "femenino",
   "labor": "organizacion",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2025-07-23",
@@ -5016,14 +5015,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-323",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "lgbt",
   "tipo": "asesinato de persona defensora",
   "fecha": "2025-08-09",
@@ -5035,14 +5034,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "lgbt"
  },
  {
   "id": "ev-324",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "mujeres",
   "tipo": "agresión física",
   "fecha": "2025-09-28",
@@ -5054,14 +5053,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-325",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "desaparicion",
-  "sexo": "femenino",
   "labor": "lgbt",
   "tipo": "desaparición de persona defensora",
   "fecha": "2025-10-27",
@@ -5073,14 +5072,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "lgbt"
  },
  {
   "id": "ev-326",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "mujeres",
   "tipo": "agresión física",
   "fecha": "2026-02-07",
@@ -5092,14 +5091,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-327",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "ataque_medio",
-  "sexo": "no aplica",
   "labor": "migracion",
   "tipo": "ataque a domicilio u oficina",
   "fecha": "2026-03-20",
@@ -5111,14 +5110,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  },
  {
   "id": "ev-328",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "animales",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-03-25",
@@ -5130,14 +5129,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-329",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "agresion",
-  "sexo": "femenino",
   "labor": "mujeres",
   "tipo": "agresión física",
   "fecha": "2026-06-13",
@@ -5149,14 +5148,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-330",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "acoso_judicial",
-  "sexo": "femenino",
   "labor": "indigena",
   "tipo": "acoso judicial",
   "fecha": "2026-07-15",
@@ -5168,14 +5167,14 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-331",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "asesinato",
-  "sexo": "femenino",
   "labor": "civil",
   "tipo": "asesinato de persona defensora",
   "fecha": "2026-03-26",
@@ -5187,14 +5186,14 @@
   "fuente": "proceso",
   "url": "https://es.wikipedia.org/wiki/Anexo:Activistas_asesinados_en_M%C3%A9xico",
   "verificacion": "prensa",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "femenino"
  },
  {
   "id": "ev-332",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "informe",
-  "sexo": "no aplica",
   "labor": "busqueda",
   "tipo": "informe",
   "fecha": "2026-06-29",
@@ -5206,14 +5205,14 @@
   "fuente": "elfinanciero",
   "url": "https://www.yucatan.com.mx/mexico/2026/06/29/asesinatos-personas-buscadoras-periodistas-dos-rostros-una-misma-crisis.html",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  },
  {
   "id": "ev-333",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "informe",
-  "sexo": "no aplica",
   "labor": "ambiental",
   "tipo": "informe",
   "fecha": "2026-05-03",
@@ -5225,14 +5224,14 @@
   "fuente": "grupoanimal",
   "url": "https://grupoanimal.mx/explicaciones/defensores-ambientales-asesinados-mexico",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  },
  {
   "id": "ev-334",
   "tema": "periodistas",
   "grupo": "defensor",
   "subtema": "informe",
-  "sexo": "no aplica",
   "labor": "busqueda",
   "tipo": "informe",
   "fecha": "2026-03-02",
@@ -5244,6 +5243,7 @@
   "fuente": "im-defensoras",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "verificacion": "organización",
-  "ejemplo": false
+  "ejemplo": false,
+  "genero": "no aplica"
  }
 ]

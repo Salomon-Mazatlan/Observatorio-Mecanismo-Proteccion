@@ -39,7 +39,7 @@ const Exportar = (() => {
     dibujarTiles(ctx, mapa);
     // Leaflet's default is "overlayPane"; custom panes keep their own name
     const paneDe = l => ((l.options && l.options.pane) || "overlay").replace(/Pane$/, "");
-    const orden = ["poligonos", "calor", "overlay", "etiquetas"];
+    const orden = ["poligonos", "calor", "overlay", "marker", "etiquetas"];
     orden.forEach(pane => {
       capas.forEach(g => g.eachLayer(l => { if (paneDe(l) === pane) dibujarGrupoOVector(ctx, mapa, l); }));
       if (pane === "calor") dibujarLienzos(ctx, mapa);
@@ -114,6 +114,18 @@ const Exportar = (() => {
   }
 
   function dibujarVector(ctx, mapa, l) {
+    if (l.options && l.options.pastel) {
+      const p = mapa.latLngToContainerPoint(l.getLatLng()), { r, partes } = l.options.pastel;
+      let ang = -Math.PI / 2;
+      partes.forEach(s => {
+        const a2 = ang + s.frac * 2 * Math.PI;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, r, ang, a2); ctx.closePath();
+        ctx.globalAlpha = 0.85; ctx.fillStyle = s.color; ctx.fill(); ctx.globalAlpha = 1;
+        ang = a2;
+      });
+      ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 2 * Math.PI); ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.2; ctx.stroke();
+      return;
+    }
     const o = l.options;
     if (o.etiqueta) {
       const p = mapa.latLngToContainerPoint(l.getLatLng());

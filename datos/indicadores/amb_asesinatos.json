@@ -7,7 +7,8 @@
   "fuente": "cemda",
   "nota": "Informe CEMDA 2025; diez homicidios vinculados a la defensa ambiental (25 en 2024). Las diez personas aparecen como eventos en el mapa",
   "grupo": "defensor",
-  "subtema": "asesinato"
+  "subtema": "asesinato",
+  "oculto": true
  },
  "valores": [
   {

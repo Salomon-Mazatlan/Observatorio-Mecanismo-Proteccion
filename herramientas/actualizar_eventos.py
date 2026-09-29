@@ -26,11 +26,11 @@ HOJA = "eventos"
 
 TEMAS = {"migracion", "desplazamiento", "desaparicion", "periodistas", "contexto"}
 GRUPOS = {"periodista", "defensor", "ambos"}
-SEXOS = {"femenino", "masculino", "no determinado", "no aplica"}
+GENEROS = {"femenino", "masculino", "lgbt", "no determinado", "no aplica"}
 LABORES = {"busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"}
 SUBTEMAS = {"asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio", "proteccion", "informe"}
 VERIFICACION = {"oficial", "organización", "campo", "prensa", "sin verificar"}
-COLUMNAS = ["id", "tema", "grupo", "subtema", "sexo", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
+COLUMNAS = ["id", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
             "descripcion", "fuente", "url", "verificacion", "ejemplo"]
 OBLIGATORIAS = ["tema", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "fuente", "verificacion"]
 
@@ -90,9 +90,9 @@ def validar(registros, fuentes_ids):
         subtema = texto(r["subtema"]).lower()
         if subtema and subtema not in SUBTEMAS:
             e.append(f"subtema '{subtema}' no válido")
-        sexo = texto(r["sexo"]).lower()
-        if sexo and sexo not in SEXOS:
-            e.append(f"sexo '{sexo}' no válido")
+        genero = texto(r["genero"]).lower()
+        if genero and genero not in GENEROS:
+            e.append(f"genero '{genero}' no válido")
         labor = texto(r["labor"]).lower()
         if labor and labor not in LABORES:
             e.append(f"labor '{labor}' no válida")
@@ -130,8 +130,8 @@ def validar(registros, fuentes_ids):
             reg["grupo"] = grupo
         if subtema:
             reg["subtema"] = subtema
-        if sexo:
-            reg["sexo"] = sexo
+        if genero:
+            reg["genero"] = genero
         if labor:
             reg["labor"] = labor
         limpios.append(reg)

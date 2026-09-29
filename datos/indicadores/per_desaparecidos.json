@@ -7,7 +7,9 @@
   "subtema": "desaparicion",
   "unidad": "personas",
   "fuente": "article19",
-  "nota": "Registro público de ARTICLE 19 de periodistas desaparecidos en relación con su labor informativa, 32 casos de julio de 2003 a abril de 2025; conteo por entidad y año"
+  "nota": "Registro público de ARTICLE 19 de periodistas desaparecidos en relación con su labor informativa, 32 casos de julio de 2003 a abril de 2025; conteo por entidad y año",
+  "oculto": true,
+  "agregacion": "suma"
  },
  "valores": [
   {

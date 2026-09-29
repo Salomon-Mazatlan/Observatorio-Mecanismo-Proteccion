@@ -15,7 +15,7 @@
     tema: "todos",            // one theme at a time, or "todos"
     grupo: "todos",           // "todos" | "periodista" | "defensor"
     subtema: "todos",         // "todos" or a key of CONFIG.subtemas
-    sexo: "todos",            // "todos" | "femenino" | "masculino"
+    genero: "todos",          // "todos" | "femenino" | "masculino" | "lgbt"
     labor: "todos",           // "todos" or a key of CONFIG.labores (defenders only)
     verifActivas: new Set(CONFIG.verificacion),
     texto: "", desde: null, hasta: null,  // "YYYY-MM" or null
@@ -295,7 +295,7 @@
     leyendaTitulo = leyendaTitulo.charAt(0).toUpperCase() + leyendaTitulo.slice(1);
     if (estado.grupo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` (${CONFIG.grupos[estado.grupo].nombre})`;
     if (estado.subtema !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.subtemas[estado.subtema]}`;
-    if (estado.sexo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.sexos[estado.sexo]}`;
+    if (estado.genero !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.generos[estado.genero]}`;
     if (estado.labor !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.labores[estado.labor]}`;
     return { titulo, subtitulo, leyenda, leyendaTitulo, pie, recorte };
   }
@@ -308,7 +308,7 @@
       <div class="guia">
         <ol>
           <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Calor" (densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
-          <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión y sexo; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
+          <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
           <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la federal en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
@@ -321,7 +321,7 @@
     document.getElementById("buscar").value = ""; estado.texto = "";
     document.querySelectorAll("#verif input").forEach(i => { i.checked = true; estado.verifActivas.add(i.value); });
     document.getElementById("desde").value = ""; document.getElementById("hasta").value = ""; estado.desde = estado.hasta = null;
-    estado.grupo = "todos"; estado.subtema = "todos"; estado.sexo = "todos"; estado.labor = "todos"; pintarGrupos(); construirLabores(); construirSubtemas(); pintarSexos();
+    estado.grupo = "todos"; estado.subtema = "todos"; estado.genero = "todos"; estado.labor = "todos"; pintarGrupos(); construirLabores(); construirSubtemas(); pintarGeneros();
     construirIndicadores(); dibujar();
   }
 
@@ -370,7 +370,12 @@
     if (!estado.comparativo) estado.comparativo = await fresco("datos/comparativo_marco_legal.json");
     const todos = estado.comparativo;
     const instrumentos = global ? todos.instrumentos : todos.instrumentos.filter(i => ids.includes(i.id));
-    const cmp = { ...todos, instrumentos };
+    const cmp = { ...todos, instrumentos };  // instrumentos may be narrowed by the picker below
+    // In the global view the person picks which state instruments to compare with the federal law
+    if (global && estado.comparativoSel) {
+      const sel = todos.instrumentos.filter(i => i.id === "federal" || estado.comparativoSel.includes(i.id));
+      if (sel.length) { cmp.instrumentos = sel; }
+    }
     const titulo = global ? "Comparativo de instrumentos de protección" : `Comparativo con la ley federal: ${instrumentos.map(i => i.corto).filter(c => c !== "Federal").join(", ")}`;
     abrirVentana(titulo, "<p class='nota'>Cargando...</p>", "ventana--documento ventana--ancha");
     const cabecera = cmp.instrumentos.map(i => `<th title="${i.nombre}">${i.corto}</th>`).join("");
@@ -386,7 +391,8 @@
       return principal + subs;
     }).join("");
     const fichas = cmp.instrumentos.map(i => `<li><strong>${i.corto}.</strong> ${i.nombre}. ${i.publicacion}; última reforma ${i.ultima_reforma}. ${i.organo}.${i.url ? ` <a href="${i.url}" target="_blank" rel="noopener">Texto</a>` : ""}</li>`).join("");
-    document.getElementById("ventana-cuerpo").innerHTML = `
+    const selector = global ? `<div class="cmp__selector"><span class="grupo__etiqueta">Comparar con la ley federal:</span>${todos.instrumentos.filter(i => i.id !== "federal").map(i => `<label class="grupo__casilla"><input type="checkbox" data-inst="${i.id}" ${cmp.instrumentos.some(x => x.id === i.id) ? "checked" : ""}> ${i.corto}</label>`).join("")}</div>` : "";
+    document.getElementById("ventana-cuerpo").innerHTML = selector + `
       <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda para ver la nota; el signo + despliega los subindicadores y "Ver detalles" abre los artículos citados y la reflexión.</p>
       <div class="cmp__tabla-envoltura"><table class="cmp__tabla">
         <thead><tr><th>Indicador</th>${cabecera}</tr></thead>
@@ -395,6 +401,10 @@
       <h3 class="detalle__sub">Instrumentos comparados</h3><ul class="lista lista--marco">${fichas}</ul>
       <p class="acciones"><button type="button" class="boton" id="cmp-csv">Descargar matriz (CSV)</button> <button type="button" class="boton" id="cmp-defs">Ver análisis de definiciones</button>${global ? "" : ` <button type="button" class="boton" id="cmp-global">Ver comparativo global</button>`}</p>`;
     if (!global) document.getElementById("cmp-global").addEventListener("click", () => navegar(() => mostrarComparativo()));
+    document.querySelectorAll(".cmp__selector input").forEach(ch => ch.addEventListener("change", () => {
+      estado.comparativoSel = [...document.querySelectorAll(".cmp__selector input:checked")].map(x => x.dataset.inst);
+      mostrarComparativo();
+    }));
     document.querySelectorAll(".cmp__mas").forEach(b => b.addEventListener("click", () => {
       const abierto = b.getAttribute("aria-expanded") === "true";
       b.setAttribute("aria-expanded", String(!abierto)); b.textContent = abierto ? "+" : "–";
@@ -507,24 +517,24 @@
     pintarGrupos();
     construirLabores();
     construirSubtemas();
-    const cs = document.getElementById("sexos");
-    [["todos", "Todos"], ...Object.entries(CONFIG.sexos)].forEach(([id, nombre]) => {
+    const cs = document.getElementById("generos");
+    [["todos", "Todos"], ...Object.entries(CONFIG.generos)].forEach(([id, nombre]) => {
       const b = document.createElement("button");
-      b.type = "button"; b.className = "tema"; b.dataset.sexo = id;
+      b.type = "button"; b.className = "tema"; b.dataset.genero = id;
       b.style.setProperty("--tema", "#0f172a");
       b.innerHTML = `<span class="tema__punto"></span>${nombre}`;
-      b.addEventListener("click", () => { estado.sexo = id; pintarSexos(); cerrarVentana(); dibujar(); });
+      b.addEventListener("click", () => { estado.genero = id; pintarGeneros(); cerrarVentana(); dibujar(); });
       cs.appendChild(b);
     });
-    pintarSexos();
+    pintarGeneros();
   }
-  function pintarSexos() {
-    document.querySelectorAll("#sexos .tema").forEach(b => {
-      const on = b.dataset.sexo === estado.sexo;
+  function pintarGeneros() {
+    document.querySelectorAll("#generos .tema").forEach(b => {
+      const on = b.dataset.genero === estado.genero;
       b.classList.toggle("tema--activo", on);
       b.setAttribute("aria-pressed", String(on));
     });
-    document.getElementById("bloque-sexos").hidden = !temaActivo("periodistas");
+    document.getElementById("bloque-generos").hidden = !temaActivo("periodistas");
   }
   // Field-of-work chips, only for the defenders group and only for fields with events
   function construirLabores() {
@@ -576,7 +586,7 @@
       b.setAttribute("aria-pressed", String(on));
     });
     document.getElementById("bloque-subtemas").hidden = !temaActivo("periodistas");
-    if (document.getElementById("sexos").children.length) pintarSexos();
+    if (document.getElementById("generos").children.length) pintarGeneros();
   }
   function pintarGrupos() {
     document.querySelectorAll("#grupos .tema").forEach(b => {
@@ -641,6 +651,7 @@
     o0.value = "_eventos"; o0.textContent = "Eventos registrados (conteo)";
     sel.appendChild(o0);
     estado.indicadores.definiciones.forEach(d => {
+      if (d.oculto) return;
       if (!d.externo && !valoresDe(d.id, nivel).length) return;
       if (!temaActivo(d.tema)) return;
       if (d.tema === "periodistas" && !grupoActivo(d.grupo)) return;
@@ -707,6 +718,32 @@
     } else ml.hidden = true;
     actualizarControles();
     actualizarMapaBase();
+    dibujarResumen();
+  }
+
+  // Breakdown strip under the map: shares of the visible events by group, aggression type, field and gender
+  function dibujarResumen() {
+    const cont = document.getElementById("resumen");
+    const vis = hayEventosDibujados() ? estado.eventos.filter(eventoVisible) : [];
+    if (!vis.length) { cont.hidden = true; return; }
+    cont.hidden = false;
+    const barra = (titulo, partes) => {
+      partes = partes.filter(p => p.n > 0);
+      const total = partes.reduce((s, p) => s + p.n, 0) || 1;
+      return `<div class="resumen__fila"><div class="resumen__titulo">${titulo}</div>
+        <div class="resumen__barra">${partes.map(p => `<span class="resumen__seg" style="width:${(100 * p.n / total).toFixed(1)}%;background:${p.color}" title="${p.nombre}: ${p.n} (${Math.round(100 * p.n / total)}%)"></span>`).join("")}</div>
+        <div class="resumen__texto">${partes.map(p => `<span><i style="background:${p.color}"></i>${p.nombre} ${Math.round(100 * p.n / total)}%</span>`).join("")}</div></div>`;
+    };
+    const cuenta = (lista, fn) => lista.map(([clave, nombre, color]) => ({ clave, nombre, color, n: vis.filter(e => fn(e) === clave).length }));
+    const gr = cuenta([["periodista", "Periodistas", CONFIG.temas.periodistas.color], ["defensor", "Personas defensoras", CONFIG.grupos.defensor.color], ["ambos", "Ambos", "#94a3b8"]], e => e.grupo || "ambos");
+    const paleta = ["#0f172a", "#334155", "#475569", "#64748b", "#94a3b8", "#b91c1c", "#c2410c", "#a16207"];
+    const st = cuenta(Object.entries(CONFIG.subtemas).map(([k, n], i) => [k, n, paleta[i % paleta.length]]), e => e.subtema);
+    const lb = cuenta(Object.entries(CONFIG.labores).map(([k, n], i) => [k, n, paleta[(i + 3) % paleta.length]]), e => e.labor);
+    const ge = partesGenero(vis).map(p => ({ ...p }));
+    cont.innerHTML = `<div class="resumen__cab">Lo que está en el mapa: ${vis.length} eventos</div>`
+      + barra("Grupo", gr) + barra("Tipo de agresión", st)
+      + (vis.some(e => e.labor) ? barra("Labor de la persona defensora", lb) : "")
+      + barra("Género", ge);
   }
 
   // Fits the view to the polygons of the current map (country or state)
@@ -845,6 +882,33 @@
     ctx.restore();
   }
 
+  // Shares of women, men, LGBT+ people and other records among a set of events
+  function partesGenero(eventos) {
+    const total = eventos.length || 1;
+    const cuenta = k => eventos.filter(e => (k === "otro" ? !CONFIG.generos[e.genero] : e.genero === k)).length;
+    return [...Object.entries(CONFIG.generos).map(([k, nombre]) => ({ clave: k, nombre, color: CONFIG.generosColores[k], n: cuenta(k) })),
+      { clave: "otro", nombre: "Sin dato o no aplica", color: CONFIG.generosColores.otro, n: cuenta("otro") }]
+      .filter(p => p.n > 0).map(p => ({ ...p, frac: p.n / total }));
+  }
+
+  // Pie marker drawn as an inline SVG; options.pastel lets the exporter redraw it on canvas
+  function marcadorPastel(latlng, r, partes) {
+    const s = r * 2 + 2, cx = r + 1, cy = r + 1;
+    let ang = -Math.PI / 2, paths = "";
+    partes.forEach(p => {
+      const a2 = ang + p.frac * 2 * Math.PI;
+      if (p.frac >= 0.999) paths += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${p.color}" fill-opacity=".85"/>`;
+      else {
+        const x1 = cx + r * Math.cos(ang), y1 = cy + r * Math.sin(ang), x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+        paths += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${p.frac > 0.5 ? 1 : 0},1 ${x2},${y2} Z" fill="${p.color}" fill-opacity=".85"/>`;
+      }
+      ang = a2;
+    });
+    const icono = L.divIcon({ className: "pastel", iconSize: [s, s], iconAnchor: [cx, cy],
+      html: `<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}">${paths}<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#fff" stroke-width="1.2"/></svg>` });
+    return L.marker(latlng, { icon: icono, pastel: { r, partes }, interactive: true });
+  }
+
   // Defenders are drawn in lilac, journalists (and shared records) in the theme red
   function colorEvento(e) {
     return e.grupo === "defensor" && CONFIG.grupos.defensor ? CONFIG.grupos.defensor.color : CONFIG.temas[e.tema].color;
@@ -858,7 +922,7 @@
     if (!temaActivo(e.tema)) return false;
     if (e.tema === "periodistas" && !grupoActivo(e.grupo)) return false;
     if (e.tema === "periodistas" && !subtemaActivo(e.subtema, true)) return false;
-    if (e.tema === "periodistas" && estado.sexo !== "todos" && e.sexo !== estado.sexo) return false;
+    if (e.tema === "periodistas" && estado.genero !== "todos" && e.genero !== estado.genero) return false;
     if (e.tema === "periodistas" && !laborActiva(e)) return false;
     // On a state map only the events inside that state are shown
     if (estado.mapaId !== "mexico" && !dentroDeEstado(e)) return false;
@@ -938,12 +1002,20 @@
     } else {
       // Keep, per unit, the most recent value whose period falls inside the selected range
       const def = estado.indicadores.definiciones.find(d => d.id === estado.indicador);
+      const suma = def && def.agregacion === "suma";
       valoresDe(estado.indicador, nivel).forEach(v => {
         if (!valorEnRango(v, def)) return;
         const [, fin] = mesesDePeriodo(v.periodo);
         const k = nivel === "municipio" ? v.cve_ent + v.cve_mun : v.cve_ent;
-        if (!datos[k] || fin > mesesDePeriodo(datos[k].periodo)[1]) datos[k] = { valor: v.valor, periodo: v.periodo, ejemplo: !!v.ejemplo };
+        if (suma) {
+          // Annual flows add up across the selected range instead of showing the last year only
+          if (!datos[k]) datos[k] = { valor: 0, periodo: String(v.periodo), ejemplo: !!v.ejemplo, desde: String(v.periodo) };
+          datos[k].valor += v.valor;
+          if (String(v.periodo) > datos[k].periodo) datos[k].periodo = String(v.periodo);
+          if (String(v.periodo) < datos[k].desde) datos[k].desde = String(v.periodo);
+        } else if (!datos[k] || fin > mesesDePeriodo(datos[k].periodo)[1]) datos[k] = { valor: v.valor, periodo: v.periodo, ejemplo: !!v.ejemplo };
       });
+      if (suma) Object.values(datos).forEach(x => { if (x.desde !== x.periodo) x.periodo = `${x.desde} a ${x.periodo}`; });
     }
     return datos;
   }
@@ -1017,19 +1089,38 @@
     } else {
       capaPoligonos.setStyle(estiloNeutro);
       const max = Math.max(...valores, 1);
+      const esConteo = estado.indicador === "_eventos";
+      const visibles = esConteo ? estado.eventos.filter(eventoVisible) : [];
       estado.geos[estado.mapaId].features.forEach(f => {
         const d = datos[claveDe(f.properties)];
         if (!d || d.valor === 0) return;
         const c = centroDe(f);
         const r = 5 + 30 * Math.sqrt(d.valor / max);
-        const m = L.circleMarker(c, { radius: r, color, weight: 1, fillColor: color, fillOpacity: 0.35, dashArray: d.ejemplo ? "3 3" : null });
-        m.bindTooltip(etiquetaValor(f.properties.nombre, d, def.unidad));
+        let m;
+        if (esConteo) {
+          // Event counts become pies split by gender of the people affected
+          const partes = partesGenero(visibles.filter(e => dentro([e.lon, e.lat], f.geometry)));
+          m = marcadorPastel(c, r, partes);
+          m.bindTooltip(`<strong>${f.properties.nombre}</strong><br>${d.valor} eventos<br>${partes.map(p => `${p.nombre}: ${Math.round(p.frac * 100)}%`).join("<br>")}`);
+        } else {
+          m = L.circleMarker(c, { radius: r, color, weight: 1, fillColor: color, fillOpacity: 0.35, dashArray: d.ejemplo ? "3 3" : null });
+          m.bindTooltip(etiquetaValor(f.properties.nombre, d, def.unidad));
+        }
         m.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(f.properties), true); });
         capaCirculos.addLayer(m);
       });
-      document.getElementById("leyenda").innerHTML =
-        `<div class="leyenda__fila"><span class="leyenda__circulo" style="--tema:${color}"></span>Área proporcional a ${def.unidad}. Máximo: ${max.toLocaleString("es-MX")}.</div>`;
-      estado.leyendaExport = [{ forma: "circulo", color, alpha: 0.35, borde: color, texto: `Área proporcional a ${def.unidad} (máximo ${fmt(max)})` }];
+      if (esConteo) {
+        const filas = Object.entries(CONFIG.generos).map(([k, n]) => `<div class="leyenda__fila"><span class="leyenda__caja" style="background:${CONFIG.generosColores[k]}"></span>${n}</div>`).join("")
+          + `<div class="leyenda__fila"><span class="leyenda__caja" style="background:${CONFIG.generosColores.otro}"></span>Sin dato o no aplica</div>`;
+        document.getElementById("leyenda").innerHTML = `<div class="leyenda__fila">Área proporcional a eventos; máximo ${max.toLocaleString("es-MX")}. Sectores por género:</div>${filas}`;
+        estado.leyendaExport = [{ forma: "circulo", color, alpha: 0.35, borde: color, texto: `Área proporcional a eventos (máximo ${fmt(max)})` },
+          ...Object.entries(CONFIG.generos).map(([k, n]) => ({ forma: "caja", color: CONFIG.generosColores[k], texto: n })),
+          { forma: "caja", color: CONFIG.generosColores.otro, texto: "Sin dato o no aplica" }];
+      } else {
+        document.getElementById("leyenda").innerHTML =
+          `<div class="leyenda__fila"><span class="leyenda__circulo" style="--tema:${color}"></span>Área proporcional a ${def.unidad}. Máximo: ${max.toLocaleString("es-MX")}.</div>`;
+        estado.leyendaExport = [{ forma: "circulo", color, alpha: 0.35, borde: color, texto: `Área proporcional a ${def.unidad} (máximo ${fmt(max)})` }];
+      }
     }
     const fuente = def.fuente ? `Fuente: ${nombreFuente(def.fuente)}. ` : "";
     document.getElementById("tematico-metodo").textContent =
@@ -1293,7 +1384,7 @@
   function mostrarDetalleEvento(e) {
     const f = estado.fuentes.find(x => x.id === e.fuente);
     const link = e.url ? `<p><a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a></p>` : "";
-    const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.sexo && e.sexo !== "no aplica" ? " · Sexo: " + e.sexo : ""}</p>` : "";
+    const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.genero && e.genero !== "no aplica" ? " · Género: " + (CONFIG.generos[e.genero] || e.genero) : ""}</p>` : "";
     abrirVentana(e.titulo, `
       <p class="detalle__tema" style="--tema:${CONFIG.temas[e.tema].color}">${CONFIG.temas[e.tema].nombre} · ${e.tipo}</p>
       <p class="detalle__meta">${formatoFecha(e.fecha)} · ${e.lugar}</p>

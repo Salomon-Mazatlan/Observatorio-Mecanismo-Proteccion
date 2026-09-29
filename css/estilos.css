@@ -273,8 +273,9 @@ input[type="search"]:focus-visible { outline: none; border-color: var(--acento);
 
 /* ----- map ----- */
 
-.mapa-area { position: relative; height: 100%; min-height: 0; }
-.mapa { height: 100%; min-height: 0; }
+.mapa-area { position: relative; height: 100%; min-height: 0; display: flex; flex-direction: column; }
+.mapa__marco { position: relative; flex: 1 1 auto; min-height: 0; display: flex; }
+.mapa { flex: 1 1 auto; min-height: 0; }
 .leaflet-interactive:focus { outline: none; }
 .leaflet-interactive:focus-visible { outline: 2px solid var(--tinta); }
 
@@ -318,6 +319,17 @@ input[type="search"]:focus-visible { outline: none; border-color: var(--acento);
   .mapa__leyenda { display: none; }
   .popover { left: auto; right: 0; }
 }
+
+/* summary strip under the map */
+.resumen { flex: none; background: var(--superficie); border-top: 1px solid var(--borde); padding: 8px 16px 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 22px; font-size: 12px; }
+.resumen__cab { grid-column: 1 / -1; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
+.resumen__titulo { font-weight: 600; margin-bottom: 3px; }
+.resumen__barra { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--fondo); }
+.resumen__seg { display: block; height: 100%; }
+.resumen__texto { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px; color: var(--tinta-suave); }
+.resumen__texto i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.pastel { background: none; border: 0; }
+.cmp__selector { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 0 0 10px; padding: 8px 12px; background: var(--fondo); border-radius: 8px; }
 
 /* floating panel over the map */
 .ventana {

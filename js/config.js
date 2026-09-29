@@ -52,8 +52,9 @@ const CONFIG = {
     animales:     "Derechos de los animales",
     organizacion: "Organizaciones de derechos humanos"
   },
-  // Sex of the person affected, for the journalists/defenders theme
-  sexos: { femenino: "Mujeres", masculino: "Hombres" },
+  // Gender of the person affected, for the journalists/defenders theme
+  generos: { femenino: "Mujeres", masculino: "Hombres", lgbt: "Personas LGBT+" },
+  generosColores: { femenino: "#db2777", masculino: "#2563eb", lgbt: "#8b5cf6", otro: "#94a3b8" },
   // Sub-groups inside the journalists/defenders theme; "ambos" applies to both
   grupos: {
     periodista: { nombre: "Periodistas",        color: "#b91c1c" },

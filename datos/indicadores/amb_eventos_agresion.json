@@ -6,7 +6,8 @@
   "unidad": "eventos",
   "fuente": "cemda",
   "nota": "Informe CEMDA 2025 (135 eventos, 314 agresiones específicas). Solo entidades con cifra publicada en el texto; la gráfica 9 del informe trae las 32 pero sin números legibles. Sirve como aproximación a la conflictividad socioambiental; CEMDA advierte subregistro donde la prensa cubre menos",
-  "grupo": "defensor"
+  "grupo": "defensor",
+  "oculto": true
  },
  "valores": [
   {

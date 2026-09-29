@@ -6,7 +6,8 @@
   "unidad": "agresiones",
   "fuente": "article19",
   "nota": "Informe anual 2025 de ARTICLE 19; solo entidades con cifra publicada (CDMX, Puebla, Veracruz, Guanajuato, Sinaloa); el orden completo está en la gráfica 4 del informe",
-  "grupo": "periodista"
+  "grupo": "periodista",
+  "oculto": true
  },
  "valores": [
   {

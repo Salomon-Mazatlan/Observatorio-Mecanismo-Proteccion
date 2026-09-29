@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
-  <link rel="stylesheet" href="css/estilos.css?v=2026-10-13">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-10-14b">
 </head>
 <body>
 
@@ -90,9 +90,9 @@
     <nav class="temas" id="labores" aria-label="Labor de defensa"></nav>
   </section>
 
-  <section class="bloque" id="bloque-sexos">
-    <h2 class="bloque__titulo">Sexo</h2>
-    <nav class="temas" id="sexos" aria-label="Sexo de la persona afectada"></nav>
+  <section class="bloque" id="bloque-generos">
+    <h2 class="bloque__titulo">Género</h2>
+    <nav class="temas" id="generos" aria-label="Género de la persona afectada"></nav>
   </section>
 
   <section class="bloque" id="bloque-filtros">
@@ -133,11 +133,14 @@
 </aside>
 
 <main class="mapa-area">
+  <div class="mapa__marco">
   <div class="mapa" id="mapa" role="region" aria-label="Mapa interactivo"></div>
   <button type="button" class="boton mapa__volver" id="volver-mexico" hidden>← México</button>
   <button type="button" class="boton boton--icono mapa__centrar" id="centrar" title="Centrar el mapa" aria-label="Centrar el mapa"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 1v3M8 12v3M1 8h3M12 8h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/></svg></button>
   <div class="mapa__leyenda" id="mapa-leyenda" hidden></div>
   <div class="mapa__cargando" id="cargando" hidden>Cargando...</div>
+  </div>
+  <section class="resumen" id="resumen" hidden aria-label="Resumen de los eventos visibles"></section>
   <section class="ventana" id="ventana" hidden role="dialog" aria-labelledby="ventana-titulo">
     <header class="ventana__cabecera">
       <button type="button" class="ventana__volver" id="ventana-volver" hidden aria-label="Volver">←</button>
@@ -150,9 +153,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
 <script src="js/lib/leaflet-heat.js"></script>
-<script src="js/config.js?v=2026-10-13"></script>
-<script src="js/exportar.js?v=2026-10-13"></script>
-<script src="js/graficas.js?v=2026-10-13"></script>
-<script src="js/app.js?v=2026-10-13"></script>
+<script src="js/config.js?v=2026-10-14b"></script>
+<script src="js/exportar.js?v=2026-10-14b"></script>
+<script src="js/graficas.js?v=2026-10-14b"></script>
+<script src="js/app.js?v=2026-10-14b"></script>
 </body>
 </html>

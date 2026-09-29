@@ -7,7 +7,9 @@
   "fuente": "article19",
   "nota": "Registro público de ARTICLE 19 de periodistas asesinados en posible relación con su labor informativa, 181 casos de febrero de 2000 a julio de 2026; conteo por entidad y año. Los años sin casos no aparecen",
   "grupo": "periodista",
-  "subtema": "asesinato"
+  "subtema": "asesinato",
+  "oculto": true,
+  "agregacion": "suma"
  },
  "valores": [
   {
