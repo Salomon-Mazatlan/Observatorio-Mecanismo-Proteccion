@@ -394,7 +394,7 @@
       const sel = todos.instrumentos.filter(i => i.id === "federal" || estado.comparativoSel.includes(i.id));
       if (sel.length) { cmp.instrumentos = sel; }
     }
-    const otros = instrumentos.map(i => i.corto).filter(c => c !== "Federal").join(", ");
+    const otros = instrumentos.filter(i => i.id !== "federal").map(i => i.corto).join(", ");
     const titulo = global ? "Comparativo de instrumentos de protección"
       : instrumentos.some(i => i.pais && i.pais !== "MX") ? `Comparativo con la ley federal mexicana: ${otros}` : `Comparativo con la ley federal: ${otros}`;
     abrirVentana(titulo, "<p class='nota'>Cargando...</p>", "ventana--documento ventana--ancha");
@@ -432,6 +432,7 @@
     }));
     document.getElementById("cmp-defs").addEventListener("click", () => navegar(() => mostrarDocumento("docs/comparativo_definiciones.md", "Definiciones de periodista y persona defensora")));
     document.querySelectorAll(".cmp__pasajes").forEach(b => b.addEventListener("click", () => navegar(() => mostrarPasajes(b.dataset.ind, ids))));
+    agregarBarraSuperior(document.querySelector("#ventana-cuerpo .cmp__tabla-envoltura"));
     document.getElementById("cmp-csv").addEventListener("click", () => {
       const filas = [["indicador", "subindicador", ...cmp.instrumentos.flatMap(i => [`${i.corto} valor`, `${i.corto} artículos`, `${i.corto} nota`])]];
       cmp.indicadores.forEach(ind => {
@@ -444,6 +445,25 @@
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" })); a.download = `comparativo_marco_legal_${new Date().toISOString().slice(0, 10)}.csv`;
       document.body.appendChild(a); a.click(); a.remove();
     });
+  }
+
+  // A second horizontal scrollbar above a wide table, kept in sync with the one below
+  function agregarBarraSuperior(envoltura) {
+    if (!envoltura) return;
+    const barra = document.createElement("div");
+    barra.className = "cmp__barra-arriba";
+    const relleno = document.createElement("div");
+    barra.appendChild(relleno);
+    envoltura.parentNode.insertBefore(barra, envoltura);
+    const ajustar = () => {
+      relleno.style.width = envoltura.scrollWidth + "px";
+      barra.hidden = envoltura.scrollWidth <= envoltura.clientWidth + 1;
+    };
+    let sincronizando = false;
+    barra.addEventListener("scroll", () => { if (sincronizando) return; sincronizando = true; envoltura.scrollLeft = barra.scrollLeft; sincronizando = false; });
+    envoltura.addEventListener("scroll", () => { if (sincronizando) return; sincronizando = true; barra.scrollLeft = envoltura.scrollLeft; sincronizando = false; });
+    ajustar();
+    new ResizeObserver(ajustar).observe(envoltura);
   }
 
   // Passages quoted from each instrument for one indicator, plus the comparative reflection

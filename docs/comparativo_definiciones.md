@@ -25,7 +25,7 @@ Tiene, sin embargo, cuatro límites que se repiten en las tres leyes por haber c
 
 ### Diferencias entre las tres leyes
 
-| Aspecto | Federal | Sinaloa | Durango |
+| Aspecto | México (Ley Federal) | Sinaloa | Durango |
 |---|---|---|---|
 | Texto de la definición | Art. 2 | Art. 3 fr. XIII, idéntico | Art. 2 fr. XIII, idéntico |
 | Reconocimiento de la actividad como de interés público | No | Sí, "actividad ciudadana, individual o colectiva" (art. 2 fr. I) | No |
@@ -53,7 +53,7 @@ Sinaloa conserva ese texto y le suma la definición del periodismo como activida
 
 Durango va en la dirección contraria. La reforma de 2022 quitó "experimentales o de cualquier otra índole", cerró la lista de medios y agregó la condición de que el medio sea "con personalidad debidamente acreditada". El artículo 16 refuerza el criterio al reservar el acceso a actos públicos a "periodistas debidamente acreditados", y los artículos 19 y 20 vinculan el reconocimiento como periodista a la profesionalización con el gremio. La figura de colaborador periodístico (fr. XII) recoge a columnistas, editorialistas y auxiliares, pero como categoría separada y con un alcance menor en el articulado (aparece en los derechos del capítulo VI y en las medidas, no en la integración del Mecanismo, que corresponde a "asociaciones de periodistas y comunicadores con al menos 10 años"). Con esa redacción, un periodista independiente que publica en redes o en un medio digital sin registro, o un comunicador comunitario, queda en zona de duda, y la duda la resuelve la autoridad al exigir la acreditación.
 
-| Aspecto | Federal | Sinaloa | Durango |
+| Aspecto | México (Ley Federal) | Sinaloa | Durango |
 |---|---|---|---|
 | Criterio | Funcional (por la actividad) | Funcional, más definición del periodismo como actividad | Funcional condicionado a acreditación |
 | Cláusula abierta de medios | "o de cualquier otra índole" | Igual | Suprimida |

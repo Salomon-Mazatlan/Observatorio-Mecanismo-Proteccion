@@ -50,7 +50,7 @@ def main():
         inst["cve_ent"] = cve
         inst["pais"] = PAISES.get(ws.title, "MX")
         if not inst["corto"]:
-            inst["corto"] = "Federal" if ws.title == "federal" else ents[cve]
+            inst["corto"] = "México (Ley Federal)" if ws.title == "federal" else ents[cve]
         instrumentos.append(inst)
         cod = {}
         for n, f in enumerate(filas[len(META) + 2:], start=len(META) + 3):

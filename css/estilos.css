@@ -360,8 +360,21 @@ input[type="search"]:focus-visible { outline: none; border-color: var(--acento);
 
 /* legal comparison matrix */
 .ventana--ancha { width: min(1100px, calc(100% - 28px)); }
-.cmp__tabla-envoltura { overflow-x: auto; margin: 6px 0 12px; }
-.cmp__tabla { border-collapse: collapse; width: 100%; font-size: 13px; }
+.cmp__tabla-envoltura { overflow-x: auto; margin: 6px 0 12px; padding-bottom: 4px; scrollbar-width: auto; scrollbar-color: #94a3b8 #eef2f6; }
+.cmp__barra-arriba { overflow-x: auto; overflow-y: hidden; height: 16px; margin: 6px 0 0; scrollbar-color: #94a3b8 #eef2f6; }
+.cmp__barra-arriba > div { height: 1px; }
+.cmp__barra-arriba::-webkit-scrollbar { height: 12px; }
+.cmp__barra-arriba::-webkit-scrollbar-track { background: #eef2f6; border-radius: 6px; }
+.cmp__barra-arriba::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; border: 2px solid #eef2f6; }
+.cmp__tabla-envoltura::-webkit-scrollbar { height: 12px; }
+.cmp__tabla-envoltura::-webkit-scrollbar-track { background: #eef2f6; border-radius: 6px; }
+.cmp__tabla-envoltura::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; border: 2px solid #eef2f6; }
+.cmp__tabla { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 13px; }
+/* Instrument columns keep a readable width, so many instruments overflow and scroll sideways */
+.cmp__tabla th:not(:first-child), .cmp__tabla td:not(:first-child) { min-width: 150px; }
+/* The indicator column stays in place while scrolling */
+.cmp__tabla th:first-child, .cmp__tabla td:first-child { position: sticky; left: 0; z-index: 2; background: var(--superficie); box-shadow: 1px 0 0 var(--borde); }
+.cmp__tabla thead th:first-child { z-index: 3; background: #f8fafc; }
 .cmp__tabla th, .cmp__tabla td { border: 1px solid var(--borde); padding: 6px 8px; vertical-align: top; text-align: left; }
 .cmp__tabla th { background: #f8fafc; position: sticky; top: 0; font-size: 12.5px; }
 .cmp__nombre { min-width: 260px; }
