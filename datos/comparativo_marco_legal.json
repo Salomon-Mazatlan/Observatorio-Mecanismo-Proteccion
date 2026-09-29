@@ -1,5 +1,5 @@
 {
- "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras de México (federal y estatales) Honduras y Colombia codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
+ "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras de México (federal y estatales), Honduras y Colombia codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
  "fecha_codificacion": "2026-09-29",
  "valores": {
   "si": "Sí",
@@ -257,7 +257,7 @@
    "id": "federal",
    "cve_ent": "00",
    "pais": "MX",
-   "corto": "Federal",
+   "corto": "México (Ley Federal)",
    "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas (federal)",
    "publicacion": "DOF, 25 de junio de 2012",
    "ultima_reforma": "DOF, 28 de abril de 2022",
