@@ -1,5 +1,5 @@
 {
- "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras de México (federal y estatales) y Honduras codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
+ "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras de México (federal y estatales) Honduras y Colombia codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
  "fecha_codificacion": "2026-09-29",
  "valores": {
   "si": "Sí",
@@ -329,6 +329,17 @@
    "ultima_reforma": "Sin reformas en el texto consultado",
    "organo": "Sistema Nacional de Protección: Secretaría de Derechos Humanos como órgano rector, Consejo Nacional de Protección, Dirección General del Sistema de Protección, Comité Técnico del Mecanismo y Departamento de Derechos Humanos de la Secretaría de Seguridad",
    "url": "https://faolex.fao.org/docs/pdf/hon223247.pdf"
+  },
+  {
+   "id": "co",
+   "cve_ent": "CO",
+   "pais": "CO",
+   "corto": "Colombia",
+   "nombre": "Decreto 4912 de 2011, Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades (Colombia)",
+   "publicacion": "Diario Oficial 48.294, 26 de diciembre de 2011; compilado en el Decreto Único Reglamentario 1066 de 2015 (arts. 2.4.1.2.1 y ss.)",
+   "ultima_reforma": "Decreto 1225 de 2012 (texto codificado); desarrollos posteriores por Decretos 1314 de 2016 y 2078 de 2017",
+   "organo": "Unidad Nacional de Protección (UNP), con el Cerrem, el Grupo de Valoración Preliminar y el Ctrai; Ministerio del Interior y Policía Nacional",
+   "url": "https://normativa.colpensiones.gov.co/colpens/docs/decreto_4912_2011.htm"
   }
  ],
  "codificacion": {
@@ -2095,6 +2106,258 @@
     "articulos": "Arts. 60, 61",
     "nota": "Sujeción a la Ley de Transparencia; reserva de las resoluciones que otorgan medidas y de los casos individuales"
    }
+  },
+  "co": {
+   "i01": {
+    "valor": "parcial",
+    "articulos": "Arts. 3 num. 1 y 5, 6 num. 2, 5 y 9",
+    "nota": "No define a la persona defensora; protege a 'dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas', a miembros de grupos étnicos y a reclamantes de tierras. El activista debe acreditarse con certificación de su organización o de una autoridad"
+   },
+   "i01a": {
+    "valor": "parcial",
+    "articulos": "Arts. 3 num. 1, 6 num. 2",
+    "nota": "La persona individual entra como activista, pero acreditada por una organización"
+   },
+   "i01b": {
+    "valor": "si",
+    "articulos": "Art. 6 num. 2",
+    "nota": ""
+   },
+   "i01c": {
+    "valor": "parcial",
+    "articulos": "Arts. 1, 11 lit. g",
+    "nota": "Protege 'grupos y comunidades' y blinda sedes de organizaciones, sin nombrar a las personas morales como sujetos"
+   },
+   "i01d": {
+    "valor": "si",
+    "articulos": "Arts. 1, 6 num. 5",
+    "nota": "Grupos y comunidades como población objeto; miembros de grupos étnicos"
+   },
+   "i01e": {
+    "valor": "no",
+    "articulos": "Arts. 2 num. 2, 3 num. 1 y 5",
+    "nota": "Exige certificación de la organización o de una autoridad y demostrar la conexidad entre riesgo y actividad"
+   },
+   "i01f": {
+    "valor": "no",
+    "articulos": "Art. 3 num. 1",
+    "nota": "Exige intervenir 'activamente' y estar acreditado"
+   },
+   "i02": {
+    "valor": "parcial",
+    "articulos": "Art. 6 num. 8",
+    "nota": "Nombra a 'periodistas y comunicadores sociales' como población objeto sin definirlos"
+   },
+   "i02a": {
+    "valor": "no",
+    "articulos": "",
+    "nota": "Sin definición"
+   },
+   "i02b": {
+    "valor": "no",
+    "articulos": "",
+    "nota": "Sin definición"
+   },
+   "i02c": {
+    "valor": "parcial",
+    "articulos": "Arts. 1, 2 num. 2",
+    "nota": "El vínculo entre riesgo y actividad es el criterio general de ingreso"
+   },
+   "i02d": {
+    "valor": "parcial",
+    "articulos": "Arts. 2 num. 2, 6 num. 8",
+    "nota": "No exige acreditación a periodistas, pero sí demostrar la conexidad"
+   },
+   "i02e": {
+    "valor": "parcial",
+    "articulos": "Art. 6 num. 8",
+    "nota": "Comunicadores sociales"
+   },
+   "i02f": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i02g": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03": {
+    "valor": "parcial",
+    "articulos": "Arts. 1, 3 num. 3, 11, 15 a 18",
+    "nota": "No define la agresión: define amenaza y riesgo (ordinario, extraordinario y extremo, con ocho características exigidas al extraordinario) y protege la vida, la libertad, la integridad y la seguridad"
+   },
+   "i03a": {
+    "valor": "si",
+    "articulos": "Art. 1",
+    "nota": ""
+   },
+   "i03b": {
+    "valor": "parcial",
+    "articulos": "Art. 1",
+    "nota": "'Integridad' sin desglose"
+   },
+   "i03c": {
+    "valor": "parcial",
+    "articulos": "Arts. 1, 11 par. 2",
+    "nota": "Integridad sin desglose; medidas psicosociales posibles"
+   },
+   "i03d": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03e": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03f": {
+    "valor": "si",
+    "articulos": "Art. 1",
+    "nota": ""
+   },
+   "i03g": {
+    "valor": "parcial",
+    "articulos": "Art. 11 lit. g",
+    "nota": "Blindaje de inmuebles"
+   },
+   "i03h": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03i": {
+    "valor": "parcial",
+    "articulos": "Art. 3 num. 11",
+    "nota": "Núcleo familiar solo de manera excepcional y con riesgo propio"
+   },
+   "i03j": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03k": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03l": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i04": {
+    "valor": "si",
+    "articulos": "Arts. 2 num. 8, 9, 10, 11 par. 2, 50",
+    "nota": "Enfoque diferencial por edad, etnia, género, discapacidad, orientación sexual y procedencia urbana o rural, exigido en la evaluación del riesgo y en las medidas; la protección específica de lideresas se desarrolló después por el Decreto 1314 de 2016"
+   },
+   "i05": {
+    "valor": "si",
+    "articulos": "Arts. 1, 10, 11 tipo 5",
+    "nota": "Personas, grupos y comunidades; esquemas colectivos; planes de prevención territoriales. La ruta de protección colectiva se desarrolló por el Decreto 2078 de 2017"
+   },
+   "i06": {
+    "valor": "si",
+    "articulos": "Arts. 9, 10, 11",
+    "nota": "Medidas de emergencia sin evaluación previa, de prevención (planes de prevención y contingencia, autoprotección, patrullaje) y de protección (esquemas, movilización, reubicación temporal, trasteo, comunicaciones, blindaje), más medidas psicosociales"
+   },
+   "i06a": {
+    "valor": "si",
+    "articulos": "Art. 9",
+    "nota": ""
+   },
+   "i06b": {
+    "valor": "si",
+    "articulos": "Art. 10",
+    "nota": ""
+   },
+   "i06c": {
+    "valor": "si",
+    "articulos": "Art. 11",
+    "nota": ""
+   },
+   "i06d": {
+    "valor": "si",
+    "articulos": "Arts. 12 a 24",
+    "nota": ""
+   },
+   "i06e": {
+    "valor": "si",
+    "articulos": "Art. 11 lit. d y e, par. 2",
+    "nota": "Apoyo económico de reubicación temporal, trasteo y medidas psicosociales"
+   },
+   "i07": {
+    "valor": "parcial",
+    "articulos": "Art. 37",
+    "nota": "No hay consejo consultivo; cuatro delegados de cada población objeto asisten al Cerrem con voz y sin voto, solo en los casos de su grupo"
+   },
+   "i08": {
+    "valor": "si",
+    "articulos": "Arts. 34, 36, 37",
+    "nota": "Cerrem con Mininterior (preside), Programa Presidencial de DDHH, Unidad de Víctimas y Policía; Fiscalía, Procuraduría, Defensoría, ONU Derechos Humanos y ACNUR como invitados; Grupo de Valoración Preliminar interinstitucional"
+   },
+   "i09": {
+    "valor": "parcial",
+    "articulos": "Arts. 2 num. 4, 6 par. 4, 20, 21, 31, 32",
+    "nota": "Asigna atribuciones a gobernaciones, alcaldías, Fuerza Pública y órganos de control, y obliga a todos los servidores a reportar riesgos, sin consecuencia por incumplimiento"
+   },
+   "i10": {
+    "valor": "si",
+    "articulos": "Arts. 9, 40, 41, 42",
+    "nota": "Once pasos del procedimiento ordinario, medidas de emergencia, presunción constitucional de riesgo para desplazados y reclamantes de tierras y ruta territorial desde la alcaldía"
+   },
+   "i11": {
+    "valor": "si",
+    "articulos": "Arts. 28, 29, 33 a 38",
+    "nota": "UNP (recepción e implementación), Ctrai (recopilación in situ), Grupo de Valoración Preliminar (evaluación), Cerrem (recomendación) y Policía (mapas de riesgo)"
+   },
+   "i12": {
+    "valor": "parcial",
+    "articulos": "Arts. 35, 38, 40 par. 2, 45",
+    "nota": "30 días hábiles para la evaluación del riesgo, Cerrem mensual, reevaluación anual y 5 días para controvertir una suspensión; sin plazo para implementar medidas de emergencia"
+   },
+   "i13": {
+    "valor": "si",
+    "articulos": "Arts. 10, 13, 19, 22, 29",
+    "nota": "Planes de prevención y de contingencia, mesas territoriales que proyectan escenarios de riesgo, Sistema de Alertas Tempranas de la Defensoría y mapas de riesgo policiales semestrales"
+   },
+   "i14": {
+    "valor": "parcial",
+    "articulos": "Art. 45",
+    "nota": "Sin recurso de inconformidad propio; solo el derecho a controvertir la suspensión por uso indebido. Las decisiones son actos administrativos sujetos a los recursos generales"
+   },
+   "i15": {
+    "valor": "si",
+    "articulos": "Art. 49",
+    "nota": ""
+   },
+   "i16": {
+    "valor": "si",
+    "articulos": "Art. 13",
+    "nota": "Mesa territorial de prevención en cada entidad territorial, coordinada por el gobierno local, con espacios de trabajo entre autoridades y comunidades"
+   },
+   "i17": {
+    "valor": "parcial",
+    "articulos": "Arts. 2 num. 4, 9, 32",
+    "nota": "Concurrencia presupuestal de todos los niveles y gasto social prioritario de las alcaldías; sin fondo ni monto"
+   },
+   "i18": {
+    "valor": "no",
+    "articulos": "",
+    "nota": "No prevé sanciones a servidores; solo la suspensión de medidas por uso indebido del protegido"
+   },
+   "i19": {
+    "valor": "parcial",
+    "articulos": "Arts. 20, 21, 28, 50",
+    "nota": "Rendición de cuentas territorial, seguimiento de la UNP y evaluación periódica del Programa, sin informes públicos obligatorios"
+   },
+   "i20": {
+    "valor": "parcial",
+    "articulos": "Arts. 2 num. 13, 47",
+    "nota": "Solo la reserva legal de la información de solicitantes y protegidos"
+   }
   }
  },
  "definiciones": {
@@ -2132,6 +2395,11 @@
    "periodista": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole. (Art. 5 num. 3)",
    "defensora": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales. (Art. 5 num. 1) El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos. (Art. 1)",
    "agresion": "Agresiones: Es el daño, amenaza, hostigamiento o intimidación que por el ejercicio de su actividad o cargo sufren las y los defensores de derechos humanos, periodistas, comunicadores sociales y operadores de justicia. (Art. 5 num. 7) El Estado tiene la obligación de respetar los derechos humanos de las y los defensores y de prevenir de forma razonable las amenazas, hostigamientos y agresiones que puedan generarse en su contra, independientemente de que éstas provengan de actores estatales o particulares. (Art. 6)"
+  },
+  "co": {
+   "periodista": "No lo define; el artículo 6, numeral 8, incluye a 'periodistas y comunicadores sociales' entre la población objeto de protección en razón del riesgo.",
+   "defensora": "Activista: Persona que interviene activamente en la defensa de los derechos humanos. La acreditación de una persona como activista, se efectuará mediante certificación que expida por la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida. (Art. 3 num. 1) Son objeto de protección los 'dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas' (Art. 6 num. 2).",
+   "agresion": "No la define. Amenaza: Factor del riesgo que comprende las situaciones o hechos externos con la potencialidad de causar daño a una persona, grupo o comunidad, a través de una acción intencionada y por cualquier medio. (Art. 3 num. 3) El ingreso depende de un riesgo extraordinario o extremo, que debe ser específico, concreto, presente, importante, serio, claro, excepcional y desproporcionado (Art. 3 num. 15 a 18)."
   }
  },
  "pasajes": {
@@ -5074,28 +5342,396 @@
      "texto": "El acceso y la difusión de información relacionada con la Ley debe ser conforme a la Ley de Transparencia y Acceso a la Información Pública. Las resoluciones que otorgan medidas se consideran información reservada (art. 60). La información sobre casos individuales no debe ser incorporada en los informes al público; los informes especiales y anuales serán de carácter general (art. 61)."
     }
    ]
+  },
+  "co": {
+   "i01": [
+    {
+     "articulo": "Artículo 3, numeral 1",
+     "texto": "Activista: Persona que interviene activamente en la defensa de los derechos humanos. La acreditación de una persona como activista, se efectuará mediante certificación que expida por la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida."
+    },
+    {
+     "articulo": "Artículo 3, numeral 5",
+     "texto": "Dirigente o Representante: Persona que ocupa un cargo directivo o ejerce la representación de una organización o grupo al que pertenece. La acreditación de una persona como dirigente o representante será expedida por la misma organización o grupo del que hace parte."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i01a": [
+    {
+     "articulo": "Artículo 3, numeral 1",
+     "texto": "Activista: Persona que interviene activamente en la defensa de los derechos humanos. La acreditación de una persona como activista, se efectuará mediante certificación que expida por la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i01b": [
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i01c": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i01d": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i01e": [
+    {
+     "articulo": "Artículo 2, numeral 2",
+     "texto": "Causalidad: La vinculación al Programa de Prevención y Protección, estará fundamentada en la conexidad directa entre el riesgo y el ejercicio de las actividades o funciones políticas, públicas, sociales o humanitarias. Los interesados en ser acogidos por el programa deben demostrar, siquiera sumariamente, dicha conexidad."
+    },
+    {
+     "articulo": "Artículo 3, numeral 1",
+     "texto": "Activista: Persona que interviene activamente en la defensa de los derechos humanos. La acreditación de una persona como activista, se efectuará mediante certificación que expida por la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida."
+    },
+    {
+     "articulo": "Artículo 3, numeral 5",
+     "texto": "Dirigente o Representante: Persona que ocupa un cargo directivo o ejerce la representación de una organización o grupo al que pertenece. La acreditación de una persona como dirigente o representante será expedida por la misma organización o grupo del que hace parte."
+    }
+   ],
+   "i01f": [
+    {
+     "articulo": "Artículo 3, numeral 1",
+     "texto": "Activista: Persona que interviene activamente en la defensa de los derechos humanos. La acreditación de una persona como activista, se efectuará mediante certificación que expida por la respectiva organización o grupo al que pertenece o por una autoridad legalmente reconocida."
+    }
+   ],
+   "i02": [
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i02c": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 2, numeral 2",
+     "texto": "Causalidad: La vinculación al Programa de Prevención y Protección, estará fundamentada en la conexidad directa entre el riesgo y el ejercicio de las actividades o funciones políticas, públicas, sociales o humanitarias. Los interesados en ser acogidos por el programa deben demostrar, siquiera sumariamente, dicha conexidad."
+    }
+   ],
+   "i02d": [
+    {
+     "articulo": "Artículo 2, numeral 2",
+     "texto": "Causalidad: La vinculación al Programa de Prevención y Protección, estará fundamentada en la conexidad directa entre el riesgo y el ejercicio de las actividades o funciones políticas, públicas, sociales o humanitarias. Los interesados en ser acogidos por el programa deben demostrar, siquiera sumariamente, dicha conexidad."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i02e": [
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    }
+   ],
+   "i03": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 3, numeral 3",
+     "texto": "Amenaza: Factor del riesgo que comprende las situaciones o hechos externos con la potencialidad de causar daño a una persona, grupo o comunidad, a través de una acción intencionada y por cualquier medio."
+    },
+    {
+     "articulo": "Artículo 3, numeral 15 a 18",
+     "texto": "15. Riesgo: Probabilidad de ocurrencia de un daño al que se encuentra expuesta una persona, un grupo o una comunidad, como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón al ejercicio de su cargo, en unas condiciones determinadas de modo, tiempo y lugar. 16. Riesgo Extraordinario: Es aquel que las personas [...] no están obligadas a soportar y comprende el derecho de recibir del Estado la protección especial por parte del Programa, [...] siempre que reúna las siguientes características: a) que sea específico e individualizable; b) concreto; c) presente; d) importante; e) serio; f) claro y discernible; g) excepcional; h) desproporcionado. 17. Riesgo Extremo: Es aquel que se presenta al confluir todas las características señaladas para el riesgo extraordinario y que adicionalmente es grave e inminente. 18. Riesgo Ordinario: Es aquel al que están sometidas todas las personas, en igualdad de condiciones [...]; genera para el Estado la obligación de adoptar medidas de seguridad pública y no comporta la obligación de adoptar medidas de protección."
+    }
+   ],
+   "i03a": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    }
+   ],
+   "i03b": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    }
+   ],
+   "i03c": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i03f": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    }
+   ],
+   "i03g": [
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i03i": [
+    {
+     "articulo": "Artículo 3, numeral 11",
+     "texto": "Núcleo Familiar: Hace referencia al cónyuge o compañero (a) permanente, a los hijos y a los padres del solicitante o protegido, quienes de manera excepcional, podrán ser beneficiarios de medidas si ostentan un nivel de riesgo extraordinario o extremo y exista nexo causal entre dicho nivel de riesgo y la actividad o función política, social o humanitaria del tal solicitante o protegido."
+    }
+   ],
+   "i04": [
+    {
+     "articulo": "Artículo 2, numeral 8",
+     "texto": "Enfoque Diferencial: Para la Evaluación de Riesgo, así como para la recomendación y adopción de las medidas de protección, deberán ser observadas las especificidades y vulnerabilidades por edad, etnia, género, discapacidad, orientación sexual, y procedencia urbana o rural de las personas objeto de protección."
+    },
+    {
+     "articulo": "Artículos 49 a 50",
+     "texto": "Los ejecutores del programa podrán celebrar convenios de cooperación con otras entidades públicas o privadas y con organismos nacionales e internacionales, con el fin de recibir asistencia técnica o apoyo a través del suministro de recursos y medios destinados a la protección de los beneficiarios (art. 49). El Ministerio del Interior reglamentará el decreto mediante protocolos y reglamentos generales y específicos para cada población objeto, teniendo en cuenta un enfoque diferencial, desarrollando mecanismos periódicos de evaluación del Programa (art. 50)."
+    }
+   ],
+   "i05": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "Organizar el Programa de Prevención y Protección de los derechos a la vida, la libertad, la integridad y la seguridad de personas, grupos y comunidades que se encuentran en situación de riesgo extraordinario o extremo como consecuencia directa del ejercicio de sus actividades o funciones políticas, públicas, sociales o humanitarias, o en razón del ejercicio de su cargo, en cabeza de la Unidad Nacional de Protección, la Policía Nacional y el Ministerio del Interior."
+    },
+    {
+     "articulo": "Artículo 10",
+     "texto": "Son medidas de prevención las siguientes: a) Planes de Prevención y Planes de Contingencia: la Dirección de Derechos Humanos del Ministerio del Interior con el apoyo de la Unidad Nacional de Protección, los departamentos y los municipios concurrirán en la formulación de los planes de prevención y de contingencia contemplando un enfoque diferencial, que tendrán por objeto contrarrestar las amenazas, disminuir las vulnerabilidades, potenciar las capacidades institucionales y sociales y fortalecer la coordinación institucional y social para la disminución del riesgo. b) Curso de Autoprotección. c) Patrullaje. d) Revista policial."
+    },
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i06": [
+    {
+     "articulo": "Artículo 9",
+     "texto": "En casos de riesgo inminente y excepcional, el Director de la Unidad Nacional de Protección podrá adoptar, sin necesidad de la evaluación del riesgo, contemplando un enfoque diferencial, medidas provisionales de protección para los usuarios del Programa e informará de las mismas al Comité de Evaluación de Riesgo y Recomendación de Medidas, Cerrem, en la siguiente sesión, con el fin de que este recomiende las medidas definitivas, si es del caso. [...] En circunstancias en que sea aplicable la presunción constitucional de riesgo, para el caso de la población desplazada [...] que interviene en procesos de restitución de tierras, el Director de la Unidad Nacional de Protección deberá adoptar medidas de esta naturaleza."
+    },
+    {
+     "articulo": "Artículo 10",
+     "texto": "Son medidas de prevención las siguientes: a) Planes de Prevención y Planes de Contingencia: la Dirección de Derechos Humanos del Ministerio del Interior con el apoyo de la Unidad Nacional de Protección, los departamentos y los municipios concurrirán en la formulación de los planes de prevención y de contingencia contemplando un enfoque diferencial, que tendrán por objeto contrarrestar las amenazas, disminuir las vulnerabilidades, potenciar las capacidades institucionales y sociales y fortalecer la coordinación institucional y social para la disminución del riesgo. b) Curso de Autoprotección. c) Patrullaje. d) Revista policial."
+    },
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i06a": [
+    {
+     "articulo": "Artículo 9",
+     "texto": "En casos de riesgo inminente y excepcional, el Director de la Unidad Nacional de Protección podrá adoptar, sin necesidad de la evaluación del riesgo, contemplando un enfoque diferencial, medidas provisionales de protección para los usuarios del Programa e informará de las mismas al Comité de Evaluación de Riesgo y Recomendación de Medidas, Cerrem, en la siguiente sesión, con el fin de que este recomiende las medidas definitivas, si es del caso. [...] En circunstancias en que sea aplicable la presunción constitucional de riesgo, para el caso de la población desplazada [...] que interviene en procesos de restitución de tierras, el Director de la Unidad Nacional de Protección deberá adoptar medidas de esta naturaleza."
+    }
+   ],
+   "i06b": [
+    {
+     "articulo": "Artículo 10",
+     "texto": "Son medidas de prevención las siguientes: a) Planes de Prevención y Planes de Contingencia: la Dirección de Derechos Humanos del Ministerio del Interior con el apoyo de la Unidad Nacional de Protección, los departamentos y los municipios concurrirán en la formulación de los planes de prevención y de contingencia contemplando un enfoque diferencial, que tendrán por objeto contrarrestar las amenazas, disminuir las vulnerabilidades, potenciar las capacidades institucionales y sociales y fortalecer la coordinación institucional y social para la disminución del riesgo. b) Curso de Autoprotección. c) Patrullaje. d) Revista policial."
+    }
+   ],
+   "i06c": [
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i06d": [
+    {
+     "articulo": "Artículo 13",
+     "texto": "En cada entidad territorial se integrará una mesa territorial de prevención con el objeto de coordinar las acciones de implementación de la estrategia de prevención, con las siguientes atribuciones: realizar un proceso de identificación de riesgos permanente; proyectar escenarios de riesgo; formular planes de prevención y contingencia; velar por la implementación de las estrategias y acciones incorporadas en los planes de prevención y de protección; hacer seguimiento a su implementación; generar espacios de trabajo entre las autoridades y las comunidades en aras de mejorar los procesos de gestión del riesgo. Parágrafo. Las Mesas Territoriales serán coordinadas por la autoridad de gobierno departamental, distrital o municipal correspondiente."
+    },
+    {
+     "articulo": "Artículos 19 a 22",
+     "texto": "La Secretaría Técnica de la Comisión Intersectorial de Alertas Tempranas participa en la identificación y análisis de riesgo aportando la información de las alertas tempranas emitidas, hace seguimiento a la evolución de los actores que generan amenaza y procura la emisión de alertas tempranas y recomendaciones (art. 19). El Ministerio del Interior solicitará a la Defensoría del Pueblo que participe en la identificación y análisis de riesgo con insumos del Sistema de Alertas Tempranas y emita informes de riesgo y notas de seguimiento (art. 22)."
+    }
+   ],
+   "i06e": [
+    {
+     "articulo": "Artículo 11",
+     "texto": "Son medidas de protección en virtud del riesgo: a) esquemas de protección individuales (tipos 1 a 4) y colectivos (tipo 5, para un grupo de 2 o más personas); b) recursos físicos de soporte (vehículos, motocicletas, chalecos antibalas, medios de comunicación); c) medios de movilización (tiquetes aéreos internacionales y nacionales, apoyo de transporte terrestre, fluvial o marítimo); d) apoyo de reubicación temporal, entre uno y tres salarios mínimos mensuales hasta por tres meses; e) apoyo de trasteo; f) medios de comunicación; g) blindaje de inmuebles e instalación de sistemas técnicos de seguridad en las sedes de las organizaciones y, excepcionalmente, en residencias. Parágrafo 2. Se podrán adoptar otras medidas de protección diferentes [...] teniendo en cuenta un enfoque diferencial, el nivel de riesgo y el factor territorial. Así mismo se podrán implementar medidas psicosociales."
+    }
+   ],
+   "i07": [
+    {
+     "articulo": "Artículos 36 a 37",
+     "texto": "Son miembros permanentes del Cerrem, con voz y voto: el Director de Derechos Humanos del Ministerio del Interior, quien lo preside; el Director del Programa Presidencial de Derechos Humanos y DIH; el Director de la Unidad de Atención y Reparación Integral a las Víctimas; el Director de Protección y Servicios Especiales de la Policía Nacional, y el Coordinador de la Oficina de Derechos Humanos de la Inspección General de la Policía (art. 36). Son invitados permanentes, solo con voz: delegados de la Procuraduría, la Defensoría y la Fiscalía; la Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos; ACNUR en casos de población desplazada, y cuatro delegados de cada una de las poblaciones objeto del Programa, quienes estarán presentes exclusivamente en el análisis de los casos del grupo poblacional al que representan (art. 37)."
+    }
+   ],
+   "i08": [
+    {
+     "articulo": "Artículos 33 a 35",
+     "texto": "El Cuerpo Técnico de Recopilación y Análisis de Información, Ctrai, recopila y analiza información in situ con personal de la Unidad Nacional de Protección y de la Policía Nacional (art. 33). El Grupo de Valoración Preliminar, de carácter permanente, lo integran delegados de la Unidad Nacional de Protección (que lo coordina), del Ministerio de Defensa, de la Policía Nacional, del Programa Presidencial de Derechos Humanos y de la Unidad de Víctimas, con la Fiscalía, la Procuraduría, la Defensoría y la Comisión Intersectorial de Alertas Tempranas como invitados permanentes (art. 34). Analiza cada caso, presenta al Cerrem el nivel de riesgo y las medidas idóneas y elabora la evaluación en un plazo no mayor de 30 días hábiles contados desde el consentimiento escrito del solicitante (art. 35)."
+    },
+    {
+     "articulo": "Artículos 36 a 37",
+     "texto": "Son miembros permanentes del Cerrem, con voz y voto: el Director de Derechos Humanos del Ministerio del Interior, quien lo preside; el Director del Programa Presidencial de Derechos Humanos y DIH; el Director de la Unidad de Atención y Reparación Integral a las Víctimas; el Director de Protección y Servicios Especiales de la Policía Nacional, y el Coordinador de la Oficina de Derechos Humanos de la Inspección General de la Policía (art. 36). Son invitados permanentes, solo con voz: delegados de la Procuraduría, la Defensoría y la Fiscalía; la Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos; ACNUR en casos de población desplazada, y cuatro delegados de cada una de las poblaciones objeto del Programa, quienes estarán presentes exclusivamente en el análisis de los casos del grupo poblacional al que representan (art. 37)."
+    }
+   ],
+   "i09": [
+    {
+     "articulo": "Artículo 2, numeral 4",
+     "texto": "Concurrencia: La Unidad Nacional de Protección, el Ministerio del Interior, la Policía Nacional y demás autoridades del orden nacional, los municipios y departamentos aportarán las medidas de prevención y protección de acuerdo con sus competencias y capacidades institucionales, administrativas y presupuestales, para la garantía efectiva de los derechos a la vida, libertad, integridad y seguridad personal de su población objeto."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "Son objeto de protección en razón del riesgo: 1. Dirigentes o activistas de grupos políticos y especialmente de grupos de oposición. 2. Dirigentes, representantes o activistas de organizaciones defensoras de derechos humanos, de víctimas, sociales, cívicas, comunales o campesinas. 3. Dirigentes o activistas sindicales. 4. Dirigentes, representantes o activistas de organizaciones gremiales. 5. Dirigentes, Representantes o miembros de grupos étnicos. 6. Miembros de la Misión Médica. 7. Testigos de casos de violación a los derechos humanos y de infracción al Derecho Internacional Humanitario. 8. Periodistas y comunicadores sociales. 9. Víctimas de violaciones a los Derechos Humanos e infracciones al Derecho Internacional Humanitario, incluyendo dirigentes, líderes, representantes de organizaciones de población desplazada o de reclamantes de tierras en situación de riesgo extraordinario o extremo. [...] 14. Apoderados o profesionales forenses que participen en procesos judiciales o disciplinarios por violaciones de derechos humanos o infracciones al derecho internacional humanitario. 15. Docentes [...]. Parágrafo 4. Todos los servidores públicos pondrán en conocimiento situaciones de riesgo o amenaza contra las personas objeto del Programa de Protección, de manera urgente, por medio físico, vía telefónica o correo electrónico a la Unidad Nacional de Protección y a las demás entidades competentes."
+    },
+    {
+     "articulo": "Artículo 32",
+     "texto": "Las alcaldías distritales y municipales tendrán, entre otras, las siguientes atribuciones: orientar a los solicitantes de protección; diseñar y poner en ejecución planes, programas o proyectos dirigidos a proteger a las personas, grupos o comunidades en situación de riesgo extraordinario o extremo; apropiar como gasto social prioritario para la implementación de las políticas de protección, el destinado a salvaguardar los derechos a la vida, la integridad, la libertad y la seguridad de las personas, grupos y comunidades en situación de riesgo extraordinario o extremo."
+    }
+   ],
+   "i10": [
+    {
+     "articulo": "Artículo 40",
+     "texto": "El procedimiento ordinario del programa de protección es el siguiente: 1. Recepción de la solicitud y diligenciamiento del formato de caracterización inicial. 2. Análisis y verificación de la pertenencia del solicitante a la población objeto y existencia del nexo causal entre el riesgo y la actividad. 3. Traslado al Ctrai. 4. Presentación del trabajo de campo al Grupo de Valoración Preliminar. 5. Análisis de caso en el Grupo. 6. Valoración del caso por parte del Cerrem. 7. Adopción de medidas por el Director de la Unidad Nacional de Protección mediante acto administrativo. 8. Comunicación escrita al protegido. 9. Implementación de las medidas. 10. Seguimiento. 11. Reevaluación. Parágrafo 2. El nivel de riesgo será revaluado una vez al año, o antes si existen nuevos hechos que puedan generar una variación del riesgo."
+    },
+    {
+     "articulo": "Artículo 9",
+     "texto": "En casos de riesgo inminente y excepcional, el Director de la Unidad Nacional de Protección podrá adoptar, sin necesidad de la evaluación del riesgo, contemplando un enfoque diferencial, medidas provisionales de protección para los usuarios del Programa e informará de las mismas al Comité de Evaluación de Riesgo y Recomendación de Medidas, Cerrem, en la siguiente sesión, con el fin de que este recomiende las medidas definitivas, si es del caso. [...] En circunstancias en que sea aplicable la presunción constitucional de riesgo, para el caso de la población desplazada [...] que interviene en procesos de restitución de tierras, el Director de la Unidad Nacional de Protección deberá adoptar medidas de esta naturaleza."
+    },
+    {
+     "articulo": "Artículos 41 a 42",
+     "texto": "Se aplicará la presunción constitucional de riesgo a favor de las víctimas de desplazamiento forzado que intervienen en procesos de restitución de tierras (art. 41). Se implementará una ruta de protección específica para líderes, dirigentes, representantes y población desplazada, que debe acudir ante la Secretaría del Interior o de Gobierno municipal; si las medidas necesarias no están a su alcance, el caso se remite al departamento y de ahí al Programa de Prevención y Protección (art. 42)."
+    }
+   ],
+   "i11": [
+    {
+     "articulo": "Artículo 28",
+     "texto": "Son responsabilidades de la Unidad Nacional de Protección, entre otras: recibir y tramitar las solicitudes de protección; realizar una entrevista personal con el solicitante; requerir la evaluación del riesgo; presentar el caso ante el Grupo de Valoración Preliminar y ante el Cerrem; adoptar e implementar las medidas de protección previa recomendación del Cerrem; hacer seguimiento periódico a la implementación, al uso y a la oportunidad, idoneidad y eficacia de las medidas; informar al peticionario la decisión y sus motivos; dar traslado a la Fiscalía General de la Nación de las amenazas que reporten los peticionarios y hacer seguimiento al avance de los procesos."
+    },
+    {
+     "articulo": "Artículos 33 a 35",
+     "texto": "El Cuerpo Técnico de Recopilación y Análisis de Información, Ctrai, recopila y analiza información in situ con personal de la Unidad Nacional de Protección y de la Policía Nacional (art. 33). El Grupo de Valoración Preliminar, de carácter permanente, lo integran delegados de la Unidad Nacional de Protección (que lo coordina), del Ministerio de Defensa, de la Policía Nacional, del Programa Presidencial de Derechos Humanos y de la Unidad de Víctimas, con la Fiscalía, la Procuraduría, la Defensoría y la Comisión Intersectorial de Alertas Tempranas como invitados permanentes (art. 34). Analiza cada caso, presenta al Cerrem el nivel de riesgo y las medidas idóneas y elabora la evaluación en un plazo no mayor de 30 días hábiles contados desde el consentimiento escrito del solicitante (art. 35)."
+    },
+    {
+     "articulo": "Artículo 38",
+     "texto": "El Cerrem tiene por objeto la valoración integral del riesgo y la recomendación de medidas de protección y complementarias: analiza los casos, valida el nivel de riesgo, recomienda al Director de la Unidad Nacional de Protección las medidas, su ajuste, suspensión o finalización y define su temporalidad. Sesiona de manera ordinaria por lo menos una vez al mes y de forma extraordinaria cuando las necesidades de protección lo ameriten."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Corresponde a la Policía Nacional: elaborar mapas de riesgo, por grupos poblacionales, y actualizarlos cuando las circunstancias lo ameriten, y por lo menos semestralmente; participar de forma permanente en las diferentes instancias del programa; implementar cursos de autoprotección, patrullajes, rondas policiales y esquemas de protección en lo relacionado con hombres y mujeres de protección."
+    }
+   ],
+   "i12": [
+    {
+     "articulo": "Artículos 33 a 35",
+     "texto": "El Cuerpo Técnico de Recopilación y Análisis de Información, Ctrai, recopila y analiza información in situ con personal de la Unidad Nacional de Protección y de la Policía Nacional (art. 33). El Grupo de Valoración Preliminar, de carácter permanente, lo integran delegados de la Unidad Nacional de Protección (que lo coordina), del Ministerio de Defensa, de la Policía Nacional, del Programa Presidencial de Derechos Humanos y de la Unidad de Víctimas, con la Fiscalía, la Procuraduría, la Defensoría y la Comisión Intersectorial de Alertas Tempranas como invitados permanentes (art. 34). Analiza cada caso, presenta al Cerrem el nivel de riesgo y las medidas idóneas y elabora la evaluación en un plazo no mayor de 30 días hábiles contados desde el consentimiento escrito del solicitante (art. 35)."
+    },
+    {
+     "articulo": "Artículo 38",
+     "texto": "El Cerrem tiene por objeto la valoración integral del riesgo y la recomendación de medidas de protección y complementarias: analiza los casos, valida el nivel de riesgo, recomienda al Director de la Unidad Nacional de Protección las medidas, su ajuste, suspensión o finalización y define su temporalidad. Sesiona de manera ordinaria por lo menos una vez al mes y de forma extraordinaria cuando las necesidades de protección lo ameriten."
+    },
+    {
+     "articulo": "Artículo 40",
+     "texto": "El procedimiento ordinario del programa de protección es el siguiente: 1. Recepción de la solicitud y diligenciamiento del formato de caracterización inicial. 2. Análisis y verificación de la pertenencia del solicitante a la población objeto y existencia del nexo causal entre el riesgo y la actividad. 3. Traslado al Ctrai. 4. Presentación del trabajo de campo al Grupo de Valoración Preliminar. 5. Análisis de caso en el Grupo. 6. Valoración del caso por parte del Cerrem. 7. Adopción de medidas por el Director de la Unidad Nacional de Protección mediante acto administrativo. 8. Comunicación escrita al protegido. 9. Implementación de las medidas. 10. Seguimiento. 11. Reevaluación. Parágrafo 2. El nivel de riesgo será revaluado una vez al año, o antes si existen nuevos hechos que puedan generar una variación del riesgo."
+    },
+    {
+     "articulo": "Artículo 45",
+     "texto": "Si el Programa identifica que un protegido está incurriendo en uso indebido de las medidas, se notificará por escrito al protegido, quien tendrá la oportunidad de controvertir los hechos, por escrito, en un plazo de 5 días hábiles; el Cerrem recomendará la suspensión o continuidad y el Director de la Unidad Nacional de Protección decidirá mediante acto administrativo."
+    }
+   ],
+   "i13": [
+    {
+     "articulo": "Artículo 10",
+     "texto": "Son medidas de prevención las siguientes: a) Planes de Prevención y Planes de Contingencia: la Dirección de Derechos Humanos del Ministerio del Interior con el apoyo de la Unidad Nacional de Protección, los departamentos y los municipios concurrirán en la formulación de los planes de prevención y de contingencia contemplando un enfoque diferencial, que tendrán por objeto contrarrestar las amenazas, disminuir las vulnerabilidades, potenciar las capacidades institucionales y sociales y fortalecer la coordinación institucional y social para la disminución del riesgo. b) Curso de Autoprotección. c) Patrullaje. d) Revista policial."
+    },
+    {
+     "articulo": "Artículos 19 a 22",
+     "texto": "La Secretaría Técnica de la Comisión Intersectorial de Alertas Tempranas participa en la identificación y análisis de riesgo aportando la información de las alertas tempranas emitidas, hace seguimiento a la evolución de los actores que generan amenaza y procura la emisión de alertas tempranas y recomendaciones (art. 19). El Ministerio del Interior solicitará a la Defensoría del Pueblo que participe en la identificación y análisis de riesgo con insumos del Sistema de Alertas Tempranas y emita informes de riesgo y notas de seguimiento (art. 22)."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Corresponde a la Policía Nacional: elaborar mapas de riesgo, por grupos poblacionales, y actualizarlos cuando las circunstancias lo ameriten, y por lo menos semestralmente; participar de forma permanente en las diferentes instancias del programa; implementar cursos de autoprotección, patrullajes, rondas policiales y esquemas de protección en lo relacionado con hombres y mujeres de protección."
+    }
+   ],
+   "i14": [
+    {
+     "articulo": "Artículo 45",
+     "texto": "Si el Programa identifica que un protegido está incurriendo en uso indebido de las medidas, se notificará por escrito al protegido, quien tendrá la oportunidad de controvertir los hechos, por escrito, en un plazo de 5 días hábiles; el Cerrem recomendará la suspensión o continuidad y el Director de la Unidad Nacional de Protección decidirá mediante acto administrativo."
+    }
+   ],
+   "i15": [
+    {
+     "articulo": "Artículos 49 a 50",
+     "texto": "Los ejecutores del programa podrán celebrar convenios de cooperación con otras entidades públicas o privadas y con organismos nacionales e internacionales, con el fin de recibir asistencia técnica o apoyo a través del suministro de recursos y medios destinados a la protección de los beneficiarios (art. 49). El Ministerio del Interior reglamentará el decreto mediante protocolos y reglamentos generales y específicos para cada población objeto, teniendo en cuenta un enfoque diferencial, desarrollando mecanismos periódicos de evaluación del Programa (art. 50)."
+    }
+   ],
+   "i16": [
+    {
+     "articulo": "Artículo 13",
+     "texto": "En cada entidad territorial se integrará una mesa territorial de prevención con el objeto de coordinar las acciones de implementación de la estrategia de prevención, con las siguientes atribuciones: realizar un proceso de identificación de riesgos permanente; proyectar escenarios de riesgo; formular planes de prevención y contingencia; velar por la implementación de las estrategias y acciones incorporadas en los planes de prevención y de protección; hacer seguimiento a su implementación; generar espacios de trabajo entre las autoridades y las comunidades en aras de mejorar los procesos de gestión del riesgo. Parágrafo. Las Mesas Territoriales serán coordinadas por la autoridad de gobierno departamental, distrital o municipal correspondiente."
+    }
+   ],
+   "i17": [
+    {
+     "articulo": "Artículo 2, numeral 4",
+     "texto": "Concurrencia: La Unidad Nacional de Protección, el Ministerio del Interior, la Policía Nacional y demás autoridades del orden nacional, los municipios y departamentos aportarán las medidas de prevención y protección de acuerdo con sus competencias y capacidades institucionales, administrativas y presupuestales, para la garantía efectiva de los derechos a la vida, libertad, integridad y seguridad personal de su población objeto."
+    },
+    {
+     "articulo": "Artículo 32",
+     "texto": "Las alcaldías distritales y municipales tendrán, entre otras, las siguientes atribuciones: orientar a los solicitantes de protección; diseñar y poner en ejecución planes, programas o proyectos dirigidos a proteger a las personas, grupos o comunidades en situación de riesgo extraordinario o extremo; apropiar como gasto social prioritario para la implementación de las políticas de protección, el destinado a salvaguardar los derechos a la vida, la integridad, la libertad y la seguridad de las personas, grupos y comunidades en situación de riesgo extraordinario o extremo."
+    }
+   ],
+   "i19": [
+    {
+     "articulo": "Artículos 20 a 21",
+     "texto": "Las gobernaciones y las alcaldías distritales o municipales participan en la focalización territorial, la identificación y análisis de riesgo y la formulación de planes de prevención y de contingencia; implementan los planes en los temas de su competencia, y deben generar espacios de rendición de cuentas con autoridades y comunidades para presentar los avances en la implementación de los programas de prevención en su territorio."
+    },
+    {
+     "articulo": "Artículos 49 a 50",
+     "texto": "Los ejecutores del programa podrán celebrar convenios de cooperación con otras entidades públicas o privadas y con organismos nacionales e internacionales, con el fin de recibir asistencia técnica o apoyo a través del suministro de recursos y medios destinados a la protección de los beneficiarios (art. 49). El Ministerio del Interior reglamentará el decreto mediante protocolos y reglamentos generales y específicos para cada población objeto, teniendo en cuenta un enfoque diferencial, desarrollando mecanismos periódicos de evaluación del Programa (art. 50)."
+    }
+   ],
+   "i20": [
+    {
+     "articulo": "Artículo 2, numeral 13",
+     "texto": "Reserva Legal: La información relativa a solicitantes y protegidos del Programa de Prevención y Protección es reservada. Los beneficiarios de las medidas también están obligados a guardar dicha reserva."
+    }
+   ]
   }
  },
  "reflexiones": {
-  "i01": "Las tres leyes reproducen la misma definición de persona defensora, tomada del artículo 2 federal, así que en este indicador no hay diferencia de alcance formal. La única variación está fuera de la definición, en el artículo 2 de Sinaloa, que declara de interés público la actividad ciudadana de defensa, individual o colectiva, y con ello protege el acto de defender aunque quien lo realice no se identifique como defensor. Las omisiones son compartidas: la exigencia de finalidad para los colectivos, el silencio sobre comunidades, pueblos y personas buscadoras, y la falta de mención a la defensa ocasional. Coahuila legisla por separado: su ley de personas defensoras (2016) parte de la misma fórmula pero agrega 'remunerado o no' y enumera las libertades que la defensa requiere, con lo que es la definición más desarrollada del conjunto, aunque conserva las mismas omisiones; su ley de periodistas no define a la persona defensora. Tamaulipas (2017) copia la definición federal sin cambios. Honduras (2015) es la más amplia del conjunto: define a la persona defensora por el ejercicio del derecho a defender, sin exigir finalidad a los colectivos, nombra a los defensores del medio ambiente y admite a grupos y comunidades como peticionarios y beneficiarios, las dos omisiones que comparten todas las leyes mexicanas.",
-  "i02": "Aquí las diferencias son de signo opuesto. La federal define al periodista por la función de informar y deja abierta la lista de medios. Sinaloa conserva ese texto y añade una definición del periodismo como actividad de observación, documentación, análisis y divulgación, que protege actos periodísticos aislados. Durango recortó la definición en 2022 al suprimir la cláusula abierta y exigir medios con personalidad debidamente acreditada, y reservó el acceso a fuentes a periodistas acreditados; a cambio nombra a colaboradores, columnistas y auxiliares como categoría propia y trae el catálogo de derechos profesionales más amplio de los tres. La ley de periodistas de Coahuila (2014) reproduce la fórmula federal con cláusula abierta, aunque omite los medios comunitarios y experimentales, menciona a los colaboradores periodísticos y desde 2020 define la libre expresión como derecho de toda persona; su ley de personas defensoras no define al periodista. Tamaulipas copia la definición federal completa, con cláusula abierta y sin acreditación. Honduras sigue la fórmula funcional mexicana pero solo para personas naturales, nombra a comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos, y añade un tercer sujeto que ninguna ley mexicana protege: los operadores de justicia.",
-  "i03": "Federal y Durango comparten el mismo par de normas, una definición breve y un catálogo que agrega integridad moral y económica, entorno familiar y organizativo y bienes, sin nombrar la vida, la libertad ni la seguridad como contenido de la agresión y sin mencionar el ámbito digital, el judicial ni la violencia sexual. Sinaloa es la única que enumera esos bienes, incluye a los medios de comunicación como víctimas y tipifica como agresión las campañas en redes, los ataques a portales, los citatorios y demandas hostigadoras, el acoso y la violencia sexual y la revelación de datos de quienes piden información pública. Las dos leyes de Coahuila divergen: la de periodistas sigue el molde federal y agrega la integridad sexual; la de personas defensoras es la más amplia en bienes protegidos, pues nombra vida, libertad, seguridad, bienes y derechos, aunque no el ámbito digital. Tamaulipas sigue el molde federal y añade al representante legal del peticionario entre las personas cuya afectación configura agresión. Honduras tiene la definición de agresión más escueta (daño, amenaza, hostigamiento o intimidación) y ningún catálogo equivalente al artículo 24 federal, aunque reconoce que las agresiones pueden venir de actores estatales o particulares.",
-  "i04": "La federal incorporó la perspectiva de género por reformas de 2021 y 2022, pero solo como paridad en la integración de sus órganos y como criterio de sus informes; no ordena un enfoque diferenciado en la evaluación del riesgo ni en las medidas. Sinaloa la convierte en principio de aplicación de toda la ley y exige atención e investigación con enfoque diferenciado según identidad y género. Durango no menciona el género ni los enfoques diferenciados en ningún artículo. En Coahuila, la ley de periodistas no menciona el género y la de personas defensoras solo dispone que las medidas tendrán perspectiva de género (art. 16). Tamaulipas solo exige perspectiva de género en sus informes anuales. Honduras hace del enfoque diferenciado un principio y obliga a que los protocolos atiendan género, edad, origen étnico, situación socioeconómica, orientación sexual e identidad de género y diferencias urbanas y rurales, más que la federal mexicana.",
-  "i05": "Las tres leyes admiten medidas individuales o colectivas y extienden la protección a quienes participan en la misma organización o movimiento, con redacciones casi idénticas. Sinaloa refuerza el enfoque colectivo al declarar de interés público la actividad colectiva de defensa y al prever cursos y medidas para grupos; Durango, además de la fórmula federal, contempla a la empresa como parte del entorno afectado. Las dos leyes de Coahuila prevén medidas individuales o colectivas (art. 16 en ambas) y la de personas defensoras exige definirlas en consenso con la persona peticionaria. Tamaulipas prevé medidas individuales o colectivas acordadas con las personas beneficiarias (arts. 11 y 15). Honduras admite a grupos y comunidades como beneficiarios (art. 5) y medidas individuales o colectivas (art. 36).",
-  "i06": "La tipología de cuatro medidas (prevención, preventivas, protección y urgentes) es la misma en las tres leyes porque proviene de la federal, pero el desarrollo es desigual. La federal y Sinaloa traen catálogos para las tres primeras; Durango define las cuatro pero solo detalla las de prevención y las urgentes. Solo Sinaloa añade medidas de carácter social: un procedimiento de atención con apoyos económicos, apoyo psicológico y plan de retorno, que atienden las consecuencias de la agresión y no únicamente el riesgo. Las dos leyes de Coahuila conocen solo dos tipos, prevención y protección; la ruta de peligro inminente hace las veces de medidas urgentes y la asistencia legal es la única medida próxima a lo social. Tamaulipas define los cuatro tipos federales sin catálogo y agrega las medidas provisionales, que el Estado dicta mientras resuelve el Mecanismo federal; es el modelo de coordinación puro. Honduras prevé cinco tipos de medidas, incluidas las psicosociales y las dirigidas a enfrentar la impunidad, ninguna de las cuales existe en la ley federal mexicana.",
-  "i07": "La federal crea un Consejo Consultivo electo por convocatoria pública cuyos cuatro representantes votan en la Junta de Gobierno. Sinaloa va más lejos: su Consejo Consultivo, integrado por tres periodistas y tres representantes de organizaciones nombrados por el Congreso, es el órgano de gobierno del Instituto y aprueba reglamento, plan, presupuesto y retiro de medidas. Durango no tiene consejo consultivo; la participación de periodistas y defensores se da con voto dentro de la propia Junta de Gobierno, designados por los gremios. Coahuila no tiene consejo consultivo en ninguna de sus leyes: en la de periodistas votan tres directivos o concesionarios de medios, y en la de personas defensoras dos representantes de organizaciones designados por el Gobernador. Tamaulipas es la única sin participación alguna de periodistas o personas defensoras: su Coordinación Estatal se integra solo con gobierno y Comisión de Derechos Humanos. En Honduras el Consejo Nacional de Protección reúne a gremios de prensa y de justicia y a dos organizaciones de derechos humanos electas en asamblea pública, con voto, pero con mayoría estatal y sin decidir casos.",
-  "i08": "La Junta de Gobierno federal reúne a Segob, FGR, SSPC, SRE, CNDH y a cuatro consejeros, con invitados de la ONU, la Conago, el Poder Judicial y el Congreso, y sus resoluciones obligan a las autoridades federales. Sinaloa renunció a esa figura: el Instituto es autónomo y su órgano colegiado es de sociedad civil, con las autoridades convocadas caso por caso. Durango la prevé pero con una contradicción entre el artículo 36, que integra al Mecanismo con gobierno, Fiscalía, Seguridad Pública y Congreso, y el artículo 39, que compone la Junta solo con la CEDH y los gremios. Las dos Comisiones de Coahuila son interinstitucionales, presididas por la Secretaría de Gobierno, con Fiscalía, seguridad pública y la Comisión de Derechos Humanos, además de medios u organizaciones. La Coordinación Estatal de Tamaulipas reproduce la fórmula federal en pequeño (Gobierno, Fiscalía, Seguridad Pública y Comisión de Derechos Humanos, con invitados del Poder Judicial y el Congreso) y sus resoluciones obligan a las autoridades estatales. En Honduras decide un Comité Técnico con la Dirección General, la Procuraduría, la Fiscalía de Derechos Humanos y Seguridad, más cercano al modelo de unidades federal que a la Junta de Gobierno.",
-  "i09": "En la federal la cooperación de las entidades se construye por convenios y no como obligación directa, aunque las resoluciones de la Junta sí obligan a las autoridades federales. Sinaloa impone a las autoridades estatales y municipales el deber de implementar las medidas y de cumplir las peticiones del Instituto, con denuncia penal o administrativa e informe al Congreso en caso de desacato. Durango se limita a principios de celeridad y a un deber de coordinación, sin consecuencia por incumplimiento. En Coahuila, la ley de personas defensoras obliga a las autoridades estatales y municipales a implementar las medidas y destinar recursos, con apercibimiento de responsabilidades (arts. 17 y 28); la de periodistas solo prevé vigilancia y coordinación del Gobierno del Estado. Tamaulipas hace obligatorias para las autoridades estatales las resoluciones de su Coordinación (art. 4), el mismo rasgo que la federal tiene para las federales. Honduras impone el deber de colaborar a toda autoridad civil, policial o militar, a los particulares y a los tres Poderes, con carácter preferente y urgente.",
-  "i10": "La federal y Sinaloa describen el camino completo: recepción, consentimiento, admisibilidad, elección entre procedimiento ordinario y extraordinario, estudio de riesgo y dictado de medidas; Sinaloa agrega los requisitos de la solicitud, los medios para presentarla y un tercer procedimiento de atención. Durango asigna la recepción a la Secretaría Ejecutiva y remite los requisitos y las etapas al reglamento. Las dos leyes de Coahuila describen la ruta de peligro inminente y la ordinaria, y la de personas defensoras aclara que las medidas no se condicionan a presentar denuncia. Tamaulipas recibe y turna las solicitudes al Mecanismo federal y solo regula las medidas provisionales; el procedimiento de fondo es el federal. Honduras regula el acceso con más detalle que la federal mexicana: solicitud gratuita y sin formalidad por cualquier medio, a cualquier hora, y medidas urgentes por la Policía donde no haya oficina.",
-  "i11": "Solo la federal crea unidades técnicas con integración y atribuciones definidas en la ley: recepción de casos y reacción rápida, evaluación de riesgos, y prevención, seguimiento y análisis. Sinaloa deja la estructura al Reglamento Interior y solo nombra al Consejo, la Dirección General y el Órgano Interno de Control. Durango concentra en la Junta de Gobierno el estudio de riesgo, el monitoreo y el atlas de riesgo, sin áreas diferenciadas. Coahuila concentra recepción, evaluación e implementación en un solo órgano técnico, la Unidad Auxiliar (periodistas) o el Comité de Recepción y Evaluación (defensoras). Tamaulipas no tiene áreas técnicas propias, solo una Secretaría Técnica, porque el estudio de riesgo lo hace el Mecanismo federal. Honduras distribuye las funciones entre la Dirección General, el Comité Técnico y el Departamento de Derechos Humanos de Seguridad.",
-  "i12": "La federal y Sinaloa fijan plazos en cada etapa: horas para las medidas urgentes, días para el estudio de riesgo y el dictamen, y plazos para comunicar e implementar las medidas y para resolver inconformidades; Sinaloa incluso reduce a doce horas la sustanciación del procedimiento extraordinario. Durango solo fija las tres horas para emitir medidas urgentes y una sesión ordinaria trimestral de la Junta. Las dos leyes de Coahuila fijan 3 horas para emitir, 8 para implementar y 48 para ratificar las medidas urgentes y 72 horas para comunicarlas; la de personas defensoras añade plazos para convocar a la Comisión y para inconformarse. Tamaulipas fija plazos solo para la inconformidad (30 y 15 días) y deja las medidas provisionales 'a la brevedad posible'. Honduras fija 8 horas para implementar medidas urgentes (una hora menos que la federal mexicana), 2 a 4 semanas para el análisis ordinario, 48 horas para implementar y 24 para resolver impugnaciones.",
-  "i13": "La federal ordena que las medidas de prevención se orienten a sistemas de alerta temprana y planes de contingencia y encarga mapas de riesgo a su unidad de prevención. Durango recoge las dos figuras, añade un sistema de alerta digital con dos números para periodistas y un atlas de riesgo. Sinaloa no las nombra; en su lugar encarga al Director General estudios con mapas de riesgo y de zonas de silencio, con análisis de criminalidad y agresores. Ninguna de las leyes de Coahuila prevé alerta temprana; la de personas defensoras se acerca con líneas de comunicación directas con seguridad pública. Tamaulipas no prevé alerta temprana ni planes de contingencia. Honduras exige que la alerta temprana vaya acompañada de una estructura de respuesta inmediata y encarga a la Dirección General mapas de riesgo.",
-  "i14": "La federal tiene un capítulo completo de inconformidades, con dos vías según el procedimiento, plazos y un estudio de riesgo independiente comisionado por el Consejo Consultivo. En Sinaloa el dictamen se impugna por vía jurisdiccional y la persona puede pedir revisión de las medidas, sin recurso administrativo interno. Durango asigna al Mecanismo la resolución de inconformidades y remite a la Ley General de Responsabilidades Administrativas, sin procedimiento propio. En Coahuila la ley de personas defensoras tiene un capítulo de inconformidades comparable al federal (arts. 25 a 28), mientras que la de periodistas no prevé recurso alguno. Tamaulipas tiene capítulo de inconformidades contra su propia Coordinación, con requerimiento de informe a la dependencia y resolución en 15 días; las relativas a medidas federales se turnan al Mecanismo. Honduras prevé la impugnación ante la Dirección General con resolución en 24 horas, bajo la ley de procedimiento administrativo.",
-  "i15": "Las tres leyes autorizan convenios. La federal los prevé con entidades federativas, órganos públicos y organizaciones nacionales e internacionales, y les fijó un plazo inicial de seis meses; Sinaloa faculta al Instituto para contratos y convenios y hace del Director General su representante ante la Federación; Durango los prevé con organismos públicos y privados y con los municipios. Las dos leyes de Coahuila autorizan convenios de la Secretaría de Gobierno con dependencias, instituciones u organizaciones (art. 4 en ambas). Tamaulipas reproduce el capítulo federal de convenios de cooperación con la Federación y otras entidades. Honduras autoriza convenios con otros Estados incluso para asilo o refugio de las personas en riesgo.",
-  "i16": "Ninguna ley crea una mesa multisectorial permanente con ese nombre. La federal canaliza la coordinación por la Junta y los convenios. Sinaloa prevé reuniones de coordinación y seguimiento con autoridades estatales y municipales convocadas por el Instituto, con representantes facultados para asumir compromisos. Durango es la que más se acerca, porque el artículo 36 integra al propio Mecanismo con gobierno, Fiscalía, seguridad, Congreso, gremios, CEDH y organizaciones, y la capacitación se consensa con los gremios. Coahuila tampoco crea una mesa; la ley de periodistas encarga a la Comisión 'establecer las bases de coordinación entre las instituciones públicas y la sociedad'. Tamaulipas tampoco crea mesa alguna. En Honduras el Consejo Nacional de Protección funciona como el espacio multisectorial que la ley federal mexicana no tiene.",
-  "i17": "La federal creó en 2012 un Fondo que la reforma de noviembre de 2020 eliminó; hoy solo obliga a Segob a prever recursos en su presupuesto. Sinaloa dota al Instituto de patrimonio propio y garantiza un presupuesto anual igual o mayor al tres por ciento del gasto en publicidad oficial, además de donativos y gestión de fondos externos. Durango asigna al Mecanismo al menos el trece por ciento del presupuesto de la CEDH y, desde 2025, un fondo de objeto exclusivo para medidas de protección. Coahuila no garantiza monto ni fondo: la Comisión de periodistas administra lo que le asigne el presupuesto y, en la ley de personas defensoras, cada autoridad que implemente medidas debe destinar recursos. Tamaulipas solo dispone que los recursos se destinen a las medidas, sin fuente ni monto. Honduras conserva lo que México perdió en 2020: un fondo especial, alimentado por el Fondo de Seguridad Poblacional, además de la asignación presupuestaria obligatoria.",
-  "i18": "La federal tipifica dos delitos propios de servidores públicos y miembros del Mecanismo, con prisión de dos a nueve años, multa, destitución e inhabilitación. Sinaloa prevé responsabilidad penal y administrativa de las autoridades que incumplan, faculta al Instituto para denunciar, y por el mismo decreto adicionó al Código Penal el delito de obstaculizar la actividad periodística o de defensa, con pena duplicada si lo comete un servidor público. Durango remite en bloque a la Ley General de Responsabilidades Administrativas. En Coahuila la ley de periodistas no sanciona a servidores públicos (solo multa al beneficiario que simule o use mal las medidas) y la de personas defensoras remite a la responsabilidad administrativa con apercibimiento. Tamaulipas remite a la responsabilidad administrativa, sin tipo penal. Honduras tipifica como violación de los deberes de los funcionarios la negativa o negligencia que impida las medidas, perseguible de oficio.",
-  "i19": "Las tres leyes obligan a informar. La federal exige informes anuales públicos de la Junta con datos desagregados y perspectiva de género, informes del Consejo y de la Coordinación, y reportes mensuales de monitoreo. Sinaloa exige informe anual ante el Congreso, aprobado por el Consejo, e informes semestrales y anuales del Órgano Interno de Control. Durango prevé informes anuales públicos sobre la situación estatal y reportes mensuales de monitoreo. Ninguna de las dos leyes de Coahuila obliga a rendir informes. Tamaulipas exige informes anuales públicos con datos desagregados y perspectiva de género, y un monitoreo estatal del Mecanismo. Honduras exige informes anuales del Consejo e informes semestrales de la Dirección General sobre la efectividad de las medidas.",
-  "i20": "La federal dedica un capítulo a la transparencia, declara públicos los informes y reserva las medidas otorgadas. Sinaloa suma el principio de máxima publicidad, la sujeción a la ley estatal de transparencia y al sistema anticorrupción, un Órgano Interno de Control con autonomía, la obligación de publicar los criterios de publicidad oficial y la reserva de las medidas. Durango solo remite a las leyes de transparencia y datos personales. En Coahuila la ley de periodistas no tiene disposiciones de transparencia; la de personas defensoras remite a la ley estatal de acceso y declara confidenciales los datos de las personas beneficiarias. Tamaulipas reproduce la regla federal: sujeción a la ley de transparencia y reserva de las medidas otorgadas. Honduras reproduce la regla mexicana: sujeción a la ley de transparencia y reserva de las medidas otorgadas."
+  "i01": "Las tres leyes reproducen la misma definición de persona defensora, tomada del artículo 2 federal, así que en este indicador no hay diferencia de alcance formal. La única variación está fuera de la definición, en el artículo 2 de Sinaloa, que declara de interés público la actividad ciudadana de defensa, individual o colectiva, y con ello protege el acto de defender aunque quien lo realice no se identifique como defensor. Las omisiones son compartidas: la exigencia de finalidad para los colectivos, el silencio sobre comunidades, pueblos y personas buscadoras, y la falta de mención a la defensa ocasional. Coahuila legisla por separado: su ley de personas defensoras (2016) parte de la misma fórmula pero agrega 'remunerado o no' y enumera las libertades que la defensa requiere, con lo que es la definición más desarrollada del conjunto, aunque conserva las mismas omisiones; su ley de periodistas no define a la persona defensora. Tamaulipas (2017) copia la definición federal sin cambios. Honduras (2015) es la más amplia del conjunto: define a la persona defensora por el ejercicio del derecho a defender, sin exigir finalidad a los colectivos, nombra a los defensores del medio ambiente y admite a grupos y comunidades como peticionarios y beneficiarios, las dos omisiones que comparten todas las leyes mexicanas. Colombia (Decreto 4912 de 2011) va en sentido contrario a Honduras: no define a la persona defensora, protege a dirigentes y activistas de organizaciones y exige que el activista se acredite con certificación de su organización o de una autoridad.",
+  "i02": "Aquí las diferencias son de signo opuesto. La federal define al periodista por la función de informar y deja abierta la lista de medios. Sinaloa conserva ese texto y añade una definición del periodismo como actividad de observación, documentación, análisis y divulgación, que protege actos periodísticos aislados. Durango recortó la definición en 2022 al suprimir la cláusula abierta y exigir medios con personalidad debidamente acreditada, y reservó el acceso a fuentes a periodistas acreditados; a cambio nombra a colaboradores, columnistas y auxiliares como categoría propia y trae el catálogo de derechos profesionales más amplio de los tres. La ley de periodistas de Coahuila (2014) reproduce la fórmula federal con cláusula abierta, aunque omite los medios comunitarios y experimentales, menciona a los colaboradores periodísticos y desde 2020 define la libre expresión como derecho de toda persona; su ley de personas defensoras no define al periodista. Tamaulipas copia la definición federal completa, con cláusula abierta y sin acreditación. Honduras sigue la fórmula funcional mexicana pero solo para personas naturales, nombra a comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos, y añade un tercer sujeto que ninguna ley mexicana protege: los operadores de justicia. Colombia solo nombra a 'periodistas y comunicadores sociales' como población objeto, sin definición alguna.",
+  "i03": "Federal y Durango comparten el mismo par de normas, una definición breve y un catálogo que agrega integridad moral y económica, entorno familiar y organizativo y bienes, sin nombrar la vida, la libertad ni la seguridad como contenido de la agresión y sin mencionar el ámbito digital, el judicial ni la violencia sexual. Sinaloa es la única que enumera esos bienes, incluye a los medios de comunicación como víctimas y tipifica como agresión las campañas en redes, los ataques a portales, los citatorios y demandas hostigadoras, el acoso y la violencia sexual y la revelación de datos de quienes piden información pública. Las dos leyes de Coahuila divergen: la de periodistas sigue el molde federal y agrega la integridad sexual; la de personas defensoras es la más amplia en bienes protegidos, pues nombra vida, libertad, seguridad, bienes y derechos, aunque no el ámbito digital. Tamaulipas sigue el molde federal y añade al representante legal del peticionario entre las personas cuya afectación configura agresión. Honduras tiene la definición de agresión más escueta (daño, amenaza, hostigamiento o intimidación) y ningún catálogo equivalente al artículo 24 federal, aunque reconoce que las agresiones pueden venir de actores estatales o particulares. Colombia no define la agresión: el eje es el riesgo, que debe ser extraordinario o extremo y cumplir ocho características para dar derecho a protección.",
+  "i04": "La federal incorporó la perspectiva de género por reformas de 2021 y 2022, pero solo como paridad en la integración de sus órganos y como criterio de sus informes; no ordena un enfoque diferenciado en la evaluación del riesgo ni en las medidas. Sinaloa la convierte en principio de aplicación de toda la ley y exige atención e investigación con enfoque diferenciado según identidad y género. Durango no menciona el género ni los enfoques diferenciados en ningún artículo. En Coahuila, la ley de periodistas no menciona el género y la de personas defensoras solo dispone que las medidas tendrán perspectiva de género (art. 16). Tamaulipas solo exige perspectiva de género en sus informes anuales. Honduras hace del enfoque diferenciado un principio y obliga a que los protocolos atiendan género, edad, origen étnico, situación socioeconómica, orientación sexual e identidad de género y diferencias urbanas y rurales, más que la federal mexicana. Colombia exige enfoque diferencial por edad, etnia, género, discapacidad, orientación sexual y procedencia urbana o rural en la evaluación y en las medidas.",
+  "i05": "Las tres leyes admiten medidas individuales o colectivas y extienden la protección a quienes participan en la misma organización o movimiento, con redacciones casi idénticas. Sinaloa refuerza el enfoque colectivo al declarar de interés público la actividad colectiva de defensa y al prever cursos y medidas para grupos; Durango, además de la fórmula federal, contempla a la empresa como parte del entorno afectado. Las dos leyes de Coahuila prevén medidas individuales o colectivas (art. 16 en ambas) y la de personas defensoras exige definirlas en consenso con la persona peticionaria. Tamaulipas prevé medidas individuales o colectivas acordadas con las personas beneficiarias (arts. 11 y 15). Honduras admite a grupos y comunidades como beneficiarios (art. 5) y medidas individuales o colectivas (art. 36). Colombia protege a personas, grupos y comunidades, con esquemas colectivos y planes de prevención territoriales.",
+  "i06": "La tipología de cuatro medidas (prevención, preventivas, protección y urgentes) es la misma en las tres leyes porque proviene de la federal, pero el desarrollo es desigual. La federal y Sinaloa traen catálogos para las tres primeras; Durango define las cuatro pero solo detalla las de prevención y las urgentes. Solo Sinaloa añade medidas de carácter social: un procedimiento de atención con apoyos económicos, apoyo psicológico y plan de retorno, que atienden las consecuencias de la agresión y no únicamente el riesgo. Las dos leyes de Coahuila conocen solo dos tipos, prevención y protección; la ruta de peligro inminente hace las veces de medidas urgentes y la asistencia legal es la única medida próxima a lo social. Tamaulipas define los cuatro tipos federales sin catálogo y agrega las medidas provisionales, que el Estado dicta mientras resuelve el Mecanismo federal; es el modelo de coordinación puro. Honduras prevé cinco tipos de medidas, incluidas las psicosociales y las dirigidas a enfrentar la impunidad, ninguna de las cuales existe en la ley federal mexicana. Colombia tiene el catálogo más operativo: medidas de emergencia sin evaluación previa, planes de prevención y contingencia, esquemas por tipo, reubicación temporal con apoyo económico, trasteo y blindaje de sedes.",
+  "i07": "La federal crea un Consejo Consultivo electo por convocatoria pública cuyos cuatro representantes votan en la Junta de Gobierno. Sinaloa va más lejos: su Consejo Consultivo, integrado por tres periodistas y tres representantes de organizaciones nombrados por el Congreso, es el órgano de gobierno del Instituto y aprueba reglamento, plan, presupuesto y retiro de medidas. Durango no tiene consejo consultivo; la participación de periodistas y defensores se da con voto dentro de la propia Junta de Gobierno, designados por los gremios. Coahuila no tiene consejo consultivo en ninguna de sus leyes: en la de periodistas votan tres directivos o concesionarios de medios, y en la de personas defensoras dos representantes de organizaciones designados por el Gobernador. Tamaulipas es la única sin participación alguna de periodistas o personas defensoras: su Coordinación Estatal se integra solo con gobierno y Comisión de Derechos Humanos. En Honduras el Consejo Nacional de Protección reúne a gremios de prensa y de justicia y a dos organizaciones de derechos humanos electas en asamblea pública, con voto, pero con mayoría estatal y sin decidir casos. En Colombia las poblaciones protegidas solo asisten al Cerrem con voz, cuatro delegados por población y únicamente en los casos de su grupo.",
+  "i08": "La Junta de Gobierno federal reúne a Segob, FGR, SSPC, SRE, CNDH y a cuatro consejeros, con invitados de la ONU, la Conago, el Poder Judicial y el Congreso, y sus resoluciones obligan a las autoridades federales. Sinaloa renunció a esa figura: el Instituto es autónomo y su órgano colegiado es de sociedad civil, con las autoridades convocadas caso por caso. Durango la prevé pero con una contradicción entre el artículo 36, que integra al Mecanismo con gobierno, Fiscalía, Seguridad Pública y Congreso, y el artículo 39, que compone la Junta solo con la CEDH y los gremios. Las dos Comisiones de Coahuila son interinstitucionales, presididas por la Secretaría de Gobierno, con Fiscalía, seguridad pública y la Comisión de Derechos Humanos, además de medios u organizaciones. La Coordinación Estatal de Tamaulipas reproduce la fórmula federal en pequeño (Gobierno, Fiscalía, Seguridad Pública y Comisión de Derechos Humanos, con invitados del Poder Judicial y el Congreso) y sus resoluciones obligan a las autoridades estatales. En Honduras decide un Comité Técnico con la Dirección General, la Procuraduría, la Fiscalía de Derechos Humanos y Seguridad, más cercano al modelo de unidades federal que a la Junta de Gobierno. En Colombia recomienda el Cerrem, presidido por el Ministerio del Interior, con la Policía y la Unidad de Víctimas, y con la ONU y los órganos de control como invitados.",
+  "i09": "En la federal la cooperación de las entidades se construye por convenios y no como obligación directa, aunque las resoluciones de la Junta sí obligan a las autoridades federales. Sinaloa impone a las autoridades estatales y municipales el deber de implementar las medidas y de cumplir las peticiones del Instituto, con denuncia penal o administrativa e informe al Congreso en caso de desacato. Durango se limita a principios de celeridad y a un deber de coordinación, sin consecuencia por incumplimiento. En Coahuila, la ley de personas defensoras obliga a las autoridades estatales y municipales a implementar las medidas y destinar recursos, con apercibimiento de responsabilidades (arts. 17 y 28); la de periodistas solo prevé vigilancia y coordinación del Gobierno del Estado. Tamaulipas hace obligatorias para las autoridades estatales las resoluciones de su Coordinación (art. 4), el mismo rasgo que la federal tiene para las federales. Honduras impone el deber de colaborar a toda autoridad civil, policial o militar, a los particulares y a los tres Poderes, con carácter preferente y urgente. Colombia reparte atribuciones entre gobernaciones, alcaldías y Fuerza Pública bajo los principios de concurrencia y subsidiariedad, sin consecuencia por incumplimiento.",
+  "i10": "La federal y Sinaloa describen el camino completo: recepción, consentimiento, admisibilidad, elección entre procedimiento ordinario y extraordinario, estudio de riesgo y dictado de medidas; Sinaloa agrega los requisitos de la solicitud, los medios para presentarla y un tercer procedimiento de atención. Durango asigna la recepción a la Secretaría Ejecutiva y remite los requisitos y las etapas al reglamento. Las dos leyes de Coahuila describen la ruta de peligro inminente y la ordinaria, y la de personas defensoras aclara que las medidas no se condicionan a presentar denuncia. Tamaulipas recibe y turna las solicitudes al Mecanismo federal y solo regula las medidas provisionales; el procedimiento de fondo es el federal. Honduras regula el acceso con más detalle que la federal mexicana: solicitud gratuita y sin formalidad por cualquier medio, a cualquier hora, y medidas urgentes por la Policía donde no haya oficina. Colombia detalla once pasos, la presunción constitucional de riesgo para desplazados y reclamantes de tierras y una ruta territorial que empieza en la alcaldía.",
+  "i11": "Solo la federal crea unidades técnicas con integración y atribuciones definidas en la ley: recepción de casos y reacción rápida, evaluación de riesgos, y prevención, seguimiento y análisis. Sinaloa deja la estructura al Reglamento Interior y solo nombra al Consejo, la Dirección General y el Órgano Interno de Control. Durango concentra en la Junta de Gobierno el estudio de riesgo, el monitoreo y el atlas de riesgo, sin áreas diferenciadas. Coahuila concentra recepción, evaluación e implementación en un solo órgano técnico, la Unidad Auxiliar (periodistas) o el Comité de Recepción y Evaluación (defensoras). Tamaulipas no tiene áreas técnicas propias, solo una Secretaría Técnica, porque el estudio de riesgo lo hace el Mecanismo federal. Honduras distribuye las funciones entre la Dirección General, el Comité Técnico y el Departamento de Derechos Humanos de Seguridad. Colombia separa recopilación in situ (Ctrai), valoración (Grupo de Valoración Preliminar), recomendación (Cerrem) e implementación (UNP).",
+  "i12": "La federal y Sinaloa fijan plazos en cada etapa: horas para las medidas urgentes, días para el estudio de riesgo y el dictamen, y plazos para comunicar e implementar las medidas y para resolver inconformidades; Sinaloa incluso reduce a doce horas la sustanciación del procedimiento extraordinario. Durango solo fija las tres horas para emitir medidas urgentes y una sesión ordinaria trimestral de la Junta. Las dos leyes de Coahuila fijan 3 horas para emitir, 8 para implementar y 48 para ratificar las medidas urgentes y 72 horas para comunicarlas; la de personas defensoras añade plazos para convocar a la Comisión y para inconformarse. Tamaulipas fija plazos solo para la inconformidad (30 y 15 días) y deja las medidas provisionales 'a la brevedad posible'. Honduras fija 8 horas para implementar medidas urgentes (una hora menos que la federal mexicana), 2 a 4 semanas para el análisis ordinario, 48 horas para implementar y 24 para resolver impugnaciones. Colombia fija 30 días hábiles para la evaluación del riesgo y una reevaluación anual, pero ningún plazo para implementar medidas de emergencia.",
+  "i13": "La federal ordena que las medidas de prevención se orienten a sistemas de alerta temprana y planes de contingencia y encarga mapas de riesgo a su unidad de prevención. Durango recoge las dos figuras, añade un sistema de alerta digital con dos números para periodistas y un atlas de riesgo. Sinaloa no las nombra; en su lugar encarga al Director General estudios con mapas de riesgo y de zonas de silencio, con análisis de criminalidad y agresores. Ninguna de las leyes de Coahuila prevé alerta temprana; la de personas defensoras se acerca con líneas de comunicación directas con seguridad pública. Tamaulipas no prevé alerta temprana ni planes de contingencia. Honduras exige que la alerta temprana vaya acompañada de una estructura de respuesta inmediata y encarga a la Dirección General mapas de riesgo. Colombia enlaza la protección con el Sistema de Alertas Tempranas de la Defensoría del Pueblo y los planes de contingencia territoriales.",
+  "i14": "La federal tiene un capítulo completo de inconformidades, con dos vías según el procedimiento, plazos y un estudio de riesgo independiente comisionado por el Consejo Consultivo. En Sinaloa el dictamen se impugna por vía jurisdiccional y la persona puede pedir revisión de las medidas, sin recurso administrativo interno. Durango asigna al Mecanismo la resolución de inconformidades y remite a la Ley General de Responsabilidades Administrativas, sin procedimiento propio. En Coahuila la ley de personas defensoras tiene un capítulo de inconformidades comparable al federal (arts. 25 a 28), mientras que la de periodistas no prevé recurso alguno. Tamaulipas tiene capítulo de inconformidades contra su propia Coordinación, con requerimiento de informe a la dependencia y resolución en 15 días; las relativas a medidas federales se turnan al Mecanismo. Honduras prevé la impugnación ante la Dirección General con resolución en 24 horas, bajo la ley de procedimiento administrativo. Colombia no prevé un recurso de inconformidad propio.",
+  "i15": "Las tres leyes autorizan convenios. La federal los prevé con entidades federativas, órganos públicos y organizaciones nacionales e internacionales, y les fijó un plazo inicial de seis meses; Sinaloa faculta al Instituto para contratos y convenios y hace del Director General su representante ante la Federación; Durango los prevé con organismos públicos y privados y con los municipios. Las dos leyes de Coahuila autorizan convenios de la Secretaría de Gobierno con dependencias, instituciones u organizaciones (art. 4 en ambas). Tamaulipas reproduce el capítulo federal de convenios de cooperación con la Federación y otras entidades. Honduras autoriza convenios con otros Estados incluso para asilo o refugio de las personas en riesgo. Colombia autoriza convenios con entidades públicas, privadas e internacionales.",
+  "i16": "Ninguna ley crea una mesa multisectorial permanente con ese nombre. La federal canaliza la coordinación por la Junta y los convenios. Sinaloa prevé reuniones de coordinación y seguimiento con autoridades estatales y municipales convocadas por el Instituto, con representantes facultados para asumir compromisos. Durango es la que más se acerca, porque el artículo 36 integra al propio Mecanismo con gobierno, Fiscalía, seguridad, Congreso, gremios, CEDH y organizaciones, y la capacitación se consensa con los gremios. Coahuila tampoco crea una mesa; la ley de periodistas encarga a la Comisión 'establecer las bases de coordinación entre las instituciones públicas y la sociedad'. Tamaulipas tampoco crea mesa alguna. En Honduras el Consejo Nacional de Protección funciona como el espacio multisectorial que la ley federal mexicana no tiene. Colombia ordena una mesa territorial de prevención en cada entidad territorial, con autoridades y comunidades.",
+  "i17": "La federal creó en 2012 un Fondo que la reforma de noviembre de 2020 eliminó; hoy solo obliga a Segob a prever recursos en su presupuesto. Sinaloa dota al Instituto de patrimonio propio y garantiza un presupuesto anual igual o mayor al tres por ciento del gasto en publicidad oficial, además de donativos y gestión de fondos externos. Durango asigna al Mecanismo al menos el trece por ciento del presupuesto de la CEDH y, desde 2025, un fondo de objeto exclusivo para medidas de protección. Coahuila no garantiza monto ni fondo: la Comisión de periodistas administra lo que le asigne el presupuesto y, en la ley de personas defensoras, cada autoridad que implemente medidas debe destinar recursos. Tamaulipas solo dispone que los recursos se destinen a las medidas, sin fuente ni monto. Honduras conserva lo que México perdió en 2020: un fondo especial, alimentado por el Fondo de Seguridad Poblacional, además de la asignación presupuestaria obligatoria. Colombia descansa en la concurrencia presupuestal de todos los niveles de gobierno, sin fondo.",
+  "i18": "La federal tipifica dos delitos propios de servidores públicos y miembros del Mecanismo, con prisión de dos a nueve años, multa, destitución e inhabilitación. Sinaloa prevé responsabilidad penal y administrativa de las autoridades que incumplan, faculta al Instituto para denunciar, y por el mismo decreto adicionó al Código Penal el delito de obstaculizar la actividad periodística o de defensa, con pena duplicada si lo comete un servidor público. Durango remite en bloque a la Ley General de Responsabilidades Administrativas. En Coahuila la ley de periodistas no sanciona a servidores públicos (solo multa al beneficiario que simule o use mal las medidas) y la de personas defensoras remite a la responsabilidad administrativa con apercibimiento. Tamaulipas remite a la responsabilidad administrativa, sin tipo penal. Honduras tipifica como violación de los deberes de los funcionarios la negativa o negligencia que impida las medidas, perseguible de oficio. Colombia no sanciona a los servidores; solo suspende medidas por uso indebido.",
+  "i19": "Las tres leyes obligan a informar. La federal exige informes anuales públicos de la Junta con datos desagregados y perspectiva de género, informes del Consejo y de la Coordinación, y reportes mensuales de monitoreo. Sinaloa exige informe anual ante el Congreso, aprobado por el Consejo, e informes semestrales y anuales del Órgano Interno de Control. Durango prevé informes anuales públicos sobre la situación estatal y reportes mensuales de monitoreo. Ninguna de las dos leyes de Coahuila obliga a rendir informes. Tamaulipas exige informes anuales públicos con datos desagregados y perspectiva de género, y un monitoreo estatal del Mecanismo. Honduras exige informes anuales del Consejo e informes semestrales de la Dirección General sobre la efectividad de las medidas. Colombia prevé rendición de cuentas territorial y evaluación periódica, sin informes públicos obligatorios.",
+  "i20": "La federal dedica un capítulo a la transparencia, declara públicos los informes y reserva las medidas otorgadas. Sinaloa suma el principio de máxima publicidad, la sujeción a la ley estatal de transparencia y al sistema anticorrupción, un Órgano Interno de Control con autonomía, la obligación de publicar los criterios de publicidad oficial y la reserva de las medidas. Durango solo remite a las leyes de transparencia y datos personales. En Coahuila la ley de periodistas no tiene disposiciones de transparencia; la de personas defensoras remite a la ley estatal de acceso y declara confidenciales los datos de las personas beneficiarias. Tamaulipas reproduce la regla federal: sujeción a la ley de transparencia y reserva de las medidas otorgadas. Honduras reproduce la regla mexicana: sujeción a la ley de transparencia y reserva de las medidas otorgadas. Colombia solo establece la reserva de la información de los protegidos."
  }
 }

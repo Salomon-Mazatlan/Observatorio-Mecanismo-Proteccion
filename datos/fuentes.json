@@ -498,5 +498,55 @@
   "nivel": "departamento",
   "url": "https://ine.gob.hn/",
   "que_da": "Población total por departamento"
+ },
+ {
+  "id": "flip",
+  "tema": "periodistas",
+  "nombre": "Fundación para la Libertad de Prensa (FLIP), Colombia",
+  "tipo": "organizacion",
+  "periodicidad": "anual",
+  "nivel": "caso",
+  "url": "https://flip.org.co/",
+  "que_da": "Registro de agresiones y asesinatos de periodistas, informe anual"
+ },
+ {
+  "id": "indepaz",
+  "tema": "periodistas",
+  "nombre": "Instituto de Estudios para el Desarrollo y la Paz (Indepaz), Observatorio de Derechos Humanos y Conflictividades",
+  "tipo": "organizacion",
+  "periodicidad": "continua",
+  "nivel": "caso",
+  "url": "https://indepaz.org.co/",
+  "que_da": "Registro nominal de líderes sociales, defensores y firmantes de paz asesinados, masacres"
+ },
+ {
+  "id": "unp",
+  "tema": "periodistas",
+  "nombre": "Unidad Nacional de Protección (UNP), Colombia",
+  "tipo": "oficial",
+  "periodicidad": "eventual",
+  "nivel": "país",
+  "url": "https://www.unp.gov.co/",
+  "que_da": "Personas protegidas, esquemas y presupuesto"
+ },
+ {
+  "id": "prensa-co",
+  "tema": "periodistas",
+  "nombre": "Prensa colombiana e internacional (El Tiempo, El Espectador, Semana, Infobae, NTN24, La Opinión)",
+  "tipo": "prensa",
+  "periodicidad": "diaria",
+  "nivel": "caso",
+  "url": "",
+  "que_da": "Notas sobre asesinatos y agresiones a periodistas y líderes sociales en Colombia"
+ },
+ {
+  "id": "dane",
+  "tema": "contexto",
+  "nombre": "Departamento Administrativo Nacional de Estadística (DANE), censos 2005 y 2018",
+  "tipo": "oficial",
+  "periodicidad": "decenal",
+  "nivel": "departamento",
+  "url": "https://www.dane.gov.co/",
+  "que_da": "Población total por departamento"
  }
 ]

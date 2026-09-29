@@ -194,6 +194,60 @@
      "total": 44.8
     }
    ]
+  },
+  {
+   "id": "co_unp_protegidos",
+   "pais": "CO",
+   "nombre": "Personas protegidas por la Unidad Nacional de Protección (Colombia)",
+   "unidad": "personas",
+   "fuente": "unp",
+   "nota": "Cortes publicados por la UNP, el Ministerio del Interior y el informe de empalme; las cifras usan definiciones distintas (beneficiarios de esquemas individuales, personas en ruta individual, personas protegidas), así que la serie muestra órdenes de magnitud y no una tendencia exacta. 'Personas defensoras' corresponde a líderes sociales.",
+   "puntos": [
+    {
+     "fecha": "2024-04-30",
+     "total": 9788,
+     "defensoras": 3879,
+     "nota": "Beneficiarios de esquemas individuales"
+    },
+    {
+     "fecha": "2025-01-17",
+     "total": 15015,
+     "defensoras": 10000,
+     "nota": "Personas en ruta individual; más de 10,000 líderes y defensores según Mininterior"
+    },
+    {
+     "fecha": "2026-07-25",
+     "total": 10941,
+     "nota": "Informe de empalme"
+    },
+    {
+     "fecha": "2026-09-29",
+     "total": 12000,
+     "nota": "Cifra del director de la UNP"
+    }
+   ]
+  },
+  {
+   "id": "co_unp_presupuesto",
+   "pais": "CO",
+   "nombre": "Presupuesto de la Unidad Nacional de Protección (Colombia)",
+   "unidad": "billones de pesos",
+   "fuente": "unp",
+   "nota": "Presupuesto anual según el informe de empalme y la prensa; 2026 es lo asignado, sin el déficit de 2.48 billones reportado.",
+   "puntos": [
+    {
+     "fecha": "2022",
+     "total": 1.64
+    },
+    {
+     "fecha": "2025",
+     "total": 3.14
+    },
+    {
+     "fecha": "2026",
+     "total": 2.72
+    }
+   ]
   }
  ]
 }
