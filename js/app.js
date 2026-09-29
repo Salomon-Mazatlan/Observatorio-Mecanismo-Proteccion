@@ -22,6 +22,7 @@
   };
 
   const pila = [];          // window navigation stack (see navegar)
+  let clicEnCapa = false;   // set by layer clicks so the map click handler does not close the window
   const mapa = L.map("mapa", { zoomControl: false });
   L.control.zoom({ position: "bottomright" }).addTo(mapa);
   // CARTO tiles need a key since Aug 2026; fall back to plain OSM without one.
@@ -48,7 +49,11 @@
   // Labels sit above fills and markers but never catch the mouse
   mapa.createPane("etiquetas").style.zIndex = 650;
   mapa.getPane("etiquetas").style.pointerEvents = "none";
-  const capaPoligonos = L.geoJSON(null, { style: estiloNeutro, onEachFeature: alPoligono }).addTo(mapa);
+  // Polygons live in their own pane so bringing one to the front never covers the markers
+  mapa.createPane("poligonos").style.zIndex = 380;
+  mapa.createPane("calor").style.zIndex = 390;
+  const capaPoligonos = L.geoJSON(null, { style: estiloNeutro, onEachFeature: alPoligono, pane: "poligonos" }).addTo(mapa);
+  let capaCalor = null;
   const capaEtiquetas = L.layerGroup().addTo(mapa);
   const capaCirculos = L.layerGroup().addTo(mapa);
   const capaEventos = L.layerGroup().addTo(mapa);
@@ -188,6 +193,7 @@
     clases.value = String(estado.clases);
     clases.addEventListener("change", () => { estado.clases = +clases.value; dibujar(); });
     document.getElementById("nombres").addEventListener("change", dibujar);
+    document.getElementById("calor").addEventListener("change", dibujar);
     const btnEstilo = document.getElementById("abrir-estilo"), panelEstilo = document.getElementById("panel-estilo");
     btnEstilo.addEventListener("click", () => {
       const abierto = !panelEstilo.hidden;
@@ -199,6 +205,7 @@
     document.getElementById("ayuda").addEventListener("click", () => navegar(mostrarGuia, true));
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa("mexico"));
+    mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
     document.getElementById("mapa-base").addEventListener("change", actualizarMapaBase);
     document.getElementById("graficas").addEventListener("click", () => navegar(() => Graficas.abrir(contextoGraficas()), true));
@@ -292,10 +299,10 @@
     abrirVentana("Cómo usar el mapa", `
       <div class="guia">
         <ol>
-          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
+          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Calor" (densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión y sexo; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
-          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), el marco legal y el comparativo de su ley con la federal. Dentro de la ventana, la flecha "←" regresa a la vista anterior. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
+          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la federal en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
         <p class="nota">Puedes volver a esta guía con el botón "?" de la barra superior.</p>
@@ -649,6 +656,7 @@
       (estado.desde || estado.hasta || tp === "sin datos") ? "" : `· ${tp}`;
     if (conIndicador) dibujarTematico(); else capaPoligonos.setStyle(estiloNeutro);
     if (conEventos) dibujarEventos();
+    dibujarCalor();
     dibujarEtiquetas();
     const ml = document.getElementById("mapa-leyenda");
     if (conIndicador) {
@@ -742,6 +750,16 @@
     });
   }
 
+  // Density of the filtered events; the intensity of each point is one event
+  function dibujarCalor() {
+    if (capaCalor) { mapa.removeLayer(capaCalor); capaCalor = null; }
+    if (!document.getElementById("calor").checked || !L.heatLayer) return;
+    const puntos = estado.eventos.filter(eventoVisible).map(e => [e.lat, e.lon, 1]);
+    if (!puntos.length) return;
+    capaCalor = L.heatLayer(puntos, { pane: "calor", radius: 28, blur: 22, minOpacity: 0.35, maxZoom: 9,
+      gradient: { 0.2: "#fde68a", 0.5: "#f97316", 0.8: "#dc2626", 1: "#7f1d1d" } }).addTo(mapa);
+  }
+
   function hayEventosDibujados() {
     return estado.eventosVisibles;
   }
@@ -787,7 +805,7 @@
         dashArray: e.ejemplo ? "2 2" : null
       });
       m.bindTooltip(e.titulo, { direction: "top", offset: [0, -6] });
-      m.on("click", () => navegar(() => mostrarDetalleEvento(e), true));
+      m.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetalleEvento(e), true); });
       capaEventos.addLayer(m);
     });
     document.getElementById("conteo").textContent =
@@ -904,7 +922,7 @@
         const r = 5 + 30 * Math.sqrt(d.valor / max);
         const m = L.circleMarker(c, { radius: r, color, weight: 1, fillColor: color, fillOpacity: 0.35, dashArray: d.ejemplo ? "3 3" : null });
         m.bindTooltip(etiquetaValor(f.properties.nombre, d, def.unidad));
-        m.on("click", () => navegar(() => mostrarDetallePoligono(f.properties), true));
+        m.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(f.properties), true); });
         capaCirculos.addLayer(m);
       });
       document.getElementById("leyenda").innerHTML =
@@ -1065,7 +1083,7 @@
       layer.bindTooltip(d ? etiquetaValor(feature.properties.nombre, d, def.unidad) : `<strong>${feature.properties.nombre}</strong><br>sin dato`, { sticky: true }).openTooltip();
     });
     layer.on("mouseout", () => capaPoligonos.resetStyle(layer));
-    layer.on("click", () => navegar(() => mostrarDetallePoligono(feature.properties), true));
+    layer.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(feature.properties), true); });
   }
 
   function etiquetaValor(nombre, d, unidad) {
@@ -1115,8 +1133,7 @@
         const meta = [i.tipo, i.anio, i.organo].filter(Boolean).join(" · ");
         return `<li>${nombre}<br><small>${meta}${i.nota ? ". " + i.nota : ""}</small></li>`;
       }).join("");
-      htmlMarco = `<h4 class="detalle__sub">Marco legal de protección</h4>
-        <p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${(estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
+      htmlMarco = `<p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${(estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
         ${items ? `<ul class="lista lista--marco">${items}</ul>` : ""}
         ${marco.nota ? `<p class="nota">${marco.nota}</p>` : ""}
         ${codificado ? `<p><button type="button" class="enlace" id="detalle-comparativo">Ver comparativo con la ley federal</button></p>` : marco.instrumentos.length ? `<p class="nota">Este instrumento aún no está codificado en el comparativo.</p>` : ""}`;
@@ -1134,13 +1151,24 @@
     const htmlEv = nEv ? `<h4 class="detalle__sub">Eventos (${nEv})</h4><ul class="lista lista--eventos">${dentroPol.slice(0, 3).map(itemEv).join("")}</ul>
       ${nEv > 3 ? `<ul class="lista lista--eventos" id="eventos-mas" hidden>${dentroPol.slice(3).map(itemEv).join("")}</ul><p><button type="button" class="enlace" id="ver-mas-eventos" data-n="${nEv - 3}">+ ${nEv - 3} más</button></p>` : ""}` : "";
     const clave = nivel === "municipio" ? `Clave INEGI ${p.cve_ent}${p.cve_mun} · ${mapaActual().nombre}` : `Clave INEGI ${p.cve_ent}`;
-    abrirVentana(p.nombre, `
+    const tabEventos = `
       <p class="detalle__meta">${clave} · ${nEv} eventos con los filtros actuales</p>
       ${nivel === "entidad" ? `<p class="acciones"><button type="button" class="boton" id="detalle-municipios">Ver municipios de ${p.nombre}</button></p>` : ""}
       ${htmlEv}
-      ${filas ? `<ul class="lista lista--detalle">${filas}</ul>` : `<p class='nota'>Sin indicadores numéricos para esta unidad con el tema y periodo actuales${estado.tema === "todos" ? "" : " (tema " + CONFIG.temas[estado.tema].nombre + ")"}.</p>`}
-      ${htmlPob}
-      ${htmlMarco}`);
+      ${filas ? `<h4 class="detalle__sub">Indicadores</h4><ul class="lista lista--detalle">${filas}</ul>` : `<p class='nota'>Sin indicadores numéricos para esta unidad con los filtros actuales.</p>`}
+      ${htmlPob}`;
+    const conMarco = !!htmlMarco;
+    abrirVentana(p.nombre, `
+      ${conMarco ? `<div class="pestanas" role="tablist">
+        <button type="button" class="pestana" data-p="eventos" aria-selected="true">Eventos e indicadores</button>
+        <button type="button" class="pestana" data-p="marco" aria-selected="false">Marco legal</button>
+      </div>` : ""}
+      <section class="panel-p" data-p="eventos">${tabEventos}</section>
+      ${conMarco ? `<section class="panel-p" data-p="marco" hidden>${htmlMarco}</section>` : ""}`);
+    document.querySelectorAll("#ventana-cuerpo .pestana").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll("#ventana-cuerpo .pestana").forEach(x => x.setAttribute("aria-selected", String(x === b)));
+      document.querySelectorAll("#ventana-cuerpo .panel-p").forEach(s => s.hidden = s.dataset.p !== b.dataset.p);
+    }));
     const btn = document.getElementById("detalle-comparativo");
     if (btn) btn.addEventListener("click", () => navegar(() => mostrarComparativo(["federal", ...instrumentosEstado])));
     const mas = document.getElementById("ver-mas-eventos");

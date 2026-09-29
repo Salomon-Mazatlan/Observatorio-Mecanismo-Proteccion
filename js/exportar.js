@@ -32,6 +32,7 @@ const Exportar = (() => {
     ctx.beginPath(); ctx.rect(0, 0, mw, mh); ctx.clip();
     ctx.fillStyle = "#eef0f3"; ctx.fillRect(0, 0, mw, mh);
     dibujarTiles(ctx, mapa);
+    dibujarLienzos(ctx, mapa);
     capas.forEach(g => g.eachLayer(l => dibujarVector(ctx, mapa, l)));
     dibujarLeyenda(ctx, mw, mh, info);
     dibujarNorte(ctx, mw);
@@ -80,6 +81,15 @@ const Exportar = (() => {
       if (!img.complete || !img.naturalWidth) return;
       const r = img.getBoundingClientRect();
       try { ctx.drawImage(img, r.left - r0.left, r.top - r0.top, r.width, r.height); } catch (e) { /* skip broken tile */ }
+    });
+  }
+
+  // Canvas layers such as the heat map are copied as images
+  function dibujarLienzos(ctx, mapa) {
+    const r0 = mapa.getContainer().getBoundingClientRect();
+    mapa.getContainer().querySelectorAll("canvas.leaflet-heatmap-layer").forEach(cv => {
+      const r = cv.getBoundingClientRect();
+      try { ctx.drawImage(cv, r.left - r0.left, r.top - r0.top, r.width, r.height); } catch (err) { /* skip */ }
     });
   }
 

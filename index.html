@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
-  <link rel="stylesheet" href="css/estilos.css?v=2026-10-07">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-10-08">
 </head>
 <body>
 
@@ -53,6 +53,7 @@
         <label class="popover__fila"><span class="grupo__etiqueta">Clases</span><select class="control control--mini" id="clases" aria-label="Número de clases"></select></label>
       </div>
       <label class="interruptor" title="Mostrar u ocultar los marcadores de eventos"><input type="checkbox" id="mostrar-eventos" checked><span class="interruptor__pista"></span><span>Eventos</span></label>
+      <label class="interruptor" title="Densidad de eventos como mapa de calor"><input type="checkbox" id="calor"><span class="interruptor__pista"></span><span>Calor</span></label>
       <label class="interruptor" title="Nombres de entidades y municipios sobre el mapa"><input type="checkbox" id="nombres" checked><span class="interruptor__pista"></span><span>Nombres</span></label>
       <label class="interruptor" title="Mostrar u ocultar el mapa base con sus rótulos"><input type="checkbox" id="mapa-base" checked><span class="interruptor__pista"></span><span>Mapa base</span></label>
     </div>
@@ -142,9 +143,10 @@
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
-<script src="js/config.js?v=2026-10-07"></script>
-<script src="js/exportar.js?v=2026-10-07"></script>
-<script src="js/graficas.js?v=2026-10-07"></script>
-<script src="js/app.js?v=2026-10-07"></script>
+<script src="js/lib/leaflet-heat.js"></script>
+<script src="js/config.js?v=2026-10-08"></script>
+<script src="js/exportar.js?v=2026-10-08"></script>
+<script src="js/graficas.js?v=2026-10-08"></script>
+<script src="js/app.js?v=2026-10-08"></script>
 </body>
 </html>
