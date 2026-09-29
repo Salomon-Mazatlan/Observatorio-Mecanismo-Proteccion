@@ -1,5 +1,5 @@
 {
- "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
+ "descripcion": "Comparativo de instrumentos de protección a periodistas y personas defensoras de México (federal y estatales) y Honduras codificado con veinte indicadores y sus subindicadores. Cada celda tiene valor (si, parcial, no), artículos donde se ubica y nota. Codificación sobre el texto vigente de cada ley. Para cada indicador se conservan los pasajes textuales de los artículos citados y una reflexión comparativa.",
  "fecha_codificacion": "2026-09-29",
  "valores": {
   "si": "Sí",
@@ -256,6 +256,7 @@
   {
    "id": "federal",
    "cve_ent": "00",
+   "pais": "MX",
    "corto": "Federal",
    "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas (federal)",
    "publicacion": "DOF, 25 de junio de 2012",
@@ -266,6 +267,7 @@
   {
    "id": "25",
    "cve_ent": "25",
+   "pais": "MX",
    "corto": "Sinaloa",
    "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Sinaloa",
    "publicacion": "P.O. 064, 27 de mayo de 2022 (Decreto 154)",
@@ -276,6 +278,7 @@
   {
    "id": "10",
    "cve_ent": "10",
+   "pais": "MX",
    "corto": "Durango",
    "nombre": "Ley de Protección de Periodistas y Personas Defensoras de Derechos Humanos en el Estado de Durango",
    "publicacion": "P.O. 48, 17 de junio de 2021 (Decreto 580); vigente desde el 1 de enero de 2022",
@@ -286,6 +289,7 @@
   {
    "id": "05-periodistas",
    "cve_ent": "05",
+   "pais": "MX",
    "corto": "Coahuila (periodistas)",
    "nombre": "Ley para la Protección de las y los Periodistas para el Estado de Coahuila de Zaragoza",
    "publicacion": "P.O., 18 de julio de 2014 (Decreto 509)",
@@ -296,6 +300,7 @@
   {
    "id": "05-defensoras",
    "cve_ent": "05",
+   "pais": "MX",
    "corto": "Coahuila (defensoras)",
    "nombre": "Ley para la Protección de las Personas Defensoras de Derechos Humanos para el Estado de Coahuila de Zaragoza",
    "publicacion": "P.O., 9 de agosto de 2016 (Decreto 484)",
@@ -306,12 +311,24 @@
   {
    "id": "28",
    "cve_ent": "28",
+   "pais": "MX",
    "corto": "Tamaulipas",
    "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas para el Estado de Tamaulipas",
    "publicacion": "P.O. Extraordinario 13, 1 de diciembre de 2017 (Decreto LXIII-313)",
    "ultima_reforma": "P.O. 83, 14 de julio de 2021 (Decreto LXIV-554, art. 5 fr. II)",
    "organo": "Coordinación Estatal del Mecanismo, operada por la Secretaría General de Gobierno, con Secretaría Técnica; las medidas de fondo las dicta el Mecanismo federal",
    "url": "https://www.congresotamaulipas.gob.mx/Parlamentario/Archivos/Leyes/Ley%20para%20la%20Proteccion%20de%20Personas%20Defensoras%20de%20DH%20y%20Periodistas%20Edo%20Tamaulipas%2014072021.docx"
+  },
+  {
+   "id": "hn",
+   "cve_ent": "HN",
+   "pais": "HN",
+   "corto": "Honduras",
+   "nombre": "Ley de Protección para las y los Defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia (Honduras)",
+   "publicacion": "La Gaceta No. 33,730, 15 de mayo de 2015 (Decreto Legislativo 34-2015)",
+   "ultima_reforma": "Sin reformas en el texto consultado",
+   "organo": "Sistema Nacional de Protección: Secretaría de Derechos Humanos como órgano rector, Consejo Nacional de Protección, Dirección General del Sistema de Protección, Comité Técnico del Mecanismo y Departamento de Derechos Humanos de la Secretaría de Seguridad",
+   "url": "https://faolex.fao.org/docs/pdf/hon223247.pdf"
   }
  ],
  "codificacion": {
@@ -1826,6 +1843,258 @@
     "articulos": "Art. 28",
     "nota": "Sujeción a la ley estatal de transparencia; las medidas otorgadas son información reservada y los recursos se sujetan a las reglas de transparencia"
    }
+  },
+  "hn": {
+   "i01": {
+    "valor": "si",
+    "articulos": "Arts. 1, 2, 5 num. 1",
+    "nota": "Criterio funcional sin requisito de finalidad: defensor es toda persona que ejerza el derecho a defender, individual o colectivamente; incluye expresamente a los defensores del medio ambiente y conservadores de los recursos naturales; la ley alcanza a personas naturales y jurídicas y admite como beneficiarios a grupos y comunidades"
+   },
+   "i01a": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 1",
+    "nota": ""
+   },
+   "i01b": {
+    "valor": "si",
+    "articulos": "Arts. 1, 5 num. 1",
+    "nota": ""
+   },
+   "i01c": {
+    "valor": "si",
+    "articulos": "Arts. 1, 2",
+    "nota": "Persona natural o jurídica"
+   },
+   "i01d": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 8 y 9",
+    "nota": "Grupos y comunidades como peticionarios y beneficiarios"
+   },
+   "i01e": {
+    "valor": "si",
+    "articulos": "Arts. 41, 43",
+    "nota": "Solicitud gratuita, sin formalidad; requisitos de nexo causal e indicios de riesgo, no de registro"
+   },
+   "i01f": {
+    "valor": "si",
+    "articulos": "Arts. 1, 5 num. 1",
+    "nota": "El derecho a defender es de toda persona; basta ejercerlo"
+   },
+   "i02": {
+    "valor": "si",
+    "articulos": "Arts. 2, 5 num. 3",
+    "nota": "Personas naturales que recaban, generan, procesan, editan, comentan, opinan, difunden, publican o proveen información por cualquier medio, 'o de otra índole'; nombra a comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos. La rúbrica dice 'en los Medios de Comunicación', lo que podría leerse como exigencia de vínculo con un medio"
+   },
+   "i02a": {
+    "valor": "parcial",
+    "articulos": "Arts. 2, 5 num. 3",
+    "nota": "Define a personas naturales; los medios como tales solo entran por la referencia general a personas jurídicas del art. 2"
+   },
+   "i02b": {
+    "valor": "parcial",
+    "articulos": "Art. 5 num. 3",
+    "nota": "Cláusula abierta sobre el soporte ('de otra índole'), pero no enumera tipos de medio (comunitarios, independientes, universitarios)"
+   },
+   "i02c": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 3",
+    "nota": ""
+   },
+   "i02d": {
+    "valor": "si",
+    "articulos": "Arts. 5 num. 3, 41",
+    "nota": ""
+   },
+   "i02e": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 3",
+    "nota": "Nombra comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos"
+   },
+   "i02f": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 3",
+    "nota": ""
+   },
+   "i02g": {
+    "valor": "parcial",
+    "articulos": "Art. 2",
+    "nota": "Protege la libertad de expresión como actividad, sin definir el periodismo"
+   },
+   "i03": {
+    "valor": "parcial",
+    "articulos": "Arts. 5 num. 7, 6",
+    "nota": "Definición breve (daño, amenaza, hostigamiento o intimidación por la actividad o el cargo) sin catálogo de bienes ni de personas vinculadas; a cambio, el art. 6 reconoce que pueden provenir de actores estatales o particulares"
+   },
+   "i03a": {
+    "valor": "parcial",
+    "articulos": "Arts. 3 num. 6, 5 num. 13",
+    "nota": "La vida aparece como bien protegido por las medidas, no en la definición"
+   },
+   "i03b": {
+    "valor": "parcial",
+    "articulos": "Art. 5 num. 12",
+    "nota": ""
+   },
+   "i03c": {
+    "valor": "parcial",
+    "articulos": "Art. 5 num. 14",
+    "nota": "Impactos psicológicos reconocidos en las medidas psicosociales"
+   },
+   "i03d": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03e": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03f": {
+    "valor": "parcial",
+    "articulos": "Arts. 3 num. 6, 5 num. 12",
+    "nota": ""
+   },
+   "i03g": {
+    "valor": "parcial",
+    "articulos": "Art. 5 num. 13",
+    "nota": "'En algunos casos sus bienes', solo en medidas urgentes"
+   },
+   "i03h": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03i": {
+    "valor": "parcial",
+    "articulos": "Arts. 5 num. 14, 36",
+    "nota": "Familias y espacios organizativos en las medidas psicosociales; extensión a quienes determine el estudio de riesgo"
+   },
+   "i03j": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03k": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i03l": {
+    "valor": "no",
+    "articulos": "",
+    "nota": ""
+   },
+   "i04": {
+    "valor": "si",
+    "articulos": "Arts. 3 num. 16, 38",
+    "nota": "Enfoque diferenciado como principio y obligación de que los protocolos atiendan género, edad, origen étnico, situación socioeconómica, orientación sexual e identidad de género y diferencias urbanas y rurales"
+   },
+   "i05": {
+    "valor": "si",
+    "articulos": "Arts. 5 num. 8 y 9, 36",
+    "nota": "Grupos y comunidades como beneficiarios; medidas individuales o colectivas"
+   },
+   "i06": {
+    "valor": "si",
+    "articulos": "Arts. 5 num. 11 a 15, 12 a 18",
+    "nota": "Cinco tipos de medidas: preventivas, reactivas, urgentes, psicosociales y dirigidas a enfrentar la impunidad, más un título de prevención"
+   },
+   "i06a": {
+    "valor": "si",
+    "articulos": "Arts. 5 num. 13, 45",
+    "nota": ""
+   },
+   "i06b": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 11",
+    "nota": ""
+   },
+   "i06c": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 12",
+    "nota": "Llamadas medidas reactivas"
+   },
+   "i06d": {
+    "valor": "si",
+    "articulos": "Arts. 12 a 18",
+    "nota": ""
+   },
+   "i06e": {
+    "valor": "si",
+    "articulos": "Art. 5 num. 14",
+    "nota": "Medidas psicosociales para personas, familias y organizaciones; no prevé apoyos económicos"
+   },
+   "i07": {
+    "valor": "si",
+    "articulos": "Arts. 20, 21, 24, 26",
+    "nota": "Consejo Nacional de Protección con Colegio de Periodistas, Asociación de Prensa, Colegio de Abogados, asociaciones de jueces y fiscales y dos organizaciones de derechos humanos electas en asamblea pública, con voto; mayoría estatal (siete instituciones) y función deliberativa, de asesoría y supervisión, no de decisión de casos"
+   },
+   "i08": {
+    "valor": "si",
+    "articulos": "Arts. 19, 31",
+    "nota": "El Comité Técnico, que decide los casos, reúne a la Dirección General, la Procuraduría General, la Fiscalía de Derechos Humanos y el área de derechos humanos de la Secretaría de Seguridad; el Consejo Nacional integra además a Relaciones Exteriores, Poder Judicial y Defensa"
+   },
+   "i09": {
+    "valor": "si",
+    "articulos": "Arts. 7, 48, 53, 56",
+    "nota": "Toda autoridad civil, policial o militar y los particulares deben colaborar; los tres Poderes deben auxiliar con carácter preferente y urgente; las resoluciones son de cumplimiento obligatorio"
+   },
+   "i10": {
+    "valor": "si",
+    "articulos": "Arts. 41 a 49",
+    "nota": "Solicitud gratuita y sin formalidad, requisitos de admisión, resolución sobre trámite ordinario o extraordinario, análisis de riesgo e implementación; la Policía puede adoptar medidas urgentes donde no haya oficina"
+   },
+   "i11": {
+    "valor": "si",
+    "articulos": "Arts. 19, 29, 31, 34, 35",
+    "nota": "Dirección General (recepción, monitoreo y mapas de riesgo), Comité Técnico (análisis de riesgo y decisión) y Departamento de Derechos Humanos de Seguridad (implementación policial)"
+   },
+   "i12": {
+    "valor": "si",
+    "articulos": "Arts. 40, 42, 45 a 49, 54",
+    "nota": "8 horas para implementar medidas urgentes; análisis del riesgo urgente en 1 a 2 semanas; Comité semanal; análisis ordinario en 2 a 4 semanas; 48 horas para implementar; 24 horas para remitir expedientes y para resolver impugnaciones; revisión cada 6 meses"
+   },
+   "i13": {
+    "valor": "si",
+    "articulos": "Arts. 12, 14, 17, 29 num. 11",
+    "nota": "Sistema de alerta temprana acompañado forzosamente de una estructura de respuesta inmediata, mapeo de riesgos y monitoreo nacional de patrones de agresión"
+   },
+   "i14": {
+    "valor": "si",
+    "articulos": "Arts. 29 num. 12, 54, 55",
+    "nota": "Impugnación ante la Dirección General contra las decisiones del Comité Técnico, resuelta en 24 horas; nueva solicitud por hechos nuevos"
+   },
+   "i15": {
+    "valor": "si",
+    "articulos": "Arts. 58, 59",
+    "nota": "Convenios con organizaciones nacionales e internacionales y con otros Estados, incluso para asilo o refugio"
+   },
+   "i16": {
+    "valor": "si",
+    "articulos": "Arts. 13, 20, 21",
+    "nota": "El Consejo Nacional de Protección reúne a Estado, gremios de prensa y justicia y organizaciones civiles, con observadores del Comisionado Nacional y de la ONU; la ley nombra además a gobierno, sociedad civil, instituciones de derechos humanos, investigadores y medios como actores de la prevención"
+   },
+   "i17": {
+    "valor": "si",
+    "articulos": "Arts. 19, 65, 66",
+    "nota": "Asignación obligatoria del Presupuesto General, cooperación y donaciones, y un Fondo Especial para la Protección financiado con el Fondo de Seguridad Poblacional"
+   },
+   "i18": {
+    "valor": "si",
+    "articulos": "Arts. 56, 57",
+    "nota": "Los funcionarios que por negativa o negligencia impidan las medidas incurren en el delito de violación de los deberes de los funcionarios, perseguible de oficio; la Dirección General debe denunciar el incumplimiento"
+   },
+   "i19": {
+    "valor": "si",
+    "articulos": "Arts. 24, 29 num. 7, 61",
+    "nota": "Informes anuales del Consejo sobre la situación de las personas protegidas, informes semestrales de la Dirección sobre la efectividad de las medidas e informes públicos generales"
+   },
+   "i20": {
+    "valor": "si",
+    "articulos": "Arts. 60, 61",
+    "nota": "Sujeción a la Ley de Transparencia; reserva de las resoluciones que otorgan medidas y de los casos individuales"
+   }
   }
  },
  "definiciones": {
@@ -1858,6 +2127,11 @@
    "periodista": "Las personas físicas, así como medios de comunicación y difusión públicos, comunitarios, privados, independientes, universitarios, experimentales o de cualquier otra índole cuyo trabajo consiste en recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital o imagen. (Art. 2 fr. X)",
    "defensora": "Las personas físicas que actúen individualmente o como integrantes de un grupo, organización o movimiento social, así como personas morales, grupos, organizaciones o movimientos sociales cuya finalidad sea la promoción o defensa de los derechos humanos. (Art. 2 fr. XI)",
    "agresion": "Daño a la integridad física o psicológica, amenaza, hostigamiento o intimidación que por el ejercicio de su actividad sufran las Personas Defensoras de Derechos Humanos y Periodistas. (Art. 2 fr. I) Las agresiones se configuran cuando por acción u omisión o en aquiescencia se dañe la integridad física, psicológica, moral o económica de la persona, de su cónyuge, concubina, concubino, ascendientes, descendientes y dependientes, de los bienes de la persona, el grupo, organización o movimiento social, del representante legal del peticionario o beneficiario y de las demás personas que determine la evaluación de riesgo. (Art. 10)"
+  },
+  "hn": {
+   "periodista": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole. (Art. 5 num. 3)",
+   "defensora": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales. (Art. 5 num. 1) El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos. (Art. 1)",
+   "agresion": "Agresiones: Es el daño, amenaza, hostigamiento o intimidación que por el ejercicio de su actividad o cargo sufren las y los defensores de derechos humanos, periodistas, comunicadores sociales y operadores de justicia. (Art. 5 num. 7) El Estado tiene la obligación de respetar los derechos humanos de las y los defensores y de prevenir de forma razonable las amenazas, hostigamientos y agresiones que puedan generarse en su contra, independientemente de que éstas provengan de actores estatales o particulares. (Art. 6)"
   }
  },
  "pasajes": {
@@ -4366,28 +4640,462 @@
      "texto": "El acceso y difusión de la información relacionada con esta ley, estará sujeta a lo que dispongan la Ley de Transparencia y Acceso a la Información Pública del Estado y demás disposiciones aplicables. Las Medidas Provisionales, Medidas Preventivas, Medidas de Protección y Medidas Urgentes de Protección otorgadas a través del Mecanismo se considerarán información reservada. Los recursos se sujetarán a las disposiciones generales y estatales en materia de transparencia y evaluación de los recursos públicos."
     }
    ]
+  },
+  "hn": {
+   "i01": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos."
+    },
+    {
+     "articulo": "Artículo 2",
+     "texto": "La presente Ley es de orden público y de interés social y de observancia general en toda la República. Su objetivo es reconocer, promover y proteger los derechos humanos y las libertades fundamentales reconocidas y contenidas en la Constitución de la República y en los instrumentos de derecho internacional, de toda persona natural o jurídica dedicada a la promoción y defensa de los derechos humanos, a la libertad de expresión y a las labores jurisdiccionales en riesgo por su actividad."
+    },
+    {
+     "articulo": "Artículo 5, numeral 1",
+     "texto": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales."
+    }
+   ],
+   "i01a": [
+    {
+     "articulo": "Artículo 5, numeral 1",
+     "texto": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales."
+    }
+   ],
+   "i01b": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos."
+    },
+    {
+     "articulo": "Artículo 5, numeral 1",
+     "texto": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales."
+    }
+   ],
+   "i01c": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos."
+    },
+    {
+     "articulo": "Artículo 2",
+     "texto": "La presente Ley es de orden público y de interés social y de observancia general en toda la República. Su objetivo es reconocer, promover y proteger los derechos humanos y las libertades fundamentales reconocidas y contenidas en la Constitución de la República y en los instrumentos de derecho internacional, de toda persona natural o jurídica dedicada a la promoción y defensa de los derechos humanos, a la libertad de expresión y a las labores jurisdiccionales en riesgo por su actividad."
+    }
+   ],
+   "i01d": [
+    {
+     "articulo": "Artículo 5, numeral 8 a 9",
+     "texto": "Peticionario(a): Es la persona natural, grupo o comunidad que solicita Medidas Preventivas, Medidas de Protección o Medidas Urgentes de Protección ante el Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos. Beneficiario(a): Es la persona natural, grupo o comunidad a la que se le otorgan las Medidas Preventivas, Medidas de Protección o Medidas Urgentes de Protección a que se refiere esta Ley."
+    }
+   ],
+   "i01e": [
+    {
+     "articulo": "Artículo 41",
+     "texto": "Cualquier persona, natural o jurídica, beneficiaria de esta Ley puede solicitar gratuitamente la tutela prevista ante la Dirección General del Sistema de Protección. Esta solicitud se presenta personalmente sin necesidad de poder de representación ni de formalidad alguna, verbalmente o por escrito, utilizando cualquier medio de comunicación, en horas o días hábiles o inhábiles. Cuando la persona solicitante se encuentre impedida por causa grave y/o excepcional, la solicitud puede presentarse a su nombre por familiares, terceras personas, alguna organización que la represente o cualquier autoridad que tenga conocimiento de la situación de riesgo."
+    },
+    {
+     "articulo": "Artículo 43",
+     "texto": "Una vez recibida la solicitud, la Dirección General debe revisar para iniciar el procedimiento: 1) que la persona esté dentro de la población beneficiaria de la presente Ley; 2) que exista el consentimiento de la potencial persona beneficiaria, salvo causa grave y/o excepcional; 3) que exista un nexo causal entre la situación de riesgo y su actividad de defensoría de derechos humanos o laboral en el caso de los periodistas, comunicadores sociales y operadores de justicia; y 4) que existan indicios sobre la situación de riesgo."
+    }
+   ],
+   "i01f": [
+    {
+     "articulo": "Artículo 1",
+     "texto": "El Estado reconoce el derecho de toda persona, individual o colectivamente, a promover y procurar la promoción, protección y realización de los derechos humanos y las libertades fundamentales. Toda persona natural o jurídica, tiene una importante función en la consolidación de la democracia, el fomento y progreso de la sociedad e instituciones, así como en la promoción de una cultura de derechos humanos."
+    },
+    {
+     "articulo": "Artículo 5, numeral 1",
+     "texto": "Defensor(a) de Derechos Humanos: Es toda persona que ejerza el derecho, individual o colectivamente, de promover y procurar la protección y realización de los derechos humanos y las libertades fundamentales en el marco del derecho nacional e internacional; entre éstos se encuentran comprendidos los defensores del medio ambiente y conservadores de los recursos naturales."
+    }
+   ],
+   "i02": [
+    {
+     "articulo": "Artículo 2",
+     "texto": "La presente Ley es de orden público y de interés social y de observancia general en toda la República. Su objetivo es reconocer, promover y proteger los derechos humanos y las libertades fundamentales reconocidas y contenidas en la Constitución de la República y en los instrumentos de derecho internacional, de toda persona natural o jurídica dedicada a la promoción y defensa de los derechos humanos, a la libertad de expresión y a las labores jurisdiccionales en riesgo por su actividad."
+    },
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02a": [
+    {
+     "articulo": "Artículo 2",
+     "texto": "La presente Ley es de orden público y de interés social y de observancia general en toda la República. Su objetivo es reconocer, promover y proteger los derechos humanos y las libertades fundamentales reconocidas y contenidas en la Constitución de la República y en los instrumentos de derecho internacional, de toda persona natural o jurídica dedicada a la promoción y defensa de los derechos humanos, a la libertad de expresión y a las labores jurisdiccionales en riesgo por su actividad."
+    },
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02b": [
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02c": [
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02d": [
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    },
+    {
+     "articulo": "Artículo 41",
+     "texto": "Cualquier persona, natural o jurídica, beneficiaria de esta Ley puede solicitar gratuitamente la tutela prevista ante la Dirección General del Sistema de Protección. Esta solicitud se presenta personalmente sin necesidad de poder de representación ni de formalidad alguna, verbalmente o por escrito, utilizando cualquier medio de comunicación, en horas o días hábiles o inhábiles. Cuando la persona solicitante se encuentre impedida por causa grave y/o excepcional, la solicitud puede presentarse a su nombre por familiares, terceras personas, alguna organización que la represente o cualquier autoridad que tenga conocimiento de la situación de riesgo."
+    }
+   ],
+   "i02e": [
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02f": [
+    {
+     "articulo": "Artículo 5, numeral 3",
+     "texto": "Periodistas, Comunicadores Sociales, Fotógrafos, Camarógrafos y Reporteros Gráficos en los Medios de Comunicación: Son las personas naturales que realizan labores de recabar, generar, procesar, editar, comentar, opinar, difundir, publicar o proveer información, a través de cualquier medio de difusión y comunicación que puede ser impreso, radioeléctrico, digital, de imagen o de otra índole."
+    }
+   ],
+   "i02g": [
+    {
+     "articulo": "Artículo 2",
+     "texto": "La presente Ley es de orden público y de interés social y de observancia general en toda la República. Su objetivo es reconocer, promover y proteger los derechos humanos y las libertades fundamentales reconocidas y contenidas en la Constitución de la República y en los instrumentos de derecho internacional, de toda persona natural o jurídica dedicada a la promoción y defensa de los derechos humanos, a la libertad de expresión y a las labores jurisdiccionales en riesgo por su actividad."
+    }
+   ],
+   "i03": [
+    {
+     "articulo": "Artículo 5, numeral 7",
+     "texto": "Agresiones: Es el daño, amenaza, hostigamiento o intimidación que por el ejercicio de su actividad o cargo sufren las y los defensores de derechos humanos, periodistas, comunicadores sociales y operadores de justicia."
+    },
+    {
+     "articulo": "Artículo 6",
+     "texto": "El Estado tiene la obligación de respetar los derechos humanos de las y los defensores y de prevenir de forma razonable las amenazas, hostigamientos y agresiones que puedan generarse en su contra, independientemente de que éstas provengan de actores estatales o particulares."
+    }
+   ],
+   "i03a": [
+    {
+     "articulo": "Artículo 3, numeral 6",
+     "texto": "Principio de coordinación: las medidas de protección deben ser decretadas e implementadas, ordenadas, sistematizadas, coherentes, eficientes y armonizadas por las instituciones integrantes del Sistema Nacional de Protección de Personas Defensoras de Derechos Humanos y demás autoridades relacionadas, para la prevención y protección de los derechos a la vida, la libertad, la integridad y la seguridad personal de su población objeto."
+    },
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i03b": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i03c": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i03f": [
+    {
+     "articulo": "Artículo 3, numeral 6",
+     "texto": "Principio de coordinación: las medidas de protección deben ser decretadas e implementadas, ordenadas, sistematizadas, coherentes, eficientes y armonizadas por las instituciones integrantes del Sistema Nacional de Protección de Personas Defensoras de Derechos Humanos y demás autoridades relacionadas, para la prevención y protección de los derechos a la vida, la libertad, la integridad y la seguridad personal de su población objeto."
+    },
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i03g": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i03i": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    },
+    {
+     "articulo": "Artículo 36",
+     "texto": "Las medidas preventivas y de protección, ya sean ordinarias o urgentes, tienen por objeto disuadir y reducir el riesgo denunciado [...]. Estas medidas son de naturaleza individual o colectivas, idóneas, eficaces y temporales, acordes con las mejores metodologías, buenas prácticas y estándares internacionales. Deben ser extensivas, además, a aquellas personas que determine el Estudio de Evaluación de Riesgo y analizarse, determinarse, implementarse y evaluarse de común acuerdo con las personas beneficiarias."
+    }
+   ],
+   "i04": [
+    {
+     "articulo": "Artículo 3, numeral 16",
+     "texto": "Igualdad de trato, no discriminación y enfoque diferenciado: las medidas de protección se deben aplicar en igualdad de trato, sin discriminación por ninguna condición y con enfoque diferenciado entre unas personas y otras."
+    },
+    {
+     "articulo": "Artículo 38",
+     "texto": "Los Protocolos que se adopten deben considerar las diferencias existentes dentro de los grupos protegidos, atender aspectos de género, etáreos, origen étnico; situación socioeconómica; orientación sexual e identidad de género, diferencias geográficas urbanas y rurales, así como cualquier otra condición o situación que amerite ser tratada de manera diferenciada."
+    }
+   ],
+   "i05": [
+    {
+     "articulo": "Artículo 5, numeral 8 a 9",
+     "texto": "Peticionario(a): Es la persona natural, grupo o comunidad que solicita Medidas Preventivas, Medidas de Protección o Medidas Urgentes de Protección ante el Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos. Beneficiario(a): Es la persona natural, grupo o comunidad a la que se le otorgan las Medidas Preventivas, Medidas de Protección o Medidas Urgentes de Protección a que se refiere esta Ley."
+    },
+    {
+     "articulo": "Artículo 36",
+     "texto": "Las medidas preventivas y de protección, ya sean ordinarias o urgentes, tienen por objeto disuadir y reducir el riesgo denunciado [...]. Estas medidas son de naturaleza individual o colectivas, idóneas, eficaces y temporales, acordes con las mejores metodologías, buenas prácticas y estándares internacionales. Deben ser extensivas, además, a aquellas personas que determine el Estudio de Evaluación de Riesgo y analizarse, determinarse, implementarse y evaluarse de común acuerdo con las personas beneficiarias."
+    }
+   ],
+   "i06": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    },
+    {
+     "articulo": "Artículo 14",
+     "texto": "Es prioridad del Estado el establecer mecanismos y medidas de prevención y educación. Dentro de las medidas que contribuyen a este propósito se destacan: la promoción del respeto a los derechos humanos, la identificación de riesgo mediante mapeo y un sistema de monitoreo y atención en general. Asimismo el establecimiento de un sistema de alerta temprana, el cual debe ser forzosamente acompañado de una estructura de respuesta inmediata."
+    }
+   ],
+   "i06a": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    },
+    {
+     "articulo": "Artículos 44 y 45",
+     "texto": "En caso de cumplir los requisitos, la Dirección General debe emitir sin dilación una resolución determinando si corresponde tramitar la solicitud de forma ordinaria o extraordinaria (art. 44). Cuando se cuente con elementos para determinar el riesgo inminente, es decir, amenazas o agresiones de pronta materialización dentro de las siguientes veinticuatro (24) a setenta y dos (72) horas, la Dirección General debe ordenar urgentemente medidas e instruir a la Secretaría de Seguridad para que sean implementadas en un plazo no mayor a ocho (8) horas. [...] La medida urgente permanece hasta que el Comité Técnico determine su modificación o cancelación previo análisis del riesgo, que debe realizarse entre una (1) y dos (2) semanas posteriores (art. 45)."
+    }
+   ],
+   "i06b": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i06c": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i06d": [
+    {
+     "articulo": "Artículo 12",
+     "texto": "Se consideran herramientas coadyuvantes para la promoción y prevención de los derechos humanos: 1) apoyar la funcionalidad institucional con entidades dedicadas a la promoción y prevención de los derechos humanos; 2) reforzar el Estado de Derecho y los mecanismos de rendición de cuentas; 3) alentar estructuras sociales equitativas e inclusivas; 4) montar estructuras para operativos y responder a las señales de alerta temprana; 5) ratificar los instrumentos internacionales de derechos humanos; y 6) difundir una cultura de respeto de los derechos humanos."
+    },
+    {
+     "articulo": "Artículo 14",
+     "texto": "Es prioridad del Estado el establecer mecanismos y medidas de prevención y educación. Dentro de las medidas que contribuyen a este propósito se destacan: la promoción del respeto a los derechos humanos, la identificación de riesgo mediante mapeo y un sistema de monitoreo y atención en general. Asimismo el establecimiento de un sistema de alerta temprana, el cual debe ser forzosamente acompañado de una estructura de respuesta inmediata."
+    }
+   ],
+   "i06e": [
+    {
+     "articulo": "Artículo 5, numeral 11 a 15",
+     "texto": "11) Medidas Preventivas: conjunto de acciones que se adoptan con el objetivo de reducir los factores de riesgo. 12) Medidas Reactivas: conjunto de acciones y medios de seguridad para enfrentar el riesgo y proteger el derecho a la vida, a la integridad personal, a la libertad personal y seguridad de la persona beneficiaria. 13) Medidas Urgentes de Protección: conjunto de acciones y medios para resguardar de manera inmediata, la vida, la integridad y la libertad de la persona beneficiaria y en algunos casos sus bienes. 14) Medidas Psicosociales: conjunto de acciones dirigidas a afrontar los impactos psicológicos y sociales de la violencia en las personas defensoras, sus familias y los espacios organizativos en los que participa. 15) Medidas Dirigidas a Enfrentar la Impunidad: conjunto de acciones dirigidas a garantizar la efectiva investigación, procesamiento y sanción de los responsables de los ataques a las personas sujetas de la presente Ley."
+    }
+   ],
+   "i07": [
+    {
+     "articulo": "Artículos 20 y 21",
+     "texto": "Créase el Consejo Nacional de Protección para las y los Defensores de Derechos Humanos, como un ente deliberativo y de asesoría al Sistema Nacional de Protección (art. 20). Está integrado por una persona representante propietaria y su suplente de: la Secretaría de Derechos Humanos, Justicia, Gobernación y Descentralización; la Secretaría de Relaciones Exteriores; el Ministerio Público; el Poder Judicial; la Procuraduría General de la República; la Secretaría de Seguridad; la Secretaría de Defensa Nacional; el Colegio de Abogados de Honduras; el Colegio de Periodistas de Honduras; la Asociación de Prensa Hondureña; las asociaciones de jueces y magistrados; la Asociación de Fiscales; y dos representantes de las organizaciones de derechos humanos de la sociedad civil acreditados por el Comisionado Nacional de Derechos Humanos. El Comisionado Nacional de los Derechos Humanos y la Oficina del Alto Comisionado de Naciones Unidas participan como observadores con voz pero sin voto. Las y los representantes de las organizaciones defensoras deben ser electos en asamblea pública (art. 21)."
+    },
+    {
+     "articulo": "Artículo 24",
+     "texto": "Son atribuciones del Consejo Nacional de Protección, entre otras: actuar como órgano consultivo, deliberativo y de asesoría; ejercer funciones de supervisión, control, seguimiento y evaluación del Sistema Nacional de Protección; promover el diseño e implementación de políticas públicas y programas; analizar, debatir, realizar y socializar informes anuales sobre el contexto nacional y la situación de personas defensoras de derechos humanos, periodistas, comunicadores sociales y operadores de justicia; proponer nuevas medidas de prevención, protección y medidas urgentes; y emitir recomendaciones al informe anual de actividades de la Dirección General del Sistema de Protección."
+    },
+    {
+     "articulo": "Artículo 26",
+     "texto": "Instalado válidamente el Consejo Nacional de Protección, debe adoptar sus decisiones con el voto de la mayoría simple de los presentes y en caso de empate la Coordinación del Consejo tiene voto de calidad."
+    }
+   ],
+   "i08": [
+    {
+     "articulo": "Artículo 19",
+     "texto": "Créase el Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos cuya función es la de sentar las bases de coordinación con otras instituciones públicas y con la sociedad en general, para una efectiva protección en el marco de la política pública y plan nacional de Derechos Humanos. [...] El Sistema está integrado por: 1) la Secretaría de Estado en los Despachos de Derechos Humanos, Justicia, Gobernación y Descentralización, como órgano rector; 2) el Consejo Nacional de Protección para las y los Defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia; 3) la Dirección General del Sistema de Protección; 4) el Comité Técnico del Mecanismo de Protección; y 5) el Departamento de Derechos Humanos de la Secretaría de Estado en el Despacho de Seguridad. Para el funcionamiento del Sistema la Secretaría de Estado en el Despacho de Finanzas debe implementar las previsiones presupuestarias correspondientes."
+    },
+    {
+     "articulo": "Artículo 31",
+     "texto": "Créase el Comité Técnico del Mecanismo de Protección de la Dirección General del Sistema de Protección encargado de realizar los dictámenes de análisis de riesgo, deliberación y decisión sobre las solicitudes de protección. El Comité Técnico está integrado por el Director General del Sistema de Protección quien lo preside y un representante de la Procuraduría General de la República, la Fiscalía de Derechos Humanos y del Departamento de Derechos Humanos de la Secretaría de Estado en el Despacho de Seguridad. El Comité Técnico se debe asesorar por personas expertas en el análisis de riesgo."
+    }
+   ],
+   "i09": [
+    {
+     "articulo": "Artículo 7",
+     "texto": "Toda autoridad civil, policial o militar, así como los particulares, están obligados a proporcionar la información de forma expedita y brindar toda la colaboración requerida por parte de las diversas instancias encargadas del cumplimiento de la presente Ley para la consecución de sus fines."
+    },
+    {
+     "articulo": "Artículo 48",
+     "texto": "La implementación de medidas de protección ordenadas por el Comité Técnico debe hacerse por la Dirección General en un plazo no mayor a cuarenta y ocho (48) horas después de la recepción de la resolución. La Dirección General debe coordinar con las autoridades públicas pertinentes, quienes están obligadas a proporcionar los recursos institucionales necesarios."
+    },
+    {
+     "articulo": "Artículo 53",
+     "texto": "Los tres (3) Poderes del Estado y demás instituciones están obligados a auxiliar con carácter preferente y urgente al Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos a fin de dar cumplimiento a la presente Ley, así como a las decisiones de los órganos del Sistema Interamericano de Protección de Derechos Humanos."
+    },
+    {
+     "articulo": "Artículos 56 y 57",
+     "texto": "Las resoluciones y recomendaciones emitidas en el marco de la presente Ley son de cumplimiento obligatorio. Los funcionarios que mediante negativa o negligencia impidan la aplicación de las medidas de protección incurren en el delito de violación de los deberes de los funcionarios y otros que según el caso sean aplicables, diligencias que deben ser iniciadas de oficio por el Ministerio Público, sin perjuicio de las responsabilidades civiles y administrativas (art. 56). La Dirección General debe remitir de oficio al Ministerio Público la denuncia cuando se constate el incumplimiento de las obligaciones de la Ley por parte de funcionarios y toda autoridad civil y militar (art. 57)."
+    }
+   ],
+   "i10": [
+    {
+     "articulo": "Artículo 41",
+     "texto": "Cualquier persona, natural o jurídica, beneficiaria de esta Ley puede solicitar gratuitamente la tutela prevista ante la Dirección General del Sistema de Protección. Esta solicitud se presenta personalmente sin necesidad de poder de representación ni de formalidad alguna, verbalmente o por escrito, utilizando cualquier medio de comunicación, en horas o días hábiles o inhábiles. Cuando la persona solicitante se encuentre impedida por causa grave y/o excepcional, la solicitud puede presentarse a su nombre por familiares, terceras personas, alguna organización que la represente o cualquier autoridad que tenga conocimiento de la situación de riesgo."
+    },
+    {
+     "articulo": "Artículo 42",
+     "texto": "En los lugares donde no exista la Dirección General del Sistema de Protección o en situaciones de urgencia o durante días y horas inhábiles, las medidas urgentes pueden ser adoptadas por la Secretaría de Seguridad a través de la Policía Preventiva o en su defecto la autoridad competente en materia de seguridad, sin perjuicio de remitir el expediente en un término de veinticuatro (24) horas a la Dirección General."
+    },
+    {
+     "articulo": "Artículo 43",
+     "texto": "Una vez recibida la solicitud, la Dirección General debe revisar para iniciar el procedimiento: 1) que la persona esté dentro de la población beneficiaria de la presente Ley; 2) que exista el consentimiento de la potencial persona beneficiaria, salvo causa grave y/o excepcional; 3) que exista un nexo causal entre la situación de riesgo y su actividad de defensoría de derechos humanos o laboral en el caso de los periodistas, comunicadores sociales y operadores de justicia; y 4) que existan indicios sobre la situación de riesgo."
+    },
+    {
+     "articulo": "Artículos 44 y 45",
+     "texto": "En caso de cumplir los requisitos, la Dirección General debe emitir sin dilación una resolución determinando si corresponde tramitar la solicitud de forma ordinaria o extraordinaria (art. 44). Cuando se cuente con elementos para determinar el riesgo inminente, es decir, amenazas o agresiones de pronta materialización dentro de las siguientes veinticuatro (24) a setenta y dos (72) horas, la Dirección General debe ordenar urgentemente medidas e instruir a la Secretaría de Seguridad para que sean implementadas en un plazo no mayor a ocho (8) horas. [...] La medida urgente permanece hasta que el Comité Técnico determine su modificación o cancelación previo análisis del riesgo, que debe realizarse entre una (1) y dos (2) semanas posteriores (art. 45)."
+    }
+   ],
+   "i11": [
+    {
+     "articulo": "Artículo 19",
+     "texto": "Créase el Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos cuya función es la de sentar las bases de coordinación con otras instituciones públicas y con la sociedad en general, para una efectiva protección en el marco de la política pública y plan nacional de Derechos Humanos. [...] El Sistema está integrado por: 1) la Secretaría de Estado en los Despachos de Derechos Humanos, Justicia, Gobernación y Descentralización, como órgano rector; 2) el Consejo Nacional de Protección para las y los Defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia; 3) la Dirección General del Sistema de Protección; 4) el Comité Técnico del Mecanismo de Protección; y 5) el Departamento de Derechos Humanos de la Secretaría de Estado en el Despacho de Seguridad. Para el funcionamiento del Sistema la Secretaría de Estado en el Despacho de Finanzas debe implementar las previsiones presupuestarias correspondientes."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Son atribuciones de la Dirección General del Sistema de Protección, entre otras: 1) recibir todas las solicitudes de protección y tramitarlas; 2) solicitar la implementación de los planes de protección y monitorear su cumplimiento; 3) tramitar de oficio medidas urgentes; [...] 7) presentar al Consejo Nacional informes semestrales sobre el nivel de efectividad de las medidas; 8) elaborar los protocolos de operación; [...] 11) realizar el monitoreo a nivel nacional de denuncias por violaciones a derechos humanos de las personas beneficiarias, con el objeto de identificar patrones de agresión y elaborar mapas de riesgo para la adopción de medidas de prevención; 12) conocer de los recursos contra las decisiones adoptadas por el Comité Técnico del Mecanismo de Protección."
+    },
+    {
+     "articulo": "Artículo 31",
+     "texto": "Créase el Comité Técnico del Mecanismo de Protección de la Dirección General del Sistema de Protección encargado de realizar los dictámenes de análisis de riesgo, deliberación y decisión sobre las solicitudes de protección. El Comité Técnico está integrado por el Director General del Sistema de Protección quien lo preside y un representante de la Procuraduría General de la República, la Fiscalía de Derechos Humanos y del Departamento de Derechos Humanos de la Secretaría de Estado en el Despacho de Seguridad. El Comité Técnico se debe asesorar por personas expertas en el análisis de riesgo."
+    },
+    {
+     "articulo": "Artículos 34 y 35",
+     "texto": "En los casos que las medidas de protección decretadas deban en todo o en parte ser implementadas por la Secretaría de Seguridad, se remiten a su Departamento de Derechos Humanos, que funciona como órgano técnico especializado en la implementación de las medidas (art. 34). Le corresponde implementar las medidas de carácter policial, coordinar con las direcciones y jefaturas policiales, asignar los agentes de protección y presentar el proyecto de presupuesto que requiera en cada ejercicio fiscal (art. 35)."
+    }
+   ],
+   "i12": [
+    {
+     "articulo": "Artículos 44 y 45",
+     "texto": "En caso de cumplir los requisitos, la Dirección General debe emitir sin dilación una resolución determinando si corresponde tramitar la solicitud de forma ordinaria o extraordinaria (art. 44). Cuando se cuente con elementos para determinar el riesgo inminente, es decir, amenazas o agresiones de pronta materialización dentro de las siguientes veinticuatro (24) a setenta y dos (72) horas, la Dirección General debe ordenar urgentemente medidas e instruir a la Secretaría de Seguridad para que sean implementadas en un plazo no mayor a ocho (8) horas. [...] La medida urgente permanece hasta que el Comité Técnico determine su modificación o cancelación previo análisis del riesgo, que debe realizarse entre una (1) y dos (2) semanas posteriores (art. 45)."
+    },
+    {
+     "articulo": "Artículos 46 y 47",
+     "texto": "El Comité Técnico se debe reunir semanalmente a fin de realizar la evaluación del riesgo en cada caso (art. 46). [...] Mientras se obtiene la información adicional, la Dirección General puede solicitar medidas interinas. El Comité Técnico debe realizar una evaluación del riesgo en cada caso a fin de determinar el nivel, ya sea moderado, grave o muy grave. Para todos los casos debe ser oída la persona solicitante y/o su representante procurando el consenso en las medidas a adoptar. El análisis de riesgo en el trámite ordinario debe realizarse en el término comprendido entre dos (2) a cuatro (4) semanas (art. 47)."
+    },
+    {
+     "articulo": "Artículo 48",
+     "texto": "La implementación de medidas de protección ordenadas por el Comité Técnico debe hacerse por la Dirección General en un plazo no mayor a cuarenta y ocho (48) horas después de la recepción de la resolución. La Dirección General debe coordinar con las autoridades públicas pertinentes, quienes están obligadas a proporcionar los recursos institucionales necesarios."
+    },
+    {
+     "articulo": "Artículo 54",
+     "texto": "Toda persona solicitante o beneficiaria que no esté de acuerdo con las decisiones del Comité Técnico del Mecanismo de Protección tiene derecho a impugnar dicha decisión ante la Dirección General del Sistema Nacional de Protección. Las impugnaciones presentadas se deben resolver de manera preferente y urgente, basados siempre en el principio pro persona en el término de veinticuatro (24) horas mediante el procedimiento que establece la Ley de Procedimiento Administrativo."
+    },
+    {
+     "articulo": "Artículo 40",
+     "texto": "Cada seis (6) meses el Comité Técnico del Mecanismo de Protección debe realizar un nuevo análisis a fin de medir el nivel de riesgo de las personas beneficiarias y, en su caso, adaptar las medidas ordenadas. [...] La Dirección General puede solicitar de oficio o a petición de la persona beneficiaria la revisión de las medidas implementadas."
+    }
+   ],
+   "i13": [
+    {
+     "articulo": "Artículo 12",
+     "texto": "Se consideran herramientas coadyuvantes para la promoción y prevención de los derechos humanos: 1) apoyar la funcionalidad institucional con entidades dedicadas a la promoción y prevención de los derechos humanos; 2) reforzar el Estado de Derecho y los mecanismos de rendición de cuentas; 3) alentar estructuras sociales equitativas e inclusivas; 4) montar estructuras para operativos y responder a las señales de alerta temprana; 5) ratificar los instrumentos internacionales de derechos humanos; y 6) difundir una cultura de respeto de los derechos humanos."
+    },
+    {
+     "articulo": "Artículo 14",
+     "texto": "Es prioridad del Estado el establecer mecanismos y medidas de prevención y educación. Dentro de las medidas que contribuyen a este propósito se destacan: la promoción del respeto a los derechos humanos, la identificación de riesgo mediante mapeo y un sistema de monitoreo y atención en general. Asimismo el establecimiento de un sistema de alerta temprana, el cual debe ser forzosamente acompañado de una estructura de respuesta inmediata."
+    },
+    {
+     "articulo": "Artículo 17",
+     "texto": "La Alerta Temprana es el instrumento con el cual se verifica y analiza de manera técnica información relacionada con situaciones de vulnerabilidad y riesgo de toda la población y advierte a las autoridades competentes con deber de protección, para que se coordine y brinde una atención oportuna e integral a las personas afectadas; asimismo advierte sobre situaciones de riesgo y promueve la prevención integral del Estado con el fin de proteger y garantizar oportunamente los derechos fundamentales de la población."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Son atribuciones de la Dirección General del Sistema de Protección, entre otras: 1) recibir todas las solicitudes de protección y tramitarlas; 2) solicitar la implementación de los planes de protección y monitorear su cumplimiento; 3) tramitar de oficio medidas urgentes; [...] 7) presentar al Consejo Nacional informes semestrales sobre el nivel de efectividad de las medidas; 8) elaborar los protocolos de operación; [...] 11) realizar el monitoreo a nivel nacional de denuncias por violaciones a derechos humanos de las personas beneficiarias, con el objeto de identificar patrones de agresión y elaborar mapas de riesgo para la adopción de medidas de prevención; 12) conocer de los recursos contra las decisiones adoptadas por el Comité Técnico del Mecanismo de Protección."
+    }
+   ],
+   "i14": [
+    {
+     "articulo": "Artículo 54",
+     "texto": "Toda persona solicitante o beneficiaria que no esté de acuerdo con las decisiones del Comité Técnico del Mecanismo de Protección tiene derecho a impugnar dicha decisión ante la Dirección General del Sistema Nacional de Protección. Las impugnaciones presentadas se deben resolver de manera preferente y urgente, basados siempre en el principio pro persona en el término de veinticuatro (24) horas mediante el procedimiento que establece la Ley de Procedimiento Administrativo."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Son atribuciones de la Dirección General del Sistema de Protección, entre otras: 1) recibir todas las solicitudes de protección y tramitarlas; 2) solicitar la implementación de los planes de protección y monitorear su cumplimiento; 3) tramitar de oficio medidas urgentes; [...] 7) presentar al Consejo Nacional informes semestrales sobre el nivel de efectividad de las medidas; 8) elaborar los protocolos de operación; [...] 11) realizar el monitoreo a nivel nacional de denuncias por violaciones a derechos humanos de las personas beneficiarias, con el objeto de identificar patrones de agresión y elaborar mapas de riesgo para la adopción de medidas de prevención; 12) conocer de los recursos contra las decisiones adoptadas por el Comité Técnico del Mecanismo de Protección."
+    }
+   ],
+   "i15": [
+    {
+     "articulo": "Artículos 58 y 59",
+     "texto": "La Secretaría de Derechos Humanos, a través de la Dirección General, debe celebrar convenios de cooperación a fin de garantizar la vida, integridad, libertad y seguridad de las personas protegidas. Puede celebrar estos convenios con organizaciones e instituciones nacionales e internacionales humanitarias y con otros Estados, que puedan facilitar recursos, asistencia técnica e incluso asilo o refugio (art. 58). Sus objetivos incluyen la asistencia técnica y financiera a instituciones y organizaciones de la sociedad civil, el fortalecimiento de capacidades y la promoción de reformas legislativas (art. 59)."
+    }
+   ],
+   "i16": [
+    {
+     "articulo": "Artículo 13",
+     "texto": "Los actores que intervienen en la prevención son: 1) el Gobierno; 2) la sociedad civil; 3) las instituciones nacionales de derechos humanos; 4) los investigadores; y 5) los medios de comunicación."
+    },
+    {
+     "articulo": "Artículos 20 y 21",
+     "texto": "Créase el Consejo Nacional de Protección para las y los Defensores de Derechos Humanos, como un ente deliberativo y de asesoría al Sistema Nacional de Protección (art. 20). Está integrado por una persona representante propietaria y su suplente de: la Secretaría de Derechos Humanos, Justicia, Gobernación y Descentralización; la Secretaría de Relaciones Exteriores; el Ministerio Público; el Poder Judicial; la Procuraduría General de la República; la Secretaría de Seguridad; la Secretaría de Defensa Nacional; el Colegio de Abogados de Honduras; el Colegio de Periodistas de Honduras; la Asociación de Prensa Hondureña; las asociaciones de jueces y magistrados; la Asociación de Fiscales; y dos representantes de las organizaciones de derechos humanos de la sociedad civil acreditados por el Comisionado Nacional de Derechos Humanos. El Comisionado Nacional de los Derechos Humanos y la Oficina del Alto Comisionado de Naciones Unidas participan como observadores con voz pero sin voto. Las y los representantes de las organizaciones defensoras deben ser electos en asamblea pública (art. 21)."
+    }
+   ],
+   "i17": [
+    {
+     "articulo": "Artículo 19",
+     "texto": "Créase el Sistema Nacional de Protección para Personas Defensoras de Derechos Humanos cuya función es la de sentar las bases de coordinación con otras instituciones públicas y con la sociedad en general, para una efectiva protección en el marco de la política pública y plan nacional de Derechos Humanos. [...] El Sistema está integrado por: 1) la Secretaría de Estado en los Despachos de Derechos Humanos, Justicia, Gobernación y Descentralización, como órgano rector; 2) el Consejo Nacional de Protección para las y los Defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia; 3) la Dirección General del Sistema de Protección; 4) el Comité Técnico del Mecanismo de Protección; y 5) el Departamento de Derechos Humanos de la Secretaría de Estado en el Despacho de Seguridad. Para el funcionamiento del Sistema la Secretaría de Estado en el Despacho de Finanzas debe implementar las previsiones presupuestarias correspondientes."
+    },
+    {
+     "articulo": "Artículos 65 y 66",
+     "texto": "Para el efectivo cumplimiento de la Ley se instruye a la Secretaría de Finanzas para que asigne los recursos financieros suficientes y necesarios del Presupuesto General de la República. El financiamiento del Sistema está constituido además por contribuciones, donaciones, herencias, legados y cooperación nacional e internacional (art. 65). Créase el Fondo Especial para la Protección de defensores de Derechos Humanos, Periodistas, Comunicadores Sociales y Operadores de Justicia, que deberá asignarse de forma inmediata con los recursos procedentes del Fondo de Seguridad Poblacional (art. 66)."
+    }
+   ],
+   "i18": [
+    {
+     "articulo": "Artículos 56 y 57",
+     "texto": "Las resoluciones y recomendaciones emitidas en el marco de la presente Ley son de cumplimiento obligatorio. Los funcionarios que mediante negativa o negligencia impidan la aplicación de las medidas de protección incurren en el delito de violación de los deberes de los funcionarios y otros que según el caso sean aplicables, diligencias que deben ser iniciadas de oficio por el Ministerio Público, sin perjuicio de las responsabilidades civiles y administrativas (art. 56). La Dirección General debe remitir de oficio al Ministerio Público la denuncia cuando se constate el incumplimiento de las obligaciones de la Ley por parte de funcionarios y toda autoridad civil y militar (art. 57)."
+    }
+   ],
+   "i19": [
+    {
+     "articulo": "Artículo 24",
+     "texto": "Son atribuciones del Consejo Nacional de Protección, entre otras: actuar como órgano consultivo, deliberativo y de asesoría; ejercer funciones de supervisión, control, seguimiento y evaluación del Sistema Nacional de Protección; promover el diseño e implementación de políticas públicas y programas; analizar, debatir, realizar y socializar informes anuales sobre el contexto nacional y la situación de personas defensoras de derechos humanos, periodistas, comunicadores sociales y operadores de justicia; proponer nuevas medidas de prevención, protección y medidas urgentes; y emitir recomendaciones al informe anual de actividades de la Dirección General del Sistema de Protección."
+    },
+    {
+     "articulo": "Artículo 29",
+     "texto": "Son atribuciones de la Dirección General del Sistema de Protección, entre otras: 1) recibir todas las solicitudes de protección y tramitarlas; 2) solicitar la implementación de los planes de protección y monitorear su cumplimiento; 3) tramitar de oficio medidas urgentes; [...] 7) presentar al Consejo Nacional informes semestrales sobre el nivel de efectividad de las medidas; 8) elaborar los protocolos de operación; [...] 11) realizar el monitoreo a nivel nacional de denuncias por violaciones a derechos humanos de las personas beneficiarias, con el objeto de identificar patrones de agresión y elaborar mapas de riesgo para la adopción de medidas de prevención; 12) conocer de los recursos contra las decisiones adoptadas por el Comité Técnico del Mecanismo de Protección."
+    },
+    {
+     "articulo": "Artículos 60 y 61",
+     "texto": "El acceso y la difusión de información relacionada con la Ley debe ser conforme a la Ley de Transparencia y Acceso a la Información Pública. Las resoluciones que otorgan medidas se consideran información reservada (art. 60). La información sobre casos individuales no debe ser incorporada en los informes al público; los informes especiales y anuales serán de carácter general (art. 61)."
+    }
+   ],
+   "i20": [
+    {
+     "articulo": "Artículos 60 y 61",
+     "texto": "El acceso y la difusión de información relacionada con la Ley debe ser conforme a la Ley de Transparencia y Acceso a la Información Pública. Las resoluciones que otorgan medidas se consideran información reservada (art. 60). La información sobre casos individuales no debe ser incorporada en los informes al público; los informes especiales y anuales serán de carácter general (art. 61)."
+    }
+   ]
   }
  },
  "reflexiones": {
-  "i01": "Las tres leyes reproducen la misma definición de persona defensora, tomada del artículo 2 federal, así que en este indicador no hay diferencia de alcance formal. La única variación está fuera de la definición, en el artículo 2 de Sinaloa, que declara de interés público la actividad ciudadana de defensa, individual o colectiva, y con ello protege el acto de defender aunque quien lo realice no se identifique como defensor. Las omisiones son compartidas: la exigencia de finalidad para los colectivos, el silencio sobre comunidades, pueblos y personas buscadoras, y la falta de mención a la defensa ocasional. Coahuila legisla por separado: su ley de personas defensoras (2016) parte de la misma fórmula pero agrega 'remunerado o no' y enumera las libertades que la defensa requiere, con lo que es la definición más desarrollada del conjunto, aunque conserva las mismas omisiones; su ley de periodistas no define a la persona defensora. Tamaulipas (2017) copia la definición federal sin cambios.",
-  "i02": "Aquí las diferencias son de signo opuesto. La federal define al periodista por la función de informar y deja abierta la lista de medios. Sinaloa conserva ese texto y añade una definición del periodismo como actividad de observación, documentación, análisis y divulgación, que protege actos periodísticos aislados. Durango recortó la definición en 2022 al suprimir la cláusula abierta y exigir medios con personalidad debidamente acreditada, y reservó el acceso a fuentes a periodistas acreditados; a cambio nombra a colaboradores, columnistas y auxiliares como categoría propia y trae el catálogo de derechos profesionales más amplio de los tres. La ley de periodistas de Coahuila (2014) reproduce la fórmula federal con cláusula abierta, aunque omite los medios comunitarios y experimentales, menciona a los colaboradores periodísticos y desde 2020 define la libre expresión como derecho de toda persona; su ley de personas defensoras no define al periodista. Tamaulipas copia la definición federal completa, con cláusula abierta y sin acreditación.",
-  "i03": "Federal y Durango comparten el mismo par de normas, una definición breve y un catálogo que agrega integridad moral y económica, entorno familiar y organizativo y bienes, sin nombrar la vida, la libertad ni la seguridad como contenido de la agresión y sin mencionar el ámbito digital, el judicial ni la violencia sexual. Sinaloa es la única que enumera esos bienes, incluye a los medios de comunicación como víctimas y tipifica como agresión las campañas en redes, los ataques a portales, los citatorios y demandas hostigadoras, el acoso y la violencia sexual y la revelación de datos de quienes piden información pública. Las dos leyes de Coahuila divergen: la de periodistas sigue el molde federal y agrega la integridad sexual; la de personas defensoras es la más amplia en bienes protegidos, pues nombra vida, libertad, seguridad, bienes y derechos, aunque no el ámbito digital. Tamaulipas sigue el molde federal y añade al representante legal del peticionario entre las personas cuya afectación configura agresión.",
-  "i04": "La federal incorporó la perspectiva de género por reformas de 2021 y 2022, pero solo como paridad en la integración de sus órganos y como criterio de sus informes; no ordena un enfoque diferenciado en la evaluación del riesgo ni en las medidas. Sinaloa la convierte en principio de aplicación de toda la ley y exige atención e investigación con enfoque diferenciado según identidad y género. Durango no menciona el género ni los enfoques diferenciados en ningún artículo. En Coahuila, la ley de periodistas no menciona el género y la de personas defensoras solo dispone que las medidas tendrán perspectiva de género (art. 16). Tamaulipas solo exige perspectiva de género en sus informes anuales.",
-  "i05": "Las tres leyes admiten medidas individuales o colectivas y extienden la protección a quienes participan en la misma organización o movimiento, con redacciones casi idénticas. Sinaloa refuerza el enfoque colectivo al declarar de interés público la actividad colectiva de defensa y al prever cursos y medidas para grupos; Durango, además de la fórmula federal, contempla a la empresa como parte del entorno afectado. Las dos leyes de Coahuila prevén medidas individuales o colectivas (art. 16 en ambas) y la de personas defensoras exige definirlas en consenso con la persona peticionaria. Tamaulipas prevé medidas individuales o colectivas acordadas con las personas beneficiarias (arts. 11 y 15).",
-  "i06": "La tipología de cuatro medidas (prevención, preventivas, protección y urgentes) es la misma en las tres leyes porque proviene de la federal, pero el desarrollo es desigual. La federal y Sinaloa traen catálogos para las tres primeras; Durango define las cuatro pero solo detalla las de prevención y las urgentes. Solo Sinaloa añade medidas de carácter social: un procedimiento de atención con apoyos económicos, apoyo psicológico y plan de retorno, que atienden las consecuencias de la agresión y no únicamente el riesgo. Las dos leyes de Coahuila conocen solo dos tipos, prevención y protección; la ruta de peligro inminente hace las veces de medidas urgentes y la asistencia legal es la única medida próxima a lo social. Tamaulipas define los cuatro tipos federales sin catálogo y agrega las medidas provisionales, que el Estado dicta mientras resuelve el Mecanismo federal; es el modelo de coordinación puro.",
-  "i07": "La federal crea un Consejo Consultivo electo por convocatoria pública cuyos cuatro representantes votan en la Junta de Gobierno. Sinaloa va más lejos: su Consejo Consultivo, integrado por tres periodistas y tres representantes de organizaciones nombrados por el Congreso, es el órgano de gobierno del Instituto y aprueba reglamento, plan, presupuesto y retiro de medidas. Durango no tiene consejo consultivo; la participación de periodistas y defensores se da con voto dentro de la propia Junta de Gobierno, designados por los gremios. Coahuila no tiene consejo consultivo en ninguna de sus leyes: en la de periodistas votan tres directivos o concesionarios de medios, y en la de personas defensoras dos representantes de organizaciones designados por el Gobernador. Tamaulipas es la única sin participación alguna de periodistas o personas defensoras: su Coordinación Estatal se integra solo con gobierno y Comisión de Derechos Humanos.",
-  "i08": "La Junta de Gobierno federal reúne a Segob, FGR, SSPC, SRE, CNDH y a cuatro consejeros, con invitados de la ONU, la Conago, el Poder Judicial y el Congreso, y sus resoluciones obligan a las autoridades federales. Sinaloa renunció a esa figura: el Instituto es autónomo y su órgano colegiado es de sociedad civil, con las autoridades convocadas caso por caso. Durango la prevé pero con una contradicción entre el artículo 36, que integra al Mecanismo con gobierno, Fiscalía, Seguridad Pública y Congreso, y el artículo 39, que compone la Junta solo con la CEDH y los gremios. Las dos Comisiones de Coahuila son interinstitucionales, presididas por la Secretaría de Gobierno, con Fiscalía, seguridad pública y la Comisión de Derechos Humanos, además de medios u organizaciones. La Coordinación Estatal de Tamaulipas reproduce la fórmula federal en pequeño (Gobierno, Fiscalía, Seguridad Pública y Comisión de Derechos Humanos, con invitados del Poder Judicial y el Congreso) y sus resoluciones obligan a las autoridades estatales.",
-  "i09": "En la federal la cooperación de las entidades se construye por convenios y no como obligación directa, aunque las resoluciones de la Junta sí obligan a las autoridades federales. Sinaloa impone a las autoridades estatales y municipales el deber de implementar las medidas y de cumplir las peticiones del Instituto, con denuncia penal o administrativa e informe al Congreso en caso de desacato. Durango se limita a principios de celeridad y a un deber de coordinación, sin consecuencia por incumplimiento. En Coahuila, la ley de personas defensoras obliga a las autoridades estatales y municipales a implementar las medidas y destinar recursos, con apercibimiento de responsabilidades (arts. 17 y 28); la de periodistas solo prevé vigilancia y coordinación del Gobierno del Estado. Tamaulipas hace obligatorias para las autoridades estatales las resoluciones de su Coordinación (art. 4), el mismo rasgo que la federal tiene para las federales.",
-  "i10": "La federal y Sinaloa describen el camino completo: recepción, consentimiento, admisibilidad, elección entre procedimiento ordinario y extraordinario, estudio de riesgo y dictado de medidas; Sinaloa agrega los requisitos de la solicitud, los medios para presentarla y un tercer procedimiento de atención. Durango asigna la recepción a la Secretaría Ejecutiva y remite los requisitos y las etapas al reglamento. Las dos leyes de Coahuila describen la ruta de peligro inminente y la ordinaria, y la de personas defensoras aclara que las medidas no se condicionan a presentar denuncia. Tamaulipas recibe y turna las solicitudes al Mecanismo federal y solo regula las medidas provisionales; el procedimiento de fondo es el federal.",
-  "i11": "Solo la federal crea unidades técnicas con integración y atribuciones definidas en la ley: recepción de casos y reacción rápida, evaluación de riesgos, y prevención, seguimiento y análisis. Sinaloa deja la estructura al Reglamento Interior y solo nombra al Consejo, la Dirección General y el Órgano Interno de Control. Durango concentra en la Junta de Gobierno el estudio de riesgo, el monitoreo y el atlas de riesgo, sin áreas diferenciadas. Coahuila concentra recepción, evaluación e implementación en un solo órgano técnico, la Unidad Auxiliar (periodistas) o el Comité de Recepción y Evaluación (defensoras). Tamaulipas no tiene áreas técnicas propias, solo una Secretaría Técnica, porque el estudio de riesgo lo hace el Mecanismo federal.",
-  "i12": "La federal y Sinaloa fijan plazos en cada etapa: horas para las medidas urgentes, días para el estudio de riesgo y el dictamen, y plazos para comunicar e implementar las medidas y para resolver inconformidades; Sinaloa incluso reduce a doce horas la sustanciación del procedimiento extraordinario. Durango solo fija las tres horas para emitir medidas urgentes y una sesión ordinaria trimestral de la Junta. Las dos leyes de Coahuila fijan 3 horas para emitir, 8 para implementar y 48 para ratificar las medidas urgentes y 72 horas para comunicarlas; la de personas defensoras añade plazos para convocar a la Comisión y para inconformarse. Tamaulipas fija plazos solo para la inconformidad (30 y 15 días) y deja las medidas provisionales 'a la brevedad posible'.",
-  "i13": "La federal ordena que las medidas de prevención se orienten a sistemas de alerta temprana y planes de contingencia y encarga mapas de riesgo a su unidad de prevención. Durango recoge las dos figuras, añade un sistema de alerta digital con dos números para periodistas y un atlas de riesgo. Sinaloa no las nombra; en su lugar encarga al Director General estudios con mapas de riesgo y de zonas de silencio, con análisis de criminalidad y agresores. Ninguna de las leyes de Coahuila prevé alerta temprana; la de personas defensoras se acerca con líneas de comunicación directas con seguridad pública. Tamaulipas no prevé alerta temprana ni planes de contingencia.",
-  "i14": "La federal tiene un capítulo completo de inconformidades, con dos vías según el procedimiento, plazos y un estudio de riesgo independiente comisionado por el Consejo Consultivo. En Sinaloa el dictamen se impugna por vía jurisdiccional y la persona puede pedir revisión de las medidas, sin recurso administrativo interno. Durango asigna al Mecanismo la resolución de inconformidades y remite a la Ley General de Responsabilidades Administrativas, sin procedimiento propio. En Coahuila la ley de personas defensoras tiene un capítulo de inconformidades comparable al federal (arts. 25 a 28), mientras que la de periodistas no prevé recurso alguno. Tamaulipas tiene capítulo de inconformidades contra su propia Coordinación, con requerimiento de informe a la dependencia y resolución en 15 días; las relativas a medidas federales se turnan al Mecanismo.",
-  "i15": "Las tres leyes autorizan convenios. La federal los prevé con entidades federativas, órganos públicos y organizaciones nacionales e internacionales, y les fijó un plazo inicial de seis meses; Sinaloa faculta al Instituto para contratos y convenios y hace del Director General su representante ante la Federación; Durango los prevé con organismos públicos y privados y con los municipios. Las dos leyes de Coahuila autorizan convenios de la Secretaría de Gobierno con dependencias, instituciones u organizaciones (art. 4 en ambas). Tamaulipas reproduce el capítulo federal de convenios de cooperación con la Federación y otras entidades.",
-  "i16": "Ninguna ley crea una mesa multisectorial permanente con ese nombre. La federal canaliza la coordinación por la Junta y los convenios. Sinaloa prevé reuniones de coordinación y seguimiento con autoridades estatales y municipales convocadas por el Instituto, con representantes facultados para asumir compromisos. Durango es la que más se acerca, porque el artículo 36 integra al propio Mecanismo con gobierno, Fiscalía, seguridad, Congreso, gremios, CEDH y organizaciones, y la capacitación se consensa con los gremios. Coahuila tampoco crea una mesa; la ley de periodistas encarga a la Comisión 'establecer las bases de coordinación entre las instituciones públicas y la sociedad'. Tamaulipas tampoco crea mesa alguna.",
-  "i17": "La federal creó en 2012 un Fondo que la reforma de noviembre de 2020 eliminó; hoy solo obliga a Segob a prever recursos en su presupuesto. Sinaloa dota al Instituto de patrimonio propio y garantiza un presupuesto anual igual o mayor al tres por ciento del gasto en publicidad oficial, además de donativos y gestión de fondos externos. Durango asigna al Mecanismo al menos el trece por ciento del presupuesto de la CEDH y, desde 2025, un fondo de objeto exclusivo para medidas de protección. Coahuila no garantiza monto ni fondo: la Comisión de periodistas administra lo que le asigne el presupuesto y, en la ley de personas defensoras, cada autoridad que implemente medidas debe destinar recursos. Tamaulipas solo dispone que los recursos se destinen a las medidas, sin fuente ni monto.",
-  "i18": "La federal tipifica dos delitos propios de servidores públicos y miembros del Mecanismo, con prisión de dos a nueve años, multa, destitución e inhabilitación. Sinaloa prevé responsabilidad penal y administrativa de las autoridades que incumplan, faculta al Instituto para denunciar, y por el mismo decreto adicionó al Código Penal el delito de obstaculizar la actividad periodística o de defensa, con pena duplicada si lo comete un servidor público. Durango remite en bloque a la Ley General de Responsabilidades Administrativas. En Coahuila la ley de periodistas no sanciona a servidores públicos (solo multa al beneficiario que simule o use mal las medidas) y la de personas defensoras remite a la responsabilidad administrativa con apercibimiento. Tamaulipas remite a la responsabilidad administrativa, sin tipo penal.",
-  "i19": "Las tres leyes obligan a informar. La federal exige informes anuales públicos de la Junta con datos desagregados y perspectiva de género, informes del Consejo y de la Coordinación, y reportes mensuales de monitoreo. Sinaloa exige informe anual ante el Congreso, aprobado por el Consejo, e informes semestrales y anuales del Órgano Interno de Control. Durango prevé informes anuales públicos sobre la situación estatal y reportes mensuales de monitoreo. Ninguna de las dos leyes de Coahuila obliga a rendir informes. Tamaulipas exige informes anuales públicos con datos desagregados y perspectiva de género, y un monitoreo estatal del Mecanismo.",
-  "i20": "La federal dedica un capítulo a la transparencia, declara públicos los informes y reserva las medidas otorgadas. Sinaloa suma el principio de máxima publicidad, la sujeción a la ley estatal de transparencia y al sistema anticorrupción, un Órgano Interno de Control con autonomía, la obligación de publicar los criterios de publicidad oficial y la reserva de las medidas. Durango solo remite a las leyes de transparencia y datos personales. En Coahuila la ley de periodistas no tiene disposiciones de transparencia; la de personas defensoras remite a la ley estatal de acceso y declara confidenciales los datos de las personas beneficiarias. Tamaulipas reproduce la regla federal: sujeción a la ley de transparencia y reserva de las medidas otorgadas."
+  "i01": "Las tres leyes reproducen la misma definición de persona defensora, tomada del artículo 2 federal, así que en este indicador no hay diferencia de alcance formal. La única variación está fuera de la definición, en el artículo 2 de Sinaloa, que declara de interés público la actividad ciudadana de defensa, individual o colectiva, y con ello protege el acto de defender aunque quien lo realice no se identifique como defensor. Las omisiones son compartidas: la exigencia de finalidad para los colectivos, el silencio sobre comunidades, pueblos y personas buscadoras, y la falta de mención a la defensa ocasional. Coahuila legisla por separado: su ley de personas defensoras (2016) parte de la misma fórmula pero agrega 'remunerado o no' y enumera las libertades que la defensa requiere, con lo que es la definición más desarrollada del conjunto, aunque conserva las mismas omisiones; su ley de periodistas no define a la persona defensora. Tamaulipas (2017) copia la definición federal sin cambios. Honduras (2015) es la más amplia del conjunto: define a la persona defensora por el ejercicio del derecho a defender, sin exigir finalidad a los colectivos, nombra a los defensores del medio ambiente y admite a grupos y comunidades como peticionarios y beneficiarios, las dos omisiones que comparten todas las leyes mexicanas.",
+  "i02": "Aquí las diferencias son de signo opuesto. La federal define al periodista por la función de informar y deja abierta la lista de medios. Sinaloa conserva ese texto y añade una definición del periodismo como actividad de observación, documentación, análisis y divulgación, que protege actos periodísticos aislados. Durango recortó la definición en 2022 al suprimir la cláusula abierta y exigir medios con personalidad debidamente acreditada, y reservó el acceso a fuentes a periodistas acreditados; a cambio nombra a colaboradores, columnistas y auxiliares como categoría propia y trae el catálogo de derechos profesionales más amplio de los tres. La ley de periodistas de Coahuila (2014) reproduce la fórmula federal con cláusula abierta, aunque omite los medios comunitarios y experimentales, menciona a los colaboradores periodísticos y desde 2020 define la libre expresión como derecho de toda persona; su ley de personas defensoras no define al periodista. Tamaulipas copia la definición federal completa, con cláusula abierta y sin acreditación. Honduras sigue la fórmula funcional mexicana pero solo para personas naturales, nombra a comunicadores sociales, fotógrafos, camarógrafos y reporteros gráficos, y añade un tercer sujeto que ninguna ley mexicana protege: los operadores de justicia.",
+  "i03": "Federal y Durango comparten el mismo par de normas, una definición breve y un catálogo que agrega integridad moral y económica, entorno familiar y organizativo y bienes, sin nombrar la vida, la libertad ni la seguridad como contenido de la agresión y sin mencionar el ámbito digital, el judicial ni la violencia sexual. Sinaloa es la única que enumera esos bienes, incluye a los medios de comunicación como víctimas y tipifica como agresión las campañas en redes, los ataques a portales, los citatorios y demandas hostigadoras, el acoso y la violencia sexual y la revelación de datos de quienes piden información pública. Las dos leyes de Coahuila divergen: la de periodistas sigue el molde federal y agrega la integridad sexual; la de personas defensoras es la más amplia en bienes protegidos, pues nombra vida, libertad, seguridad, bienes y derechos, aunque no el ámbito digital. Tamaulipas sigue el molde federal y añade al representante legal del peticionario entre las personas cuya afectación configura agresión. Honduras tiene la definición de agresión más escueta (daño, amenaza, hostigamiento o intimidación) y ningún catálogo equivalente al artículo 24 federal, aunque reconoce que las agresiones pueden venir de actores estatales o particulares.",
+  "i04": "La federal incorporó la perspectiva de género por reformas de 2021 y 2022, pero solo como paridad en la integración de sus órganos y como criterio de sus informes; no ordena un enfoque diferenciado en la evaluación del riesgo ni en las medidas. Sinaloa la convierte en principio de aplicación de toda la ley y exige atención e investigación con enfoque diferenciado según identidad y género. Durango no menciona el género ni los enfoques diferenciados en ningún artículo. En Coahuila, la ley de periodistas no menciona el género y la de personas defensoras solo dispone que las medidas tendrán perspectiva de género (art. 16). Tamaulipas solo exige perspectiva de género en sus informes anuales. Honduras hace del enfoque diferenciado un principio y obliga a que los protocolos atiendan género, edad, origen étnico, situación socioeconómica, orientación sexual e identidad de género y diferencias urbanas y rurales, más que la federal mexicana.",
+  "i05": "Las tres leyes admiten medidas individuales o colectivas y extienden la protección a quienes participan en la misma organización o movimiento, con redacciones casi idénticas. Sinaloa refuerza el enfoque colectivo al declarar de interés público la actividad colectiva de defensa y al prever cursos y medidas para grupos; Durango, además de la fórmula federal, contempla a la empresa como parte del entorno afectado. Las dos leyes de Coahuila prevén medidas individuales o colectivas (art. 16 en ambas) y la de personas defensoras exige definirlas en consenso con la persona peticionaria. Tamaulipas prevé medidas individuales o colectivas acordadas con las personas beneficiarias (arts. 11 y 15). Honduras admite a grupos y comunidades como beneficiarios (art. 5) y medidas individuales o colectivas (art. 36).",
+  "i06": "La tipología de cuatro medidas (prevención, preventivas, protección y urgentes) es la misma en las tres leyes porque proviene de la federal, pero el desarrollo es desigual. La federal y Sinaloa traen catálogos para las tres primeras; Durango define las cuatro pero solo detalla las de prevención y las urgentes. Solo Sinaloa añade medidas de carácter social: un procedimiento de atención con apoyos económicos, apoyo psicológico y plan de retorno, que atienden las consecuencias de la agresión y no únicamente el riesgo. Las dos leyes de Coahuila conocen solo dos tipos, prevención y protección; la ruta de peligro inminente hace las veces de medidas urgentes y la asistencia legal es la única medida próxima a lo social. Tamaulipas define los cuatro tipos federales sin catálogo y agrega las medidas provisionales, que el Estado dicta mientras resuelve el Mecanismo federal; es el modelo de coordinación puro. Honduras prevé cinco tipos de medidas, incluidas las psicosociales y las dirigidas a enfrentar la impunidad, ninguna de las cuales existe en la ley federal mexicana.",
+  "i07": "La federal crea un Consejo Consultivo electo por convocatoria pública cuyos cuatro representantes votan en la Junta de Gobierno. Sinaloa va más lejos: su Consejo Consultivo, integrado por tres periodistas y tres representantes de organizaciones nombrados por el Congreso, es el órgano de gobierno del Instituto y aprueba reglamento, plan, presupuesto y retiro de medidas. Durango no tiene consejo consultivo; la participación de periodistas y defensores se da con voto dentro de la propia Junta de Gobierno, designados por los gremios. Coahuila no tiene consejo consultivo en ninguna de sus leyes: en la de periodistas votan tres directivos o concesionarios de medios, y en la de personas defensoras dos representantes de organizaciones designados por el Gobernador. Tamaulipas es la única sin participación alguna de periodistas o personas defensoras: su Coordinación Estatal se integra solo con gobierno y Comisión de Derechos Humanos. En Honduras el Consejo Nacional de Protección reúne a gremios de prensa y de justicia y a dos organizaciones de derechos humanos electas en asamblea pública, con voto, pero con mayoría estatal y sin decidir casos.",
+  "i08": "La Junta de Gobierno federal reúne a Segob, FGR, SSPC, SRE, CNDH y a cuatro consejeros, con invitados de la ONU, la Conago, el Poder Judicial y el Congreso, y sus resoluciones obligan a las autoridades federales. Sinaloa renunció a esa figura: el Instituto es autónomo y su órgano colegiado es de sociedad civil, con las autoridades convocadas caso por caso. Durango la prevé pero con una contradicción entre el artículo 36, que integra al Mecanismo con gobierno, Fiscalía, Seguridad Pública y Congreso, y el artículo 39, que compone la Junta solo con la CEDH y los gremios. Las dos Comisiones de Coahuila son interinstitucionales, presididas por la Secretaría de Gobierno, con Fiscalía, seguridad pública y la Comisión de Derechos Humanos, además de medios u organizaciones. La Coordinación Estatal de Tamaulipas reproduce la fórmula federal en pequeño (Gobierno, Fiscalía, Seguridad Pública y Comisión de Derechos Humanos, con invitados del Poder Judicial y el Congreso) y sus resoluciones obligan a las autoridades estatales. En Honduras decide un Comité Técnico con la Dirección General, la Procuraduría, la Fiscalía de Derechos Humanos y Seguridad, más cercano al modelo de unidades federal que a la Junta de Gobierno.",
+  "i09": "En la federal la cooperación de las entidades se construye por convenios y no como obligación directa, aunque las resoluciones de la Junta sí obligan a las autoridades federales. Sinaloa impone a las autoridades estatales y municipales el deber de implementar las medidas y de cumplir las peticiones del Instituto, con denuncia penal o administrativa e informe al Congreso en caso de desacato. Durango se limita a principios de celeridad y a un deber de coordinación, sin consecuencia por incumplimiento. En Coahuila, la ley de personas defensoras obliga a las autoridades estatales y municipales a implementar las medidas y destinar recursos, con apercibimiento de responsabilidades (arts. 17 y 28); la de periodistas solo prevé vigilancia y coordinación del Gobierno del Estado. Tamaulipas hace obligatorias para las autoridades estatales las resoluciones de su Coordinación (art. 4), el mismo rasgo que la federal tiene para las federales. Honduras impone el deber de colaborar a toda autoridad civil, policial o militar, a los particulares y a los tres Poderes, con carácter preferente y urgente.",
+  "i10": "La federal y Sinaloa describen el camino completo: recepción, consentimiento, admisibilidad, elección entre procedimiento ordinario y extraordinario, estudio de riesgo y dictado de medidas; Sinaloa agrega los requisitos de la solicitud, los medios para presentarla y un tercer procedimiento de atención. Durango asigna la recepción a la Secretaría Ejecutiva y remite los requisitos y las etapas al reglamento. Las dos leyes de Coahuila describen la ruta de peligro inminente y la ordinaria, y la de personas defensoras aclara que las medidas no se condicionan a presentar denuncia. Tamaulipas recibe y turna las solicitudes al Mecanismo federal y solo regula las medidas provisionales; el procedimiento de fondo es el federal. Honduras regula el acceso con más detalle que la federal mexicana: solicitud gratuita y sin formalidad por cualquier medio, a cualquier hora, y medidas urgentes por la Policía donde no haya oficina.",
+  "i11": "Solo la federal crea unidades técnicas con integración y atribuciones definidas en la ley: recepción de casos y reacción rápida, evaluación de riesgos, y prevención, seguimiento y análisis. Sinaloa deja la estructura al Reglamento Interior y solo nombra al Consejo, la Dirección General y el Órgano Interno de Control. Durango concentra en la Junta de Gobierno el estudio de riesgo, el monitoreo y el atlas de riesgo, sin áreas diferenciadas. Coahuila concentra recepción, evaluación e implementación en un solo órgano técnico, la Unidad Auxiliar (periodistas) o el Comité de Recepción y Evaluación (defensoras). Tamaulipas no tiene áreas técnicas propias, solo una Secretaría Técnica, porque el estudio de riesgo lo hace el Mecanismo federal. Honduras distribuye las funciones entre la Dirección General, el Comité Técnico y el Departamento de Derechos Humanos de Seguridad.",
+  "i12": "La federal y Sinaloa fijan plazos en cada etapa: horas para las medidas urgentes, días para el estudio de riesgo y el dictamen, y plazos para comunicar e implementar las medidas y para resolver inconformidades; Sinaloa incluso reduce a doce horas la sustanciación del procedimiento extraordinario. Durango solo fija las tres horas para emitir medidas urgentes y una sesión ordinaria trimestral de la Junta. Las dos leyes de Coahuila fijan 3 horas para emitir, 8 para implementar y 48 para ratificar las medidas urgentes y 72 horas para comunicarlas; la de personas defensoras añade plazos para convocar a la Comisión y para inconformarse. Tamaulipas fija plazos solo para la inconformidad (30 y 15 días) y deja las medidas provisionales 'a la brevedad posible'. Honduras fija 8 horas para implementar medidas urgentes (una hora menos que la federal mexicana), 2 a 4 semanas para el análisis ordinario, 48 horas para implementar y 24 para resolver impugnaciones.",
+  "i13": "La federal ordena que las medidas de prevención se orienten a sistemas de alerta temprana y planes de contingencia y encarga mapas de riesgo a su unidad de prevención. Durango recoge las dos figuras, añade un sistema de alerta digital con dos números para periodistas y un atlas de riesgo. Sinaloa no las nombra; en su lugar encarga al Director General estudios con mapas de riesgo y de zonas de silencio, con análisis de criminalidad y agresores. Ninguna de las leyes de Coahuila prevé alerta temprana; la de personas defensoras se acerca con líneas de comunicación directas con seguridad pública. Tamaulipas no prevé alerta temprana ni planes de contingencia. Honduras exige que la alerta temprana vaya acompañada de una estructura de respuesta inmediata y encarga a la Dirección General mapas de riesgo.",
+  "i14": "La federal tiene un capítulo completo de inconformidades, con dos vías según el procedimiento, plazos y un estudio de riesgo independiente comisionado por el Consejo Consultivo. En Sinaloa el dictamen se impugna por vía jurisdiccional y la persona puede pedir revisión de las medidas, sin recurso administrativo interno. Durango asigna al Mecanismo la resolución de inconformidades y remite a la Ley General de Responsabilidades Administrativas, sin procedimiento propio. En Coahuila la ley de personas defensoras tiene un capítulo de inconformidades comparable al federal (arts. 25 a 28), mientras que la de periodistas no prevé recurso alguno. Tamaulipas tiene capítulo de inconformidades contra su propia Coordinación, con requerimiento de informe a la dependencia y resolución en 15 días; las relativas a medidas federales se turnan al Mecanismo. Honduras prevé la impugnación ante la Dirección General con resolución en 24 horas, bajo la ley de procedimiento administrativo.",
+  "i15": "Las tres leyes autorizan convenios. La federal los prevé con entidades federativas, órganos públicos y organizaciones nacionales e internacionales, y les fijó un plazo inicial de seis meses; Sinaloa faculta al Instituto para contratos y convenios y hace del Director General su representante ante la Federación; Durango los prevé con organismos públicos y privados y con los municipios. Las dos leyes de Coahuila autorizan convenios de la Secretaría de Gobierno con dependencias, instituciones u organizaciones (art. 4 en ambas). Tamaulipas reproduce el capítulo federal de convenios de cooperación con la Federación y otras entidades. Honduras autoriza convenios con otros Estados incluso para asilo o refugio de las personas en riesgo.",
+  "i16": "Ninguna ley crea una mesa multisectorial permanente con ese nombre. La federal canaliza la coordinación por la Junta y los convenios. Sinaloa prevé reuniones de coordinación y seguimiento con autoridades estatales y municipales convocadas por el Instituto, con representantes facultados para asumir compromisos. Durango es la que más se acerca, porque el artículo 36 integra al propio Mecanismo con gobierno, Fiscalía, seguridad, Congreso, gremios, CEDH y organizaciones, y la capacitación se consensa con los gremios. Coahuila tampoco crea una mesa; la ley de periodistas encarga a la Comisión 'establecer las bases de coordinación entre las instituciones públicas y la sociedad'. Tamaulipas tampoco crea mesa alguna. En Honduras el Consejo Nacional de Protección funciona como el espacio multisectorial que la ley federal mexicana no tiene.",
+  "i17": "La federal creó en 2012 un Fondo que la reforma de noviembre de 2020 eliminó; hoy solo obliga a Segob a prever recursos en su presupuesto. Sinaloa dota al Instituto de patrimonio propio y garantiza un presupuesto anual igual o mayor al tres por ciento del gasto en publicidad oficial, además de donativos y gestión de fondos externos. Durango asigna al Mecanismo al menos el trece por ciento del presupuesto de la CEDH y, desde 2025, un fondo de objeto exclusivo para medidas de protección. Coahuila no garantiza monto ni fondo: la Comisión de periodistas administra lo que le asigne el presupuesto y, en la ley de personas defensoras, cada autoridad que implemente medidas debe destinar recursos. Tamaulipas solo dispone que los recursos se destinen a las medidas, sin fuente ni monto. Honduras conserva lo que México perdió en 2020: un fondo especial, alimentado por el Fondo de Seguridad Poblacional, además de la asignación presupuestaria obligatoria.",
+  "i18": "La federal tipifica dos delitos propios de servidores públicos y miembros del Mecanismo, con prisión de dos a nueve años, multa, destitución e inhabilitación. Sinaloa prevé responsabilidad penal y administrativa de las autoridades que incumplan, faculta al Instituto para denunciar, y por el mismo decreto adicionó al Código Penal el delito de obstaculizar la actividad periodística o de defensa, con pena duplicada si lo comete un servidor público. Durango remite en bloque a la Ley General de Responsabilidades Administrativas. En Coahuila la ley de periodistas no sanciona a servidores públicos (solo multa al beneficiario que simule o use mal las medidas) y la de personas defensoras remite a la responsabilidad administrativa con apercibimiento. Tamaulipas remite a la responsabilidad administrativa, sin tipo penal. Honduras tipifica como violación de los deberes de los funcionarios la negativa o negligencia que impida las medidas, perseguible de oficio.",
+  "i19": "Las tres leyes obligan a informar. La federal exige informes anuales públicos de la Junta con datos desagregados y perspectiva de género, informes del Consejo y de la Coordinación, y reportes mensuales de monitoreo. Sinaloa exige informe anual ante el Congreso, aprobado por el Consejo, e informes semestrales y anuales del Órgano Interno de Control. Durango prevé informes anuales públicos sobre la situación estatal y reportes mensuales de monitoreo. Ninguna de las dos leyes de Coahuila obliga a rendir informes. Tamaulipas exige informes anuales públicos con datos desagregados y perspectiva de género, y un monitoreo estatal del Mecanismo. Honduras exige informes anuales del Consejo e informes semestrales de la Dirección General sobre la efectividad de las medidas.",
+  "i20": "La federal dedica un capítulo a la transparencia, declara públicos los informes y reserva las medidas otorgadas. Sinaloa suma el principio de máxima publicidad, la sujeción a la ley estatal de transparencia y al sistema anticorrupción, un Órgano Interno de Control con autonomía, la obligación de publicar los criterios de publicidad oficial y la reserva de las medidas. Durango solo remite a las leyes de transparencia y datos personales. En Coahuila la ley de periodistas no tiene disposiciones de transparencia; la de personas defensoras remite a la ley estatal de acceso y declara confidenciales los datos de las personas beneficiarias. Tamaulipas reproduce la regla federal: sujeción a la ley de transparencia y reserva de las medidas otorgadas. Honduras reproduce la regla mexicana: sujeción a la ley de transparencia y reserva de las medidas otorgadas."
  }
 }

@@ -30,7 +30,9 @@ GENEROS = {"femenino", "masculino", "lgbt", "no determinado", "no aplica"}
 LABORES = {"busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"}
 SUBTEMAS = {"asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio", "proteccion", "informe"}
 VERIFICACION = {"oficial", "organización", "campo", "prensa", "sin verificar"}
-COLUMNAS = ["id", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
+# Bounding boxes per country (lat_min, lat_max, lon_min, lon_max)
+LIMITES = {"MX": (14, 33, -119, -86), "HN": (12.9, 17.5, -89.4, -83.1)}
+COLUMNAS = ["id", "pais", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
             "descripcion", "fuente", "url", "verificacion", "ejemplo"]
 OBLIGATORIAS = ["tema", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "fuente", "verificacion"]
 
@@ -105,10 +107,15 @@ def validar(registros, fuentes_ids):
         fecha = a_fecha(r["fecha"]) if texto(r["fecha"]) else None
         if texto(r["fecha"]) and not fecha:
             e.append("fecha no reconocida (usar AAAA-MM-DD)")
+        pais = (texto(r["pais"]) or "MX").upper()
+        if pais not in LIMITES:
+            e.append(f"pais '{pais}' no válido (MX o HN)")
+            pais = "MX"
         try:
             lat, lon = float(r["lat"]), float(r["lon"])
-            if not (14 <= lat <= 33 and -119 <= lon <= -86):
-                e.append("coordenadas fuera de México")
+            la0, la1, lo0, lo1 = LIMITES[pais]
+            if not (la0 <= lat <= la1 and lo0 <= lon <= lo1):
+                e.append(f"coordenadas fuera de {'México' if pais == 'MX' else 'Honduras'}")
         except (TypeError, ValueError):
             lat = lon = None
             e.append("lat/lon deben ser numéricos")
@@ -126,6 +133,8 @@ def validar(registros, fuentes_ids):
             "fuente": fuente, "url": texto(r["url"]), "verificacion": ver,
             "ejemplo": a_bool(r["ejemplo"]),
         }
+        if pais != "MX":
+            reg["pais"] = pais
         if grupo:
             reg["grupo"] = grupo
         if subtema:

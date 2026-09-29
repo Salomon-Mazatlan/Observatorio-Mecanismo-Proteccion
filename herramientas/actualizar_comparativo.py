@@ -16,7 +16,8 @@ from openpyxl import load_workbook
 from comun import RAIZ, catalogo_entidades, escribir_json, leer_json, respaldar, texto, verificar_raiz
 
 RUTA = RAIZ / "datos/comparativo_marco_legal.json"
-META = ["id", "cve_ent", "corto", "nombre", "publicacion", "ultima_reforma", "organo", "url"]
+META = ["id", "cve_ent", "pais", "corto", "nombre", "publicacion", "ultima_reforma", "organo", "url"]
+PAISES = {"hn": "HN"}  # national instruments of other countries, by sheet name
 VALORES = {"si", "sí", "parcial", "no"}
 
 
@@ -35,17 +36,19 @@ def main():
 
     for ws in wb.worksheets:
         # sheet names: federal, a state code, or a state code with a suffix (05-periodistas)
-        if not (ws.title == "federal" or re.match(r"^\d{2}(-[a-z]+)?$", ws.title)):
+        # sheet names: federal, a state code, a state code with a suffix (05-periodistas) or another country (hn)
+        if not (ws.title == "federal" or ws.title in PAISES or re.match(r"^\d{2}(-[a-z]+)?$", ws.title)):
             continue
         filas = list(ws.iter_rows(values_only=True))
         meta = {texto(f[0]): texto(f[1]) if len(f) > 1 else "" for f in filas[:len(META)] if f and f[0]}
-        cve = "00" if ws.title == "federal" else ws.title[:2]
-        if ws.title != "federal" and cve not in ents:
+        cve = "00" if ws.title == "federal" else PAISES.get(ws.title, ws.title[:2])
+        if ws.title != "federal" and ws.title not in PAISES and cve not in ents:
             errores.append(f"hoja {ws.title}: no es una clave de entidad válida")
             continue
         inst = {k: meta.get(k, "") for k in META}
         inst["id"] = ws.title
         inst["cve_ent"] = cve
+        inst["pais"] = PAISES.get(ws.title, "MX")
         if not inst["corto"]:
             inst["corto"] = "Federal" if ws.title == "federal" else ents[cve]
         instrumentos.append(inst)

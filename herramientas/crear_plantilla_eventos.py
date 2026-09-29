@@ -15,8 +15,8 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 from comun import DIR_PLANTILLAS, RUTA_EVENTOS, RUTA_FUENTES, verificar_raiz
 
-COLS = ["id", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
-ANCHOS = [9, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
+COLS = ["id", "pais", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
+ANCHOS = [9, 7, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
 GENEROS = ["femenino", "masculino", "lgbt", "no determinado", "no aplica"]
 LABORES = ["busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"]
 GRUPOS = ["periodista", "defensor", "ambos"]
@@ -34,6 +34,7 @@ INSTRUCCIONES = [
     "id: déjalo vacío en registros nuevos, el script lo asigna (ev-001, ev-002...). Para corregir un evento ya publicado conserva su id.",
     "tema: migracion, desplazamiento, desaparicion, periodistas o contexto (lista desplegable). Los tres primeros están desactivados en el sitio pero se conservan.",
     "grupo: solo para el tema periodistas; periodista, defensor o ambos (por ejemplo, un informe que cubre a los dos).",
+    "pais: MX (México, predeterminado si se deja vacío) o HN (Honduras); las coordenadas se validan contra el país.",
     "genero: femenino, masculino, lgbt, no determinado (persona no identificada) o no aplica (cifras e informes).",
     "labor: solo para personas defensoras; busqueda, ambiental, indigena, mujeres, lgbt, migracion, civil, animales u organizacion. Alimenta los chips de 'Labor de la persona defensora'.",
     "subtema: tipo de agresión o violencia; asesinato, desaparicion, agresion, amenaza, acoso_judicial, ataque_medio, proteccion o informe. Alimenta los chips de 'Tipo de agresión'.",
@@ -74,7 +75,7 @@ def main():
     for row in we.iter_rows():
         for c in row:
             c.font = arial
-            c.alignment = Alignment(vertical="top", wrap_text=c.column in (11, 12, 13))
+            c.alignment = Alignment(vertical="top", wrap_text=c.column in (12, 13, 14))
     for c in we[1]:
         c.font, c.fill = bold, azul
     for r in range(2, MAX_FILAS + 2):
@@ -101,16 +102,16 @@ def main():
 
     rango = f"2:{MAX_FILAS + 1}"
     reglas = [
-        DataValidation(type="list", formula1=f"=catalogos!$A$2:$A${len(TEMAS) + 1}", allow_blank=True), "B",
-        DataValidation(type="list", formula1=f"=catalogos!$F$2:$F${len(GRUPOS) + 1}", allow_blank=True), "C",
-        DataValidation(type="list", formula1=f"=catalogos!$G$2:$G${len(SUBTEMAS) + 1}", allow_blank=True), "D",
-        DataValidation(type="list", formula1=f"=catalogos!$H$2:$H${len(GENEROS) + 1}", allow_blank=True), "E",
-        DataValidation(type="list", formula1=f"=catalogos!$I$2:$I${len(LABORES) + 1}", allow_blank=True), "F",
-        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "P",
-        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "N",
-        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "Q",
-        DataValidation(type="decimal", operator="between", formula1="14", formula2="33", allow_blank=True), "I",
-        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-86", allow_blank=True), "J",
+        DataValidation(type="list", formula1=f"=catalogos!$A$2:$A${len(TEMAS) + 1}", allow_blank=True), "C",
+        DataValidation(type="list", formula1=f"=catalogos!$F$2:$F${len(GRUPOS) + 1}", allow_blank=True), "D",
+        DataValidation(type="list", formula1=f"=catalogos!$G$2:$G${len(SUBTEMAS) + 1}", allow_blank=True), "E",
+        DataValidation(type="list", formula1=f"=catalogos!$H$2:$H${len(GENEROS) + 1}", allow_blank=True), "F",
+        DataValidation(type="list", formula1=f"=catalogos!$I$2:$I${len(LABORES) + 1}", allow_blank=True), "G",
+        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "Q",
+        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "O",
+        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "R",
+        DataValidation(type="decimal", operator="between", formula1="12.9", formula2="33", allow_blank=True), "J",
+        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-83.1", allow_blank=True), "K",
     ]
     for dv, col in zip(reglas[::2], reglas[1::2]):
         dv.error, dv.showErrorMessage = "Valor no permitido", True

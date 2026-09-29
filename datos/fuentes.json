@@ -418,5 +418,85 @@
   "nivel": "caso",
   "url": "https://im-defensoras.org/2023/04/alertas-de-mexico/",
   "que_da": "Alertas sobre agresiones a mujeres defensoras (asesinatos, desapariciones, agresiones, allanamientos, detenciones, criminalización) con nombre, colectivo, lugar y fecha"
+ },
+ {
+  "id": "conadeh-hn",
+  "tema": "periodistas",
+  "nombre": "Comisionado Nacional de los Derechos Humanos de Honduras (CONADEH)",
+  "tipo": "oficial",
+  "periodicidad": "anual",
+  "nivel": "país",
+  "url": "https://www.conadeh.hn/",
+  "que_da": "Registro de muertes violentas de personas vinculadas a medios desde 2001, quejas y expedientes de riesgo"
+ },
+ {
+  "id": "c-libre",
+  "tema": "periodistas",
+  "nombre": "Comité por la Libre Expresión (C-Libre), Honduras",
+  "tipo": "organizacion",
+  "periodicidad": "anual",
+  "nivel": "caso",
+  "url": "https://clibrehonduras.com/",
+  "que_da": "Informe anual de libertad de expresión, alertas y registro de periodistas y defensores asesinados"
+ },
+ {
+  "id": "aci-participa",
+  "tema": "periodistas",
+  "nombre": "Asociación para una Ciudadanía Participativa (ACI Participa), Honduras",
+  "tipo": "organizacion",
+  "periodicidad": "anual",
+  "nivel": "caso",
+  "url": "https://aciparticipa.org/",
+  "que_da": "Informe anual de personas defensoras asesinadas y agredidas"
+ },
+ {
+  "id": "asj-hn",
+  "tema": "periodistas",
+  "nombre": "Asociación para una Sociedad más Justa (ASJ), capítulo hondureño de Transparencia Internacional",
+  "tipo": "organizacion",
+  "periodicidad": "eventual",
+  "nivel": "caso",
+  "url": "https://asjhonduras.com/",
+  "que_da": "Registro de defensores ambientales asesinados 2015-2025"
+ },
+ {
+  "id": "sedh-hn",
+  "tema": "periodistas",
+  "nombre": "Secretaría de Derechos Humanos de Honduras, Sistema Nacional de Protección",
+  "tipo": "oficial",
+  "periodicidad": "eventual",
+  "nivel": "país",
+  "url": "https://sedh.gob.hn/sistema-proteccion/",
+  "que_da": "Personas beneficiarias del Sistema Nacional de Protección por grupo y sexo, presupuesto"
+ },
+ {
+  "id": "front-line",
+  "tema": "periodistas",
+  "nombre": "Front Line Defenders",
+  "tipo": "organizacion",
+  "periodicidad": "continua",
+  "nivel": "caso",
+  "url": "https://frontlinedefenders.org/es/location/honduras",
+  "que_da": "Casos de personas defensoras asesinadas, atacadas o criminalizadas"
+ },
+ {
+  "id": "prensa-hn",
+  "tema": "periodistas",
+  "nombre": "Prensa hondureña e internacional (EFE, La Prensa, El Heraldo, Criterio.hn, Proceso Digital, IFJ, UNESCO)",
+  "tipo": "prensa",
+  "periodicidad": "diaria",
+  "nivel": "caso",
+  "url": "",
+  "que_da": "Notas sobre asesinatos, agresiones y amenazas a periodistas y personas defensoras en Honduras"
+ },
+ {
+  "id": "ine-hn",
+  "tema": "contexto",
+  "nombre": "Instituto Nacional de Estadística de Honduras (INE), Censos de Población y Vivienda 2001 y 2013",
+  "tipo": "oficial",
+  "periodicidad": "decenal",
+  "nivel": "departamento",
+  "url": "https://ine.gob.hn/",
+  "que_da": "Población total por departamento"
  }
 ]

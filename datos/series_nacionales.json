@@ -47,7 +47,8 @@
      "nota": "Informe mensual de mayo de 2026",
      "url": "https://www.gob.mx/cms/uploads/attachment/file/1086159/05._Informe_mensual_mayo_26.pdf"
     }
-   ]
+   ],
+   "pais": "MX"
   },
   {
    "id": "mec_incorporaciones_anuales",
@@ -94,7 +95,8 @@
      "total": 16,
      "nota": "Enero a mayo"
     }
-   ]
+   ],
+   "pais": "MX"
   },
   {
    "id": "mec_asesinatos_sexenio",
@@ -129,6 +131,67 @@
      "fecha": "2023",
      "total": 13,
      "nota": "Hasta agosto"
+    }
+   ],
+   "pais": "MX"
+  },
+  {
+   "id": "hn_snp_beneficiarias",
+   "pais": "HN",
+   "nombre": "Personas protegidas por el Sistema Nacional de Protección (Honduras)",
+   "unidad": "personas",
+   "fuente": "sedh-hn",
+   "nota": "Cortes publicados por la SEDH y la prensa; el de julio de 2026 cuenta a todas las personas amparadas, incluidas las medidas colectivas, por eso no es comparable con los anteriores.",
+   "puntos": [
+    {
+     "fecha": "2023-01-31",
+     "total": 185,
+     "periodistas": 31,
+     "defensoras": 138,
+     "operadores": 16,
+     "nota": "Casos activos (C-Libre, Contra Corriente)"
+    },
+    {
+     "fecha": "2026-05-05",
+     "total": 300,
+     "periodistas": 58,
+     "defensoras": 217,
+     "operadores": 25,
+     "nota": "Personas bajo protección según la SEDH (El Heraldo)"
+    },
+    {
+     "fecha": "2026-07-31",
+     "total": 1591,
+     "periodistas": 130,
+     "defensoras": 1383,
+     "operadores": 78,
+     "nota": "Personas amparadas: 43 periodistas y 87 comunicadores (Criterio.hn)"
+    }
+   ]
+  },
+  {
+   "id": "hn_snp_presupuesto",
+   "pais": "HN",
+   "nombre": "Presupuesto asignado al Mecanismo de Protección (Honduras)",
+   "unidad": "millones de lempiras",
+   "fuente": "sedh-hn",
+   "nota": "Asignaciones anuales según los informes de ejecución de la SEDH (Criterio.hn); 2025 incluye la atención a personas desplazadas internamente.",
+   "puntos": [
+    {
+     "fecha": "2022",
+     "total": 22.1
+    },
+    {
+     "fecha": "2023",
+     "total": 35.1
+    },
+    {
+     "fecha": "2024",
+     "total": 34.5
+    },
+    {
+     "fecha": "2025",
+     "total": 44.8
     }
    ]
   }
