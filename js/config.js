@@ -13,7 +13,7 @@ const CONFIG = {
   // Colors of the legal-framework categories, from strongest to weakest protection
   marcoLegalColores: {
     ley_propia: "#7f1d1d", vinculo_federal: "#b91c1c", solo_periodistas: "#e07a5f",
-    solo_fiscalia: "#f2b8a6", sin_instrumento: "#e2e5e9"
+    solo_fiscalia: "#f2b8a6", sin_instrumento: "#fff4c7"
   },
   // National map by state, or any state by municipality (one file per state, loaded on demand)
   mapas: {

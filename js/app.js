@@ -1026,8 +1026,9 @@
     const acumulado = !!(def && (def.acumulado || def.tipo === "categoria"));
     const [ini, fin] = mesesDePeriodo(v.periodo);
     if (estado.desde && fin < estado.desde && !acumulado) return false;
-    // Projections beyond today (CONAPO) only show when the range explicitly reaches them
-    const tope = estado.hasta || mesActual();
+    // Projections beyond today (CONAPO) only show when the range explicitly reaches them;
+    // a stock value dated a few days ahead (a cut date) is not a projection
+    const tope = estado.hasta || (acumulado ? "9999-12" : mesActual());
     if (ini > tope) return false;
     return true;
   }
