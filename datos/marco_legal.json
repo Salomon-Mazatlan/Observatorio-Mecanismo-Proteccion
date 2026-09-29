@@ -1,0 +1,1020 @@
+{
+ "descripcion": "Marco legal estatal de protección a periodistas y personas defensoras. Clasificación de ISHR (corte 12 de abril de 2024) con actualizaciones puntuales. Los campos de desglose quedan en null hasta definir los indicadores.",
+ "fecha_corte": "2024-04-12",
+ "fuente_principal": {
+  "id": "ishr",
+  "nombre": "ISHR, Protección nacional en México",
+  "url": "https://ishr.ch/es/herramientas/proteccion-nacional/mexico/"
+ },
+ "federal": {
+  "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas",
+  "anio": 2012,
+  "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LPPDDHP.pdf",
+  "organo": "Mecanismo de Protección (Segob)"
+ },
+ "categorias": {
+  "ley_propia": "Ley o mecanismo estatal propio",
+  "vinculo_federal": "Ley o política de coordinación con el Mecanismo federal",
+  "solo_periodistas": "Protección solo para periodistas",
+  "solo_fiscalia": "Solo fiscalía o unidad especializada",
+  "sin_instrumento": "Sin instrumento específico"
+ },
+ "entidades": [
+  {
+   "cve_ent": "01",
+   "entidad": "Aguascalientes",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Aguascalientes (Decreto 531)",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://congresoags.gob.mx/agenda_legislativa/descargar_pdf/5418",
+     "organo": "Coordinación Estatal del Mecanismo",
+     "nota": "Última actualización del texto 29/04/2025 según el Congreso"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "02",
+   "entidad": "Baja California",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Acuerdo del Mecanismo Estatal de Protección para las Personas Defensoras de Derechos Humanos y Periodistas de Baja California",
+     "tipo": "acuerdo",
+     "anio": null,
+     "url": "",
+     "organo": "Mecanismo Estatal",
+     "nota": ""
+    },
+    {
+     "nombre": "Iniciativa de Ley para la protección al ejercicio de personas defensoras de derechos humanos y periodistas",
+     "tipo": "iniciativa",
+     "anio": 2022,
+     "url": "https://www.congresobc.gob.mx/Documentos/ProcesoParlamentario/Iniciativas/20220421_INICIATIVA%2017DIP.%20MONSERRAT%20CREA%20LEY%20PARA%20LA%20PROTECCI%C3%93N%20AL%20EJERCICIO%20DE%20PERSONAS%20DEFENSORAS%20DE%20DERECHOS.PDF",
+     "organo": "",
+     "nota": "Presentada el 11 de abril de 2022; verificar si se aprobó"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "03",
+   "entidad": "Baja California Sur",
+   "categoria": "sin_instrumento",
+   "instrumentos": [],
+   "nota": "ISHR no registra ningún instrumento al corte de abril de 2024",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "04",
+   "entidad": "Campeche",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Acuerdo A/001/2018 que establece la Fiscalía Especial en investigación del delito de tortura y delitos contra periodistas o personas defensoras",
+     "tipo": "acuerdo",
+     "anio": 2018,
+     "url": "https://ishr.ch/wp-content/uploads/2024/01/Campeche-fiscalia.pdf",
+     "organo": "Fiscalía General del Estado",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "05",
+   "entidad": "Coahuila",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de las y los Periodistas para el Estado de Coahuila de Zaragoza (Decreto 509)",
+     "tipo": "ley",
+     "anio": 2014,
+     "url": "https://www.congresocoahuila.gob.mx/transparencia/03/Leyes_Coahuila/coa210.pdf",
+     "organo": "Comisión de Prevención y Protección de los Periodistas, presidida por la Secretaría de Gobierno, con Unidad Auxiliar",
+     "nota": "P.O. del 18 de julio de 2014; reformas en 2019 (Decretos 269 y 292) y 2020 (Decreto 771)"
+    },
+    {
+     "nombre": "Ley para la Protección de las Personas Defensoras de Derechos Humanos para el Estado de Coahuila de Zaragoza (Decreto 484)",
+     "tipo": "ley",
+     "anio": 2016,
+     "url": "https://www.congresocoahuila.gob.mx/transparencia/03/Leyes_Coahuila/coa243.docx",
+     "organo": "Comisión de Prevención y Protección de las Personas Defensoras de Derechos Humanos, presidida por la Secretaría de Gobierno, con Comité de Recepción y Evaluación de Solicitudes",
+     "nota": "P.O. del 9 de agosto de 2016; reforma en 2019 (Decreto 269)"
+    }
+   ],
+   "nota": "Coahuila legisla por separado para periodistas (2014) y para personas defensoras (2016), con dos comisiones distintas",
+   "fuente": "ishr",
+   "fecha_corte": "2026-09-30",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "06",
+   "entidad": "Colima",
+   "categoria": "solo_periodistas",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la protección integral del ejercicio periodístico en el Estado de Colima",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://ishr.ch/wp-content/uploads/2024/01/Colima-periodismo.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "07",
+   "entidad": "Chiapas",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Acuerdo que emite el Protocolo de actuación para la implementación de medidas de protección a favor de periodistas y personas defensoras",
+     "tipo": "protocolo",
+     "anio": null,
+     "url": "",
+     "organo": "Fiscalía General del Estado",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "08",
+   "entidad": "Chihuahua",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Unidad de protección a personas defensoras de derechos humanos y periodistas",
+     "tipo": "unidad",
+     "anio": null,
+     "url": "",
+     "organo": "Fiscalía General del Estado",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "09",
+   "entidad": "Ciudad de México",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección Integral de Personas Defensoras de Derechos Humanos y Periodistas de la Ciudad de México",
+     "tipo": "ley",
+     "anio": 2015,
+     "url": "https://www.congresocdmx.gob.mx/media/documentos/81a1701f21dbb6cd21ae5e6844db94726d0341c0.pdf",
+     "organo": "Mecanismo de Protección Integral (MPI CDMX)",
+     "nota": "Organismo local con lineamientos anuales de acción social"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "10",
+   "entidad": "Durango",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley Estatal para la Protección de Periodistas y Personas Defensoras de Derechos Humanos del Estado de Durango",
+     "tipo": "ley",
+     "anio": 2021,
+     "url": "https://congresodurango.gob.mx/Archivos/legislacion/LEY%20DE%20PROTECCION%20DE%20PERIODISTAS%20Y%20PERSONAS%20DEFENSORAS.pdf",
+     "organo": "Mecanismo para la Protección de Periodistas y Personas Defensoras de Derechos Humanos, adscrito a la Comisión Estatal de Derechos Humanos (Junta de Gobierno y Secretaría Ejecutiva)",
+     "nota": "Decreto 580, P.O. 48 del 17 de junio de 2021, vigente desde el 1 de enero de 2022; abroga la ley de 2014. Reformas por Decreto 143 (2 de junio de 2022, definición de periodista con acreditación y financiamiento) y Decreto 244 (16 de noviembre de 2025, adscripción a la CEDH y fondo). Reclasificado a ley propia tras leer el texto vigente: tiene mecanismo, junta y financiamiento propios (13 por ciento del presupuesto de la CEDH)"
+    }
+   ],
+   "nota": "Reclasificada de coordinación con el federal a ley o mecanismo propio el 29 de septiembre de 2026, con base en el texto vigente",
+   "fuente": "ishr",
+   "fecha_corte": "2026-09-29",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "11",
+   "entidad": "Guanajuato",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Guanajuato (Decreto 218)",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://www.congresogto.gob.mx/leyes/ley-para-la-proteccion-de-personas-defensoras-de-derechos-humanos-y-periodistas-del-estado-de-guanajuato",
+     "organo": "",
+     "nota": "Segob lo cuenta entre los seis organismos locales existentes en 2021"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "12",
+   "entidad": "Guerrero",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley número 391 de Protección de los Defensores de los Derechos Humanos en el Estado de Guerrero",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://congresogro.gob.mx/legislacion/ordinarias/ARCHI/LEY-DE-PROTECCION-DE-LOS-DEFENSORES-DE-LOS-DERECHOS-HUMANOS-EN-EL-ESTADO-DE-GUERRERO-391-2021-03-10.pdf",
+     "organo": "",
+     "nota": "Texto con reforma del 10 de marzo de 2021"
+    },
+    {
+     "nombre": "Decreto que crea la Unidad Estatal para la Protección de Personas Defensoras de Derechos Humanos y Periodistas",
+     "tipo": "decreto",
+     "anio": null,
+     "url": "https://ishr.ch/wp-content/uploads/2024/01/Guerrero-decreto-unidad-proteccion.pdf",
+     "organo": "Unidad Estatal, órgano desconcentrado de la Secretaría General de Gobierno",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "13",
+   "entidad": "Hidalgo",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley de Protección a Personas Defensoras de Derechos Humanos y de Salvaguarda de los Derechos para el Ejercicio del Periodismo del Estado de Hidalgo (Decreto 283)",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://www.congreso-hidalgo.gob.mx/biblioteca_legislativa/leyes_cintillo/Ley%20de%20Proteccion%20a%20Personas%20Defensoras%20de%20Derechos%20Humanos.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "14",
+   "entidad": "Jalisco",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Jalisco",
+     "tipo": "ley",
+     "anio": null,
+     "url": "",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "15",
+   "entidad": "México",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección Integral de Periodistas y Personas Defensoras de los Derechos Humanos del Estado de México",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://legislacion.edomex.gob.mx/sites/legislacion.edomex.gob.mx/files/files/pdf/ley/vig/leyvig271.pdf",
+     "organo": "Mecanismo estatal con Coordinación Ejecutiva y Consejo Consultivo",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "16",
+   "entidad": "Michoacán",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Michoacán de Ocampo",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://michoacan.gob.mx/wp-content/uploads/2025/10/LEY-PARA-LA-PROTECCIO%CC%81N-DE-PERSONAS-DEFENSORAS-DE-DERECHOS-HUMANOS-Y-PERIODISTAS.pdf",
+     "organo": "Sistema Estatal con Junta de Gobierno",
+     "nota": "Reforma del 28 de agosto de 2019; Espacio OSC señala en 2026 que el marco de 2018 no se ha implementado"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "17",
+   "entidad": "Morelos",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Ley de Protección a Periodistas y Defensores de Derechos Humanos del Estado de Morelos",
+     "tipo": "ley",
+     "anio": null,
+     "url": "http://marcojuridico.morelos.gob.mx/archivos/leyes/pdf/LPROTPERIODISTAS.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "18",
+   "entidad": "Nayarit",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Nayarit",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://ishr.ch/wp-content/uploads/2024/01/Nayarit.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "19",
+   "entidad": "Nuevo León",
+   "categoria": "sin_instrumento",
+   "instrumentos": [],
+   "nota": "ISHR no registra ningún instrumento al corte de abril de 2024",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "20",
+   "entidad": "Oaxaca",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Protocolo de actuación ministerial para la investigación de delitos cometidos contra personas defensoras de derechos humanos",
+     "tipo": "protocolo",
+     "anio": null,
+     "url": "https://fge.oaxaca.gob.mx/wp-content/uploads/trascendencia/PROTOCOLO%20DE%20ACTUACION%20MINISTERIAL%20PARA%20LA%20INVESTIGACION%20DE%20DELITOS%20%20COMETIDOS%20CONTRA%20LAS%20PERSONAS%20DEFENSORAS%20DE%20DERECHOS%20HUMANOS..pdf",
+     "organo": "Fiscalía General del Estado",
+     "nota": ""
+    }
+   ],
+   "nota": "Verificar si se aprobó una ley estatal después de 2024",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "21",
+   "entidad": "Puebla",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Acuerdo del Ejecutivo que crea la Comisión de Protección a Defensores de Derechos Humanos y Periodistas",
+     "tipo": "acuerdo",
+     "anio": null,
+     "url": "https://ojp.puebla.gob.mx/media/k2/attachments/Acuerdo_Ejec_crea_la_Comision_Proteccion_Defensores_Derechos_Humanos_y_Periodistas.pdf",
+     "organo": "Comisión de Protección",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "22",
+   "entidad": "Querétaro",
+   "categoria": "solo_periodistas",
+   "instrumentos": [
+    {
+     "nombre": "Ley que establece el secreto profesional periodístico en el Estado de Querétaro",
+     "tipo": "ley",
+     "anio": null,
+     "url": "https://legislaturaqueretaro.gob.mx/app/uploads/2016/01/LEY012.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "23",
+   "entidad": "Quintana Roo",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Quintana Roo",
+     "tipo": "ley",
+     "anio": 2015,
+     "url": "https://documentos.congresoqroo.gob.mx/leyes/administrativo/ley152/L1420150814276.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "24",
+   "entidad": "San Luis Potosí",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección al Ejercicio de Personas Defensoras de Derechos Humanos y Periodistas del Estado de San Luis Potosí",
+     "tipo": "ley",
+     "anio": 2021,
+     "url": "https://congresosanluis.gob.mx/sites/default/files/unpload/legislacion/leyes/2021/11/ley_proteccion_periodistas_04_Oct_2021.pdf",
+     "organo": "",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "25",
+   "entidad": "Sinaloa",
+   "categoria": "ley_propia",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas del Estado de Sinaloa (Decreto 154)",
+     "tipo": "ley",
+     "anio": 2022,
+     "url": "https://gaceta.congresosinaloa.gob.mx:3001/pdfs/leyes/Ley_167.pdf",
+     "organo": "Instituto para la Protección de Personas Defensoras de Derechos Humanos y Periodistas (organismo autónomo)",
+     "nota": "Decreto 154, P.O. 064 del 27 de mayo de 2022; crea el Instituto como organismo autónomo con Consejo Consultivo, Dirección General y Órgano Interno de Control, y adiciona los artículos 283 Bis y 283 Bis A al Código Penal. Sustituye a la Unidad Estatal creada por acuerdo de 2017"
+    },
+    {
+     "nombre": "Reforma que crea la Vicefiscalía Especializada de Derechos Humanos, Protección de Personas Defensoras y Periodistas",
+     "tipo": "reforma",
+     "anio": 2025,
+     "url": "https://www.congresosinaloa.gob.mx/comunicados/congreso-de-sinaloa-aprueba-creacion-de-vicefiscalia-de-derechos-humanos-proteccion-de-personas-defensoras-de-derechos-humanos-y-periodistas/",
+     "organo": "Fiscalía General del Estado",
+     "nota": "Aprobada el 12 de junio de 2025; reforma el artículo 5 de la ley, el Código Penal y la Ley Orgánica de la Fiscalía"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2026-09-29",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "26",
+   "entidad": "Sonora",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Acuerdo que crea la Agencia del Ministerio Público especializada en delitos contra periodistas y activistas sociales",
+     "tipo": "acuerdo",
+     "anio": 2017,
+     "url": "https://fiscalia.sonora.gob.mx/assets/common/OrganoInterno/oic/Boletines%20Oficiales/2017/Persecuci%C3%B3n%20delitos%20en%20contra%20periodistas%20y%20activistas%20sociales.pdf",
+     "organo": "Fiscalía General de Justicia del Estado",
+     "nota": ""
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "27",
+   "entidad": "Tabasco",
+   "categoria": "sin_instrumento",
+   "instrumentos": [],
+   "nota": "ISHR no registra ningún instrumento al corte de abril de 2024",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "28",
+   "entidad": "Tamaulipas",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Ley para la Protección de Personas Defensoras de Derechos Humanos y Periodistas para el Estado de Tamaulipas",
+     "tipo": "ley",
+     "anio": 2017,
+     "url": "https://www.congresotamaulipas.gob.mx/Parlamentario/Archivos/Leyes/Ley%20para%20la%20Proteccion%20de%20Personas%20Defensoras%20de%20DH%20y%20Periodistas%20Edo%20Tamaulipas%2014072021.pdf",
+     "organo": "Coordinación Estatal del Mecanismo, operada por la Secretaría General de Gobierno; las medidas las dicta el Mecanismo federal",
+     "nota": "Decreto LXIII-313, P.O. Extraordinario 13 del 1 de diciembre de 2017; reforma por Decreto LXIV-554 (P.O. 83, 14 de julio de 2021). Modelo de coordinación con el Mecanismo federal con medidas provisionales estatales"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2026-10-01",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "29",
+   "entidad": "Tlaxcala",
+   "categoria": "vinculo_federal",
+   "instrumentos": [
+    {
+     "nombre": "Decreto que crea la Oficina Local para la Protección de Personas Defensoras de Derechos Humanos y Periodistas",
+     "tipo": "decreto",
+     "anio": 2022,
+     "url": "https://periodico.tlaxcala.gob.mx/indices/1Ex15022022.pdf",
+     "organo": "Oficina Local, órgano administrativo de la Secretaría de Gobierno",
+     "nota": "Periódico Oficial No. 1 Extraordinario, 15 de febrero de 2022"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "30",
+   "entidad": "Veracruz",
+   "categoria": "solo_periodistas",
+   "instrumentos": [
+    {
+     "nombre": "Ley número 586 de la Comisión Estatal para la Atención y Protección de los Periodistas",
+     "tipo": "ley",
+     "anio": 2012,
+     "url": "https://www.legisver.gob.mx/leyes/LeyesPDF/LCEAPPERIODISTAS19072023.pdf",
+     "organo": "Comisión Estatal para la Atención y Protección de los Periodistas (CEAPP)",
+     "nota": "Texto con reforma del 19 de julio de 2023"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "31",
+   "entidad": "Yucatán",
+   "categoria": "sin_instrumento",
+   "instrumentos": [],
+   "nota": "ISHR no registra ningún instrumento al corte de abril de 2024",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  },
+  {
+   "cve_ent": "32",
+   "entidad": "Zacatecas",
+   "categoria": "solo_fiscalia",
+   "instrumentos": [
+    {
+     "nombre": "Unidad Especializada de Investigación para la Protección de Personas Defensoras y Periodistas",
+     "tipo": "unidad",
+     "anio": null,
+     "url": "",
+     "organo": "Fiscalía Especializada en Derechos Humanos, Tortura y Otros Tratos Crueles",
+     "nota": ""
+    },
+    {
+     "nombre": "Iniciativa de Ley para la prevención y protección ante agravios a personas defensoras de derechos humanos y periodistas",
+     "tipo": "iniciativa",
+     "anio": 2022,
+     "url": "https://www.congresozac.gob.mx/coz/images/uploads/20220222114653.pdf",
+     "organo": "",
+     "nota": "Presentada en febrero de 2022; verificar si se aprobó"
+    }
+   ],
+   "nota": "",
+   "fuente": "ishr",
+   "fecha_corte": "2024-04-12",
+   "desglose": {
+    "define_periodista": null,
+    "define_persona_defensora": null,
+    "organo_operante": null,
+    "naturaleza_organo": null,
+    "reglamento_publicado": null,
+    "consejo_consultivo": null,
+    "fondo_o_presupuesto": null,
+    "medidas_urgentes": null,
+    "fiscalia_o_unidad_especializada": null,
+    "tipo_penal_especifico": null,
+    "informe_publico_anual": null
+   }
+  }
+ ]
+}

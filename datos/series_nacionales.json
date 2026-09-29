@@ -1,0 +1,136 @@
+{
+ "descripcion": "Series nacionales del Mecanismo de Protección federal, reconstruidas de informes mensuales, comunicados de Segob y respuestas del Estado mexicano a organismos internacionales. Cada punto lleva su fuente.",
+ "series": [
+  {
+   "id": "mec_beneficiarias_vigentes",
+   "nombre": "Personas beneficiarias vigentes del Mecanismo (nacional)",
+   "unidad": "personas",
+   "fuente": "mecanismo",
+   "puntos": [
+    {
+     "fecha": "2018-12-01",
+     "total": 798,
+     "periodistas": null,
+     "defensoras": null,
+     "nota": "Al inicio de la administración 2018-2024, según el Segundo Informe de la Estrategia Nacional de Seguridad Pública; un comunicado de Segob de 2022 da 758",
+     "url": "https://mvsnoticias.com/nacional/2021/5/23/incorporacion-al-mecanismo-de-proteccion-registra-aumentos-del-80-517670.html"
+    },
+    {
+     "fecha": "2021-03-31",
+     "total": 1342,
+     "periodistas": null,
+     "defensoras": null,
+     "nota": "798 más 544 incorporaciones (incremento superior a 80 por ciento)",
+     "url": "https://mvsnoticias.com/nacional/2021/5/23/incorporacion-al-mecanismo-de-proteccion-registra-aumentos-del-80-517670.html"
+    },
+    {
+     "fecha": "2022-01-26",
+     "total": 1508,
+     "periodistas": 495,
+     "defensoras": 1023,
+     "nota": "Informe del 26 de enero de 2022 citado por Segob",
+     "url": "https://www.milenio.com/politica/mecanismo-de-proteccion-a-periodistas-que-es-y-en-que-consiste"
+    },
+    {
+     "fecha": "2024-10-31",
+     "total": 1924,
+     "periodistas": 664,
+     "defensoras": 1260,
+     "nota": "Respuesta del Estado mexicano al Comité DESC (E/C.12/MEX/RQ/7); el total reportado de 2,345 incluye 421 familiares",
+     "url": "https://digitallibrary.un.org/record/4084757/files/E_C.12_MEX_RQ_7-ES.pdf"
+    },
+    {
+     "fecha": "2026-05-31",
+     "total": 2020,
+     "periodistas": 690,
+     "defensoras": 1330,
+     "nota": "Informe mensual de mayo de 2026",
+     "url": "https://www.gob.mx/cms/uploads/attachment/file/1086159/05._Informe_mensual_mayo_26.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mec_incorporaciones_anuales",
+   "nombre": "Personas incorporadas al Mecanismo por año (nacional)",
+   "unidad": "personas",
+   "fuente": "mecanismo",
+   "nota": "Tabla de incorporaciones históricas del informe mensual de mayo de 2026; faltan los renglones 2012 a 2020, que están en el mismo informe (PDF) y hay que capturar a mano. Acumulado histórico al corte: 1,021 periodistas y 1,646 personas defensoras (2,667)",
+   "url": "https://www.gob.mx/cms/uploads/attachment/file/1086159/05._Informe_mensual_mayo_26.pdf",
+   "puntos": [
+    {
+     "fecha": "2021",
+     "periodistas": 88,
+     "defensoras": 181,
+     "total": 269
+    },
+    {
+     "fecha": "2022",
+     "periodistas": 80,
+     "defensoras": 105,
+     "total": 185
+    },
+    {
+     "fecha": "2023",
+     "periodistas": 118,
+     "defensoras": 203,
+     "total": 321
+    },
+    {
+     "fecha": "2024",
+     "periodistas": 48,
+     "defensoras": 31,
+     "total": 79
+    },
+    {
+     "fecha": "2025",
+     "periodistas": 26,
+     "defensoras": 41,
+     "total": 67
+    },
+    {
+     "fecha": "2026",
+     "periodistas": 7,
+     "defensoras": 9,
+     "total": 16,
+     "nota": "Enero a mayo"
+    }
+   ]
+  },
+  {
+   "id": "mec_asesinatos_sexenio",
+   "nombre": "Periodistas asesinados contabilizados por Segob, administración 2018-2024",
+   "unidad": "personas",
+   "fuente": "mecanismo",
+   "nota": "Cifras del coordinador del Mecanismo ante la Comisión de Derechos Humanos de la Cámara de Diputados, agosto de 2023; 107 personas defensoras en el mismo periodo",
+   "url": "https://comunicacionsocial.diputados.gob.mx/index.php/boletines/comision-conoce-los-avances-del-mecanismo-de-proteccion-para-personas-defensoras-de-derechos-humanos-y-periodistas",
+   "puntos": [
+    {
+     "fecha": "2018",
+     "total": 2,
+     "nota": "Solo diciembre"
+    },
+    {
+     "fecha": "2019",
+     "total": 14
+    },
+    {
+     "fecha": "2020",
+     "total": 17
+    },
+    {
+     "fecha": "2021",
+     "total": 9
+    },
+    {
+     "fecha": "2022",
+     "total": 23
+    },
+    {
+     "fecha": "2023",
+     "total": 13,
+     "nota": "Hasta agosto"
+    }
+   ]
+  }
+ ]
+}
