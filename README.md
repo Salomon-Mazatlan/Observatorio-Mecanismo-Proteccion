@@ -1,5 +1,7 @@
 # Observatorio de Protección a Periodistas y Personas Defensoras (México, Honduras y Colombia)
 
+Sitio publicado: https://salomon-mazatlan.github.io/Observatorio-Mecanismo-Proteccion/
+
 Mapa interactivo sobre la protección a periodistas y personas defensoras de derechos humanos en México, con atención especial a Sinaloa. Reúne registros georreferenciados de agresiones, asesinatos y desapariciones (separando periodistas y personas defensoras), el marco legal de protección de cada entidad, las cifras del Mecanismo federal y la población de INEGI y CONAPO para calcular tasas. Cada registro conserva su fuente, su fecha y un nivel de verificación (fuente oficial, organización civil, trabajo de campo o prensa), de modo que el mapa distingue lo que consta en documentos oficiales de lo que solo aparece en una nota periodística. Además de los eventos puntuales, el sitio muestra indicadores por entidad y por municipio en mapas de colores o de círculos, un mapa del marco legal estatal de protección a periodistas y defensores, y permite exportar cualquier vista como imagen con leyenda, escala y créditos.
 
 Es un sitio estático publicado con GitHub Pages. No requiere compilación ni servidor propio; los datos viven en archivos JSON que se capturan en Excel y se publican con scripts de Python.
