@@ -87,6 +87,7 @@
   ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json", "datos/poblacion/censos_co.json"].forEach(r =>
     fresco(r).then(d => { estado.poblacion[r] = d; }).catch(() => {}));
   fresco("datos/series_nacionales.json").then(d => { estado.seriesNacionales = d; }).catch(() => {});
+  fresco("datos/informes.json").then(d => { estado.informes = d; }).catch(() => {});
   fresco("datos/comparativo_marco_legal.json").then(d => { estado.comparativo = d; }).catch(() => {});
 
   // Population files are loaded once and expanded into the shared values list on first use
@@ -227,6 +228,7 @@
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa(nacionalId()));
     document.getElementById("centrar").addEventListener("click", centrarMapa);
+    document.getElementById("abrir-informes").addEventListener("click", () => navegar(mostrarInformes, true));
     document.getElementById("resumen").addEventListener("click", alternarResumen);
     mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
@@ -452,6 +454,31 @@
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" })); a.download = `comparativo_marco_legal_${new Date().toISOString().slice(0, 10)}.csv`;
       document.body.appendChild(a); a.click(); a.remove();
     });
+  }
+
+  // Aggregate reports and figures: reference only, not georeferenced; current country first
+  function mostrarInformes() {
+    const datos = estado.informes;
+    if (!datos) { abrirVentana("Informes y cifras", "<p class='nota'>Cargando...</p>"); return; }
+    const orden = [estado.pais, ...Object.keys(CONFIG.paises).filter(p => p !== estado.pais)];
+    const grupoTxt = { periodista: "Periodistas", defensor: "Personas defensoras", ambos: "Periodistas y personas defensoras" };
+    const bloques = orden.map(p => {
+      const lista = datos.informes.filter(x => x.pais === p).sort((a, b) => b.fecha.localeCompare(a.fecha));
+      if (!lista.length) return "";
+      return `<h4 class="detalle__sub">${CONFIG.paises[p].nombre} (${lista.length})</h4><ul class="lista lista--eventos">${lista.map(x => {
+        const f = estado.fuentes.find(y => y.id === x.fuente);
+        return `<li class="fila-ev"><div class="fila-ev__cab"><span class="fila-ev__titulo">${x.titulo}</span><button type="button" class="cmp__mas fila-ev__mas" aria-expanded="false" title="Ver detalle">+</button></div>
+          <small>${formatoFecha(x.fecha)} · ${x.tipo} · ${grupoTxt[x.grupo] || x.grupo} · ámbito ${x.ambito.toLowerCase()}</small>
+          <div class="fila-ev__detalle" hidden><p>${x.descripcion}</p><p><span class="badge badge--${clase(x.verificacion)}">${x.verificacion}</span> <span class="nota">Fuente: ${f ? f.nombre : x.fuente}</span></p>
+          ${x.url ? `<p><a href="${x.url}" target="_blank" rel="noopener">Ver fuente original</a></p>` : ""}</div></li>`;
+      }).join("")}</ul>`;
+    }).join("");
+    abrirVentana("Informes y cifras", `<p class="nota">${datos.descripcion.split(". El campo")[0]}.</p>${bloques}`, "ventana--documento");
+    document.querySelectorAll("#ventana-cuerpo .fila-ev__mas").forEach(b => b.addEventListener("click", () => {
+      const abierto = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", String(!abierto)); b.textContent = abierto ? "+" : "–";
+      b.closest("li").querySelector(".fila-ev__detalle").hidden = abierto;
+    }));
   }
 
   // A second horizontal scrollbar above a wide table, kept in sync with the one below
@@ -800,12 +827,14 @@
     const vis = hayEventosDibujados() ? estado.eventos.filter(eventoVisible) : [];
     if (!vis.length) { cont.hidden = true; return; }
     cont.hidden = false;
+    // Small shares read "<1%" instead of a misleading 0%
+    const pct = (n, total) => { const v = 100 * n / total; return v > 0 && v < 1 ? "<1%" : `${Math.round(v)}%`; };
     const barra = (titulo, partes) => {
       partes = partes.filter(p => p.n > 0);
       const total = partes.reduce((s, p) => s + p.n, 0) || 1;
       return `<div class="resumen__fila"><div class="resumen__titulo">${titulo}</div>
         <div class="resumen__barra">${partes.map(p => `<span class="resumen__seg" style="width:${(100 * p.n / total).toFixed(1)}%;background:${p.color}" title="${p.nombre}: ${p.n} (${Math.round(100 * p.n / total)}%)"></span>`).join("")}</div>
-        <div class="resumen__texto">${partes.map(p => `<span><i style="background:${p.color}"></i>${p.nombre} ${Math.round(100 * p.n / total)}%</span>`).join("")}</div></div>`;
+        <div class="resumen__texto">${partes.map(p => `<span><i style="background:${p.color}"></i>${p.nombre} ${pct(p.n, total)}</span>`).join("")}</div></div>`;
     };
     const cuenta = (lista, fn) => lista.map(([clave, nombre, color]) => ({ clave, nombre, color, n: vis.filter(e => fn(e) === clave).length }));
     const gr = cuenta([["periodista", "Periodistas", CONFIG.temas.periodistas.color], ["defensor", "Personas defensoras", CONFIG.grupos.defensor.color], ["ambos", "Ambos", "#94a3b8"]], e => e.grupo || "ambos");

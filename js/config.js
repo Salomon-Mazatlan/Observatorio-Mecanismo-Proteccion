@@ -50,9 +50,7 @@ const CONFIG = {
     agresion:       "Agresiones físicas",
     amenaza:        "Amenazas e intimidación",
     acoso_judicial: "Acoso judicial",
-    ataque_medio:   "Ataques a medios y domicilios",
-    proteccion:     "Medidas y cifras de protección",
-    informe:        "Informes"
+    ataque_medio:   "Ataques a medios y domicilios"
   },
   // Field of work of the defender (events of the defenders group)
   labores: {

@@ -28,7 +28,7 @@ TEMAS = {"migracion", "desplazamiento", "desaparicion", "periodistas", "contexto
 GRUPOS = {"periodista", "defensor", "ambos"}
 GENEROS = {"femenino", "masculino", "lgbt", "no determinado", "no aplica"}
 LABORES = {"busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"}
-SUBTEMAS = {"asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio", "proteccion", "informe"}
+SUBTEMAS = {"asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio"}
 VERIFICACION = {"oficial", "organización", "campo", "prensa", "sin verificar"}
 # Bounding boxes per country (lat_min, lat_max, lon_min, lon_max)
 LIMITES = {"MX": (14, 33, -119, -86), "HN": (12.9, 17.5, -89.4, -83.1), "CO": (-4.3, 13.5, -81.8, -66.8)}
@@ -90,7 +90,9 @@ def validar(registros, fuentes_ids):
         if tema == "periodistas" and grupo not in GRUPOS:
             e.append("grupo debe ser periodista, defensor o ambos para el tema periodistas")
         subtema = texto(r["subtema"]).lower()
-        if subtema and subtema not in SUBTEMAS:
+        if subtema in ("informe", "proteccion"):
+            e.append("los informes y cifras no son eventos individuales; van en datos/informes.json")
+        elif subtema and subtema not in SUBTEMAS:
             e.append(f"subtema '{subtema}' no válido")
         genero = texto(r["genero"]).lower()
         if genero and genero not in GENEROS:

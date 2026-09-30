@@ -22,7 +22,7 @@ ANCHOS = [9, 7, 30, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 
 GENEROS = ["femenino", "masculino", "lgbt", "no determinado", "no aplica"]
 LABORES = ["busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"]
 GRUPOS = ["periodista", "defensor", "ambos"]
-SUBTEMAS = ["asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio", "proteccion", "informe"]
+SUBTEMAS = ["asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial", "ataque_medio"]
 TEMAS = ["migracion", "desplazamiento", "desaparicion", "periodistas", "contexto"]
 VERIF = ["oficial", "organización", "campo", "prensa", "sin verificar"]
 MAX_FILAS = 1000
@@ -35,19 +35,19 @@ INSTRUCCIONES = [
     "",
     "id: déjalo vacío en registros nuevos, el script lo asigna (ev-001, ev-002...). Para corregir un evento ya publicado conserva su id.",
     "tema: migracion, desplazamiento, desaparicion, periodistas o contexto (lista desplegable). Los tres primeros están desactivados en el sitio pero se conservan.",
-    "grupo: solo para el tema periodistas; periodista, defensor o ambos (por ejemplo, un informe que cubre a los dos).",
+    "grupo: solo para el tema periodistas; periodista, defensor o ambos (por ejemplo, un ataque a un medio que también cubre a defensores).",
     "pais: MX (México, predeterminado si se deja vacío), HN (Honduras) o CO (Colombia); las coordenadas se validan contra el país.",
-    "genero: femenino, masculino, lgbt, no determinado (persona no identificada) o no aplica (cifras e informes).",
+    "genero: femenino, masculino, lgbt, no determinado (persona no identificada) o no aplica (comunidades, organizaciones o medios).",
     "labor: solo para personas defensoras; busqueda, ambiental, indigena, mujeres, lgbt, migracion, civil, animales u organizacion. Alimenta los chips de 'Labor de la persona defensora'.",
-    "subtema: tipo de agresión o violencia; asesinato, desaparicion, agresion, amenaza, acoso_judicial, ataque_medio, proteccion o informe. Alimenta los chips de 'Tipo de agresión'.",
-    "tipo: texto libre pero consistente (desplazamiento masivo, retorno, padrón oficial, cifra oficial, informe, albergue, rescate, fosa clandestina, agresión, búsqueda en campo...).",
+    "subtema: tipo de agresión o violencia; asesinato, desaparicion, agresion, amenaza, acoso_judicial o ataque_medio. Los informes y cifras agregadas no son eventos: van en datos/informes.json. Alimenta los chips de 'Tipo de agresión'.",
+    "tipo: texto libre pero consistente (asesinato de periodista, asesinato de persona defensora, desaparición, agresión física, amenaza, acoso judicial, ataque a domicilio u oficina...).",
     "fecha: formato AAAA-MM-DD. Si solo se conoce el mes, usa el día 01 y anótalo en descripcion.",
     "lat, lon: grados decimales. En Google Maps clic derecho sobre el punto y copiar coordenadas. Si solo se conoce el municipio, usa la cabecera y anota 'ubicación aproximada' en descripcion.",
     "lugar: localidad, municipio y estado, por ejemplo 'Tepuche, Culiacán, Sinaloa'. El nombre del estado se usa para contar eventos por entidad.",
-    "persona: nombre completo de la persona afectada, escrito siempre igual en todos sus eventos (así se agrupan y se detectan duplicados; la columna resalta en rojo los nombres repetidos). Varias personas se separan con punto y coma. Se deja vacío en informes, cifras, colectivos sin nombre y en agresiones a personas vivas que no se nombran por criterio de cuidado.",
+    "persona: nombre completo de la persona afectada, escrito siempre igual en todos sus eventos (así se agrupan y se detectan duplicados; la columna resalta en rojo los nombres repetidos). Varias personas se separan con punto y coma. Se deja vacío en colectivos sin nombre y en agresiones a personas vivas que no se nombran por criterio de cuidado.",
     "titulo: una línea. descripcion: qué pasó según la fuente, con cifras y quién las dio, sin datos que identifiquen a personas.",
     "fuente: id del catálogo (hoja 'catalogos'). Para agregar una fuente nueva hay que darla de alta en datos/fuentes.json y regenerar esta plantilla.",
-    "url: enlace a la nota o informe, si existe.",
+    "url: enlace a la nota o documento, si existe. Cada fila es un caso individual; los informes y cifras agregadas van en datos/informes.json.",
     "verificacion: oficial (la cifra la dio una autoridad), organización (la documentó una organización civil), campo, prensa (solo la nota) o sin verificar.",
     "ejemplo: si / no.",
     "",
