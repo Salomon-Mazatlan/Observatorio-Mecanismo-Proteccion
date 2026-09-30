@@ -342,8 +342,8 @@
           <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Heatmap" (mapa de calor con la densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
-          <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado), Honduras y Colombia (por departamento). En Honduras y Colombia la norma es nacional, así que el marco legal de cada departamento lleva al comparativo de esa norma con la ley federal mexicana.</li>
-          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la federal en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
+          <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado), Honduras y Colombia (por departamento). En Honduras y Colombia la norma es nacional, así que el marco legal de cada departamento lleva al comparativo de esa norma con la Ley Federal de México.</li>
+          <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la Ley Federal de México en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
         <p class="nota">Puedes volver a esta guía con el botón "?" de la barra superior.</p>
@@ -411,7 +411,7 @@
     }
     const otros = instrumentos.filter(i => i.id !== "federal").map(i => i.corto).join(", ");
     const titulo = global ? "Comparativo de instrumentos de protección"
-      : instrumentos.some(i => i.pais && i.pais !== "MX") ? `Comparativo con la ley federal mexicana: ${otros}` : `Comparativo con la ley federal: ${otros}`;
+      : `Comparativo con la Ley Federal de México: ${otros}`;
     abrirVentana(titulo, "<p class='nota'>Cargando...</p>", "ventana--documento ventana--ancha");
     const cabecera = cmp.instrumentos.map(i => `<th title="${i.nombre}">${i.corto}</th>`).join("");
     const celda = (inst, id) => {
@@ -426,7 +426,7 @@
       return principal + subs;
     }).join("");
     const fichas = cmp.instrumentos.map(i => `<li><strong>${i.corto}.</strong> ${i.nombre}. ${i.publicacion}; última reforma ${i.ultima_reforma}. ${i.organo}.${i.url ? ` <a href="${i.url}" target="_blank" rel="noopener">Texto</a>` : ""}</li>`).join("");
-    const selector = global ? `<div class="cmp__selector"><span class="grupo__etiqueta">Comparar con la ley federal:</span>${todos.instrumentos.filter(i => i.id !== "federal").map(i => `<label class="grupo__casilla"><input type="checkbox" data-inst="${i.id}" ${cmp.instrumentos.some(x => x.id === i.id) ? "checked" : ""}> ${i.corto}</label>`).join("")}</div>` : "";
+    const selector = global ? `<div class="cmp__selector"><span class="grupo__etiqueta">Comparar con la Ley Federal de México:</span>${todos.instrumentos.filter(i => i.id !== "federal").map(i => `<label class="grupo__casilla"><input type="checkbox" data-inst="${i.id}" ${cmp.instrumentos.some(x => x.id === i.id) ? "checked" : ""}> ${i.corto}</label>`).join("")}</div>` : "";
     document.getElementById("ventana-cuerpo").innerHTML = selector + `
       <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda para ver la nota; el signo + despliega los subindicadores y "Ver detalles" abre los artículos citados y la reflexión.</p>
       <div class="cmp__tabla-envoltura"><table class="cmp__tabla">
@@ -1454,7 +1454,7 @@
       htmlMarco = `<p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${marco.color || (estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
         ${items ? `<ul class="lista lista--marco">${items}</ul>` : ""}
         ${marco.nota ? `<p class="nota">${marco.nota}</p>` : ""}
-        ${codificado ? `<p><button type="button" class="enlace" id="detalle-comparativo">Ver comparativo con la ley federal</button></p>` : marco.instrumentos.length ? `<p class="nota">Este instrumento aún no está codificado en el comparativo.</p>` : ""}`;
+        ${codificado ? `<p><button type="button" class="enlace" id="detalle-comparativo">Ver comparativo con la Ley Federal de México</button></p>` : marco.instrumentos.length ? `<p class="nota">Este instrumento aún no está codificado en el comparativo.</p>` : ""}`;
     }
     const dentroPol = estado.eventos.filter(eventoVisible).filter(e => dentro([e.lon, e.lat], feat.geometry))
       .sort((x, y) => y.fecha.localeCompare(x.fecha));
