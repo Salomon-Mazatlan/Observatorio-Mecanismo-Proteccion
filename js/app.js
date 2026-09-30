@@ -129,6 +129,13 @@
     return null;
   }
 
+  // Joins text pieces with a period, never doubling one that already ends a piece
+  function unir(...partes) {
+    // Each piece after a period starts with a capital letter
+    return partes.filter(x => x !== null && x !== undefined && x !== "").map(String)
+      .reduce((acc, s) => (acc ? acc + (/[.!?]$/.test(acc) ? " " : ". ") + s.charAt(0).toUpperCase() + s.slice(1) : s), "");
+  }
+
   // ---------- countries ----------
   // Non-Mexican keys start with their two-letter country code (HN08, CO05)
   function paisDeCve(cve) { const p = String(cve || "").slice(0, 2); return CONFIG.paises[p] && p !== "MX" ? p : "MX"; }
@@ -319,9 +326,9 @@
     ];
     leyendaTitulo = leyendaTitulo.charAt(0).toUpperCase() + leyendaTitulo.slice(1);
     if (estado.grupo !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` (${CONFIG.grupos[estado.grupo].nombre})`;
-    if (estado.subtema !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.subtemas[estado.subtema]}`;
-    if (estado.genero !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.generos[estado.genero]}`;
-    if (estado.labor !== "todos" && temaActivo("periodistas")) leyendaTitulo += ` · ${CONFIG.labores[estado.labor]}`;
+    if (estado.subtema !== "todos" && temaActivo("periodistas")) leyendaTitulo = unir(leyendaTitulo, CONFIG.subtemas[estado.subtema]);
+    if (estado.genero !== "todos" && temaActivo("periodistas")) leyendaTitulo = unir(leyendaTitulo, CONFIG.generos[estado.genero]);
+    if (estado.labor !== "todos" && temaActivo("periodistas")) leyendaTitulo = unir(leyendaTitulo, CONFIG.labores[estado.labor]);
     return { titulo, subtitulo, leyenda, leyendaTitulo, pie, recorte };
   }
 
@@ -468,7 +475,7 @@
       return `<h4 class="detalle__sub">${CONFIG.paises[p].nombre} (${lista.length})</h4><ul class="lista lista--eventos">${lista.map(x => {
         const f = estado.fuentes.find(y => y.id === x.fuente);
         return `<li class="fila-ev"><div class="fila-ev__cab"><span class="fila-ev__titulo">${x.titulo}</span><button type="button" class="cmp__mas fila-ev__mas" aria-expanded="false" title="Ver detalle">+</button></div>
-          <small>${formatoFecha(x.fecha)} · ${x.tipo} · ${grupoTxt[x.grupo] || x.grupo} · ámbito ${x.ambito.toLowerCase()}</small>
+          <small>${unir(formatoFecha(x.fecha), x.tipo, grupoTxt[x.grupo] || x.grupo, "Ámbito " + x.ambito.toLowerCase())}</small>
           <div class="fila-ev__detalle" hidden><p>${x.descripcion}</p><p><span class="badge badge--${clase(x.verificacion)}">${x.verificacion}</span> <span class="nota">Fuente: ${f ? f.nombre : x.fuente}</span></p>
           ${x.url ? `<p><a href="${x.url}" target="_blank" rel="noopener">Ver fuente original</a></p>` : ""}</div></li>`;
       }).join("")}</ul>`;
@@ -777,7 +784,7 @@
     estado.fuentes.filter(f => temaActivo(f.tema) || f.tema === "contexto").forEach(f => {
       const li = document.createElement("li");
       const nombre = f.url ? `<a href="${f.url}" target="_blank" rel="noopener">${f.nombre}</a>` : f.nombre;
-      li.innerHTML = `${nombre}<br><small>${CONFIG.tiposFuente[f.tipo] || f.tipo} · ${f.periodicidad} · ${f.nivel}</small>`;
+      li.innerHTML = `${nombre}<br><small>${unir(CONFIG.tiposFuente[f.tipo] || f.tipo, f.periodicidad, f.nivel)}</small>`;
       ul.appendChild(li);
     });
   }
@@ -801,7 +808,7 @@
     document.getElementById("bloque-tematico").hidden = !conIndicador;
     const tp = textoPeriodo();
     document.getElementById("periodo-info").textContent =
-      (estado.desde || estado.hasta || tp === "sin datos") ? "" : `· ${tp}`;
+      (estado.desde || estado.hasta || tp === "sin datos") ? "" : `(${tp})`;
     if (conIndicador) dibujarTematico(); else capaPoligonos.setStyle(estiloNeutro);
     if (conEventos) dibujarEventos();
     dibujarCalor();
@@ -1429,7 +1436,7 @@
         let ultimo = -1;
         cen.periodos.forEach((per, i) => { if (filas[i]) ultimo = i; });
         htmlPob = `<h4 class="detalle__sub">Población</h4>
-          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (${esHN ? CONFIG.paises[paisP].estadistica : "INEGI"}): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? ` · Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
+          <p class="detalle__meta">${ultimo >= 0 ? `Censo ${cen.periodos[ultimo]} (${esHN ? CONFIG.paises[paisP].estadistica : "INEGI"}): ${fmt(filas[ultimo][0])}` : ""}${est && est.fuente === "CONAPO" ? `. Estimación ${est.periodo} (CONAPO): ${fmt(est.valor)}` : ""}</p>`;
       }
     }
     const marco = nivel === "municipio" || !temaActivo("periodistas") ? null : marcoDe(p.cve_ent);
@@ -1441,7 +1448,7 @@
       const cat = marco.categoriaNombre || estado.marcoLegal.categorias[marco.categoria];
       const items = marco.instrumentos.map(i => {
         const nombre = i.url ? `<a href="${i.url}" target="_blank" rel="noopener">${i.nombre}</a>` : i.nombre;
-        const meta = [i.tipo, i.anio, i.organo].filter(Boolean).join(" · ");
+        const meta = unir(i.tipo, i.anio, i.organo);
         return `<li>${nombre}<br><small>${meta}${i.nota ? ". " + i.nota : ""}</small></li>`;
       }).join("");
       htmlMarco = `<p class="detalle__meta"><span class="leyenda__caja leyenda__caja--inline" style="background:${marco.color || (estado.indicador === "per_marco_legal" && estado.coloresCategoria ? estado.coloresCategoria : CONFIG.marcoLegalColores)[marco.categoria]}"></span>${cat}</p>
@@ -1455,15 +1462,17 @@
     const itemEv = e => {
       const f = estado.fuentes.find(x => x.id === e.fuente);
       return `<li class="fila-ev"><div class="fila-ev__cab"><span class="fila-ev__titulo">${e.titulo}</span><button type="button" class="cmp__mas fila-ev__mas" aria-expanded="false" title="Ver detalle">+</button></div>
-        <small>${formatoFecha(e.fecha)} · ${e.lugar}</small>
+        <small>${unir(formatoFecha(e.fecha), e.lugar)}</small>
         <div class="fila-ev__detalle" hidden><p>${e.descripcion}</p><p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span> <span class="nota">Fuente: ${f ? f.nombre : e.fuente}</span></p>
-          <p>${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a> · ` : ""}<button type="button" class="enlace" data-ev="${e.id}">Abrir ficha</button></p></div></li>`;
+          <p>${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a>. ` : ""}<button type="button" class="enlace" data-ev="${e.id}">Abrir ficha</button></p></div></li>`;
     };
     const htmlEv = nEv ? `<h4 class="detalle__sub">Eventos (${nEv})</h4><ul class="lista lista--eventos">${dentroPol.slice(0, 3).map(itemEv).join("")}</ul>
       ${nEv > 3 ? `<ul class="lista lista--eventos" id="eventos-mas" hidden>${dentroPol.slice(3).map(itemEv).join("")}</ul><p><button type="button" class="enlace" id="ver-mas-eventos" data-n="${nEv - 3}">+ ${nEv - 3} más</button></p>` : ""}` : "";
-    const clave = nivel === "municipio" ? `Clave INEGI ${p.cve_ent}${p.cve_mun} · ${mapaActual().nombre}` : `Clave INEGI ${p.cve_ent}`;
+    const paisC = paisDeCve(p.cve_ent), inst = paisC === "MX" ? "INEGI" : CONFIG.paises[paisC].estadistica;
+    const cveVisible = String(p.cve_ent).replace(/^[A-Z]{2}/, "") + (nivel === "municipio" ? p.cve_mun : "");
+    const clave = nivel === "municipio" ? unir(`Clave ${inst} ${cveVisible}`, mapaActual().nombre) : `Clave ${inst} ${cveVisible}`;
     const tabEventos = `
-      <p class="detalle__meta">${clave} · ${nEv} eventos con los filtros actuales</p>
+      <p class="detalle__meta">${unir(clave, `${nEv} eventos con los filtros actuales`)}</p>
       ${nivel === "entidad" ? `<p class="acciones"><button type="button" class="boton" id="detalle-municipios">Ver municipios de ${p.nombre}</button></p>` : ""}
       ${htmlEv}
       ${filas ? `<h4 class="detalle__sub">Indicadores</h4><ul class="lista lista--detalle">${filas}</ul>` : `<p class='nota'>Sin indicadores numéricos para esta unidad con los filtros actuales.</p>`}
@@ -1510,11 +1519,11 @@
       .sort((a, b) => a.fecha.localeCompare(b.fecha)) : [];
     const htmlPersona = nombres.length ? `<p class="detalle__meta">${nombres.length > 1 ? "Personas" : "Persona"}: ${nombres.join(", ")}</p>` : "";
     const htmlOtros = otros.length ? `<h4 class="detalle__sub">Otros registros de la misma persona (${otros.length})</h4>
-      <ul class="lista lista--eventos">${otros.map(x => `<li class="fila-ev"><button type="button" class="enlace" data-otro="${x.id}">${x.titulo}</button><br><small>${formatoFecha(x.fecha)} · ${x.lugar}</small></li>`).join("")}</ul>` : "";
-    const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.genero && e.genero !== "no aplica" ? " · Género: " + (CONFIG.generos[e.genero] || e.genero) : ""}</p>` : "";
+      <ul class="lista lista--eventos">${otros.map(x => `<li class="fila-ev"><button type="button" class="enlace" data-otro="${x.id}">${x.titulo}</button><br><small>${unir(formatoFecha(x.fecha), x.lugar)}</small></li>`).join("")}</ul>` : "";
+    const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.genero && e.genero !== "no aplica" ? ". Género: " + (CONFIG.generos[e.genero] || e.genero) : ""}</p>` : "";
     abrirVentana(e.titulo, `
-      <p class="detalle__tema" style="--tema:${CONFIG.temas[e.tema].color}">${CONFIG.temas[e.tema].nombre} · ${e.tipo}</p>
-      <p class="detalle__meta">${formatoFecha(e.fecha)} · ${e.lugar}</p>
+      <p class="detalle__tema" style="--tema:${CONFIG.temas[e.tema].color}">${unir(CONFIG.temas[e.tema].nombre, e.tipo)}</p>
+      <p class="detalle__meta">${unir(formatoFecha(e.fecha), e.lugar)}</p>
       ${htmlPersona}
       ${labor}
       <p>${e.descripcion}</p>
