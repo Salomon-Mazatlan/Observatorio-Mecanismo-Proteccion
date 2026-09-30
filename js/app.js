@@ -24,7 +24,9 @@
   };
 
   const pila = [];          // window navigation stack (see navegar)
-  let clicEnCapa = false;   // set by layer clicks so the map click handler does not close the window
+  let clicEnCapa = false;
+  let resumenPlegado = false;
+  try { resumenPlegado = localStorage.getItem("observatorio_resumen_plegado") === "1"; } catch (e) { /* storage unavailable */ }   // set by layer clicks so the map click handler does not close the window
   const mapa = L.map("mapa", { zoomControl: false });
   L.control.zoom({ position: "bottomright" }).addTo(mapa);
   // CARTO tiles need a key since Aug 2026; fall back to plain OSM without one.
@@ -225,6 +227,7 @@
     document.getElementById("restablecer").addEventListener("click", restablecerFiltros);
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa(nacionalId()));
     document.getElementById("centrar").addEventListener("click", centrarMapa);
+    document.getElementById("resumen").addEventListener("click", alternarResumen);
     mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
     document.getElementById("mapa-base").addEventListener("change", actualizarMapaBase);
@@ -810,10 +813,21 @@
     const st = cuenta(Object.entries(CONFIG.subtemas).map(([k, n], i) => [k, n, paleta[i % paleta.length]]), e => e.subtema);
     const lb = cuenta(Object.entries(CONFIG.labores).map(([k, n], i) => [k, n, paleta[(i + 3) % paleta.length]]), e => e.labor);
     const ge = partesGenero(vis).map(p => ({ ...p }));
-    cont.innerHTML = `<div class="resumen__cab">Lo que está en el mapa: ${vis.length} eventos</div>`
+    cont.innerHTML = `<button type="button" class="resumen__cab" aria-expanded="${!resumenPlegado}" title="${resumenPlegado ? "Mostrar" : "Ocultar"} el resumen">
+        <span>Lo que está en el mapa: ${vis.length} eventos</span><span class="resumen__signo" aria-hidden="true">${resumenPlegado ? "+" : "–"}</span></button>`
+      + `<div class="resumen__cuerpo"${resumenPlegado ? " hidden" : ""}>`
       + barra("Grupo", gr) + barra("Tipo de agresión", st)
       + (vis.some(e => e.labor) ? barra("Labor de la persona defensora", lb) : "")
-      + barra("Género", ge);
+      + barra("Género", ge) + `</div>`;
+    cont.classList.toggle("resumen--plegado", resumenPlegado);
+  }
+
+  // A click anywhere on the strip folds or unfolds it; the choice is remembered in this browser
+  function alternarResumen() {
+    resumenPlegado = !resumenPlegado;
+    try { localStorage.setItem("observatorio_resumen_plegado", resumenPlegado ? "1" : "0"); } catch (e) { /* storage unavailable */ }
+    dibujarResumen();
+    mapa.invalidateSize();
   }
 
   // Fits the view to the polygons of the current map (country or state)
