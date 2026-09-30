@@ -330,7 +330,7 @@
     abrirVentana("Cómo usar el mapa", `
       <div class="guia">
         <ol>
-          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Calor" (densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
+          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Heatmap" (mapa de calor con la densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
           <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado), Honduras y Colombia (por departamento). En Honduras y Colombia la norma es nacional, así que el marco legal de cada departamento lleva al comparativo de esa norma con la ley federal mexicana.</li>
@@ -1381,7 +1381,7 @@
     const defs = Object.fromEntries(estado.indicadores.definiciones.map(d => [d.id, d]));
     const vals = estado.indicadores.valores
       .filter(v => nivel === "municipio" ? v.cve_ent === p.cve_ent && v.cve_mun === p.cve_mun : v.cve_ent === p.cve_ent && !v.cve_mun)
-      .filter(v => typeof v.valor === "number" && defs[v.indicador] && temaActivo(defs[v.indicador].tema)
+      .filter(v => typeof v.valor === "number" && defs[v.indicador] && !defs[v.indicador].oculto && temaActivo(defs[v.indicador].tema)
         && (defs[v.indicador].tema !== "periodistas" || (grupoActivo(defs[v.indicador].grupo) && subtemaActivo(defs[v.indicador].subtema, false))) && valorEnRango(v, defs[v.indicador]))
       .sort((x, y) => x.indicador.localeCompare(y.indicador) || String(y.periodo).localeCompare(String(x.periodo)));
     const filas = vals.map(v => {
