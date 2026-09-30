@@ -325,7 +325,12 @@ input[type="search"]:focus-visible { outline: none; border-color: var(--acento);
 
 /* summary strip under the map */
 .resumen { flex: none; background: var(--superficie); border-top: 1px solid var(--borde); padding: 8px 16px 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 22px; font-size: 12px; }
-.resumen__cab { grid-column: 1 / -1; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
+.resumen { cursor: pointer; }
+.resumen:hover .resumen__cab { color: var(--tinta); }
+.resumen__cab { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: 0; padding: 0; font: inherit; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); cursor: pointer; text-align: left; }
+.resumen__signo { font-size: 16px; letter-spacing: 0; line-height: 1; width: 22px; height: 22px; border-radius: 50%; background: var(--fondo); display: inline-flex; align-items: center; justify-content: center; }
+.resumen__cuerpo { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 22px; }
+.resumen--plegado { padding-top: 6px; padding-bottom: 6px; }
 .resumen__titulo { font-weight: 600; margin-bottom: 3px; }
 .resumen__barra { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--fondo); }
 .resumen__seg { display: block; height: 100%; }
