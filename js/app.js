@@ -1017,7 +1017,7 @@
     if (estado.desde && mes < estado.desde) return false;
     if (estado.hasta && mes > estado.hasta) return false;
     if (estado.texto) {
-      const blob = normalizar(`${e.lugar} ${e.titulo} ${e.tipo} ${e.descripcion}`);
+      const blob = normalizar(`${e.persona || ""} ${e.lugar} ${e.titulo} ${e.tipo} ${e.descripcion}`);
       if (!blob.includes(estado.texto)) return false;
     }
     return true;
@@ -1473,15 +1473,29 @@
   function mostrarDetalleEvento(e) {
     const f = estado.fuentes.find(x => x.id === e.fuente);
     const link = e.url ? `<p><a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a></p>` : "";
+    // Other records that name any of the same people
+    const nombres = (e.persona || "").split(";").map(x => x.trim()).filter(Boolean);
+    const clave = s => normalizar(s).replace(/\s+/g, " ").trim();
+    const claves = new Set(nombres.map(clave));
+    const otros = claves.size ? estado.eventos.filter(x => x.id !== e.id && (x.persona || "").split(";").some(n => claves.has(clave(n))))
+      .sort((a, b) => a.fecha.localeCompare(b.fecha)) : [];
+    const htmlPersona = nombres.length ? `<p class="detalle__meta">${nombres.length > 1 ? "Personas" : "Persona"}: ${nombres.join(", ")}</p>` : "";
+    const htmlOtros = otros.length ? `<h4 class="detalle__sub">Otros registros de la misma persona (${otros.length})</h4>
+      <ul class="lista lista--eventos">${otros.map(x => `<li class="fila-ev"><button type="button" class="enlace" data-otro="${x.id}">${x.titulo}</button><br><small>${formatoFecha(x.fecha)} · ${x.lugar}</small></li>`).join("")}</ul>` : "";
     const labor = e.labor && CONFIG.labores[e.labor] ? `<p class="detalle__meta">Labor: ${CONFIG.labores[e.labor]}${e.genero && e.genero !== "no aplica" ? " · Género: " + (CONFIG.generos[e.genero] || e.genero) : ""}</p>` : "";
     abrirVentana(e.titulo, `
       <p class="detalle__tema" style="--tema:${CONFIG.temas[e.tema].color}">${CONFIG.temas[e.tema].nombre} · ${e.tipo}</p>
       <p class="detalle__meta">${formatoFecha(e.fecha)} · ${e.lugar}</p>
+      ${htmlPersona}
       ${labor}
       <p>${e.descripcion}</p>
       <p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span>
          ${e.ejemplo ? '<span class="badge badge--ejemplo">ejemplo</span>' : ""}</p>
-      <p class="nota">Fuente: ${f ? f.nombre : e.fuente}</p>${link}`);
+      <p class="nota">Fuente: ${f ? f.nombre : e.fuente}</p>${link}
+      ${htmlOtros}`);
+    document.querySelectorAll("#ventana-cuerpo [data-otro]").forEach(b => b.addEventListener("click", () => {
+      const x = estado.eventos.find(y => y.id === b.dataset.otro); if (x) navegar(() => mostrarDetalleEvento(x));
+    }));
   }
 
   function dentroDeEstado(e) {

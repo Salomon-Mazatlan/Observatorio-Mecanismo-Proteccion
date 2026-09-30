@@ -32,7 +32,7 @@ SUBTEMAS = {"asesinato", "desaparicion", "agresion", "amenaza", "acoso_judicial"
 VERIFICACION = {"oficial", "organización", "campo", "prensa", "sin verificar"}
 # Bounding boxes per country (lat_min, lat_max, lon_min, lon_max)
 LIMITES = {"MX": (14, 33, -119, -86), "HN": (12.9, 17.5, -89.4, -83.1), "CO": (-4.3, 13.5, -81.8, -66.8)}
-COLUMNAS = ["id", "pais", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
+COLUMNAS = ["id", "pais", "persona", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo",
             "descripcion", "fuente", "url", "verificacion", "ejemplo"]
 OBLIGATORIAS = ["tema", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "fuente", "verificacion"]
 
@@ -135,6 +135,8 @@ def validar(registros, fuentes_ids):
         }
         if pais != "MX":
             reg["pais"] = pais
+        # Names separated by semicolons, extra spaces removed
+        reg["persona"] = "; ".join(" ".join(x.split()) for x in texto(r["persona"]).split(";") if x.strip())
         if grupo:
             reg["grupo"] = grupo
         if subtema:
@@ -145,6 +147,32 @@ def validar(registros, fuentes_ids):
             reg["labor"] = labor
         limpios.append(reg)
     return limpios, errores
+
+
+def normalizar(nombre):
+    import unicodedata
+    s = unicodedata.normalize("NFD", nombre.lower())
+    return " ".join("".join(c for c in s if unicodedata.category(c) != "Mn").split())
+
+
+def avisos_personas(eventos):
+    """Warn about names that repeat: likely duplicates or several events of the same person."""
+    por_nombre = {}
+    for e in eventos:
+        for nombre in [x.strip() for x in e.get("persona", "").split(";") if x.strip()]:
+            por_nombre.setdefault(normalizar(nombre), (nombre, []))[1].append(e)
+    avisos = []
+    for nombre, lista in por_nombre.values():
+        if len(lista) < 2:
+            continue
+        mismos = {}
+        for e in lista:
+            mismos.setdefault(e.get("subtema", ""), []).append(e)
+        dup = [v for k, v in mismos.items() if len(v) > 1 and k in ("asesinato", "desaparicion")]
+        tipo = "POSIBLE DUPLICADO" if dup else "varios eventos"
+        detalle = ", ".join(f"{e['id']} ({e['fecha']}, {e.get('subtema', '')})" for e in sorted(lista, key=lambda x: x["fecha"]))
+        avisos.append(f"  {tipo}: {nombre} -> {detalle}")
+    return avisos
 
 
 def asignar_ids(nuevos, existentes):
@@ -189,6 +217,10 @@ def main():
     resultado.sort(key=lambda e: (e["fecha"], e["id"]))
 
     print(f"Filas válidas: {len(nuevos)}. Agregados: {agregados}. Actualizados: {actualizados}. Total: {len(resultado)}.")
+    avisos = avisos_personas(resultado)
+    if avisos:
+        print(f"Nombres repetidos ({len(avisos)}); revisa si son la misma persona:")
+        print("\n".join(avisos))
     if args.solo_validar:
         print("Modo solo validar, no se escribió nada.")
         return

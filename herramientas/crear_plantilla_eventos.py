@@ -12,11 +12,13 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.formatting.rule import Rule
+from openpyxl.styles.differential import DifferentialStyle
 
 from comun import DIR_PLANTILLAS, RUTA_EVENTOS, RUTA_FUENTES, verificar_raiz
 
-COLS = ["id", "pais", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
-ANCHOS = [9, 7, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
+COLS = ["id", "pais", "persona", "tema", "grupo", "subtema", "genero", "labor", "tipo", "fecha", "lat", "lon", "lugar", "titulo", "descripcion", "fuente", "url", "verificacion", "ejemplo"]
+ANCHOS = [9, 7, 30, 16, 12, 16, 14, 14, 22, 12, 10, 11, 30, 48, 70, 16, 40, 15, 9]
 GENEROS = ["femenino", "masculino", "lgbt", "no determinado", "no aplica"]
 LABORES = ["busqueda", "ambiental", "indigena", "mujeres", "lgbt", "migracion", "civil", "animales", "organizacion"]
 GRUPOS = ["periodista", "defensor", "ambos"]
@@ -42,6 +44,7 @@ INSTRUCCIONES = [
     "fecha: formato AAAA-MM-DD. Si solo se conoce el mes, usa el día 01 y anótalo en descripcion.",
     "lat, lon: grados decimales. En Google Maps clic derecho sobre el punto y copiar coordenadas. Si solo se conoce el municipio, usa la cabecera y anota 'ubicación aproximada' en descripcion.",
     "lugar: localidad, municipio y estado, por ejemplo 'Tepuche, Culiacán, Sinaloa'. El nombre del estado se usa para contar eventos por entidad.",
+    "persona: nombre completo de la persona afectada, escrito siempre igual en todos sus eventos (así se agrupan y se detectan duplicados; la columna resalta en rojo los nombres repetidos). Varias personas se separan con punto y coma. Se deja vacío en informes, cifras, colectivos sin nombre y en agresiones a personas vivas que no se nombran por criterio de cuidado.",
     "titulo: una línea. descripcion: qué pasó según la fuente, con cifras y quién las dio, sin datos que identifiquen a personas.",
     "fuente: id del catálogo (hoja 'catalogos'). Para agregar una fuente nueva hay que darla de alta en datos/fuentes.json y regenerar esta plantilla.",
     "url: enlace a la nota o informe, si existe.",
@@ -75,7 +78,7 @@ def main():
     for row in we.iter_rows():
         for c in row:
             c.font = arial
-            c.alignment = Alignment(vertical="top", wrap_text=c.column in (12, 13, 14))
+            c.alignment = Alignment(vertical="top", wrap_text=c.column in (3, 13, 14, 15))
     for c in we[1]:
         c.font, c.fill = bold, azul
     for r in range(2, MAX_FILAS + 2):
@@ -102,21 +105,24 @@ def main():
 
     rango = f"2:{MAX_FILAS + 1}"
     reglas = [
-        DataValidation(type="list", formula1=f"=catalogos!$A$2:$A${len(TEMAS) + 1}", allow_blank=True), "C",
-        DataValidation(type="list", formula1=f"=catalogos!$F$2:$F${len(GRUPOS) + 1}", allow_blank=True), "D",
-        DataValidation(type="list", formula1=f"=catalogos!$G$2:$G${len(SUBTEMAS) + 1}", allow_blank=True), "E",
-        DataValidation(type="list", formula1=f"=catalogos!$H$2:$H${len(GENEROS) + 1}", allow_blank=True), "F",
-        DataValidation(type="list", formula1=f"=catalogos!$I$2:$I${len(LABORES) + 1}", allow_blank=True), "G",
-        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "Q",
-        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "O",
-        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "R",
-        DataValidation(type="decimal", operator="between", formula1="-4.3", formula2="33", allow_blank=True), "J",
-        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-66.8", allow_blank=True), "K",
+        DataValidation(type="list", formula1=f"=catalogos!$A$2:$A${len(TEMAS) + 1}", allow_blank=True), "D",
+        DataValidation(type="list", formula1=f"=catalogos!$F$2:$F${len(GRUPOS) + 1}", allow_blank=True), "E",
+        DataValidation(type="list", formula1=f"=catalogos!$G$2:$G${len(SUBTEMAS) + 1}", allow_blank=True), "F",
+        DataValidation(type="list", formula1=f"=catalogos!$H$2:$H${len(GENEROS) + 1}", allow_blank=True), "G",
+        DataValidation(type="list", formula1=f"=catalogos!$I$2:$I${len(LABORES) + 1}", allow_blank=True), "H",
+        DataValidation(type="list", formula1=f"=catalogos!$B$2:$B${len(VERIF) + 1}", allow_blank=True), "R",
+        DataValidation(type="list", formula1=f"=catalogos!$C$2:$C${len(fuentes) + 1}", allow_blank=True), "P",
+        DataValidation(type="list", formula1='"si,no"', allow_blank=True), "S",
+        DataValidation(type="decimal", operator="between", formula1="-4.3", formula2="33", allow_blank=True), "K",
+        DataValidation(type="decimal", operator="between", formula1="-119", formula2="-66.8", allow_blank=True), "L",
     ]
     for dv, col in zip(reglas[::2], reglas[1::2]):
         dv.error, dv.showErrorMessage = "Valor no permitido", True
         dv.add(f"{col}{rango.replace(':', ':' + col)}")
         we.add_data_validation(dv)
+    # Repeated names in the persona column turn red, to spot duplicates or several events of one person
+    rojo = DifferentialStyle(font=Font(color="9C0006"), fill=PatternFill("solid", start_color="FFC7CE"))
+    we.conditional_formatting.add(f"C2:C{MAX_FILAS + 1}", Rule(type="duplicateValues", dxf=rojo))
 
     wi = wb.create_sheet("instrucciones")
     for t in INSTRUCCIONES:

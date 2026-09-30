@@ -1,6 +1,6 @@
 # Ficha de indicadores
 
-Cada registro se guarda con tres niveles de evidencia, de mayor a menor peso: fuente oficial, organización civil, trabajo de campo y prensa. Un evento puntual (marcador) siempre lleva fecha, lugar, fuente, nivel de verificación, grupo (periodista o persona defensora), tipo de agresión, labor y género de la persona afectada. Un indicador agregado (colores o círculos por entidad o municipio) siempre lleva periodo, unidad y fecha de corte.
+Cada registro se guarda con tres niveles de evidencia, de mayor a menor peso: fuente oficial, organización civil, trabajo de campo y prensa. Un evento puntual (marcador) siempre lleva fecha, lugar, fuente, nivel de verificación, grupo (periodista o persona defensora), tipo de agresión, labor y género de la persona afectada y, cuando se puede nombrar, el nombre de la persona en un campo propio. Un indicador agregado (colores o círculos por entidad o municipio) siempre lleva periodo, unidad y fecha de corte.
 
 ## Periodistas
 

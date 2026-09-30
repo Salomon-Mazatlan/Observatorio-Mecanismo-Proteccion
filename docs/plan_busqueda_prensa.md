@@ -34,7 +34,9 @@ Para cada estado se añaden los nombres de los medios locales principales, porqu
 
 ## Ficha de captura (una fila por evento en `plantillas/eventos.xlsx`)
 
-Campos ya existentes: tema (`periodistas`), grupo (`periodista`, `defensor` o `ambos`), tipo, fecha, coordenadas, lugar, título, descripción, fuente, URL, verificación, ejemplo.
+Campos ya existentes: país (`MX`, `HN`, `CO`), persona, tema (`periodistas`), grupo (`periodista`, `defensor` o `ambos`), subtema (tipo de agresión), género, labor, tipo, fecha, coordenadas, lugar, título, descripción, fuente, URL, verificación, ejemplo.
+
+La columna `persona` lleva solo el nombre completo de la persona afectada, escrito siempre igual en todos sus eventos; varias personas van separadas por punto y coma. Sirve para registrar varios hechos contra la misma persona (una amenaza, después un ataque, después el asesinato) como eventos distintos y para detectar duplicados: la plantilla resalta en rojo los nombres repetidos y el script de carga avisa cuando un mismo nombre tiene dos asesinatos o dos desapariciones. Se deja vacía en informes, cifras, colectivos sin nombre y en agresiones a personas vivas que no se nombran por criterio de cuidado.
 
 Vocabulario cerrado para `tipo`, para que después se pueda contar por categoría:
 
