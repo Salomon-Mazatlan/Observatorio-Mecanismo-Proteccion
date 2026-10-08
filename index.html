@@ -10,14 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
-  <link rel="stylesheet" href="css/estilos.css?v=2026-10-25b">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-10-27">
 </head>
 <body>
 
 <a class="salto" href="#mapa">Ir al mapa</a>
 
 <header class="barra">
-  <div class="barra__fila barra__fila--principal">
     <div class="barra__marca">
       <span class="marca" aria-hidden="true"></span>
       <div>
@@ -25,6 +24,11 @@
         <p class="barra__autor">Lorenzo Salomón Cárdenas, 2026</p>
       </div>
     </div>
+    <div class="barra__movil">
+      <button type="button" class="boton boton--movil" id="abrir-filtros" aria-controls="panel" aria-expanded="false" title="Filtros"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path d="M2 3h12l-4.6 5.4V13l-2.8-1.4V8.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Filtros</span><b class="boton__insignia" id="filtros-activos" hidden></b></button>
+      <button type="button" class="boton boton--movil" id="abrir-menu" aria-controls="barra-menu" aria-expanded="false" title="Opciones del mapa"><svg viewBox="0 0 16 16" width="17" height="17" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Opciones</span></button>
+    </div>
+    <div class="barra__menu" id="barra-menu">
     <div class="barra__derecha">
       <div class="grupo" role="group" aria-label="País">
         <span class="grupo__etiqueta">País</span>
@@ -46,7 +50,6 @@
       <button type="button" class="boton boton--principal" id="exportar"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportar PNG</button>
       <button type="button" class="boton boton--icono" id="ayuda" title="Cómo usar el mapa" aria-label="Cómo usar el mapa">?</button>
     </div>
-  </div>
 
   <div class="barra__fila barra__fila--herramientas">
     <div class="grupo grupo--indicador">
@@ -82,9 +85,16 @@
     </div>
 
   </div>
+  </div>
 </header>
 
-<aside class="panel" id="panel">
+<div class="velo" id="velo" hidden></div>
+
+<aside class="panel" id="panel" aria-label="Filtros">
+  <div class="panel__cab-movil">
+    <h2 class="panel__titulo-movil">Filtros</h2>
+    <button type="button" class="ventana__cerrar" id="cerrar-filtros" aria-label="Cerrar los filtros">×</button>
+  </div>
   <section class="bloque" id="bloque-temas">
     <h2 class="bloque__titulo">Temas</h2>
     <nav class="temas" id="temas" aria-label="Temas"></nav>
@@ -145,6 +155,7 @@
     <p><button type="button" class="enlace" id="abrir-comparativo">Comparativo legal</button>. <button type="button" class="enlace" id="abrir-informes">Informes y cifras</button>. <button type="button" class="enlace" data-doc="docs/comparativo_definiciones.md" data-titulo="Definiciones de periodista y persona defensora">Definiciones</button></p>
     <p><button type="button" class="enlace" data-doc="docs/indicadores.md" data-titulo="Ficha de indicadores">Ficha de indicadores</button>. <button type="button" class="enlace" data-doc="README.md" data-titulo="Cómo colaborar">Cómo colaborar</button></p>
   </footer>
+  <div class="panel__ver-mapa"><button type="button" class="boton boton--principal" id="ver-mapa">Ver el mapa <small id="ver-mapa-conteo"></small></button></div>
 </aside>
 
 <main class="mapa-area">
@@ -168,9 +179,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
 <script src="js/lib/leaflet-heat.js"></script>
-<script src="js/config.js?v=2026-10-25b"></script>
-<script src="js/exportar.js?v=2026-10-25b"></script>
-<script src="js/graficas.js?v=2026-10-25b"></script>
-<script src="js/app.js?v=2026-10-25b"></script>
+<script src="js/config.js?v=2026-10-27"></script>
+<script src="js/exportar.js?v=2026-10-27"></script>
+<script src="js/graficas.js?v=2026-10-27"></script>
+<script src="js/app.js?v=2026-10-27"></script>
 </body>
 </html>
