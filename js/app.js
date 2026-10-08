@@ -24,10 +24,17 @@
   };
 
   const pila = [];          // window navigation stack (see navegar)
-  let clicEnCapa = false;
+  let cerrarMenusMovil = () => {};   // replaced once the phone controls are built
+  let clicEnCapa = false;   // set by layer clicks so the map click handler does not close the window
   let resumenPlegado = false;
-  try { resumenPlegado = localStorage.getItem("observatorio_resumen_plegado") === "1"; } catch (e) { /* storage unavailable */ }   // set by layer clicks so the map click handler does not close the window
-  const mapa = L.map("mapa", { zoomControl: false });
+  // Phones start with the summary folded so the map keeps the space; a saved choice wins
+  const esMovil = () => window.matchMedia("(max-width: 1024px)").matches;
+  try {
+    const guardado = localStorage.getItem("observatorio_resumen_plegado");
+    resumenPlegado = guardado === null ? esMovil() : guardado === "1";
+  } catch (e) { resumenPlegado = esMovil(); }
+  // Phones fit each country or state more tightly with quarter zoom steps
+  const mapa = L.map("mapa", { zoomControl: false, zoomSnap: esMovil() ? 0.25 : 1 });
   L.control.zoom({ position: "bottomright" }).addTo(mapa);
   // CARTO tiles need a key since Aug 2026; fall back to plain OSM without one.
   // With a key there is also a no-labels style, used automatically under thematic maps.
@@ -81,7 +88,9 @@
   iniciarFiltros();
   await cambiarMapa("mexico");
   try {
-    if (!localStorage.getItem("observatorio_guia_vista")) { navegar(mostrarGuia, true); localStorage.setItem("observatorio_guia_vista", "1"); }
+    let guiaVista = false;
+    try { guiaVista = !!localStorage.getItem("observatorio_guia_vista"); localStorage.setItem("observatorio_guia_vista", "1"); } catch (e) { /* storage unavailable */ }
+    if (!guiaVista) navegar(mostrarGuia, true);
   } catch (e) { /* storage unavailable */ }
   // Population files load after the first render; the detail window uses them when ready
   ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json", "datos/poblacion/censos_co.json"].forEach(r =>
@@ -262,6 +271,70 @@
       desde.value = ""; hasta.value = ""; estado.desde = estado.hasta = null; dibujar();
     });
     document.getElementById("exportar").addEventListener("click", exportarPNG);
+    construirControlesMovil();
+    // Touch screens have no hover: tapping a coded cell shows its note inside the cell
+    document.getElementById("ventana-cuerpo").addEventListener("click", e => {
+      const celda = e.target.closest("td.cmp[title]");
+      if (!celda || e.target.closest("button, a") || !celda.title) return;
+      const previa = celda.querySelector(".cmp__nota");
+      if (previa) { previa.remove(); return; }
+      const n = document.createElement("span"); n.className = "cmp__nota"; n.textContent = celda.title;
+      celda.appendChild(n);
+    });
+  }
+
+  // ---------- phone layout: filters drawer and options menu ----------
+
+  function construirControlesMovil() {
+    const barra = document.querySelector(".barra"), velo = document.getElementById("velo");
+    const btnMenu = document.getElementById("abrir-menu"), btnFiltros = document.getElementById("abrir-filtros");
+    const abrirMenu = abrir => {
+      barra.classList.toggle("barra--abierta", abrir);
+      btnMenu.setAttribute("aria-expanded", String(abrir));
+      if (abrir) abrirFiltros(false);
+      velo.hidden = !abrir && !document.body.classList.contains("filtros-abiertos");
+    };
+    const abrirFiltros = abrir => {
+      document.body.classList.toggle("filtros-abiertos", abrir);
+      btnFiltros.setAttribute("aria-expanded", String(abrir));
+      if (abrir) { barra.classList.remove("barra--abierta"); btnMenu.setAttribute("aria-expanded", "false"); }
+      velo.hidden = !abrir && !barra.classList.contains("barra--abierta");
+    };
+    cerrarMenusMovil = () => { abrirMenu(false); abrirFiltros(false); };
+    btnMenu.addEventListener("click", () => abrirMenu(!barra.classList.contains("barra--abierta")));
+    btnFiltros.addEventListener("click", () => abrirFiltros(!document.body.classList.contains("filtros-abiertos")));
+    ["cerrar-filtros", "ver-mapa"].forEach(id => document.getElementById(id).addEventListener("click", () => abrirFiltros(false)));
+    velo.addEventListener("click", cerrarMenusMovil);
+    document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarMenusMovil(); });
+    // Buttons that open a window or a download close the menus so the result is in view
+    document.querySelectorAll("#graficas, #exportar, #ayuda, .panel .enlace[data-doc], #abrir-comparativo, #abrir-informes")
+      .forEach(b => b.addEventListener("click", () => { if (esMovil()) cerrarMenusMovil(); }));
+    // Choosing a country, a map or a state is a navigation step: show the map right away
+    document.querySelectorAll("#sel-pais button, #sel-mapa button").forEach(b =>
+      b.addEventListener("click", () => { if (esMovil()) cerrarMenusMovil(); }));
+    document.getElementById("sel-estado").addEventListener("change", () => { if (esMovil()) cerrarMenusMovil(); });
+    // Back on a wide screen nothing stays open
+    window.matchMedia("(max-width: 1024px)").addEventListener("change", e => { if (!e.matches) cerrarMenusMovil(); mapa.invalidateSize(); });
+  }
+  // On phones the detail sheet covers the lower part of the map: slide the tapped place into the strip still visible
+  function asomarSobreHoja(latlng) {
+    if (!latlng || !esMovil()) return;
+    const v = document.getElementById("ventana");
+    if (v.hidden || getComputedStyle(v).bottom !== "0px") return;
+    const libre = v.getBoundingClientRect().top - mapa.getContainer().getBoundingClientRect().top;
+    if (libre < 60) return;
+    const p = mapa.latLngToContainerPoint(latlng);
+    mapa.panBy([0, p.y - libre / 2], { animate: true });
+  }
+
+  // Number of filters that differ from the default, shown on the phone "Filtros" button
+  function actualizarInsigniaFiltros() {
+    const n = ["grupo", "subtema", "genero", "labor"].filter(k => estado[k] !== "todos").length
+      + (estado.texto ? 1 : 0) + (estado.verifActivas.size < CONFIG.verificacion.length ? 1 : 0);
+    const b = document.getElementById("filtros-activos");
+    b.hidden = n === 0; b.textContent = n;
+    const c = document.getElementById("ver-mapa-conteo");
+    if (c) c.textContent = hayEventosDibujados() ? `(${estado.eventos.filter(eventoVisible).length} eventos)` : "";
   }
 
   async function exportarPNG() {
@@ -346,7 +419,7 @@
           <li><strong>Haz clic en el mapa.</strong> Una entidad, un municipio o un marcador abre una ventana con su detalle: indicadores, población, la lista de eventos (cada uno se despliega con el signo +), los indicadores y la población en una pestaña, y el marco legal con el comparativo de su ley con la Ley Federal de México en otra. La flecha "←" regresa a la vista anterior y un clic en el mapa cierra la ventana. Desde la ventana de una entidad puedes bajar a sus municipios y volver con "← México".</li>
           <li><strong>Lleva contigo lo que veas.</strong> "Exportar PNG" descarga la vista con leyenda y créditos; "Gráficas y datos" abre la línea de tiempo, las gráficas del indicador, las series nacionales y la descarga en CSV o JSON.</li>
         </ol>
-        <p class="nota">Puedes volver a esta guía con el botón "?" de la barra superior.</p>
+        <p class="nota">En el celular, los filtros se abren con el botón "Filtros" y el resto de los controles (país, indicador, capas, periodo, gráficas y exportación) con "Opciones". Puedes volver a esta guía con el botón "?" que está en "Opciones" o en la barra superior.</p>
       </div>`);
   }
 
@@ -428,7 +501,7 @@
     const fichas = cmp.instrumentos.map(i => `<li><strong>${i.corto}.</strong> ${i.nombre}. ${i.publicacion}; última reforma ${i.ultima_reforma}. ${i.organo}.${i.url ? ` <a href="${i.url}" target="_blank" rel="noopener">Texto</a>` : ""}</li>`).join("");
     const selector = global ? `<div class="cmp__selector"><span class="grupo__etiqueta">Comparar con la Ley Federal de México:</span>${todos.instrumentos.filter(i => i.id !== "federal").map(i => `<label class="grupo__casilla"><input type="checkbox" data-inst="${i.id}" ${cmp.instrumentos.some(x => x.id === i.id) ? "checked" : ""}> ${i.corto}</label>`).join("")}</div>` : "";
     document.getElementById("ventana-cuerpo").innerHTML = selector + `
-      <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda para ver la nota; el signo + despliega los subindicadores y "Ver detalles" abre los artículos citados y la reflexión.</p>
+      <p class="nota">${cmp.descripcion} Codificación del ${cmp.fecha_codificacion}. Pase el cursor sobre una celda, o tóquela en el celular, para ver la nota; el signo + despliega los subindicadores y "Ver detalles" abre los artículos citados y la reflexión.</p>
       <div class="cmp__tabla-envoltura"><table class="cmp__tabla">
         <thead><tr><th>Indicador</th>${cabecera}</tr></thead>
         <tbody>${filas}</tbody>
@@ -813,6 +886,7 @@
     if (conEventos) dibujarEventos();
     dibujarCalor();
     dibujarEtiquetas();
+    actualizarInsigniaFiltros();
     const ml = document.getElementById("mapa-leyenda");
     const vis = conEventos ? estado.eventos.filter(eventoVisible) : [];
     const filasEv = [];
@@ -1089,11 +1163,11 @@
       n++;
       const color = colorEvento(e);
       const m = L.circleMarker(posicion(e), {
-        radius: 7, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: 0.9,
+        radius: esMovil() ? 8 : 7, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: 0.9,
         dashArray: e.ejemplo ? "2 2" : null
       });
       m.bindTooltip(e.titulo, { direction: "top", offset: [0, -6] });
-      m.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetalleEvento(e), true); });
+      m.on("click", ev => { clicEnCapa = true; navegar(() => mostrarDetalleEvento(e), true); asomarSobreHoja(ev.latlng); });
       capaEventos.addLayer(m);
     });
     document.getElementById("conteo").textContent =
@@ -1229,7 +1303,7 @@
           m = L.circleMarker(c, { radius: r, color, weight: 1, fillColor: color, fillOpacity: 0.35, dashArray: d.ejemplo ? "3 3" : null });
           m.bindTooltip(etiquetaValor(f.properties.nombre, d, def.unidad));
         }
-        m.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(f.properties), true); });
+        m.on("click", ev => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(f.properties), true); asomarSobreHoja(ev.latlng); });
         capaCirculos.addLayer(m);
       });
       if (esConteo) {
@@ -1399,7 +1473,7 @@
       layer.bindTooltip(d ? etiquetaValor(feature.properties.nombre, d, def.unidad) : `<strong>${feature.properties.nombre}</strong><br>sin dato`, { sticky: true }).openTooltip();
     });
     layer.on("mouseout", () => capaPoligonos.resetStyle(layer));
-    layer.on("click", () => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(feature.properties), true); });
+    layer.on("click", ev => { clicEnCapa = true; navegar(() => mostrarDetallePoligono(feature.properties), true); asomarSobreHoja(ev.latlng); });
   }
 
   function etiquetaValor(nombre, d, unidad) {
