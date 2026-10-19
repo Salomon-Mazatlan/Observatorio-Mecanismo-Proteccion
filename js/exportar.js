@@ -39,7 +39,7 @@ const Exportar = (() => {
     dibujarTiles(ctx, mapa);
     // Leaflet's default is "overlayPane"; custom panes keep their own name
     const paneDe = l => ((l.options && l.options.pane) || "overlay").replace(/Pane$/, "");
-    const orden = ["poligonos", "calor", "overlay", "marker", "etiquetas"];
+    const orden = ["poligonos", "hex", "calor", "overlay", "marker", "etiquetas"];
     orden.forEach(pane => {
       capas.forEach(g => g.eachLayer(l => { if (paneDe(l) === pane) dibujarGrupoOVector(ctx, mapa, l); }));
       if (pane === "calor") dibujarLienzos(ctx, mapa);
@@ -129,7 +129,7 @@ const Exportar = (() => {
     const o = l.options;
     if (o.etiqueta) {
       const p = mapa.latLngToContainerPoint(l.getLatLng());
-      ctx.font = `500 11px ${SANS}`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.font = `${o.abreviada ? 700 : 500} 11px ${SANS}`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
       ctx.lineWidth = 3; ctx.strokeStyle = "rgba(255,255,255,0.9)"; ctx.lineJoin = "round";
       ctx.strokeText(o.etiqueta, p.x, p.y);
       ctx.fillStyle = "#1f2a37"; ctx.fillText(o.etiqueta, p.x, p.y);

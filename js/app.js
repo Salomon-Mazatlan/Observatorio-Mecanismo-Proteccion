@@ -51,7 +51,8 @@
   capasBase.normal.addTo(mapa);
 
   function actualizarMapaBase() {
-    const mostrar = document.getElementById("mapa-base").checked;
+    // The hexagon mosaic pulls states apart, so tiles underneath would no longer line up
+    const mostrar = document.getElementById("mapa-base").checked && !hexActivo();
     const tematico = estado.indicador !== "" && !!capasBase.sinRotulos;
     Object.values(capasBase).forEach(c => mapa.removeLayer(c));
     if (mostrar) (tematico ? capasBase.sinRotulos : capasBase.normal).addTo(mapa);
@@ -62,10 +63,12 @@
   mapa.getPane("etiquetas").style.pointerEvents = "none";
   // Polygons live in their own pane so bringing one to the front never covers the markers
   mapa.createPane("poligonos").style.zIndex = 380;
+  mapa.createPane("hex").style.zIndex = 385;
   mapa.createPane("calor").style.zIndex = 390;
   const capaPoligonos = L.geoJSON(null, { style: estiloNeutro, onEachFeature: alPoligono, pane: "poligonos" }).addTo(mapa);
   let capaCalor = null;
   const capaBaseCalor = L.layerGroup().addTo(mapa);   // cold fill under the heat map
+  const capaHex = L.layerGroup().addTo(mapa);         // hexagon mosaic of event density
   const capaEtiquetas = L.layerGroup().addTo(mapa);
   const capaCirculos = L.layerGroup().addTo(mapa);
   const capaEventos = L.layerGroup().addTo(mapa);
@@ -231,7 +234,11 @@
     clases.value = String(estado.clases);
     clases.addEventListener("change", () => { estado.clases = +clases.value; dibujar(); });
     document.getElementById("nombres").addEventListener("change", dibujar);
-    document.getElementById("calor").addEventListener("change", dibujar);
+    document.getElementById("abreviar").addEventListener("change", dibujar);
+    // Heatmap and hexagons are two readings of the same density: only one at a time
+    document.getElementById("calor").addEventListener("change", e => { if (e.target.checked) document.getElementById("hexagonos").checked = false; dibujar(); });
+    // Turning the mosaic on or off changes the extent (the pieces spread out), so the view refits
+    document.getElementById("hexagonos").addEventListener("change", e => { if (e.target.checked) document.getElementById("calor").checked = false; dibujar(); centrarMapa(); });
     const btnEstilo = document.getElementById("abrir-estilo"), panelEstilo = document.getElementById("panel-estilo");
     btnEstilo.addEventListener("click", () => {
       const abierto = !panelEstilo.hidden;
@@ -334,35 +341,42 @@
     const b = document.getElementById("filtros-activos");
     b.hidden = n === 0; b.textContent = n;
     const c = document.getElementById("ver-mapa-conteo");
-    if (c) c.textContent = hayEventosDibujados() ? `(${estado.eventos.filter(eventoVisible).length} eventos)` : "";
+    if (c) c.textContent = hayEventosEnMapa() ? `(${estado.eventos.filter(eventoVisible).length} eventos)` : "";
   }
 
   async function exportarPNG() {
     const btn = document.getElementById("exportar");
+    const contenido = btn.innerHTML;   // keeps the icon for when the export ends
     btn.disabled = true; btn.textContent = "Generando...";
     try {
-      const blob = await Exportar.png(mapa, [capaBaseCalor, capaPoligonos, capaCirculos, capaEventos, capaEtiquetas], infoExportacion());
-      Exportar.descargar(blob, `observatorio_${estado.mapaId}_${estado.indicador || "eventos"}_${new Date().toISOString().slice(0, 10)}.png`);
+      const capas = [capaBaseCalor, capaPoligonos, capaHex, capaCirculos, capaEventos, capaEtiquetas].filter(c => mapa.hasLayer(c));
+      const blob = await Exportar.png(mapa, capas, infoExportacion());
+      Exportar.descargar(blob, `observatorio_${estado.mapaId}_${hexActivo() ? "hexagonos" : estado.indicador || "eventos"}_${new Date().toISOString().slice(0, 10)}.png`);
     } catch (e) {
       alert("No se pudo exportar la imagen. Si el mapa base no permite copiar sus mosaicos, prueba con otro proveedor de mapa base.\n" + e.message);
     } finally {
-      btn.disabled = false; btn.textContent = "Exportar PNG";
+      btn.disabled = false; btn.innerHTML = contenido;
     }
   }
 
   // Title, subtitle, legend and credits for the exported image
   function infoExportacion() {
     const m = mapaActual();
-    const tematico = estado.indicador !== "";
+    const tematico = estado.indicador !== "" && !hexActivo();
     const def = !tematico ? null : estado.indicador === "_eventos"
       ? { nombre: "Eventos registrados", unidad: "eventos", fuente: null }
       : estado.indicadores.definiciones.find(d => d.id === estado.indicador);
-    const titulo = tematico ? def.nombre : "Eventos registrados";
+    const hex = hexActivo() ? estado.hex : null;
+    const titulo = hex ? "Densidad de eventos registrados" : tematico ? def.nombre : "Eventos registrados";
     const nivel = m.nivel === "municipio" ? "por municipio" : "por entidad";
-    const subtitulo = `${m.nombre}, ${tematico ? nivel : "eventos georreferenciados"}${tematico && hayEventosDibujados() ? " y eventos" : ""}. Periodo ${textoPeriodo()}.`;
+    const subtitulo = hex
+      ? `${m.nombre}, hexágonos de unos ${hex.ladoKm} km de lado${hex.separadas ? `, ${CONFIG.paises[estado.pais].unidad === "estado" ? "estados" : "departamentos"} separados` : ""}. Periodo ${textoPeriodo()}.`
+      : `${m.nombre}, ${tematico ? nivel : "eventos georreferenciados"}${tematico && hayEventosDibujados() ? " y eventos" : ""}. Periodo ${textoPeriodo()}.`;
     let leyenda, leyendaTitulo;
     const recorte = recorteExportacion();
-    if (tematico && !hayEventosDibujados()) {
+    if (hex) {
+      leyenda = hex.leyenda; leyendaTitulo = "Eventos por hexágono";
+    } else if (tematico && !hayEventosDibujados()) {
       leyenda = estado.leyendaExport; leyendaTitulo = def.unidad || "";
     } else {
       leyendaTitulo = tematico ? `${def.unidad || ""} y eventos` : "Eventos";
@@ -378,7 +392,7 @@
     // Every source behind what is drawn: indicator source plus the sources of visible events
     const fuentesIds = new Set();
     if (def && def.fuente) fuentesIds.add(def.fuente);
-    const hayEventos = hayEventosDibujados() || estado.indicador === "_eventos";
+    const hayEventos = hayEventosEnMapa() || estado.indicador === "_eventos";
     if (hayEventos) estado.eventos.filter(eventoVisible).forEach(e => fuentesIds.add(e.fuente));
     const fuentesTxt = [...fuentesIds].map(id => {
       const f = estado.fuentes.find(x => x.id === id);
@@ -393,7 +407,7 @@
     const limites = CONFIG.paises[estado.pais].limites || "Marco Geoestadístico INEGI 2022";
     const pie = [
       fuentesTxt.length ? "Fuentes: " + fuentesTxt.join("; ") + "." : "Fuentes: sin registros en la vista actual.",
-      `Límites: ${limites}. Mapa base: © OpenStreetMap contributors${CONFIG.cartoKey ? ", © CARTO" : ""}. Los datos marcados como ejemplo no describen hechos reales.`,
+      `Límites: ${limites}.${hexActivo() || !document.getElementById("mapa-base").checked ? "" : ` Mapa base: © OpenStreetMap contributors${CONFIG.cartoKey ? ", © CARTO" : ""}.`} Los datos marcados como ejemplo no describen hechos reales.`,
       "",
       `Cómo citar: ${autor} (${hoy.getFullYear()}). ${titulo}, ${m.nombre} [Mapa].${sede} Generado el ${fechaLarga} en ${urlSitio}`
     ];
@@ -412,7 +426,7 @@
     abrirVentana("Cómo usar el mapa", `
       <div class="guia">
         <ol>
-          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Heatmap" (mapa de calor con la densidad de eventos), "Nombres" y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
+          <li><strong>Elige qué ver.</strong> Con el selector "Indicador" el mapa se colorea por entidad o municipio; con "Ninguno" solo se ven los eventos. Los interruptores "Eventos", "Heatmap" (mapa de calor con la densidad de eventos), "Hexágonos" (la misma densidad en hexágonos iguales, con cada estado separado), "Nombres", "Abreviar" (claves oficiales como SIN o CMX en lugar del nombre, en el mapa nacional) y "Mapa base" encienden o apagan cada capa, y "Colores y clases" cambia la forma (colores o círculos), la gama y el cálculo de clases.</li>
           <li><strong>Filtra.</strong> En el panel izquierdo eliges grupo (periodistas o personas defensoras), tipo de agresión, labor y género; "Más filtros" guarda la búsqueda por texto y el nivel de verificación. "Restablecer filtros" vuelve al inicio.</li>
           <li><strong>Acota el periodo.</strong> Los dos campos de mes filtran eventos e indicadores; "Todo" vuelve a mostrar todo lo disponible.</li>
           <li><strong>Elige el país.</strong> El selector "País" cambia entre México (por estado), Honduras y Colombia (por departamento). En Honduras y Colombia la norma es nacional, así que el marco legal de cada departamento lleva al comparativo de esa norma con la Ley Federal de México.</li>
@@ -665,6 +679,7 @@
     // Thematic view never stays empty after a map change
     construirSubtemas();
     dibujar();
+    if (hexActivo()) centrarMapa();
   }
 
   // ---------- sidebar builders ----------
@@ -874,17 +889,26 @@
   function dibujar() {
     capaEventos.clearLayers();
     capaCirculos.clearLayers();
-    const conIndicador = estado.indicador !== "";
+    const hex = hexActivo();
+    const conIndicador = estado.indicador !== "" && !hex;
     const conEventos = hayEventosDibujados();
     // Filters only matter when events are drawn or counted
-    document.getElementById("bloque-filtros").hidden = !conEventos && estado.indicador !== "_eventos";
+    document.getElementById("bloque-filtros").hidden = !hayEventosEnMapa() && estado.indicador !== "_eventos";
     document.getElementById("bloque-tematico").hidden = !conIndicador;
+    // The mosaic replaces the state fills; the polygons come back when it is turned off
+    if (hex && mapa.hasLayer(capaPoligonos)) mapa.removeLayer(capaPoligonos);
+    if (!hex && !mapa.hasLayer(capaPoligonos)) capaPoligonos.addTo(mapa);
+    ["mostrar-eventos", "mapa-base", "indicador", "abrir-estilo"].forEach(id => {
+      const el = document.getElementById(id); el.disabled = hex;
+      el.closest(".interruptor")?.classList.toggle("control--apagado", hex);
+    });
     const tp = textoPeriodo();
     document.getElementById("periodo-info").textContent =
       (estado.desde || estado.hasta || tp === "sin datos") ? "" : `(${tp})`;
     if (conIndicador) dibujarTematico(); else capaPoligonos.setStyle(estiloNeutro);
     if (conEventos) dibujarEventos();
     dibujarCalor();
+    dibujarHexagonos();
     dibujarEtiquetas();
     actualizarInsigniaFiltros();
     const ml = document.getElementById("mapa-leyenda");
@@ -892,7 +916,12 @@
     const filasEv = [];
     if (vis.some(e => e.tema === "periodistas" && e.grupo !== "defensor")) filasEv.push(`<div class="leyenda__fila"><span class="leyenda__punto" style="background:${CONFIG.temas.periodistas.color}"></span>Periodistas</div>`);
     if (vis.some(e => e.grupo === "defensor")) filasEv.push(`<div class="leyenda__fila"><span class="leyenda__punto" style="background:${CONFIG.grupos.defensor.color}"></span>Personas defensoras</div>`);
-    if (conIndicador || filasEv.length) {
+    if (hex && estado.hex) {
+      ml.hidden = false;
+      ml.innerHTML = `<h4>Eventos por hexágono</h4>` + estado.hex.leyenda.map(it =>
+        `<div class="leyenda__fila"><span class="leyenda__caja leyenda__caja--hex" style="background:${it.color}"></span>${it.texto}</div>`).join("")
+        + `<p class="mapa__leyenda-nota">Hexágonos de unos ${estado.hex.ladoKm} km de lado</p>`;
+    } else if (conIndicador || filasEv.length) {
       ml.hidden = false;
       ml.innerHTML = (conIndicador ? `<h4>${document.getElementById("tematico-titulo").textContent}</h4>` + document.getElementById("leyenda").innerHTML : "")
         + (filasEv.length ? `<h4 class="${conIndicador ? "leyenda__sep" : ""}">Eventos</h4>${filasEv.join("")}` : "");
@@ -905,7 +934,7 @@
   // Breakdown strip under the map: shares of the visible events by group, aggression type, field and gender
   function dibujarResumen() {
     const cont = document.getElementById("resumen");
-    const vis = hayEventosDibujados() ? estado.eventos.filter(eventoVisible) : [];
+    const vis = hayEventosEnMapa() ? estado.eventos.filter(eventoVisible) : [];
     if (!vis.length) { cont.hidden = true; return; }
     cont.hidden = false;
     // Small shares read "<1%" instead of a misleading 0%
@@ -940,17 +969,23 @@
     mapa.invalidateSize();
   }
 
+  // What is drawn: the moved pieces of the hexagon mosaic, or the polygons of the current map
+  function limitesVista() {
+    if (hexActivo() && estado.hex && estado.hexGeo) return estado.hexGeo.limites;
+    return capaPoligonos.getLayers().length ? capaPoligonos.getBounds() : null;
+  }
+
   // Fits the view to the polygons of the current map (country or state)
   function centrarMapa() {
-    if (!capaPoligonos.getLayers().length) return;
-    mapa.fitBounds(capaPoligonos.getBounds(), { padding: [10, 10] });
+    const b = limitesVista();
+    if (b) mapa.fitBounds(b, { padding: [10, 10] });
   }
 
   // Pixel rectangle around the drawn polygons, with a margin, for the PNG export
   function recorteExportacion() {
     const cont = mapa.getContainer(), cw = cont.clientWidth, ch = cont.clientHeight;
-    if (!capaPoligonos.getLayers().length) return { x: 0, y: 0, w: cw, h: ch };
-    const b = capaPoligonos.getBounds();
+    const b = limitesVista();
+    if (!b) return { x: 0, y: 0, w: cw, h: ch };
     const p1 = mapa.latLngToContainerPoint(b.getNorthWest()), p2 = mapa.latLngToContainerPoint(b.getSouthEast());
     const m = 28;
     const x = Math.max(0, Math.min(p1.x, p2.x) - m), y = Math.max(0, Math.min(p1.y, p2.y) - m);
@@ -1030,15 +1065,24 @@
 
   function dibujarEtiquetas() {
     capaEtiquetas.clearLayers();
-    if (!document.getElementById("nombres").checked) return;
+    // Abbreviations exist for states and departments only, so the switch rests on state maps
+    const conNombres = document.getElementById("nombres").checked;
+    const abrevCtl = document.getElementById("abreviar");
+    abrevCtl.disabled = !conNombres || !esNacional(estado.mapaId);
+    abrevCtl.closest(".interruptor").classList.toggle("control--apagado", abrevCtl.disabled);
+    const abreviar = abrevCtl.checked && !abrevCtl.disabled;
+    if (!conNombres) return;
     const feats = estado.geos[estado.mapaId].features;
     // Many municipalities: names only once the user zooms in two levels past the fitted view
     if (feats.length > CONFIG.maxEtiquetasSinZoom && mapa.getZoom() < (estado.zoomBase || 0) + CONFIG.zoomEtiquetas) return;
+    // Names follow the states when the mosaic pulls them apart
+    const movidas = hexActivo() && estado.hexGeo && estado.hexGeo.separadas && esNacional(estado.mapaId) ? estado.hexGeo.etiquetas : null;
     feats.forEach(f => {
-      const c = centroDe(f);
+      const c = (movidas && movidas[f.properties.cve_ent]) || centroDe(f);
+      const texto = (abreviar && CONFIG.abreviaturas[f.properties.cve_ent]) || f.properties.nombre;
       capaEtiquetas.addLayer(L.marker(c, {
-        pane: "etiquetas", interactive: false, etiqueta: f.properties.nombre,
-        icon: L.divIcon({ className: "etiqueta-poligono", html: `<span>${f.properties.nombre}</span>`, iconSize: [0, 0] })
+        pane: "etiquetas", interactive: false, etiqueta: texto, abreviada: abreviar,
+        icon: L.divIcon({ className: "etiqueta-poligono" + (abreviar ? " etiqueta-poligono--abrev" : ""), html: `<span title="${f.properties.nombre}">${texto}</span>`, iconSize: [0, 0] })
       }));
     });
   }
@@ -1077,6 +1121,220 @@
     ctx.restore();
   }
 
+
+  // ---------- hexagon mosaic ----------
+  // Equal hexagons inside each state (or the current state), coloured by the number of filtered
+  // events that fall in them; on country maps every state is shrunk towards its centre so they
+  // read as separate pieces. Geometry is cached per map; only the counts change with the filters.
+  const RAIZ3 = Math.sqrt(3);
+  const proyectar = c => L.CRS.EPSG3857.project(L.latLng(c[1], c[0]));
+  const desproyectar = p => L.CRS.EPSG3857.unproject(L.point(p.x, p.y));
+  const areaPuntos = r => { let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j].x + r[i].x) * (r[j].y - r[i].y); return a / 2; };
+
+  function verticesHex(cx, cy, R) {
+    const v = [];
+    for (let k = 0; k < 6; k++) { const a = Math.PI / 180 * (60 * k - 30); v.push({ x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) }); }
+    return v;
+  }
+
+  // Sutherland-Hodgman: clips any ring against a convex polygon (the hexagon)
+  function recortarAnillo(anillo, conv) {
+    let salida = anillo;
+    const sentido = -Math.sign(areaPuntos(conv));   // areaPuntos is negative for counter-clockwise rings
+    for (let i = 0; i < conv.length && salida.length; i++) {
+      const a = conv[i], b = conv[(i + 1) % conv.length];
+      const lado = p => sentido * ((b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x));
+      const entrada = salida; salida = [];
+      for (let j = 0; j < entrada.length; j++) {
+        const p = entrada[j], q = entrada[(j + 1) % entrada.length];
+        const lp = lado(p), lq = lado(q);
+        if (lp >= 0) salida.push(p);
+        if ((lp >= 0) !== (lq >= 0)) { const t = lp / (lp - lq); salida.push({ x: p.x + t * (q.x - p.x), y: p.y + t * (q.y - p.y) }); }
+      }
+    }
+    return salida;
+  }
+
+  // Axial coordinates of the hexagon that contains a point (pointy-top grid centred on o)
+  function celdaDe(p, o, R) {
+    const dx = p.x - o.x, dy = p.y - o.y;
+    let q = (RAIZ3 / 3 * dx - dy / 3) / R, r = (2 / 3 * dy) / R, z = -q - r;
+    let rq = Math.round(q), rr = Math.round(r); const rz = Math.round(z);
+    const eq = Math.abs(rq - q), er = Math.abs(rr - r), ez = Math.abs(rz - z);
+    if (eq > er && eq > ez) rq = -rr - rz; else if (er > ez) rr = -rq - rz;
+    return `${rq},${rr}`;
+  }
+
+  function geometriaHex() {
+    const nacional = esNacional(estado.mapaId);
+    const feats = nacional ? geoNacional().features : geoNacional().features.filter(f => f.properties.cve_ent === estado.mapaId);
+    const clave = `${estado.mapaId}|${feats.length}|v3`;
+    if (estado.hexGeo && estado.hexGeo.clave === clave) return estado.hexGeo;
+    const piezas = feats.map(f => {
+      const g = f.geometry, polys = g.type === "Polygon" ? [g.coordinates] : g.coordinates;
+      const anillos = polys.map(rings => rings.map(r => r.map(proyectar)));
+      const area = anillos.reduce((s, rings) => s + Math.abs(areaPuntos(rings[0])) - rings.slice(1).reduce((h, r) => h + Math.abs(areaPuntos(r)), 0), 0);
+      return { f, anillos, area, centro: L.CRS.EPSG3857.project(centroDe(f)) };
+    });
+    const areaTotal = piezas.reduce((s, p) => s + p.area, 0);
+    // Hexagon size from the whole area: about 240 cells for a country, 120 for a state
+    const R = Math.sqrt(areaTotal / (2.598 * (nacional ? 240 : 120)));
+    // Country maps: states drift away from the country centre (wider gaps between big states)
+    // and shrink a little around their own centre (a minimum gap between small neighbours)
+    const hueco = nacional ? 0.006 * Math.sqrt(areaTotal) : 0;
+    const DISPERSION = nacional ? 1.32 : 1;
+    const xsC = piezas.map(p => p.centro.x), ysC = piezas.map(p => p.centro.y);
+    const origen = { x: (Math.min(...xsC) + Math.max(...xsC)) / 2, y: (Math.min(...ysC) + Math.max(...ysC)) / 2 };
+    piezas.forEach(pz => {
+      const req = Math.sqrt(pz.area / Math.PI);
+      const s = hueco ? Math.min(0.97, Math.max(0.65, 1 - hueco / req)) : 1;
+      const c0 = pz.centro;
+      pz.escala = s;
+      pz.centroMovido = { x: origen.x + DISPERSION * (c0.x - origen.x), y: origen.y + DISPERSION * (c0.y - origen.y) };
+      pz.mover = p => ({ x: pz.centroMovido.x + pz.escala * (p.x - c0.x), y: pz.centroMovido.y + pz.escala * (p.y - c0.y) });
+    });
+    // Enclaves (Mexico City inside the State of Mexico) travel with the state around them and
+    // shrink a bit more, so they sit in its hole like an island instead of overlapping it
+    if (hueco) piezas.forEach(pz => {
+      const cLL = centroDe(pz.f), pt = [cLL.lng, cLL.lat];
+      const anfitrion = piezas.find(o => o !== pz && o.area > pz.area && (o.f.geometry.type === "Polygon" ? [o.f.geometry.coordinates] : o.f.geometry.coordinates).some(rings => enAnillo(pt, rings[0])));
+      if (!anfitrion) return;
+      pz.centroMovido = anfitrion.mover(pz.centro);
+      pz.escala = anfitrion.escala * 0.8;
+    });
+    const celdas = [];
+    piezas.forEach(pz => {
+      const c = pz.centroMovido;
+      pz.anillosMovidos = pz.anillos.map(rings => rings.map(r => r.map(pz.mover)));
+      const todos = pz.anillosMovidos.flatMap(rings => rings[0]);
+      const xs = todos.map(p => p.x), ys = todos.map(p => p.y);
+      const xmin = Math.min(...xs), xmax = Math.max(...xs), ymin = Math.min(...ys), ymax = Math.max(...ys);
+      const w = RAIZ3 * R, minArea = 0.04 * 2.598 * R * R;
+      pz.celdas = {};
+      const r0 = Math.floor((ymin - c.y) / (1.5 * R)) - 1, r1 = Math.ceil((ymax - c.y) / (1.5 * R)) + 1;
+      for (let r = r0; r <= r1; r++) {
+        const q0 = Math.floor((xmin - c.x) / w - r / 2) - 1, q1 = Math.ceil((xmax - c.x) / w - r / 2) + 1;
+        for (let q = q0; q <= q1; q++) {
+          const cx = c.x + w * (q + r / 2), cy = c.y + 1.5 * R * r;
+          if (cx + R < xmin || cx - R > xmax || cy + R < ymin || cy - R > ymax) continue;
+          const hexv = verticesHex(cx, cy, R);
+          const partes = []; let area = 0;
+          pz.anillosMovidos.forEach(rings => rings.forEach((ring, i) => {
+            const rc = recortarAnillo(ring, hexv);
+            if (rc.length < 3) return;
+            const a = Math.abs(areaPuntos(rc));
+            area += i === 0 ? a : -a; partes.push(rc);
+          }));
+          if (area < minArea) continue;
+          const celda = { id: `${q},${r}`, pieza: pz, centro: { x: cx, y: cy }, partes, n: 0, eventos: [] };
+          pz.celdas[celda.id] = celda; celdas.push(celda);
+        }
+      }
+      // Tiny states that no full cell reaches still get one: the hexagon on their centre
+      if (!Object.keys(pz.celdas).length) {
+        const partes = pz.anillosMovidos.flatMap(rings => rings.map(ring => recortarAnillo(ring, verticesHex(c.x, c.y, R)))).filter(rc => rc.length >= 3);
+        const celda = { id: "0,0", pieza: pz, centro: { x: c.x, y: c.y }, partes, n: 0, eventos: [] };
+        pz.celdas[celda.id] = celda; celdas.push(celda);
+      }
+    });
+    // Side length in km at the map centre (Mercator stretches distances by 1/cos(lat))
+    const latC = desproyectar(piezas[0].centro).lat;
+    const ladoKm = Math.round(R * Math.cos(latC * Math.PI / 180) / 1000);
+    // Extent of the moved pieces (to fit the view and crop the export) and where their names go
+    const todos = piezas.flatMap(pz => pz.anillosMovidos.flatMap(rings => rings[0]));
+    const limites = L.latLngBounds(desproyectar({ x: Math.min(...todos.map(p => p.x)), y: Math.min(...todos.map(p => p.y)) }),
+      desproyectar({ x: Math.max(...todos.map(p => p.x)), y: Math.max(...todos.map(p => p.y)) }));
+    const etiquetas = Object.fromEntries(piezas.map(pz => [pz.f.properties.cve_ent, desproyectar(pz.mover(pz.centro))]));
+    estado.hexGeo = { clave, piezas, celdas, R, ladoKm, separadas: hueco > 0, limites, etiquetas };
+    return estado.hexGeo;
+  }
+
+  function dibujarHexagonos() {
+    capaHex.clearLayers();
+    estado.hex = null;
+    if (!hexActivo() || !geoNacional()) return;
+    const geo = geometriaHex();
+    geo.celdas.forEach(c => { c.n = 0; c.eventos = []; });
+    // Each event goes to the state that contains it (or the nearest one), then to its cell
+    estado.eventos.filter(eventoVisible).forEach(e => {
+      const p = proyectar([e.lon, e.lat]);
+      let pz = geo.piezas.find(x => dentro([e.lon, e.lat], x.f.geometry));
+      if (!pz) pz = geo.piezas.reduce((a, b) => (Math.hypot(b.centro.x - p.x, b.centro.y - p.y) < Math.hypot(a.centro.x - p.x, a.centro.y - p.y) ? b : a));
+      const m = pz.mover(p);
+      let celda = pz.celdas[celdaDe(m, pz.centroMovido, geo.R)];
+      if (!celda) celda = Object.values(pz.celdas).reduce((a, b) => (Math.hypot(b.centro.x - m.x, b.centro.y - m.y) < Math.hypot(a.centro.x - m.x, a.centro.y - m.y) ? b : a));
+      celda.n++; celda.eventos.push(e);
+    });
+    // Classes: one per value when there are few, otherwise quintiles of the cells with events
+    const valores = [...new Set(geo.celdas.map(c => c.n).filter(n => n > 0))].sort((a, b) => a - b);
+    let cortes;
+    if (valores.length <= 5) cortes = valores;
+    else {
+      const todos = geo.celdas.map(c => c.n).filter(n => n > 0).sort((a, b) => a - b);
+      cortes = [...new Set([0.2, 0.4, 0.6, 0.8, 1].map(t => todos[Math.min(todos.length - 1, Math.ceil(t * todos.length) - 1)]))];
+    }
+    const RAMPA = ["#fde68a", "#fdba74", "#f97316", "#dc2626", "#7f1d1d"];
+    const colores = cortes.map((_, i) => RAMPA[cortes.length === 1 ? 4 : Math.round(i * 4 / (cortes.length - 1))]);
+    const FRIO = "#bfd3ec";
+    const colorDe = n => (n === 0 ? FRIO : colores[cortes.findIndex(c => n <= c)]);
+    const nacional = esNacional(estado.mapaId);
+    geo.celdas.forEach(c => {
+      const nombre = c.pieza.f.properties.nombre;
+      const pol = L.polygon(c.partes.map(r => r.map(desproyectar)), {
+        pane: "hex", color: "#ffffff", weight: 0.9, opacity: 1, fillColor: colorDe(c.n), fillOpacity: 1
+      });
+      pol.bindTooltip(`${nombre}. ${c.n === 1 ? "1 evento" : `${c.n} eventos`}`, { sticky: true, className: "tooltip-poligono" });
+      pol.on("mouseover", () => pol.setStyle({ weight: 2.2, color: "#0f172a" }));
+      pol.on("mouseout", () => pol.setStyle({ weight: 0.9, color: "#ffffff" }));
+      pol.on("click", ev => { clicEnCapa = true; navegar(() => mostrarHexagono(c), true); asomarSobreHoja(ev.latlng); });
+      capaHex.addLayer(pol);
+    });
+    // Municipal lines on a state map help to find places; outlines of each piece on top
+    if (!nacional) estado.geos[estado.mapaId].features.forEach(f => capaHex.addLayer(L.geoJSON(f, {
+      pane: "hex", interactive: false, style: { color: "#1e293b", weight: 0.5, opacity: 0.35, fill: false }
+    })));
+    geo.piezas.forEach(pz => capaHex.addLayer(L.polygon(pz.anillosMovidos.map(rings => rings.map(r => r.map(desproyectar))), {
+      pane: "hex", interactive: false, color: "#1e293b", weight: nacional ? 1.8 : 2.4, opacity: 1, fill: false
+    })));
+    let prev = 0;
+    const leyenda = cortes.map((c, i) => {
+      const txt = c === prev + 1 || c === prev ? fmt(c) : `${fmt(prev + 1)} a ${fmt(c)}`;
+      prev = c; return { forma: "caja", color: colores[i], texto: txt };
+    }).concat([{ forma: "caja", color: FRIO, texto: "Sin eventos" }]);
+    estado.hex = { leyenda, ladoKm: geo.ladoKm, separadas: geo.separadas };
+    const n = geo.celdas.reduce((t, c) => t + c.n, 0);
+    document.getElementById("conteo").textContent = (n === 1 ? "1 evento en el mapa" : `${n} eventos en el mapa`) + `, periodo ${textoPeriodo()}`;
+  }
+
+  // Window with the events of one hexagon
+  function mostrarHexagono(c) {
+    const p = c.pieza.f.properties;
+    const lista = [...c.eventos].sort((x, y) => y.fecha.localeCompare(x.fecha));
+    const fila = e => {
+      const f = estado.fuentes.find(x => x.id === e.fuente);
+      return `<li class="fila-ev"><div class="fila-ev__cab"><span class="fila-ev__titulo">${e.titulo}</span><button type="button" class="cmp__mas fila-ev__mas" aria-expanded="false" title="Ver detalle">+</button></div>
+        <small>${unir(formatoFecha(e.fecha), e.lugar)}</small>
+        <div class="fila-ev__detalle" hidden><p>${e.descripcion}</p><p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span> <span class="nota">Fuente: ${f ? f.nombre : e.fuente}</span></p>
+          <p>${e.url ? `<a href="${e.url}" target="_blank" rel="noopener">Ver fuente original</a>. ` : ""}<button type="button" class="enlace" data-ev="${e.id}">Abrir ficha</button></p></div></li>`;
+    };
+    const nacional = esNacional(estado.mapaId);
+    abrirVentana(nacional ? `Zona de ${p.nombre}` : `Zona de ${mapaActual().nombre}`, `
+      <p class="detalle__meta">${unir(lista.length === 1 ? "1 evento con los filtros actuales" : `${lista.length} eventos con los filtros actuales`, `hexágono de unos ${estado.hexGeo.ladoKm} km de lado`)}</p>
+      ${nacional ? `<p class="acciones"><button type="button" class="boton" id="hex-entidad">Ver detalle de ${p.nombre}</button></p>` : ""}
+      ${lista.length ? `<ul class="lista lista--eventos">${lista.map(fila).join("")}</ul>` : `<p class="nota">No hay eventos registrados en esta zona con los filtros actuales.</p>`}
+      <p class="nota">Los eventos con ubicación aproximada (cabecera municipal o capital) se cuentan en el lugar donde fueron registrados.</p>`);
+    const b = document.getElementById("hex-entidad");
+    if (b) b.addEventListener("click", () => navegar(() => mostrarDetallePoligono(p)));
+    document.querySelectorAll("#ventana-cuerpo [data-ev]").forEach(x => x.addEventListener("click", () => {
+      const e = estado.eventos.find(y => y.id === x.dataset.ev); if (e) navegar(() => mostrarDetalleEvento(e));
+    }));
+    document.querySelectorAll("#ventana-cuerpo .fila-ev__mas").forEach(x => x.addEventListener("click", () => {
+      const abierto = x.getAttribute("aria-expanded") === "true";
+      x.setAttribute("aria-expanded", String(!abierto)); x.textContent = abierto ? "+" : "–";
+      x.closest("li").querySelector(".fila-ev__detalle").hidden = abierto;
+    }));
+  }
+
   // Shares of women, men, LGBT+ people and other records among a set of events
   function partesGenero(eventos) {
     const total = eventos.length || 1;
@@ -1109,8 +1367,17 @@
     return e.grupo === "defensor" && CONFIG.grupos.defensor ? CONFIG.grupos.defensor.color : CONFIG.temas[e.tema].color;
   }
 
+  // Markers are drawn only with "Eventos" on and the hexagon mosaic off
   function hayEventosDibujados() {
-    return estado.eventosVisibles;
+    return estado.eventosVisibles && !hexActivo();
+  }
+  // Events shown in some form (markers or hexagons): drives filters, summary and sources
+  function hayEventosEnMapa() {
+    return hayEventosDibujados() || hexActivo();
+  }
+  function hexActivo() {
+    const c = document.getElementById("hexagonos");
+    return !!(c && c.checked);
   }
 
   function eventoVisible(e) {
@@ -1246,10 +1513,10 @@
   }
 
   function aniosCubiertos() {
-    const conEventos = hayEventosDibujados() || estado.indicador === "_eventos";
+    const conEventos = hayEventosEnMapa() || estado.indicador === "_eventos";
     const anios = [];
     if (conEventos) estado.eventos.filter(eventoVisible).forEach(e => anios.push(+e.fecha.slice(0, 4)));
-    if (estado.indicador && estado.indicador !== "_eventos") {
+    if (estado.indicador && estado.indicador !== "_eventos" && !hexActivo()) {
       const def = estado.indicadores.definiciones.find(d => d.id === estado.indicador);
       valoresDe(estado.indicador, mapaActual().nivel).filter(v => valorEnRango(v, def)).forEach(v => anios.push(+String(v.periodo).slice(0, 4)));
     }

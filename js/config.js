@@ -35,6 +35,19 @@ const CONFIG = {
           notaMarco: "Colombia no tiene una ley específica: el Programa de Prevención y Protección se rige por decreto (Decreto 4912 de 2011, compilado en el Decreto 1066 de 2015) y lo ejecuta la Unidad Nacional de Protección en todo el país." }
   },
   estadoInicial: "25",
+  // ISO 3166-2 abbreviations of states and departments, used when "Abreviar" is on (country maps only)
+  abreviaturas: {
+    "01": "AGU", "02": "BCN", "03": "BCS", "04": "CAM", "05": "COA", "06": "COL", "07": "CHP", "08": "CHH",
+    "09": "CMX", "10": "DUR", "11": "GUA", "12": "GRO", "13": "HID", "14": "JAL", "15": "MEX", "16": "MIC",
+    "17": "MOR", "18": "NAY", "19": "NLE", "20": "OAX", "21": "PUE", "22": "QUE", "23": "ROO", "24": "SLP",
+    "25": "SIN", "26": "SON", "27": "TAB", "28": "TAM", "29": "TLA", "30": "VER", "31": "YUC", "32": "ZAC",
+    HN01: "AT", HN02: "CL", HN03: "CM", HN04: "CP", HN05: "CR", HN06: "CH", HN07: "EP", HN08: "FM", HN09: "GD",
+    HN10: "IN", HN11: "IB", HN12: "LP", HN13: "LE", HN14: "OC", HN15: "OL", HN16: "SB", HN17: "VA", HN18: "YO",
+    CO05: "ANT", CO08: "ATL", CO11: "DC", CO13: "BOL", CO15: "BOY", CO17: "CAL", CO18: "CAQ", CO19: "CAU",
+    CO20: "CES", CO23: "COR", CO25: "CUN", CO27: "CHO", CO41: "HUI", CO44: "LAG", CO47: "MAG", CO50: "MET",
+    CO52: "NAR", CO54: "NSA", CO63: "QUI", CO66: "RIS", CO68: "SAN", CO70: "SUC", CO73: "TOL", CO76: "VAC",
+    CO81: "ARA", CO85: "CAS", CO86: "PUT", CO88: "SAP", CO91: "AMA", CO94: "GUA", CO95: "GUV", CO97: "VAU", CO99: "VID"
+  },
   // Municipal names show at any zoom for small states; large ones need zooming in (levels past the fitted view)
   maxEtiquetasSinZoom: 80,
   zoomEtiquetas: 2,

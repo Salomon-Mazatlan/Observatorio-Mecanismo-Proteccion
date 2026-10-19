@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
-  <link rel="stylesheet" href="css/estilos.css?v=2026-10-27">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-10-30">
 </head>
 <body>
 
@@ -72,7 +72,9 @@
       </div>
       <label class="interruptor" title="Mostrar u ocultar los marcadores de eventos"><input type="checkbox" id="mostrar-eventos" checked><span class="interruptor__pista"></span><span>Eventos</span></label>
       <label class="interruptor" title="Densidad de eventos como mapa de calor"><input type="checkbox" id="calor"><span class="interruptor__pista"></span><span>Heatmap</span></label>
+      <label class="interruptor" title="Densidad de eventos en hexágonos iguales, con cada estado separado"><input type="checkbox" id="hexagonos"><span class="interruptor__pista"></span><span>Hexágonos</span></label>
       <label class="interruptor" title="Nombres de entidades y municipios sobre el mapa"><input type="checkbox" id="nombres" checked><span class="interruptor__pista"></span><span>Nombres</span></label>
+      <label class="interruptor" title="Abreviaturas oficiales (ISO 3166-2) en lugar del nombre completo, en el mapa nacional"><input type="checkbox" id="abreviar"><span class="interruptor__pista"></span><span>Abreviar</span></label>
       <label class="interruptor" title="Mostrar u ocultar el mapa base con sus rótulos"><input type="checkbox" id="mapa-base" checked><span class="interruptor__pista"></span><span>Mapa base</span></label>
     </div>
 
@@ -179,9 +181,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
 <script src="js/lib/leaflet-heat.js"></script>
-<script src="js/config.js?v=2026-10-27"></script>
-<script src="js/exportar.js?v=2026-10-27"></script>
-<script src="js/graficas.js?v=2026-10-27"></script>
-<script src="js/app.js?v=2026-10-27"></script>
+<script src="js/config.js?v=2026-10-30"></script>
+<script src="js/exportar.js?v=2026-10-30"></script>
+<script src="js/graficas.js?v=2026-10-30"></script>
+<script src="js/app.js?v=2026-10-30"></script>
 </body>
 </html>
