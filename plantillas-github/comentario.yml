@@ -1,0 +1,31 @@
+name: Comentario o sugerencia
+description: Ideas, dudas sobre la metodología, problemas para usar el sitio o propuestas de indicadores.
+title: "[Comentario] "
+labels: ["comentario"]
+body:
+  - type: input
+    id: tema
+    attributes:
+      label: Sobre qué
+      description: Por ejemplo metodología, un indicador, el marco legal, el uso del mapa.
+    validations:
+      required: true
+  - type: textarea
+    id: comentario
+    attributes:
+      label: Comentario
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Vista del mapa
+      description: La agrega el formulario del sitio; puedes borrarla.
+      render: text
+  - type: checkboxes
+    id: confirmaciones
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: No incluyo datos personales que no sean públicos.
+          required: true

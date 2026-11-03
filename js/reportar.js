@@ -324,6 +324,8 @@ const Reportar = (() => {
     const armar = cs => {
       const p = new URLSearchParams({ template: TIPOS[borrador.tipo].plantilla, title: titulo() });
       cs.forEach(([k, val]) => { if (val) p.set(k, val); });
+      // Fallback body: GitHub ignores it when the issue form exists and shows it when the form is missing
+      p.set("body", cs.filter(([, val]) => val).map(([k, val]) => `### ${ETIQUETAS[k]}\n\n${val}`).join("\n\n"));
       return `https://github.com/${repo()}/issues/new?${p.toString()}`;
     };
     // Shorter and shorter free text, then without the map view, then without the Excel row

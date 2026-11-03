@@ -1,0 +1,97 @@
+name: Agregar una nota
+description: Una nota periodística o noticia sobre agresiones, asesinatos o desapariciones de periodistas o personas defensoras.
+title: "[Nota] "
+labels: ["nota"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Este registro es público. Solo se registran hechos ya publicados. No incluyas domicilios, teléfonos ni datos que permitan localizar a personas en riesgo.
+  - type: input
+    id: enlace
+    attributes:
+      label: Enlace a la nota
+    validations:
+      required: true
+  - type: input
+    id: titular
+    attributes:
+      label: Titular
+  - type: input
+    id: medio
+    attributes:
+      label: Medio
+  - type: input
+    id: fecha
+    attributes:
+      label: Fecha del hecho
+      description: AAAA-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: pais
+    attributes:
+      label: País
+    validations:
+      required: true
+  - type: input
+    id: lugar
+    attributes:
+      label: Lugar
+      description: Municipio y estado o departamento.
+  - type: input
+    id: grupo
+    attributes:
+      label: Grupo
+    validations:
+      required: true
+  - type: input
+    id: tipo
+    attributes:
+      label: Qué pasó
+    validations:
+      required: true
+  - type: input
+    id: persona
+    attributes:
+      label: Persona afectada
+      description: Solo si la nota la nombra y es una persona asesinada, desaparecida o que hizo público su caso.
+  - type: input
+    id: genero
+    attributes:
+      label: Género
+  - type: input
+    id: labor
+    attributes:
+      label: Labor de la persona defensora
+  - type: input
+    id: medidas
+    attributes:
+      label: Tenía medidas de protección
+  - type: input
+    id: autoria
+    attributes:
+      label: Presunta autoría
+  - type: input
+    id: verificacion
+    attributes:
+      label: Tipo de fuente
+  - type: textarea
+    id: resumen
+    attributes:
+      label: Resumen
+  - type: textarea
+    id: fila
+    attributes:
+      label: Fila para eventos.xlsx
+      description: La arma el formulario del sitio. Va separada por tabuladores y se pega en la columna B (pais) de una fila nueva; el id lo asigna el script.
+      render: text
+  - type: checkboxes
+    id: confirmaciones
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: La nota ya está publicada.
+          required: true
+        - label: No incluyo datos personales que no sean públicos.
+          required: true

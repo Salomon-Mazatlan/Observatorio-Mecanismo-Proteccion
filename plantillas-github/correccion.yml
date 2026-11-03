@@ -1,0 +1,49 @@
+name: Corregir un dato
+description: Un registro, cifra, fuente, ubicación o instrumento legal del mapa que está mal o desactualizado.
+title: "[Corrección] "
+labels: ["corrección"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Este reporte es público. No incluyas nombres, domicilios, teléfonos ni otros datos de personas que no hayan sido publicados por ellas mismas o por una fuente.
+  - type: input
+    id: registro
+    attributes:
+      label: Registro o dato
+      description: Identificador del evento (por ejemplo ev-009), indicador, entidad o municipio.
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qué está mal
+    validations:
+      required: true
+  - type: textarea
+    id: correccion
+    attributes:
+      label: Dato correcto
+      description: Cómo debería quedar, si lo sabes.
+  - type: input
+    id: fuente
+    attributes:
+      label: Fuente que respalda la corrección
+      description: Enlace a la nota, informe, comunicado o documento oficial. Si es un error de captura, escribe "error de captura".
+    validations:
+      required: true
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Vista del mapa
+      description: La agrega el formulario del sitio; puedes borrarla.
+      render: text
+  - type: checkboxes
+    id: confirmaciones
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: Revisé que no haya ya un reporte abierto sobre lo mismo.
+          required: true
+        - label: No incluyo datos personales que no sean públicos.
+          required: true
