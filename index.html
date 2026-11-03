@@ -10,7 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="">
-  <link rel="stylesheet" href="css/estilos.css?v=2026-10-30">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-03">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#b91c1c">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icono-192.png">
+  <link rel="apple-touch-icon" href="img/icono-192.png">
 </head>
 <body>
 
@@ -48,6 +52,7 @@
       </div>
       <button type="button" class="boton" id="graficas"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2 13h12M4 11V6M7.5 11V3M11 11V8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Gráficas y datos</button>
       <button type="button" class="boton boton--principal" id="exportar"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Exportar PNG</button>
+      <button type="button" class="boton" id="reportar" title="Agregar una nota periodística, corregir un dato o comentar"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 3v10M3 8h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Agregar nota</button>
       <button type="button" class="boton boton--icono" id="ayuda" title="Cómo usar el mapa" aria-label="Cómo usar el mapa">?</button>
     </div>
 
@@ -156,6 +161,7 @@
     <p>Los registros marcados como <em>ejemplo</em> son plantillas y no describen hechos reales.</p>
     <p><button type="button" class="enlace" id="abrir-comparativo">Comparativo legal</button>. <button type="button" class="enlace" id="abrir-informes">Informes y cifras</button>. <button type="button" class="enlace" data-doc="docs/comparativo_definiciones.md" data-titulo="Definiciones de periodista y persona defensora">Definiciones</button></p>
     <p><button type="button" class="enlace" data-doc="docs/indicadores.md" data-titulo="Ficha de indicadores">Ficha de indicadores</button>. <button type="button" class="enlace" data-doc="README.md" data-titulo="Cómo colaborar">Cómo colaborar</button></p>
+    <p><button type="button" class="enlace" id="abrir-reportar">Agregar una nota, corregir un dato o comentar</button></p>
   </footer>
   <div class="panel__ver-mapa"><button type="button" class="boton boton--principal" id="ver-mapa">Ver el mapa <small id="ver-mapa-conteo"></small></button></div>
 </aside>
@@ -181,9 +187,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin=""></script>
 <script src="js/lib/leaflet-heat.js"></script>
-<script src="js/config.js?v=2026-10-30"></script>
+<script src="js/config.js?v=2026-11-03"></script>
 <script src="js/exportar.js?v=2026-10-30"></script>
 <script src="js/graficas.js?v=2026-10-30"></script>
-<script src="js/app.js?v=2026-10-30"></script>
+<script src="js/reportar.js?v=2026-11-03"></script>
+<script src="js/app.js?v=2026-11-03"></script>
 </body>
 </html>

@@ -47,6 +47,9 @@ Es un sitio estático publicado con GitHub Pages. No requiere compilación ni se
 | `plantillas/comparativo_marco_legal.xlsx` | Plantilla del comparativo, una hoja por instrumento |
 | `herramientas/crear_plantilla_comparativo.py`, `actualizar_comparativo.py` | Plantilla y carga del comparativo |
 | `datos/series_nacionales.json` | Series nacionales del Mecanismo federal (beneficiarias vigentes, incorporaciones por año, asesinatos contabilizados) |
+| `js/reportar.js` | Formulario de notas, correcciones y comentarios (ver "Notas periodísticas, correcciones y comentarios") |
+| `.github/ISSUE_TEMPLATE/` | Formularios de GitHub para notas, correcciones y comentarios |
+| `manifest.webmanifest`, `sw.js`, `img/` | Instalación en el celular para compartir notas al formulario |
 | `docs/img/captura_mapa.png` | Captura de pantalla que aparece arriba |
 
 ## Caché del navegador
@@ -155,6 +158,25 @@ La casilla "Mapa base" oculta el mapa base completo (con sus rótulos de ciudade
 ## Exportar a PNG
 
 El botón "Exportar PNG" genera una imagen a doble resolución de la vista actual con título, subtítulo (mapa y periodo), leyenda, flecha de norte, barra de escala y créditos. No usa librerías externas; copia los mosaicos del mapa base desde la página y vuelve a dibujar polígonos y marcadores. El pie lista todas las fuentes activas en la vista (la del indicador y las de cada evento visible) y una línea "Cómo citar" con autor, año, título, fecha y dirección de la página. El autor (Salomón Cárdenas, L.) y la dirección (https://salomon-mazatlan.github.io/Observatorio-Mecanismo-Proteccion/) se configuran en `js/config.js` (`sitio`); la cita queda como "Salomón Cárdenas, L. (año). Título, lugar [Mapa]. En Observatorio de Protección a Periodistas y Personas Defensoras. Generado el ... en ...", y si la dirección se deja vacía se usa la de la página publicada. La línea de límites cambia según el país (INEGI, INE de Honduras o DANE). Para que el navegador permita copiar los mosaicos, el proveedor del mapa base debe aceptar CORS (OpenStreetMap y CARTO lo hacen). Si se cambia a otro proveedor y la exportación falla, esa es la causa.
+
+## Notas periodísticas, correcciones y comentarios
+
+El botón "Agregar nota" de la barra superior abre un formulario para registrar notas periodísticas o noticias desde cualquier dispositivo; el mismo formulario tiene pestañas para corregir un dato y para comentar (también se abre desde el pie del panel, y cada ficha de evento o de entidad tiene su enlace "Reportar un error"). El formulario no envía nada por sí mismo. Arma un issue de GitHub ya lleno y lo abre en otra pestaña, donde la persona lo revisa, marca las casillas finales y lo publica con su cuenta. Cada nota queda como issue con la etiqueta `nota` y de ahí se pasa a `plantillas/eventos.xlsx`. El sitio no guarda ninguna llave de escritura y cada registro queda con autor.
+
+Para la nota solo son obligatorios el enlace, la fecha del hecho, el país, el grupo y qué pasó; lo demás (titular, medio, persona, género, labor, medidas de protección, presunta autoría, tipo de fuente) es opcional. Si el enlace es de un medio u organización del catálogo, el medio y el tipo de fuente se llenan solos (la correspondencia está en `reportes.dominiosFuente` de `js/config.js`). El issue incluye la "Fila para eventos.xlsx", separada por tabuladores, que se copia y se pega en la columna B (`pais`) de una fila nueva; el id se deja vacío para que `actualizar_eventos.py` lo asigne. Conviene revisarla antes de cargar, sobre todo las coordenadas, que no se llenan.
+
+Lo escrito se guarda en el navegador hasta empezar otra nota, así que no se pierde si el celular recarga la página. Si el texto parece contener un correo o un teléfono, el formulario lo advierte antes de abrir GitHub. Quien no tenga cuenta puede usar "Enviar por correo" (a la dirección de `reportes.correo`) o "Copiar texto".
+
+Desde el celular hay dos caminos. En Android, con Chrome, se instala el sitio ("Instalar app" o "Agregar a la pantalla principal") y a partir de ahí aparece "Observatorio" al compartir una noticia; el formulario se abre con el enlace y el titular. En iPhone no existe esa opción, pero un acceso directo a `.../#nota` en la pantalla de inicio abre el formulario y el botón "Pegar" trae el enlace copiado.
+
+| Archivo | Contenido |
+|---|---|
+| `js/reportar.js` | Formulario, fila para Excel y armado de la dirección del issue |
+| `.github/ISSUE_TEMPLATE/nota.yml`, `correccion.yml`, `comentario.yml` | Formularios de GitHub; los `id` de cada campo coinciden con los del sitio |
+| `.github/ISSUE_TEMPLATE/config.yml` | Desactiva los issues en blanco y enlaza al formulario del sitio |
+| `manifest.webmanifest`, `sw.js`, `img/icono-*.png` | Permiten instalar el sitio en el celular y compartirle enlaces; `sw.js` no guarda nada en caché |
+
+Las direcciones `.../#nota` y `.../#reportar` abren el formulario directamente. Las etiquetas `nota`, `corrección` y `comentario` solo se aplican si existen en el repositorio (Issues > Labels).
 
 ## Pendientes
 
