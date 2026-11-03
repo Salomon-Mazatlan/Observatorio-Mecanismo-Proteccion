@@ -93,8 +93,12 @@
   try {
     let guiaVista = false;
     try { guiaVista = !!localStorage.getItem("observatorio_guia_vista"); localStorage.setItem("observatorio_guia_vista", "1"); } catch (e) { /* storage unavailable */ }
-    if (!guiaVista) navegar(mostrarGuia, true);
+    if (!guiaVista && !pideFormulario()) navegar(mostrarGuia, true);
   } catch (e) { /* storage unavailable */ }
+  abrirFormularioPedido();
+  window.addEventListener("hashchange", abrirFormularioPedido);
+  // Installing the site as an app lets phones share a news link straight into the note form (see manifest.webmanifest)
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
   // Population files load after the first render; the detail window uses them when ready
   ["datos/poblacion/censos.json", "datos/poblacion/conapo.json", "datos/poblacion/censos_hn.json", "datos/poblacion/censos_co.json"].forEach(r =>
     fresco(r).then(d => { estado.poblacion[r] = d; }).catch(() => {}));
@@ -252,6 +256,8 @@
     document.getElementById("volver-mexico").addEventListener("click", () => cambiarMapa(nacionalId()));
     document.getElementById("centrar").addEventListener("click", centrarMapa);
     document.getElementById("abrir-informes").addEventListener("click", () => navegar(mostrarInformes, true));
+    document.getElementById("reportar").addEventListener("click", () => abrirReporte({ tipo: "nota" }));
+    document.getElementById("abrir-reportar").addEventListener("click", () => abrirReporte());
     document.getElementById("resumen").addEventListener("click", alternarResumen);
     mapa.on("click", () => { if (clicEnCapa) { clicEnCapa = false; return; } cerrarVentana(); });
     mapa.on("zoomend", () => { dibujarEtiquetas(); if (hayEventosDibujados()) { capaEventos.clearLayers(); dibujarEventos(); } });
@@ -281,6 +287,8 @@
     construirControlesMovil();
     // Touch screens have no hover: tapping a coded cell shows its note inside the cell
     document.getElementById("ventana-cuerpo").addEventListener("click", e => {
+      const rep = e.target.closest("[data-reportar]");
+      if (rep) { abrirReporte({ tipo: rep.dataset.reportar, registro: rep.dataset.registro }, false); return; }
       const celda = e.target.closest("td.cmp[title]");
       if (!celda || e.target.closest("button, a") || !celda.title) return;
       const previa = celda.querySelector(".cmp__nota");
@@ -314,7 +322,7 @@
     velo.addEventListener("click", cerrarMenusMovil);
     document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarMenusMovil(); });
     // Buttons that open a window or a download close the menus so the result is in view
-    document.querySelectorAll("#graficas, #exportar, #ayuda, .panel .enlace[data-doc], #abrir-comparativo, #abrir-informes")
+    document.querySelectorAll("#graficas, #exportar, #ayuda, #reportar, .panel .enlace[data-doc], #abrir-comparativo, #abrir-informes, #abrir-reportar")
       .forEach(b => b.addEventListener("click", () => { if (esMovil()) cerrarMenusMovil(); }));
     // Choosing a country, a map or a state is a navigation step: show the map right away
     document.querySelectorAll("#sel-pais button, #sel-mapa button").forEach(b =>
@@ -435,6 +443,50 @@
         </ol>
         <p class="nota">En el celular, los filtros se abren con el botón "Filtros" y el resto de los controles (país, indicador, capas, periodo, gráficas y exportación) con "Opciones". Puedes volver a esta guía con el botón "?" que está en "Opciones" o en la barra superior.</p>
       </div>`);
+  }
+
+  // raiz false keeps the back arrow to the record the report came from
+  function abrirReporte(opciones = {}, raiz = true) {
+    navegar(() => Reportar.abrir({ abrirVentana, vista: contextoReporte, pais: estado.pais, fuentes: estado.fuentes }, opciones), raiz);
+  }
+
+  // ...#nota or #reportar, or the parameters a phone sends when sharing a link to the installed site
+  function pideFormulario() {
+    const q = new URLSearchParams(location.search);
+    return ["#nota", "#reportar"].includes(location.hash) || ["enlace", "texto", "titulo"].some(k => q.has(k));
+  }
+  function abrirFormularioPedido() {
+    if (!pideFormulario()) return;
+    const q = new URLSearchParams(location.search);
+    const enlace = Reportar.extraerEnlace([q.get("enlace"), q.get("texto"), q.get("titulo")].join(" "));
+    // Shared text often repeats the link; what remains is usually the headline
+    const titular = (q.get("titulo") || q.get("texto") || "").replace(/https?:\/\/\S+/g, "").replace(/\s+/g, " ").trim();
+    history.replaceState(null, "", location.pathname);
+    abrirReporte({ tipo: "nota", campos: enlace ? { enlace, ...(titular ? { titular } : {}) } : undefined });
+  }
+
+  // Plain-text description of what is on screen, attached to reports so the problem can be reproduced
+  function contextoReporte() {
+    const def = estado.indicador === "_eventos" ? { nombre: "Eventos registrados (conteo)" }
+      : estado.indicadores.definiciones.find(d => d.id === estado.indicador);
+    const filtros = [
+      estado.grupo !== "todos" && CONFIG.grupos[estado.grupo] && CONFIG.grupos[estado.grupo].nombre,
+      estado.subtema !== "todos" && CONFIG.subtemas[estado.subtema],
+      estado.labor !== "todos" && CONFIG.labores[estado.labor],
+      estado.genero !== "todos" && CONFIG.generos[estado.genero],
+      estado.texto && `búsqueda "${estado.texto}"`,
+      estado.verifActivas.size < CONFIG.verificacion.length && `verificación ${[...estado.verifActivas].join(", ")}`
+    ].filter(Boolean);
+    return [
+      `Página ${location.origin + location.pathname}`,
+      `País ${CONFIG.paises[estado.pais].nombre}`,
+      `Mapa ${mapaActual().nombre}${esNacional(estado.mapaId) ? "" : " por municipio"}`,
+      `Indicador ${def ? `${def.nombre}${def.id ? ` (${def.id})` : ""}` : "ninguno"}`,
+      `Periodo ${textoPeriodo()}`,
+      `Filtros ${filtros.length ? filtros.join("; ") : "ninguno"}`,
+      `Pantalla ${window.innerWidth} x ${window.innerHeight}`,
+      `Navegador ${navigator.userAgent}`
+    ].join("\n");
   }
 
   function restablecerFiltros() {
@@ -1817,7 +1869,8 @@
       ${nivel === "entidad" ? `<p class="acciones"><button type="button" class="boton" id="detalle-municipios">Ver municipios de ${p.nombre}</button></p>` : ""}
       ${htmlEv}
       ${filas ? `<h4 class="detalle__sub">Indicadores</h4><ul class="lista lista--detalle">${filas}</ul>` : `<p class='nota'>Sin indicadores numéricos para esta unidad con los filtros actuales.</p>`}
-      ${htmlPob}`;
+      ${htmlPob}
+      <p class="reporte__enlace"><button type="button" class="enlace" data-reportar="correccion" data-registro="${String(p.nombre + ", " + clave).replace(/"/g, "&quot;")}">Reportar un error en estos datos</button></p>`;
     const conMarco = !!htmlMarco;
     abrirVentana(p.nombre, `
       ${conMarco ? `<div class="pestanas" role="tablist">
@@ -1871,7 +1924,8 @@
       <p><span class="badge badge--${clase(e.verificacion)}">${e.verificacion}</span>
          ${e.ejemplo ? '<span class="badge badge--ejemplo">ejemplo</span>' : ""}</p>
       <p class="nota">Fuente: ${f ? f.nombre : e.fuente}</p>${link}
-      ${htmlOtros}`);
+      ${htmlOtros}
+      <p class="reporte__enlace"><button type="button" class="enlace" data-reportar="correccion" data-registro="${e.id}, ${String(e.titulo).replace(/"/g, "&quot;")}">Reportar un error en este registro</button></p>`);
     document.querySelectorAll("#ventana-cuerpo [data-otro]").forEach(b => b.addEventListener("click", () => {
       const x = estado.eventos.find(y => y.id === b.dataset.otro); if (x) navegar(() => mostrarDetalleEvento(x));
     }));

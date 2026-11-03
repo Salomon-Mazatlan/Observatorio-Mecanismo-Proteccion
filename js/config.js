@@ -4,6 +4,22 @@ const CONFIG = {
   cartoKey: "",
   // Used in the citation of exported images; empty url means the page's own address
   sitio: { nombre: "Observatorio de Protección a Periodistas y Personas Defensoras", autor: "Salomón Cárdenas, L.", url: "https://salomon-mazatlan.github.io/Observatorio-Mecanismo-Proteccion/" },
+  // Notes, corrections and comments open a prefilled issue in this repository; correo is the private channel for sensitive information
+  reportes: {
+    repositorio: "Salomon-Mazatlan/Observatorio-Mecanismo-Proteccion",
+    correo: "softcualitativo@gmail.com",
+    // Domain of a note's link -> source id in fuentes.json, used to fill the "fuente" column of the Excel row
+    dominiosFuente: {
+      "riodoce.mx": "riodoce", "noroeste.com.mx": "noroeste", "lineadirectaportal.com": "lineadirecta", "luznoticias.mx": "luznoticias",
+      "revistaespejo.com": "revistaespejo", "jornada.com.mx": "jornada", "proceso.com.mx": "proceso", "lasillarota.com": "sillarota",
+      "infobae.com": "infobae", "milenio.com": "milenio", "elfinanciero.com.mx": "elfinanciero", "expansion.mx": "expansion",
+      "unotv.com": "unotv", "razon.com.mx": "razon", "excelsior.com.mx": "excelsior", "nmas.com.mx": "nmas",
+      "animalpolitico.com": "grupoanimal", "latinus.us": "latinus", "meganoticias.mx": "meganoticias", "quadratin.com.mx": "quadratin",
+      "elimparcial.com": "elimparcial", "eldiariodechihuahua.mx": "diariochihuahua", "elheraldodechihuahua.com.mx": "heraldochihuahua",
+      "articulo19.org": "article19", "cpj.org": "cpj", "rsf.org": "rsf", "cemda.org.mx": "cemda", "frontlinedefenders.org": "front-line",
+      "indepaz.org.co": "indepaz", "flip.org.co": "flip", "clibrehonduras.com": "c-libre"
+    }
+  },
   rutas: {
     eventos: "datos/eventos.json",
     indicadores: "datos/indicadores/indice.json",
